@@ -1,5 +1,7 @@
-{{#each operators as [operator]}}
-	{{operator.name}}
-{{/each}}
+<h1>Operators:</h1>
+	{{#each operator in model}}
+		<h3>Operator:	{{operator.name}} Feed:	{{operator.feed.url}} </h3>
+	{{/each}}
+
 
 {{outlet}}

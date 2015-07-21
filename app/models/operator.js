@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 var Operator = DS.Model.extend({
-	feed: DS.belongsTo('feed'),
+	feed: DS.belongsTo('feed', { async: true }),
 	identifiers: DS.attr(),
 	name: DS.attr('string'),
 	short_name: DS.attr('string'),
