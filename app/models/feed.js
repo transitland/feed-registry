@@ -2,7 +2,6 @@ import DS from 'ember-data';
 
 var Feed = DS.Model.extend({
 	operator: DS.belongsTo('operator'),
-	name: DS.attr('string'),
 	onestop_id: DS.attr('string'),
 	url: DS.attr('string'),
 	feed_format: DS.attr('string'),
@@ -25,7 +24,7 @@ Feed.reopenClass({
 		onestop_id: "f-9q9-caltrain",
 		url: "http://www.caltrain.com/Assets/GTFS/caltrain/GTFS-Caltrain-Devs.zip",
 		feed_format: "gtfs",
-		operator_onestop_ids_in_feed: ["o-9q9-caltrain"],
+		// operator_onestop_ids_in_feed: ["o-9q9-caltrain"],
 		license_name: "",
 		license_url: "http://www.caltrain.com/developer/Developer_License_Agreement_and_Privacy_Policy.html",
 		license_attribution: "required",
@@ -42,7 +41,7 @@ Feed.reopenClass({
 		onestop_id: "f-9q8y-sanfranciscomunicipaltransportationagency",
 		url: "http://archives.sfmta.com/transitdata/google_transit.zip",
 		feed_format: "gtfs",
-		operator_onestop_ids_in_feed: ["o-9q8y-sanfranciscomunicipaltransportationagency"],
+		// operator_onestop_ids_in_feed: ["o-9q8y-sanfranciscomunicipaltransportationagency"],
 		license_name: "",
 		license_url: "http://www.sfmta.com/about-sfmta/reports/gtfs-transit-data",
 		license_attribution: "not_required",
