@@ -1,3 +1,29 @@
- 
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Agency Name</th>
+        <th>Region</th>
+        <th>License</th>
+        <th>License Details</th>
+        <th>Links</th>
+      </tr>
+    </thead>
+    <tbody>
+	    {{#each operator in model}}
+		<tr>
+			<td>{{operator.name}}</td>
+			<td>{{operator.municipality}}</td>
+			<td>{{operator.feed.license_name}}</td>
+			<td>{{operator.feed.license_name}}</td>
+			<!-- use bind-attr here so to avoid placement in a script tag -->
+			<!-- link-to is used only for internal urls in ember -->
+			<td><a {{bind-attr href='operator.feed.url'}}>{{operator.feed.url}}</a></td>
+		</tr>
+		{{/each}} 
+    </tbody>
+  </table>
+
+
+
 
 {{outlet}}

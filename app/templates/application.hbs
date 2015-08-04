@@ -1,36 +1,12 @@
 <div class="container">
 	<h2>Feed Status Report</h2>
-	<!-- TODO: create array of countries using computed.uniq then find length of that array -->
-	<h3>Countries: {{model.length}}</h3>	
+	{{country-count}}	
 	<h3>Agencies: {{model.length}}</h3>	
 	<h3>Feeds: {{model.feed.length}}</h3>
 </div>
 
 
- <table class="table table-striped">
-    <thead>
-      <tr>
-        <th {{action "sortBy" "operator.name"}}>Agency Name</th>
-        <th {{action "sortBy" "operator.municipality"}}>Region</th>
-        <th {{action "sortBy" "operator.feed.license_name"}}>License</th>
-        <th {{action "sortBy" "operator.feed.license_name"}}>License Details</th>
-        <th {{action "sortBy" "operator.feed.url"}}>Links</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each operator in model}}
-        <tr>
-          <td>{{operator.name}}</td>
-          <td>{{operator.municipality}}</td>
-          <td>{{operator.feed.license_name}}</td>
-          <td>{{operator.feed.license_name}}</td>
-          <!-- use bind-attr here so to avoid placement in a script tag -->
-          <!-- link-to is used only for internal urls in ember -->
-          <td><a {{bind-attr href='operator.feed.url'}}>{{operator.feed.url}}</a></td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+ 
 
 
 
