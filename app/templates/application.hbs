@@ -1,14 +1,18 @@
-<div class="container">
+<div class="container" align="center">
 	<h2>Feed Status Report</h2>
-	{{country-count model=model}}
-
-	<h3>Agencies: {{model.length}}</h3>	
-	<h3>Feeds: {{model.feed.length}}</h3>
+	<br>
+	<body>View all operators in the US National Transit database (we can import names and US NTD IDs for a couple hundred and highlight the rows that have full Transitland records)</body>
 </div>
 
 
- 
 
-
+<div class="containter" align="center">
+	<h3>Agencies: {{model.length}} Countries: {{countryCount}}</h3>
+</div>
+<div class="container" align="right">
+<form>Search:<input type="text" name="search">
+<button>License</button>
+<button>License Details</button></form>
+</div>
 
 {{outlet}}

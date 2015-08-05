@@ -1,5 +1,5 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	numberTest: 6
+	countryCount: 19,
 });
