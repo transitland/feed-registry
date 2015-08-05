@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+<font horiz-adv-x="1000">
+<!-- Avenir is a trademark of Linotype GmbH registered in the U.S. Patent and Trademark Office and may be registered in certain other jurisdictions. -->
+<!-- Copyright: Copyright 2015 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="AvenirNextCondensed-Bold" units-per-em="1000" underline-position="-75" underline-thickness="50"/>
+<missing-glyph horiz-adv-x="512" d="M222,117l0,67l56,0l0,-67M225,234l-2,17C223,288 227,315 236,332C241,341 247,350 254,360C261,369 271,380 282,391C293,401 301,410 308,418C315,425 320,432 323,439C326,445 329,451 330,457C331,462 332,468 332,474C332,498 325,518 310,535C295,551 277,559 256,559C235,559 218,552 203,537C188,522 178,498 174,464l-50,8C129,520 143,555 168,577C193,598 223,609 259,609C295,609 325,597 348,574C371,550 383,518 383,478C383,457 379,437 371,420C362,402 345,381 320,358C295,336 281,319 277,306C273,293 271,269 271,234M462,50l0,617l-412,0l0,-617M512,718l0,-718l-512,0l0,718z"/>
+<glyph unicode="A" horiz-adv-x="543" d="M377,0l-29,129l-159,0l-29,-129l-160,0l172,708l201,0l171,-708M271,554l-4,0l-60,-301l121,0z"/>
+<glyph unicode="I" horiz-adv-x="287" d="M63,0l0,708l161,0l0,-708z"/>
+<glyph unicode="P" horiz-adv-x="522" d="M500,486C500,447 494,413 482,384C470,355 454,332 434,313C414,294 391,281 366,272C341,263 315,258 289,258l-69,0l0,-258l-157,0l0,708l220,0C308,708 334,704 360,697C385,690 409,678 430,661C451,644 468,621 481,592C494,563 500,528 500,486M350,483C350,515 342,538 327,552C312,566 293,573 271,573l-51,0l0,-185l51,0C293,388 312,396 327,413C342,429 350,452 350,483z"/>
+</font>
+
+	<g>
+	<rect x="2.027" y="2" fill="#D8D8D8" width="26" height="26"/>
+	<rect x="1.973" y="2" fill="none" stroke="#535453" stroke-miterlimit="10" width="26" height="26"/>
+	<rect x="2.027" y="2" fill="#D8D8D8" width="26" height="5.379"/>
+	<rect x="2.027" y="2" fill="none" stroke="#535453" stroke-miterlimit="10" width="26" height="5.379"/>
+	<rect x="4.268" y="9.621" fill="#FFFFFF" width="21.517" height="16.138"/>
+	<path fill="#FFFFFF" d="M6.061,4.689c0,0.743-0.603,1.345-1.346,1.345c-0.742,0-1.344-0.602-1.344-1.345s0.602-1.345,1.344-1.345
+		C5.458,3.345,6.061,3.946,6.061,4.689"/>
+	<circle fill="none" stroke="#535453" stroke-miterlimit="10" cx="4.716" cy="4.689" r="1.345"/>
+	<path fill="#FFFFFF" d="M10.095,4.689c0,0.743-0.602,1.345-1.345,1.345S7.406,5.433,7.406,4.689S8.007,3.345,8.75,3.345
+		S10.095,3.946,10.095,4.689"/>
+	<circle fill="none" stroke="#535453" stroke-miterlimit="10" cx="8.75" cy="4.689" r="1.345"/>
+	<path fill="#FFFFFF" d="M14.13,4.689c0,0.743-0.603,1.345-1.346,1.345c-0.742,0-1.345-0.602-1.345-1.345s0.603-1.345,1.345-1.345
+		C13.528,3.345,14.13,3.946,14.13,4.689"/>
+	<circle fill="none" stroke="#535453" stroke-miterlimit="10" cx="12.785" cy="4.689" r="1.345"/>
+	<text transform="matrix(1 0 0 1 6.811 21.2764)" fill="#535454" font-family="'AvenirNextCondensed-Bold'" font-size="10.5522">API</text>
+</g>
+</svg>
