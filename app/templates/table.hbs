@@ -14,12 +14,27 @@
 			<td>{{operator.name}}</td>
 			<td>{{operator.municipality}}</td>
 			<td>{{operator.feed.license_name}}</td>
-			<td><img {{bind-attr src="public/assets/clipboard-dark.svg"}} alt="Requires Attribution"><img {{bind-attr src="public/assets/fence-dark.svg"}} alt="Sharing">
-<img {{bind-attr src="public/assets/route-dark.svg"}} alt="Connect
-"></td>
-			<!-- use bind-attr here so to avoid placement in a script tag -->
-			<!-- link-to is used only for internal urls in ember -->
-			<td><img {{bind-attr src="public/assets/api.svg"}} alt="API"><img {{bind-attr src="public/assets/control-panel.svg"}} alt="Data Explorer"><a {{bind-attr href='operator.feed.url'}}><img {{bind-attr src="public/assets/api.svg"}} alt="Download Feed"></a></td>
+      <td>
+        <!-- the icon used depends on license details -->
+        <table>
+          <td><img {{bind-attr src="public/assets/clipboard-dark.svg"}} alt="Requires Attribution"></td>
+          <td><img {{bind-attr src="public/assets/fence-dark.svg"}} alt="Sharing"></td>
+          <td><img {{bind-attr src="public/assets/route-dark.svg"}} alt="Connect"></td>
+        </table>
+      </td>
+      <td>
+        <!-- either single upload icon or two or three icons used here -->
+        <table>
+        {{#unless operator.feed}}
+          <td><img {{bind-attr src="public/assets/upload.svg"}} alt="Upload"></td>
+        {{/unless}}
+        {{#if operator.feed}}
+          <td><img {{bind-attr src="public/assets/api.svg"}} alt="API"></td>
+          <td><img {{bind-attr src="public/assets/control-panel.svg"}} alt="Data Explorer"><a {{bind-attr href='operator.feed.url'}}></a></td>
+          <td><img {{bind-attr src="public/assets/api.svg"}} alt="Download Feed"></td>
+        {{/if}}
+        </table>
+      </td>
 		</tr>
 		{{/each}} 
     </tbody>
