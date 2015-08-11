@@ -27,12 +27,11 @@
         <table>
         {{#unless operator.feed}}
           <td><img {{bind-attr src="public/assets/upload.svg"}} alt="Upload"></td>
-        {{/unless}}
-        {{#if operator.feed}}
+        {{else}}
           <td><img {{bind-attr src="public/assets/api.svg"}} alt="API"></td>
           <td><img {{bind-attr src="public/assets/control-panel.svg"}} alt="Data Explorer"><a {{bind-attr href='operator.feed.url'}}></a></td>
           <td><img {{bind-attr src="public/assets/api.svg"}} alt="Download Feed"></td>
-        {{/if}}
+        {{/unless}}
         </table>
       </td>
 		</tr>
