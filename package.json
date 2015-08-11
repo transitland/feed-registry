@@ -1,7 +1,7 @@
 {
-  "name": "report-card",
+  "name": "reportcard",
   "version": "0.0.0",
-  "description": "Small description for report-card goes here",
+  "description": "Small description for reportcard goes here",
   "private": true,
   "directories": {
     "doc": "doc",
