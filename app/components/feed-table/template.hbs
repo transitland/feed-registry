@@ -20,19 +20,19 @@
           <!-- <td><img {{bind-attr src="images/clipboard-dark.svg"}} alt="Requires Attribution"></td>  -->         
           <td><img src="images/2_taxi.png"></td>
           <!-- <img class="avatar" src="/images/avatar.jpg" /> -->
-          <td><img {{bind-attr src="/images/fence-dark.svg"}} alt="Sharing"></td>
-          <td><img {{bind-attr src="public/assets/route-dark.svg"}} alt="Connect"></td>
+          <td><img src="images/2_taxi.png"></td>
+          <td><img src="images/3_train.png"></td>
         </table>
       </td>
       <td>
         <!-- either single upload icon or two or three icons used here -->
         <table>
         {{#unless operator.feed}}
-          <td><img {{bind-attr src="public/assets/upload.svg"}} alt="Upload"></td>
+          <td><img src="images/4_boat.png"></td>
         {{else}}
-          <td><img {{bind-attr src="public/assets/api.svg"}} alt="API"></td>
-          <td><img {{bind-attr src="public/assets/control-panel.svg"}} alt="Data Explorer"><a {{bind-attr href='operator.feed.url'}}></a></td>
-          <td><img {{bind-attr src="public/assets/api.svg"}} alt="Download Feed"></td>
+          <td><img src="images/5_bus.png"></td>
+          <td><img src="images/6_park.png"><a {{bind-attr href='operator.feed.url'}}></a></td>
+          <td><img src="images/7_gas_station.png"></td>
         {{/unless}}
         </table>
       </td>
