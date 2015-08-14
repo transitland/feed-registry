@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-	    {{#each operator in model}}
+	    {{#each operator in operators}}
 		<tr>
 			<td>{{operator.name}}</td>
 			<td>{{operator.municipality}}</td>
@@ -17,8 +17,10 @@
       <td>
         <!-- the icon used depends on license details -->
         <table>
-          <td><img {{bind-attr src="public/assets/clipboard-dark.svg"}} alt="Requires Attribution"></td>
-          <td><img {{bind-attr src="public/assets/fence-dark.svg"}} alt="Sharing"></td>
+          <!-- <td><img {{bind-attr src="images/clipboard-dark.svg"}} alt="Requires Attribution"></td>  -->         
+          <td><img src="images/2_taxi.png"></td>
+          <!-- <img class="avatar" src="/images/avatar.jpg" /> -->
+          <td><img {{bind-attr src="/images/fence-dark.svg"}} alt="Sharing"></td>
           <td><img {{bind-attr src="public/assets/route-dark.svg"}} alt="Connect"></td>
         </table>
       </td>
