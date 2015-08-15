@@ -1,16 +1,16 @@
 <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Agency Name</th>
-        <th>Region</th>
-        <th>License</th>
-        <th>License Details</th>
-        <th>Links</th>
-      </tr>
-    </thead>
-    <tbody>
-    {{#each operator in operators}}
-		  {{feed-table/feed-row operator=operator}}
-		{{/each}} 
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th>Agency Name</th>
+      <th>Region</th>
+      <th>License</th>
+      <th>License Details</th>
+      <th>Links</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each operator in operators}}
+	  {{feed-table/feed-row operator=operator}}
+	{{/each}} 
+  </tbody>
+</table>
