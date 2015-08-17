@@ -5,9 +5,11 @@
 </div>
 
 
-<div class="containter" align="center">
+<!-- <div class="containter" align="center">
     	<h3>Agencies: {{model.length}} Countries: {{operatorCountries.length}} Unique Countries: {{uniqueOperatorCountries.length}}</h3>
-    </div>
+ </div> -->
+
+ {{country-count operators=model}}
 
 <div class="container" align="right">
 	<div class="row-sm-2 col-md-1">
@@ -16,11 +18,9 @@
 		<button>License Details</button>
 	</div>
 </div>
+
 <main>
-
-{{feed-table operators=model}}
-
-
+	{{feed-table operators=model}}
 </main>
 
 
