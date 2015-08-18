@@ -6,8 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('operator', { path: 'operator/:name' });
+  this.route('operator', { path: "operator" });
   this.route('feed');
+  this.route('feeds', { path: "/" });
 });
 
 export default Router;
