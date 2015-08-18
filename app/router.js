@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('operator');
+  this.route('operator', { path: 'operator/:name' });
   this.route('feed');
 });
 

@@ -1,4 +1,8 @@
-<td>{{operator.name}}</td>
+<td>
+	{{#link-to "operator" operator.name}}
+		{{operator.name}}
+	{{/link-to}}
+</td>
 <td>{{operator.municipality}}</td>
 <td>{{operator.feed.license_name}}</td>
 <td>
