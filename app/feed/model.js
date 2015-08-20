@@ -29,7 +29,7 @@ Feed.reopenClass({
 		license_url: "http://www.caltrain.com/developer/Developer_License_Agreement_and_Privacy_Policy.html",
 		license_attribution: "required",
 		license_derivation: "allowed",
-		rlicense_edistribution: "allowed",
+		license_redistribution: "allowed",
 		last_sha1: "e4ec3bd51eb4efca8d6cee33fe332f9aaebde2da",
 		last_fetched_at: "2015-07-16T22:15:31.032Z",
 		last_imported_at: "2015-07-16T22:15:31.032Z",
