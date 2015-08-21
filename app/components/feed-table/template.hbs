@@ -1,15 +1,15 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th {{action "sortBy" "municipality"}}>Agency Name</th>
-      <th {{action "sortBy" "name"}}>Region</th>
-      <th>License</th>
+      <th {{action "sortBy" "name"}}>Agency Name</th>
+      <th {{action "sortBy" "municipality"}}>Region</th>
+      <th {{action "sortBy" "license_name"}}>License</th>
       <th>License Details</th>
       <th>Links</th>
     </tr>
   </thead>
   <tbody>
-    {{#each operator in operators}}
+    {{#each operator in sortedOperators}}
   	  {{feed-table/feed-row operator=operator}}
   	{{/each}} 
   </tbody>
