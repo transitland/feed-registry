@@ -8,23 +8,25 @@
 <td>
 <!-- the icon used depends on license details -->
 	<table>
-	<!-- <td><img {{bind-attr src="images/clipboard-dark.svg"}} alt="Requires Attribution"></td>  --> 
+
 		{{#if requiresAttribution}}        
 			<td><img src="images/1_airport.png"></td>
 		{{else}}
 			<td><img alt=": ("></td>
 		{{/if}}
-		<!-- <img class="avatar" src="/images/avatar.jpg" /> -->
+		
 		{{#if derivationAllowed}}
 			<td><img src="images/2_taxi.png"></td>
 		{{else}}
 			<td><img alt=": ("></td>
 		{{/if}}
+
 		{{#if redistributionAllowed}}
 			<td><img src="images/3_train.png"></td>
 		{{else}}
 			<td><img alt=": ("></td>			
 		{{/if}}
+
 	</table>
 </td>
 <td>
