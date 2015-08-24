@@ -17,3 +17,7 @@ export default Ember.Component.extend({
         } 
     }
 });
+
+// Fix this so that undefined gets sorted as well
+// Currently, when there isn't a feed,
+// the column won't when the bottom of the list is undefined.
