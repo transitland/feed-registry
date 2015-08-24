@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	model: function() {
-		return this.store.findAll('operator');
-	}
+	// model: function() {
+	// 	return this.store.findAll('operator');
+	// }
 });
