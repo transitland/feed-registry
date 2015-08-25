@@ -4,7 +4,7 @@
 {{/link-to}}
 </div>
 <div class="page-container operator-page" align="left">
-	<h3>FEED DETAIL FOR: {{model.name}}</h3>
+	<h3>Operator detail for: {{model.name}}</h3>
 	<h4>
 		<ul>
 			<li>identifiers: {{model.identifiers}}</li>
@@ -21,5 +21,23 @@
 			<li>updated_at: {{model.updated_at}}</li>
 		</ul>
 	</h4>
+	<h3>Feed detail for: {{model.name}}</h3>
+	<h4>
+		<ul>
+			<li>operator: {{model.feed.operator}}</li>
+			<li>onestop_id: {{model.feed.onestop_id}}</li>
+			<li>url: {{model.feed.url}}</li>
+			<li>feed_format: {{model.feed.feed_format}}</li>
+			<li>license_name: {{model.feed.license_name}}</li>
+			<li>license_url: {{model.feed.license_url}}</li>
+			<li>license_attribution: {{model.feed.license_attribution}}</li>
+			<li>license_derivation: {{model.feed.license_derivation}}</li>
+			<li>license_redistribution: {{model.feed.license_redistribution}}</li>
+			<li>last_sha1: {{model.feed.last_sha1}}</li>
+			<li>last_fetched_at: {{model.feed.last_fetched_at}}</li>
+			<li>last_imported_at: {{model.feed.last_imported_at}}</li>
+			<li>created_at: {{model.feed.created_at}}</li>
+			<li>updated_at: {{model.feed.updated_at}}</li>
+		</ul>
+	</h4>
 </div>
-
