@@ -1,0 +1,26 @@
+
+
+
+<!-- <div class="containter" align="center">
+    	<h3>Agencies: {{model.length}} Countries: {{operatorCountries.length}} Unique Countries: {{uniqueOperatorCountries.length}}</h3>
+ </div> -->
+
+ {{country-count operators=model}}
+
+<!-- <div class="container" align="right">
+	<button>License</button>
+	<button>License Details</button>
+
+<div class="checkbox">
+    <label>
+      <input type="checkbox" {{action "filterBy" "feed.license_attribution" "required" }}> Attribution required
+    </label>
+</div>
+	
+</div> -->
+
+
+<main>
+	<!-- {{feed-table operators=filteredOperators}} -->
+	{{feed-table operators=model}}
+</main>

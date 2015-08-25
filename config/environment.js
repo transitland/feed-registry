@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'report-card',
+    modulePrefix: 'reportcard',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
