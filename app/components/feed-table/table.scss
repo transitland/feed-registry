@@ -1,0 +1,44 @@
+.table-container {
+  width: 120%;
+  margin-left: -10%;
+  margin-right: -10%;
+
+  thead {
+    background-color: #d3d3d3;
+
+    th {
+      border-right: 1px solid #bbb;
+      border-bottom:1px solid #bbb;
+      &.sortable {
+        cursor: pointer;
+        position: relative;
+        &::after {
+          content: ' ';
+          position: absolute;
+          right: 10px;
+          top: 8px;
+          width: 20px;
+          height: 20px;
+          float:right;
+          //temp
+         background-color: #f00;
+       }
+      }
+    }
+    th:last-child {
+      border-right: 0;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        border-right: 1px solid #bbb;
+      }
+      td:last-child {
+        border-right: 0;
+      }
+    }
+
+  }
+}
