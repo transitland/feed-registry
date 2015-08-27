@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+// Mapzen official colors
+$mz-red: #d4645c;
+$mz-blue: #6ea0a4;
+$mz-gray: #898989;
+$mz-yellow: #e6ead2;
+
+// Mapzen misc colors
+$mz-darkyellow: #d3c756;
+$mz-darkred: #993434;
+$mz-darkblue: #385d5c;
+$mz-darkgray: #444;
+$mz-mediumgray: #666666;
+$mz-black: #191919;
+$mz-lightgray: #f8f8f8;
+$mz-brown: #563630;
+
+
+$base-font-family: 'Lato', Helvetica, Arial, sans-serif;
+$font-awesome:      FontAwesome;
+$base-font-size:   16px;
+$base-font-weight: 300;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+$mobile-footer-h:  120px;
+$footer-h:         110px;
+$text-color:       #000;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          400px;
+$on-pad:           767px;
+$on-ipad:          768px;
+$on-small-screen:  991px;
+
+
+//pretty logo color scheme
+$logo-color-1:  #f7ae56;
+$logo-color-2:  #c91e42;
+$logo-color-3:  #60C6D5;
+$logo-color-4:  #ee914b;
+$logo-color-5:  #66ad2a;
+$logo-color-6:  #9f5bcc;
+$logo-colors : ($logo-color-1,$logo-color-2,$logo-color-3,$logo-color-4,$logo-color-5,$logo-color-6);
+$logo-hover-colors: ();
+$index-sections:();
+
+@for $i from 1 through 6 {
+  $logo-hover-colors:append($logo-hover-colors,darken(nth($logo-colors,$i),5%) );
+}
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
