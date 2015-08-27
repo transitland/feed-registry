@@ -1,0 +1,44 @@
+.license-attr {
+
+  div {
+    float:left;
+    background-image: url('/images/license_state.png');
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+
+    &.requires-attr {
+      background-position: 0px -20px;
+    }
+    &.not-requires-attr {
+      background-position: 0px 0px;
+    }
+
+    &.unknown-requires-attr {
+      background-position: 0px -40px;
+    }
+
+    &.allow-derivation {
+      background-position: -20px 0px;
+    }
+    &.not-allow-derivation {
+      background-position: -20px -20px;
+    }
+    &.unknown-requires-attr {
+      background-position: -20px -40px;
+    }
+
+    &.allow-redistribution {
+      background-position: -40px 0px;
+    }
+    &.not-allow-redistribution {
+      background-position: -40px -20px;
+    }
+    &.unknown-requires-attr {
+      background-position: -40px -40px;
+    }
+
+  }
+}

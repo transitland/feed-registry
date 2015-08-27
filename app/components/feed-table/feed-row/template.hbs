@@ -8,25 +8,25 @@
 <td>
 <!-- the icon used depends on license details -->
 
-
-		{{#if requiresAttribution}}        
-			<img src="images/1_airport.png">
+	<div class = "license-attr">
+		{{#if requiresAttribution}}
+			<div class = "requires-attr"></div>
 		{{else}}
-			<img alt=": (">
+			<div class = "not-requires-attr"></div>
 		{{/if}}
 		
 		{{#if derivationAllowed}}
-			<img src="images/2_taxi.png">
+			<div class = "allow-derivation"></div>
 		{{else}}
-			<img alt=": (">
+			<div class = "not-allow-derivation"></div>
 		{{/if}}
 
 		{{#if redistributionAllowed}}
-			<img src="images/3_train.png">
+			<div class = "allow-redistribution"></div>
 		{{else}}
-			<img alt=": (">
+			<div class = "not-allow-redistribution"></div>
 		{{/if}}
-
+	</div>
 
 </td>
 <td>
