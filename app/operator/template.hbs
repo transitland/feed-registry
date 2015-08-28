@@ -1,43 +1,42 @@
 <div class="page-container operator-page" align="center">
 {{#link-to "feeds"}}
-	<button class="btn btn-default" type="button">Return to All Feeds</button>
+	<button class="back-btn" type="button">Return to All Feeds</button>
 {{/link-to}}
 </div>
 <div class="page-container operator-page" align="left">
-	<h3>Operator detail for: {{model.name}}</h3>
-	<h4>
-		<ul>
-			<li>identifiers: {{model.identifiers}}</li>
-			<li>name: {{model.name}}</li>
-			<li>short_name: {{model.short_name}}</li>
-			<li>onestop_id: {{model.onestop_id}}</li>
-			<li>country: {{model.country}}</li>
-			<li>state: {{model.state}}</li>
-			<li>municipality: {{model.minicipality}}</li>
-			<li>type: {{model.type}}</li>
-			<li>website: {{model.website}}</li>
-			<li>timezone: {{model.timezone}}</li>
-			<li>created_at: {{model.created_at}}</li>
-			<li>updated_at: {{model.updated_at}}</li>
-		</ul>
-	</h4>
-	<h3>Feed detail for: {{model.name}}</h3>
-	<h4>
-		<ul>
-			<li>operator: {{model.feed.operator}}</li>
-			<li>onestop_id: {{model.feed.onestop_id}}</li>
-			<li>url: {{model.feed.url}}</li>
-			<li>feed_format: {{model.feed.feed_format}}</li>
-			<li>license_name: {{model.feed.license_name}}</li>
-			<li>license_url: {{model.feed.license_url}}</li>
-			<li>license_attribution: {{model.feed.license_attribution}}</li>
-			<li>license_derivation: {{model.feed.license_derivation}}</li>
-			<li>license_redistribution: {{model.feed.license_redistribution}}</li>
-			<li>last_sha1: {{model.feed.last_sha1}}</li>
-			<li>last_fetched_at: {{model.feed.last_fetched_at}}</li>
-			<li>last_imported_at: {{model.feed.last_imported_at}}</li>
-			<li>created_at: {{model.feed.created_at}}</li>
-			<li>updated_at: {{model.feed.updated_at}}</li>
-		</ul>
-	</h4>
+	<h3>{{model.name}}</h3>
+	<h4> Operator Detail </h4>
+		<table>
+			<tr><td>identifiers</td><td>{{model.identifiers}}</td></tr>
+			<tr><td>name</td><td>{{model.name}}</td></tr>
+			<tr><td>short_name</td><td>{{model.short_name}}</td></tr>
+			<tr><td>onestop_id</td><td>{{model.onestop_id}}</td></tr>
+			<tr><td>country</td><td>{{model.country}}</td></tr>
+			<tr><td>state</td><td>{{model.state}}</td></tr>
+			<tr><td>municipality</td><td>{{model.minicipality}}</td></tr>
+			<tr><td>type</td><td>{{model.type}}</td></tr>
+			<tr><td>website</td><td>{{model.website}}</td></tr>
+			<tr><td>timezone</td><td>{{model.timezone}}</td></tr>
+			<tr><td>created_at</td><td>{{model.created_at}}</td></tr>
+			<tr><td>updated_at</td><td>{{model.updated_at}}</td></tr>
+		</table>
+	
+	<h4>Feed detail</h4>
+	
+		<table>
+			<tr><td>operator</td><td>{{model.feed.operator}}</td></tr>
+			<tr><td>onestop_id</td><td>{{model.feed.onestop_id}}</td></tr>
+			<tr><td>url</td><td>{{model.feed.url}}</td></tr>
+			<tr><td>feed_format</td><td>{{model.feed.feed_format}}</td></tr>
+			<tr><td>license_name</td><td>{{model.feed.license_name}}</td></tr>
+			<tr><td>license_url</td><td>{{model.feed.license_url}}</td></tr>
+			<tr><td>license_attribution</td><td>{{model.feed.license_attribution}}</td></tr>
+			<tr><td>license_derivation</td><td>{{model.feed.license_derivation}}</td></tr>
+			<tr><td>license_redistribution</td><td>{{model.feed.license_redistribution}}</td></tr>
+			<tr><td>last_sha1</td><td>{{model.feed.last_sha1}}</td></tr>
+			<tr><td>last_fetched_at</td><td>{{model.feed.last_fetched_at}}</td></tr>
+			<tr><td>last_imported_at</td><td>{{model.feed.last_imported_at}}</td></tr>
+			<tr><td>created_at</td><td>{{model.feed.created_at}}</td></tr>
+			<tr><td>updated_at</td><td>{{model.feed.updated_at}}</td></tr>
+		</table>
 </div>
