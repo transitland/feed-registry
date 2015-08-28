@@ -1,0 +1,23 @@
+.operator-page {
+
+  button {
+    &.back-btn {
+      border-radius : 0;
+      color: #000;
+      background-color: $mz-lightgray;
+      padding: 5px 10px;
+      border: 1px $mz-gray solid;
+      &:hover,&:focus {
+        background-color: #ddd;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+}
