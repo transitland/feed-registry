@@ -29,15 +29,15 @@
 	</div>
 
 </td>
-<td>
+<td class = "link">
 <!-- either single upload icon or two or three icons used here -->
 
 	{{#unless operator.feed}}
-		<img src="images/4_boat.png">
+		<a class = "upload-btn"> upload </a>
 		{{else}}
-		<img src="images/5_bus.png">
-		<img src="images/6_park.png"><a {{bind-attr href='operator.feed.url'}}></a>
-		<img src="images/7_gas_station.png">
+		
+		<a class = "link-btn" {{bind-attr href='operator.feed.url'}}> api </a>
+		
 	{{/unless}}
 
 </td>
