@@ -1,16 +1,18 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th {{action "sortBy" "name"}}>Agency Name</th>
-      <th {{action "sortBy" "municipality"}}>Region</th>
-      <th {{action "sortBy" "feed.license_name"}}>License</th>
-      <th>License Details</th>
-      <th>Links</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each operator in sortedOperators}}
-  	  {{feed-table/feed-row operator=operator}}
-  	{{/each}} 
-  </tbody>
-</table>
+<div class = "table-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class = "sortable" {{action "sortBy" "name"}}>Agency Name </th>
+        <th class = "sortable" {{action "sortBy" "municipality"}}>Region </th>
+        <th class = "sortable" {{action "sortBy" "feed.license_name"}}>License</th>
+        <th>License Details</th>
+        <th>Links</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each operator in sortedOperators}}
+    	  {{feed-table/feed-row operator=operator}}
+    	{{/each}} 
+    </tbody>
+  </table>
+</div>

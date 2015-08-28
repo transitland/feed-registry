@@ -1,9 +1,55 @@
-<div class="container" align="center">
-	<h2>Report Card</h2>
-	<p>Mixed-use bus rapid transit congestion pricing placemaking. Big data smart cities urban growth boundary. Tactical guerrilla parklets. Built environment central business district business improvement district transit oriented development. Stakeholder engagement smart growth.</p>
-<img src="images/2_taxi.png">
-</div>
+<nav class="navbar col-lg-12 col-md-12 col-sm-12">
+  <a href="{{site.url}}"><div class="logo-image"></div></a>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu-bar" aria-expanded="false" aria-controls="navbar">
+      MENU 
+    </button>
+  </div>
 
+  <div id="nav-menu-helper"></div>
+  <div id="nav-menu-bar" class="navbar-collapse collapse">
+    <div class="nav-menu">
+      <div class="float-left">
+        <a href="{{site.url}}" target="_self">
+        <div class="circle"></div><div class="main">home</div>
+        </a>
+      </div>
+      <div class="float-left">
+        <a href="{{site.url}}how-it-works" target="_self">
+        <div class="circle"></div><div class="main">how it works</div>
+        </a>
+      </div>
+      <div class="float-left">
+        <a href="./" target="_self">
+        <div class="circle"></div><div class="main">playground</div>
+        </a>
+      </div>
+      <div class="float-left">
+        <a href="{{site.url}}an-open-project" target="_self">
+        <div class="circle"></div><div class="main">an open project</div>
+        </a>
+      </div>
+      <div class="float-left">
+        <a href="{{site.url}}participate" target="_self">
+        <div class="circle"></div><div class="main">participate</div>
+        </a>
+      </div>
+      <div class="float-left">
+        <a class='active' href="{{site.url}}participate" target="_self">
+        <div class="circle"></div><div class="main">report card</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
 
-{{outlet}}
+<section id="report-card" class="jumbotron">
+  <div class="container">
+  	<div class="title col-md-12 center-text">
+        <h2>  REPORT CARD</h2>
+    </div>
+  	<p>Mixed-use bus rapid transit congestion pricing placemaking. Big data smart cities urban growth boundary. Tactical guerrilla parklets. Built environment central business district business improvement district transit oriented development. Stakeholder engagement smart growth.</p>
 
+  {{outlet}}
+  </div>
+</section>

@@ -7,37 +7,37 @@
 <td>{{operator.feed.license_name}}</td>
 <td>
 <!-- the icon used depends on license details -->
-	<table>
 
-		{{#if requiresAttribution}}        
-			<td><img src="images/1_airport.png"></td>
+	<div class = "license-attr">
+		{{#if requiresAttribution}}
+			<div class = "requires-attr"></div>
 		{{else}}
-			<td><img alt=": ("></td>
+			<div class = "not-requires-attr"></div>
 		{{/if}}
 		
 		{{#if derivationAllowed}}
-			<td><img src="images/2_taxi.png"></td>
+			<div class = "allow-derivation"></div>
 		{{else}}
-			<td><img alt=": ("></td>
+			<div class = "not-allow-derivation"></div>
 		{{/if}}
 
 		{{#if redistributionAllowed}}
-			<td><img src="images/3_train.png"></td>
+			<div class = "allow-redistribution"></div>
 		{{else}}
-			<td><img alt=": ("></td>			
+			<div class = "not-allow-redistribution"></div>
 		{{/if}}
+	</div>
 
-	</table>
 </td>
 <td>
 <!-- either single upload icon or two or three icons used here -->
-	<table>
+
 	{{#unless operator.feed}}
-		<td><img src="images/4_boat.png"></td>
+		<img src="images/4_boat.png">
 		{{else}}
-		<td><img src="images/5_bus.png"></td>
-		<td><img src="images/6_park.png"><a {{bind-attr href='operator.feed.url'}}></a></td>
-		<td><img src="images/7_gas_station.png"></td>
+		<img src="images/5_bus.png">
+		<img src="images/6_park.png"><a {{bind-attr href='operator.feed.url'}}></a>
+		<img src="images/7_gas_station.png">
 	{{/unless}}
-	</table>
+
 </td>

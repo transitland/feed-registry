@@ -1,2 +1,6 @@
-@import "bootstrap.min";
-@import "pod-styles";
+@import "bootstrap",
+        "variables",
+        "shared",
+        "nav",
+        "footer",
+        "pod-styles";
