@@ -18,11 +18,12 @@
 			<tr><td>website</td><td>{{model.website}}</td></tr>
 			<tr><td>timezone</td><td>{{model.timezone}}</td></tr>
 			<tr><td>created_at</td><td>{{model.created_at}}</td></tr>
-			<tr><td>updated_at</td><td>{{model.updated_at}}</td></tr>
+			<tr><td>updated_at</td><td>{{model.updated_at}} (3 days ago)</td></tr>
 		</table>
 	
 	<h4>Feed detail</h4>
-	
+	{{#if model.feed }}
+
 		<table>
 			<tr><td>operator</td><td>{{model.feed.operator}}</td></tr>
 			<tr><td>onestop_id</td><td>{{model.feed.onestop_id}}</td></tr>
@@ -39,4 +40,8 @@
 			<tr><td>created_at</td><td>{{model.feed.created_at}}</td></tr>
 			<tr><td>updated_at</td><td>{{model.feed.updated_at}}</td></tr>
 		</table>
+	{{else}}
+	  <h4>HEY YOU SHOULD WRITE GOOD SENTENCE TO CONVINCE PEOPLE TO UPLOAD </h4>
+	<button> hello </button>
+	{{/if}}
 </div>

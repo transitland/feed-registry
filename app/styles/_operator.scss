@@ -1,4 +1,12 @@
 .operator-page {
+  h3 {
+    color: $logo-color-6;
+    font-weight: 600;
+  }
+  h4 {
+    font-size: 21px;
+  }
+
   button {
     &.back-btn {
       border-radius : 0;
@@ -14,9 +22,19 @@
     }
   }
 
-  ul {
-    li {
-      list-style-type: none;
+  table {
+    width: 300px;
+    font-size: 18px;
+    font-weight: 300;
+    tr {
+      border-bottom: 1px solid #eaeaea;
+    }
+    td { word-wrap: break-word;}
+    td:first-child {
+      text-align: right;
+      width: 120px !important;
+      padding: 5px 20px;
+      font-weight: 400;
     }
   }
 }
