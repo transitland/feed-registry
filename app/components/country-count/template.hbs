@@ -3,7 +3,13 @@
   	<div class="number-count"> 
       {{uniqueOperatorCountries.length}}
     </div> 
-    <div class = "unit"> countries </div>
+    <div class = "unit"> 
+    {{#if singleCountry}}
+      country
+    {{else}}
+      countries 
+    {{/if}}
+    </div>
   </div>
   <div class = "unit-wrapper">
     <div class = "number-count">
