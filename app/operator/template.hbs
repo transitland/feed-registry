@@ -17,8 +17,8 @@
 				<tr><td>Type</td><td>{{model.type}}</td></tr>
 				<tr><td>Website</td><td>{{model.website}}</td></tr>
 				<tr><td>Timezone</td><td>{{model.timezone}}</td></tr>
-				<tr><td>Created at</td><td>{{model.created_at}}</td></tr>
-				<tr><td>Updated at</td><td>{{model.updated_at}}</td></tr>
+				<tr><td>Created at</td><td>{{format-date model.updated_at}} ({{from-now-date model.updated_at}})</td></tr>
+				<tr><td>Updated at</td><td>{{format-date model.created_at}}</td></tr>
 			</table>
 		</div>
 	</div>
@@ -39,8 +39,8 @@
 					<tr><td>Last sha1</td><td>{{model.feed.last_sha1}}</td></tr>
 					<tr><td>Last fetched at</td><td>{{model.feed.last_fetched_at}}</td></tr>
 					<tr><td>Last imported at</td><td>{{model.feed.last_imported_at}}</td></tr>
-					<tr><td>Created at</td><td>{{model.feed.created_at}}</td></tr>
-					<tr><td>Updated at</td><td>{{model.feed.updated_at}}</td></tr>
+					<tr><td>Created at</td><td>{{format-date model.feed.created_at}}</td></tr>
+					<tr><td>Updated at</td><td>{{format-date model.feed.updated_at}} ({{from-now-date model.feed.updated_at}})</td></tr>
 				</table>
 			{{else}}
 			  <h4>HEY YOU SHOULD WRITE GOOD SENTENCE TO CONVINCE PEOPLE TO UPLOAD </h4>
