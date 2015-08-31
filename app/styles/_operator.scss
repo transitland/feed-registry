@@ -1,0 +1,51 @@
+.operator-page {
+  h3.agency-name {
+    color: $logo-color-6;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+  h3.detail {
+    margin: 0;
+  }
+  h4 {
+    font-size: 21px;
+  }
+
+  button {
+    &.back-btn {
+      border-radius : 0;
+      color: #000;
+      background-color: $mz-lightgray;
+      padding: 5px 10px;
+      border: 1px $mz-gray solid;
+      &:hover,&:focus {
+        background-color: #ddd;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  .row {
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 18px;
+    font-weight: 300;
+    tr {
+      border-bottom: 1px solid #eaeaea;
+    }
+    td { word-wrap: break-word;}
+    td:first-child {
+      text-align: right;
+      width: 150px;
+      padding: 5px 20px;
+      font-weight: 400;
+    }
+  }
+}

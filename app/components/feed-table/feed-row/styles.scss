@@ -1,44 +1,65 @@
 .license-attr {
 
+  $icon-w: 25px;
+  $icon-negative-w: -25px;
+
   div {
     float:left;
-    background-image: url('/images/license_state.png');
-    background-size: 60px 60px;
+    background-image: url('/images/license_states.png');
+    background-size: $icon-w*3 $icon-w*3;
     background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
+    width: $icon-w;
+    height: $icon-w;
     margin-right: 5px;
 
     &.requires-attr {
-      background-position: 0px -20px;
+      background-position: 0px $icon-negative-w;
     }
     &.not-requires-attr {
       background-position: 0px 0px;
     }
-
     &.unknown-requires-attr {
-      background-position: 0px -40px;
+      background-position: 0px $icon-negative-w*2;
     }
-
     &.allow-derivation {
-      background-position: -20px 0px;
+      background-position: $icon-negative-w 0px;
     }
     &.not-allow-derivation {
-      background-position: -20px -20px;
+      background-position: $icon-negative-w $icon-negative-w;
     }
     &.unknown-requires-attr {
-      background-position: -20px -40px;
+      background-position: $icon-negative-w $icon-negative-w*2;
     }
 
     &.allow-redistribution {
-      background-position: -40px 0px;
+      background-position: $icon-negative-w*2 0px;
     }
     &.not-allow-redistribution {
-      background-position: -40px -20px;
+      background-position: $icon-negative-w*2 $icon-negative-w;
     }
     &.unknown-requires-attr {
-      background-position: -40px -40px;
+      background-position: $icon-negative-w*2 $icon-negative-w*2;
     }
+  }
+}
+td.link {
+  a {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    color: white;
+    background-color: #444444;
+    border-color: rgba(0,0,0,0.2);
+    border-width: 1px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 5px 15px;
 
+    &.upload-btn {
+      background-color: $mz-blue;
+    }
+    &.link-btn {
+
+    }
   }
 }
