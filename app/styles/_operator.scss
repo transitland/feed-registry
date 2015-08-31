@@ -1,7 +1,9 @@
 .operator-page {
-  h3 {
+  h3.agency-name {
     color: $logo-color-6;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
   }
   h4 {
     font-size: 21px;
@@ -20,6 +22,11 @@
         outline: none;
       }
     }
+  }
+
+  .row {
+    margin-top: 30px;
+    margin-bottom: 50px;
   }
 
   table {

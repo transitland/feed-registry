@@ -3,45 +3,47 @@
 	<button class="back-btn" type="button">Return to All Feeds</button>
 {{/link-to}}
 </div>
-<div class="page-container operator-page" align="left">
-	<h3>{{model.name}}</h3>
-	<h4> Operator Detail </h4>
+<div class="page-container operator-page">
+	<h3 class = "agency-name">{{model.name}}</h3>
+	<div class = "row">
+		<h3 class = "col-md-3"> Operator Detail </h3>
 		<table>
-			<tr><td>identifiers</td><td>{{model.identifiers}}</td></tr>
-			<tr><td>name</td><td>{{model.name}}</td></tr>
-			<tr><td>short_name</td><td>{{model.short_name}}</td></tr>
-			<tr><td>onestop_id</td><td>{{model.onestop_id}}</td></tr>
-			<tr><td>country</td><td>{{model.country}}</td></tr>
-			<tr><td>state</td><td>{{model.state}}</td></tr>
-			<tr><td>municipality</td><td>{{model.minicipality}}</td></tr>
-			<tr><td>type</td><td>{{model.type}}</td></tr>
-			<tr><td>website</td><td>{{model.website}}</td></tr>
-			<tr><td>timezone</td><td>{{model.timezone}}</td></tr>
-			<tr><td>created_at</td><td>{{model.created_at}}</td></tr>
-			<tr><td>updated_at</td><td>{{model.updated_at}} (3 days ago)</td></tr>
+			<tr><td>Identifiers</td><td>{{model.identifiers}}</td></tr>
+			<tr><td>Name</td><td>{{model.name}}</td></tr>
+			<tr><td>Short name</td><td>{{model.short_name}}</td></tr>
+			<tr><td>Onestop id</td><td>{{model.onestop_id}}</td></tr>
+			<tr><td>Country</td><td>{{model.country}}</td></tr>
+			<tr><td>State</td><td>{{model.state}}</td></tr>
+			<tr><td>Municipality</td><td>{{model.minicipality}}</td></tr>
+			<tr><td>Type</td><td>{{model.type}}</td></tr>
+			<tr><td>Website</td><td>{{model.website}}</td></tr>
+			<tr><td>Timezone</td><td>{{model.timezone}}</td></tr>
+			<tr><td>Created at</td><td>{{model.created_at}}</td></tr>
+			<tr><td>Updated at</td><td>{{model.updated_at}} (3 days ago)</td></tr>
 		</table>
-	
-	<h4>Feed detail</h4>
-	{{#if model.feed }}
-
-		<table>
-			<tr><td>operator</td><td>{{model.feed.operator}}</td></tr>
-			<tr><td>onestop_id</td><td>{{model.feed.onestop_id}}</td></tr>
-			<tr><td>url</td><td>{{model.feed.url}}</td></tr>
-			<tr><td>feed_format</td><td>{{model.feed.feed_format}}</td></tr>
-			<tr><td>license_name</td><td>{{model.feed.license_name}}</td></tr>
-			<tr><td>license_url</td><td>{{model.feed.license_url}}</td></tr>
-			<tr><td>license_attribution</td><td>{{model.feed.license_attribution}}</td></tr>
-			<tr><td>license_derivation</td><td>{{model.feed.license_derivation}}</td></tr>
-			<tr><td>license_redistribution</td><td>{{model.feed.license_redistribution}}</td></tr>
-			<tr><td>last_sha1</td><td>{{model.feed.last_sha1}}</td></tr>
-			<tr><td>last_fetched_at</td><td>{{model.feed.last_fetched_at}}</td></tr>
-			<tr><td>last_imported_at</td><td>{{model.feed.last_imported_at}}</td></tr>
-			<tr><td>created_at</td><td>{{model.feed.created_at}}</td></tr>
-			<tr><td>updated_at</td><td>{{model.feed.updated_at}}</td></tr>
-		</table>
-	{{else}}
-	  <h4>HEY YOU SHOULD WRITE GOOD SENTENCE TO CONVINCE PEOPLE TO UPLOAD </h4>
-	<button> hello </button>
-	{{/if}}
+	</div>
+	<div class = "row">
+		<h3 class = "col-md-3">Feed detail</h3>
+		{{#if model.feed }}
+			<table>
+				<tr><td>Operator</td><td>{{model.feed.operator}}</td></tr>
+				<tr><td>Onestop id</td><td>{{model.feed.onestop_id}}</td></tr>
+				<tr><td>URL</td><td>{{model.feed.url}}</td></tr>
+				<tr><td>Feed format</td><td>{{model.feed.feed_format}}</td></tr>
+				<tr><td>License name</td><td>{{model.feed.license_name}}</td></tr>
+				<tr><td>License url</td><td>{{model.feed.license_url}}</td></tr>
+				<tr><td>License attribution</td><td>{{model.feed.license_attribution}}</td></tr>
+				<tr><td>License derivation</td><td>{{model.feed.license_derivation}}</td></tr>
+				<tr><td>License redistribution</td><td>{{model.feed.license_redistribution}}</td></tr>
+				<tr><td>Last sha1</td><td>{{model.feed.last_sha1}}</td></tr>
+				<tr><td>Last fetched at</td><td>{{model.feed.last_fetched_at}}</td></tr>
+				<tr><td>Last imported at</td><td>{{model.feed.last_imported_at}}</td></tr>
+				<tr><td>Created at</td><td>{{model.feed.created_at}}</td></tr>
+				<tr><td>Updated at</td><td>{{model.feed.updated_at}}</td></tr>
+			</table>
+		{{else}}
+		  <h4>HEY YOU SHOULD WRITE GOOD SENTENCE TO CONVINCE PEOPLE TO UPLOAD </h4>
+		<button> hello </button>
+		{{/if}}
+	</div>
 </div>
