@@ -7,18 +7,19 @@
 	<h3>Operator detail for: {{model.name}}</h3>
 	<h4>
 		<ul>
-			<li>identifiers: {{model.identifiers}}</li>
-			<li>name: {{model.name}}</li>
-			<li>short_name: {{model.short_name}}</li>
-			<li>onestop_id: {{model.onestop_id}}</li>
-			<li>country: {{model.country}}</li>
-			<li>state: {{model.state}}</li>
+			<li>Identifiers: {{model.identifiers}}</li>
+			<li>Name: {{model.name}}</li>
+			<li>Short name: {{model.short_name}}</li>
+			<li>OnestopID: {{model.onestop_id}}</li>
+			<li>Country: {{model.country}}</li>
+			<li>State: {{model.state}}</li>
 			<li>municipality: {{model.minicipality}}</li>
 			<li>type: {{model.type}}</li>
 			<li>website: {{model.website}}</li>
 			<li>timezone: {{model.timezone}}</li>
-			<li>created_at: {{model.created_at}}</li>
-			<li>updated_at: {{model.updated_at}}</li>
+			<li>Last updated: {{format-date model.updated_at}} ({{from-now-date model.updated_at}})</li>
+			<li>Created: {{format-date model.created_at}}</li>
+
 		</ul>
 	</h4>
 	<h3>Feed detail for: {{model.name}}</h3>
@@ -36,8 +37,8 @@
 			<li>last_sha1: {{model.feed.last_sha1}}</li>
 			<li>last_fetched_at: {{model.feed.last_fetched_at}}</li>
 			<li>last_imported_at: {{model.feed.last_imported_at}}</li>
-			<li>created_at: {{model.feed.created_at}}</li>
-			<li>updated_at: {{model.feed.updated_at}}</li>
+			<li>Last updated: {{format-date model.feed.updated_at}} ({{from-now-date model.feed.updated_at}})</li>
+			<li>Created: {{format-date model.feed.created_at}}</li>
 		</ul>
 	</h4>
 </div>
