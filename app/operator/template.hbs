@@ -2,14 +2,15 @@
 {{#link-to "feeds"}}
 	<button class="back-btn" type="button">Return to All Feeds</button>
 {{/link-to}}
-	<h3 class = "agency-name">{{model.name}}</h3>
+	<h3 class = "agency-name">{{model.name}} {{#if model.short_name}}
+	(model.short_name}})
+	{{/if}}
+	</h3>
 	<div class = "row">
 		<h3 class = "detail col-md-2"> Operator Detail </h3>
 		<div class = "col-md-10">
 			<table>
 				<tr><td>Identifiers</td><td>{{model.identifiers}}</td></tr>
-				<tr><td>Name</td><td>{{model.name}}</td></tr>
-				<tr><td>Short name</td><td>{{model.short_name}}</td></tr>
 				<tr><td>Onestop id</td><td>{{model.onestop_id}}</td></tr>
 				<tr><td>Country</td><td>{{model.country}}</td></tr>
 				<tr><td>State</td><td>{{model.state}}</td></tr>
@@ -27,7 +28,6 @@
 		<div class = "col-md-10">
 			{{#if model.feed }}
 				<table>
-					<tr><td>Operator</td><td>{{model.feed.operator}}</td></tr>
 					<tr><td>Onestop id</td><td>{{model.feed.onestop_id}}</td></tr>
 					<tr><td>URL</td><td>{{model.feed.url}}</td></tr>
 					<tr><td>Feed format</td><td>{{model.feed.feed_format}}</td></tr>
@@ -39,8 +39,6 @@
 					<tr><td>Last sha1</td><td>{{model.feed.last_sha1}}</td></tr>
 					<tr><td>Last fetched at</td><td>{{format-date model.feed.last_fetched_at}}</td></tr>
 					<tr><td>Last imported at</td><td>{{format-date model.feed.last_imported_at}}</td></tr>
-					<tr><td>Created at</td><td>{{format-date model.feed.created_at}}</td></tr>
-					<tr><td>Updated at</td><td>{{format-date model.feed.updated_at}} ({{from-now-date model.feed.updated_at}})</td></tr>
 				</table>
 			{{else}}
 			  <h4>HEY YOU SHOULD WRITE GOOD SENTENCE TO CONVINCE PEOPLE TO UPLOAD </h4>
