@@ -1,7 +1,22 @@
+.tooltip {
+    width: 220px;
+    height: 40px;
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.2em;
+    padding: 10px;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+
 .license-attr {
 
   $icon-w: 25px;
   $icon-negative-w: -25px;
+  min-width: 130px;
 
   div {
     float:left;
@@ -12,33 +27,71 @@
     height: $icon-w;
     margin-right: 5px;
 
+
+    position: relative;
     &.requires-attr {
       background-position: 0px $icon-negative-w;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
     &.not-requires-attr {
       background-position: 0px 0px;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
     &.unknown-requires-attr {
       background-position: 0px $icon-negative-w*2;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
     &.allow-derivation {
       background-position: $icon-negative-w 0px;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
     &.not-allow-derivation {
       background-position: $icon-negative-w $icon-negative-w;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
     &.unknown-requires-attr {
       background-position: $icon-negative-w $icon-negative-w*2;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
 
     &.allow-redistribution {
       background-position: $icon-negative-w*2 0px;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
     &.not-allow-redistribution {
       background-position: $icon-negative-w*2 $icon-negative-w;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
     &.unknown-requires-attr {
       background-position: $icon-negative-w*2 $icon-negative-w*2;
+      &:hover:after {
+        content: ' ';
+        @extend .tooltip;
+      }
     }
   }
 }
