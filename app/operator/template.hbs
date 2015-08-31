@@ -37,8 +37,8 @@
 					<tr><td>License derivation</td><td>{{model.feed.license_derivation}}</td></tr>
 					<tr><td>License redistribution</td><td>{{model.feed.license_redistribution}}</td></tr>
 					<tr><td>Last sha1</td><td>{{model.feed.last_sha1}}</td></tr>
-					<tr><td>Last fetched at</td><td>{{model.feed.last_fetched_at}}</td></tr>
-					<tr><td>Last imported at</td><td>{{model.feed.last_imported_at}}</td></tr>
+					<tr><td>Last fetched at</td><td>{{format-date model.feed.last_fetched_at}}</td></tr>
+					<tr><td>Last imported at</td><td>{{format-date model.feed.last_imported_at}}</td></tr>
 					<tr><td>Created at</td><td>{{format-date model.feed.created_at}}</td></tr>
 					<tr><td>Updated at</td><td>{{format-date model.feed.updated_at}} ({{from-now-date model.feed.updated_at}})</td></tr>
 				</table>
