@@ -1,15 +1,12 @@
 .operator-page {
   h3.agency-name {
-    color: $logo-color-6;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 31px;
     letter-spacing: 1px;
   }
   h3.detail {
     margin: 0;
-  }
-  h4 {
-    font-size: 21px;
+    color: $mz-darkgray;
   }
 
   button {
@@ -44,7 +41,7 @@
     td:first-child {
       text-align: right;
       width: 150px;
-      padding: 5px 20px;
+      padding: 5px 20px 5px 5px;
       font-weight: 400;
     }
   }
