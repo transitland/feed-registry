@@ -52,6 +52,23 @@ Feed.reopenClass({
 		last_imported_at: "2015-07-13T22:15:31.032Z",
 		created_at: "2015-06-16T22:15:31.032Z",
 		updated_at: "2015-06-16T22:15:31.032Z"
+	}, {
+		id: 3,
+		operator: 2,
+		onestop_id: "f-9q8y-sanfranciscomunicipaltransportationagency",
+		url: "http://archives.sfmta.com/transitdata/google_transit.zip",
+		feed_format: "gtfs",
+		// operator_onestop_ids_in_feed: ["o-9q8y-sanfranciscomunicipaltransportationagency"],
+		license_name: "Some Other License",
+		license_url: "http://www.sfmta.com/about-sfmta/reports/gtfs-transit-data",
+		license_attribution: "not_required",
+		license_derivation: "prohibited",
+		license_redistribution: "prohibited",
+		last_sha1: "e4ec3bd51eb4efca8d6cee33fe332f9aaebde2da",
+		last_fetched_at: "2015-07-13T22:15:31.032Z",
+		last_imported_at: "2015-07-13T22:15:31.032Z",
+		created_at: "2015-06-16T22:15:31.032Z",
+		updated_at: "2015-06-16T22:15:31.032Z"
 	}]
 });
 
