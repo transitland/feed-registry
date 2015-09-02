@@ -1,0 +1,107 @@
+html,body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: $base-font-family;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+div,section{
+  -moz-box-sizing : border-box;
+  box-sizing : border-box; 
+}
+
+section {
+  position: relative;
+  width: 100%;
+  display: inline-block; //for first-animation
+  float: left;
+}
+
+
+a {
+  text-decoration: none;
+  color: nth($logo-colors,4);
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: 2px;
+  display: inline;
+  margin:0 auto;
+}
+
+h3{
+  font-weight: 700;
+  font-size:24px;
+  letter-spacing: 1.3px;
+}
+
+.col-1 { color:$logo-color-1; }
+.col-2 { color:$logo-color-2; }
+.col-3 { color:$logo-color-3; }
+.col-4 { color:$logo-color-4; }
+.col-5 { color:$logo-color-5; }
+
+.white-text{color:#fff;}
+.center-text{text-align: center;}
+
+
+::-moz-selection,::selection {
+   background-color: #ccc;
+   color: #fff;
+}
+
+
+.jumbotron {
+  background-color: #fff;
+  padding: 75px 0;
+  margin: 0 0 $footer-h 0;
+  .container{
+    max-width:1030px;
+  }
+}
+
+.btn-transparent {
+  background: transparent; /* transparent button */
+  border:1px solid black;
+  border-radius: 0px;
+  color: #000000;
+  padding: 2px 20px;
+  font-size:16px;
+  font-weight:400;
+}
+
+.btn-transparent:hover {
+  background-color: #cecece;
+  box-shadow:0px 0px;
+  color:#000;
+}
+
+
+@include media-query($on-ipad) {
+
+  .jumbotron { margin: 0 0 0 0; }
+  .navbar-header { margin-top:$spacing-unit; }
+  .navbar-toggle { margin-top:$spacing-unit; }
+}
+@include media-query($on-pad) {
+  .jumbotron {
+    height: auto;
+    padding: $spacing-unit 0;
+  }
+  section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .row { margin-left: 0px; }
+}

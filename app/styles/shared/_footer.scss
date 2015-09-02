@@ -1,0 +1,48 @@
+footer {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  z-index: -1;
+  background-color: #eee;
+  background-image: url('/images/animation/ferry_bg.png');
+  background-position: 0px 55px;
+  background-repeat: repeat-x;
+  height: $footer-h;
+  .container {
+    color: #666;
+    margin: 0 auto;
+    padding-top: 40px;
+    max-width: 800px;
+  }
+  ul {
+  list-style-type: none;
+  padding: 0 0;
+  font-weight: 400;
+  text-align: center;
+    li {
+      font-weight: 400;
+      display:inline;
+      padding:0 5px;
+    }
+  }
+  .fa { padding-right:5px; }
+}
+
+@include media-query($on-ipad) {
+  footer {
+    position: relative;
+    height: $footer-h;
+    display: inline-block;
+    z-index: 0;
+    padding-bottom: $spacing-unit;
+  .container {
+    top: 5%;
+    height: 100%;
+    padding-top: 40px;
+    }
+  }
+}
+
+@include media-query($on-palm) {
+
+}

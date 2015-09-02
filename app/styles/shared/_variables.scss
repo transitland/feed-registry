@@ -1,22 +1,20 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+//
+// Shared style  
+// --------------------------------------------------
+
+
+
 // Mapzen official colors
 $mz-red: #d4645c;
 $mz-blue: #6ea0a4;
 $mz-gray: #898989;
 $mz-yellow: #e6ead2;
 
-// Mapzen misc colors
-$mz-darkyellow: #d3c756;
-$mz-darkred: #993434;
-$mz-darkblue: #385d5c;
-$mz-darkgray: #444;
-$mz-mediumgray: #666666;
-$mz-black: #191919;
-$mz-lightgray: #f8f8f8;
-$mz-brown: #563630;
+//transitland official colors
 
-
-$base-font-family: 'Lato', Helvetica, Arial, sans-serif;
+@charset "utf-8";
+// Our variables
+$base-font-family: Lato, Helvetica, Arial, sans-serif;
 $font-awesome:      FontAwesome;
 $base-font-size:   16px;
 $base-font-weight: 300;
@@ -52,7 +50,6 @@ $logo-color-5:  #66ad2a;
 $logo-color-6:  #9f5bcc;
 $logo-colors : ($logo-color-1,$logo-color-2,$logo-color-3,$logo-color-4,$logo-color-5,$logo-color-6);
 $logo-hover-colors: ();
-$index-sections:();
 
 @for $i from 1 through 6 {
   $logo-hover-colors:append($logo-hover-colors,darken(nth($logo-colors,$i),5%) );
