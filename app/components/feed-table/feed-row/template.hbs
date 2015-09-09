@@ -9,19 +9,25 @@
 <!-- the icon used depends on license details -->
 
 	<div class = "license-attr">
-		{{#if requiresAttribution}}
+		{{#if attributionUnknown}}
+			<div class = "unknown-requires-attr"></div>			
+		{{else if requiresAttribution}}
 			<div class = "requires-attr"></div>
 		{{else}}
 			<div class = "not-requires-attr"></div>
 		{{/if}}
-		
-		{{#if derivationAllowed}}
+
+		{{#if derivationUnknown}}
+			<div class = "unknown-allow-derivation"></div>
+		{{else if derivationAllowed}}
 			<div class = "allow-derivation"></div>
 		{{else}}
 			<div class = "not-allow-derivation"></div>
 		{{/if}}
 
-		{{#if redistributionAllowed}}
+		{{#if redistributionUnknown}}
+			<div class = "unknown-allow-redistribution"></div>
+		{{else if redistributionAllowed}}
 			<div class = "allow-redistribution"></div>
 		{{else}}
 			<div class = "not-allow-redistribution"></div>
