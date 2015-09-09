@@ -2,8 +2,8 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th class = "sort-up" {{action "sortBy" "name"}}>Agency Name </th>
-        <th class = "sort-down" {{action "sortBy" "municipality"}}>Region </th>
+        <th class = "{{nameSortClass}}" {{action "sortBy" "name"}}>Agency Name </th>
+        <th class = "{{regionSortClass}}" {{action "sortBy" "municipality"}}>Region </th>
         <!-- <th class = "not-sorted" {{action "sortBy" "feed.license_name"}}>License</th> -->
         <th>License</th>
         <th>License Details</th>
