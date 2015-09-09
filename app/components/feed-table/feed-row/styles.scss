@@ -1,5 +1,5 @@
 .tooltip {
-    width: 220px;
+    width: 180px;
     height: 40px;
     position: absolute;
     color: #fff;
@@ -8,7 +8,9 @@
     padding: 10px;
     top: 20px;
     left: 20px;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.5);
+    outline: #444 1px solid;
+    z-index: 10;
 }
 
 
@@ -20,7 +22,7 @@
 
   div {
     float:left;
-    background-image: url('/images/license_states.png');
+    background-image: url('/images/license_states.svg');
     background-size: $icon-w*3 $icon-w*3;
     background-repeat: no-repeat;
     width: $icon-w;

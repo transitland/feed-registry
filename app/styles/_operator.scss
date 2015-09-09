@@ -1,6 +1,6 @@
 .operator-page {
 
-  color: $mz-darkgray;
+  color: #444;
   h3 {
     letter-spacing: 1px;
   }
@@ -27,18 +27,19 @@
     }
 
     .fa-question-circle {
-      color: $mz-gray;
+      color: #898989;
       cursor: pointer;
       position: relative;
     }
 
     .fa-question-circle:hover:after {
-      content: 'The Onestop ID scheme is an attempt to label and connect data about public transit that are coming from many agencies, around the world. ';
+      content: 'The Onestop ID scheme is an attempt to label and connect data about public transit that are coming from many agencies, around the world.';
       width: 220px;
       height: 120px;
       position: absolute;
       color: #fff;
       font-size: 14px;
+      font-family: $base-font-family;
       line-height: 1.2em;
       padding: 10px;
       top: 20px;
