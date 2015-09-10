@@ -1,0 +1,23 @@
+dependencies:
+  pre:
+    - sudo pip install -U awscli
+
+database:
+  override:
+    - echo "we need no database"
+
+test:
+  override:
+    - echo "we need no tests"
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - ember build --environment=development
+      - AWS_ACCESS_KEY_ID=${STAGING_AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${STAGING_AWS_SECRET_ACCESS_KEY} aws s3 sync ./dist s3://staging.transit.land/feed-registry/
+  production:
+    branch: production
+    commands:
+      - ember build --environment=production
+      - AWS_ACCESS_KEY_ID=${PROD_AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${PROD_AWS_SECRET_ACCESS_KEY} aws s3 sync ./dist s3://transit.land/feed-registry/
