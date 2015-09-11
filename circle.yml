@@ -27,7 +27,7 @@ deployment:
   staging:
     branch: master
     commands:
-      - ember build --environment=development
+      - ember build --environment=staging
       - AWS_ACCESS_KEY_ID=${STAGING_AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${STAGING_AWS_SECRET_ACCESS_KEY} aws s3 sync ./dist s3://staging.transit.land/feed-registry/
   production:
     branch: production
