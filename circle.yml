@@ -13,7 +13,7 @@ dependencies:
   override:
     - npm prune && npm install
     - bower prune && bower install
-    - if [ ! -e ~/nvm/v0.10.33/bin/ember]; then npm install -g ember-cli; else echo "ember-cli seems to be cached"; fi;
+    - if [ ! -e ~/nvm/v0.10.33/bin/ember ]; then npm install -g ember-cli; else echo "ember-cli seems to be cached"; fi;
 
 database:
   override:
