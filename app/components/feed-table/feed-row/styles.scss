@@ -32,14 +32,14 @@
 
     position: relative;
     &.requires-attr {
-      background-position: 0px $icon-negative-w;
+      background-position: 0px 0px;
       &:hover:after {
         content: ' ';
         @extend .tooltip;
       }
     }
     &.not-requires-attr {
-      background-position: 0px 0px;
+      background-position: 0px $icon-negative-w;
       &:hover:after {
         content: ' ';
         @extend .tooltip;
@@ -66,7 +66,7 @@
         @extend .tooltip;
       }
     }
-    &.unknown-requires-attr {
+    &.unknown-allow-derivation {
       background-position: $icon-negative-w $icon-negative-w*2;
       &:hover:after {
         content: ' ';
@@ -88,7 +88,7 @@
         @extend .tooltip;
       }
     }
-    &.unknown-requires-attr {
+    &.unknown-allow-redistribution{
       background-position: $icon-negative-w*2 $icon-negative-w*2;
       &:hover:after {
         content: ' ';
