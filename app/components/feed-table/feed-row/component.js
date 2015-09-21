@@ -2,6 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'tr', 
+
+  licenseHasName: function(){
+    if (this.get('operator.feed.license_name') != undefined){
+      return true;
+    } 
+  }.property('operator.feed.license_name'),
+
   requiresAttribution: function(){
   	return this.get('operator.feed.license_attribution') === 'not_required';
   }.property('operator.feed.license_attribution'),

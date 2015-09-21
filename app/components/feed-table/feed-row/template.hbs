@@ -4,7 +4,13 @@
 	{{/link-to}}
 </td>
 <td>{{operator.municipality}}</td>
-<td>{{operator.feed.license_name}}</td>
+
+{{#if licenseHasName}}
+	<td><a href = "{{operator.feed.license_url}}" target = "_blank">{{operator.feed.license_name}}</a></td>
+{{else}}
+	<td><a href = "{{operator.feed.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a></td>
+{{/if}}	
+
 <td>
 <!-- the icon used depends on license details -->
 
