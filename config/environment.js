@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'reportcard',
+    modulePrefix: 'feed-registry',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
