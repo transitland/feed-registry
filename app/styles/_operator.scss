@@ -16,6 +16,33 @@
     margin: 30px 0 0 0;
   }
 
+  .tooltip {
+  width: 170px;
+  height: auto;
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.2em;
+  padding: 10px 15px;
+  top: 40px;
+  left: -30px;
+  background-color: #bbb;
+  z-index: 10;
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 2px 1px 0px rgba(50, 50, 50, 0.75);
+}
+.tooltip-point {
+  content: ' ';
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #bbb;
+}
+
   .agency-table, .feed-table {
     table-layout: fixed;
     font-weight: 300;
@@ -34,17 +61,7 @@
 
     .fa-question-circle:hover:after {
       content: 'Onestop IDs are globally unique identifiers for transit feeds, operators, routes, and stops. Use them to query the Transitland API or use them in your own apps and analyses. More info on Github.';
-      width: 220px;
-      height: 120px;
-      position: absolute;
-      color: #fff;
-      font-size: 14px;
-      font-family: $base-font-family;
-      line-height: 1.2em;
-      padding: 10px;
-      top: 20px;
-      left: 0px;
-      background-color: rgba(0,0,0,0.7);
+      @extend .tooltip;
     }
   }
 
