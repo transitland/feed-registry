@@ -1,7 +1,7 @@
 {
-  "name": "reportcard",
+  "name": "feed-registry",
   "version": "0.0.0",
-  "description": "Small description for reportcard goes here",
+  "description": "Small description for feed-registry goes here",
   "private": true,
   "directories": {
     "doc": "doc",
