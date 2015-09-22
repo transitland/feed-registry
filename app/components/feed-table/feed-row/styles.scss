@@ -1,16 +1,28 @@
 .tooltip {
-    width: 180px;
-    height: 40px;
-    position: absolute;
-    color: #fff;
-    font-size: 14px;
-    line-height: 1.2em;
-    padding: 10px;
-    top: 20px;
-    left: 20px;
-    background-color: rgba(0,0,0,0.5);
-    outline: #444 1px solid;
-    z-index: 10;
+  width: 170px;
+  height: auto;
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.2em;
+  padding: 10px 15px;
+  top: 40px;
+  left: -30px;
+  background-color: #bbb;
+  z-index: 10;
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 2px 1px 0px rgba(50, 50, 50, 0.75);
+}
+.tooltip-point {
+  content: ' ';
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #bbb;
 }
 
 
@@ -29,70 +41,114 @@
     height: $icon-w;
     margin-right: 5px;
 
-
     position: relative;
     &.requires-attr {
       background-position: 0px 0px;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'When using, be sure to credit the transit agency. Check license for exact requirements.';
+          @extend .tooltip;
+        }
       }
     }
     &.not-requires-attr {
       background-position: 0px $icon-negative-w;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+         content: 'When using, it is optional to credit the transit agency.';
+          @extend .tooltip;
+        }
       }
     }
     &.unknown-requires-attr {
       background-position: 0px $icon-negative-w*2;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'Unknown whether agency requires attribution.';
+          @extend .tooltip;
+        }
       }
     }
     &.allow-derivation {
       background-position: $icon-negative-w 0px;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'You may create a derived data product from this feed.';
+          @extend .tooltip;
+        }
       }
     }
     &.not-allow-derivation {
       background-position: $icon-negative-w $icon-negative-w;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover{
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'You may NOT create a derived data product from this feed.';
+          @extend .tooltip;
+        }
       }
     }
     &.unknown-allow-derivation {
       background-position: $icon-negative-w $icon-negative-w*2;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'Unknown whether agency allows you to create derived data products from this feed.';
+          @extend .tooltip;
+        }
       }
     }
 
     &.allow-redistribution {
       background-position: $icon-negative-w*2 0px;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'You may redistribute this feed.';
+          @extend .tooltip;
+        }
       }
     }
     &.not-allow-redistribution {
       background-position: $icon-negative-w*2 $icon-negative-w;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'You may NOT redistribute this feed. Check license for exceptions.';
+          @extend .tooltip;
+        }
       }
     }
     &.unknown-allow-redistribution{
       background-position: $icon-negative-w*2 $icon-negative-w*2;
-      &:hover:after {
-        content: ' ';
-        @extend .tooltip;
+      &:hover {
+        &:before {
+          @extend .tooltip-point;
+        }
+        &:after {
+          content: 'Unknown whether agency allows you to redistribute this feed.';
+          @extend .tooltip;
+        }
       }
     }
   }
