@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('operator', { path: "operator/:operator_id" });
   this.route('feed');
   this.route('feeds', { path: "/" });
+  this.route('error', { path: "*path" });
 });
 
 export default Router;
