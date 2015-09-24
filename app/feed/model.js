@@ -9,7 +9,7 @@ var Feed = DS.Model.extend({
 	license_name: DS.attr('string'),
 	license_url: DS.attr('string'),
 	license_use_without_attribution: DS.attr('string'),
-	license_create_derived_products: DS.attr('string'),
+	license_create_derived_product: DS.attr('string'),
 	license_redistribute: DS.attr('string'),
 	last_sha1: DS.attr('string'),
 	last_fetched_at: DS.attr('string'),
