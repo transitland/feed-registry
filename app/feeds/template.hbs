@@ -5,7 +5,7 @@
     	<h3>Agencies: {{model.length}} Countries: {{operatorCountries.length}} Unique Countries: {{uniqueOperatorCountries.length}}</h3>
  </div> -->
 
- {{country-count operators=model}}
+ {{country-count operators=model.operators}}
 
 <!-- <div class="container" align="right">
 	<button>License</button>
@@ -22,7 +22,7 @@
 
 <main>
 	<!-- {{feed-table operators=filteredOperators}} -->
-	{{feed-table operators=model}}
+	{{feed-table operators=model.operators}}
 </main>
 
 {{closing-copy}}

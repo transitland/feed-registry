@@ -1,18 +1,15 @@
 <h4 class = "detail">Feed Detail</h4>
-{{#if model.feed }}
-	<table class = "feed-table">
-		<tr><td>Onestop ID <i class="fa fa-question-circle"></i></td><td>{{model.feed.onestop_id}}</td></tr>
-		<tr><td>Data location</td><td><a href = "{{model.feed.url}}"  target = "_blank">{{model.feed.url}}</a></td></tr>
-		<tr><td>Format</td><td>{{model.feed.feed_format}}</td></tr>
-		<tr><td>License</td><td>{{model.feed.license_name}} <a href = "{{model.feed.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a>
-		</td></tr>
-		<tr><td>License attribution</td><td>{{model.feed.license_attribution}}</td></tr>
-		<tr><td>License derivation</td><td>{{model.feed.license_derivation}}</td></tr>
-		<tr><td>License redistribution</td><td>{{model.feed.license_redistribution}}</td></tr>
-		<tr><td>Agency last checked on</td><td>{{format-date model.feed.last_fetched_at}}</td></tr>
-		<tr><td>Feed updated on</td><td>{{format-date model.feed.last_imported_at}}</td></tr>
-	</table>
-{{else}}
-  <h4>HEY YOU SHOULD WRITE GOOD SENTENCE TO CONVINCE PEOPLE TO UPLOAD </h4>
-<button> hello </button>
-{{/if}}
+<table class = "feed-table">
+	<tr><td>Onestop ID <i class="fa fa-question-circle"></i></td><td>{{feed.onestop_id}}</td></tr>
+	<tr><td>Data location</td><td><a href = "{{feed.url}}"  target = "_blank">{{feed.url}}</a></td></tr>
+	<tr><td>Format</td><td>{{feed.feed_format}}</td></tr>
+	<tr><td>License</td><td>{{feed.license_name}} <a href = "{{feed.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a>
+	</td></tr>
+	<tr><td>License attribution</td><td>{{feed.license_use_without_attribution}}</td></tr>
+	<tr><td>License derivation</td><td>{{feed.license_create_derived_product}}</td></tr>
+	<tr><td>License redistribution</td><td>{{feed.license_redistribute}}</td></tr>
+	<tr><td>Agency last checked on</td><td>{{format-date feed.last_fetched_at}}</td></tr>
+	<tr><td>Feed updated on</td><td>{{format-date feed.updated_at}}</td></tr>
+</table>
+
+

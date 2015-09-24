@@ -3,12 +3,12 @@
 		{{operator.name}}
 	{{/link-to}}
 </td>
-<td>{{operator.municipality}}</td>
+<td>{{operator.metro}}</td>
 
 {{#if licenseHasName}}
-	<td><a href = "{{operator.feed.license_url}}" target = "_blank">{{operator.feed.license_name}}</a></td>
+	<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{operator.feeds.firstObject.license_name}}</a></td>
 {{else}}
-	<td><a href = "{{operator.feed.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a></td>
+	<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a></td>
 {{/if}}	
 
 <td>
@@ -19,7 +19,7 @@
 			<div class = "unknown-requires-attr"></div>			
 		{{else if requiresAttribution}}
 			<div class = "requires-attr"></div>
-		{{else}}
+		{{else if doesNotRequireAttribution}}
 			<div class = "not-requires-attr"></div>
 		{{/if}}
 
@@ -27,7 +27,7 @@
 			<div class = "unknown-allow-derivation"></div>
 		{{else if derivationAllowed}}
 			<div class = "allow-derivation"></div>
-		{{else}}
+		{{else if derivationNotAllowed}}
 			<div class = "not-allow-derivation"></div>
 		{{/if}}
 
@@ -35,7 +35,7 @@
 			<div class = "unknown-allow-redistribution"></div>
 		{{else if redistributionAllowed}}
 			<div class = "allow-redistribution"></div>
-		{{else}}
+		{{else if redistributionNotAllowed}}
 			<div class = "not-allow-redistribution"></div>
 		{{/if}}
 	</div>
