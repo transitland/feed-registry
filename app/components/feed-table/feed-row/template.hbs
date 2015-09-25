@@ -5,44 +5,49 @@
 </td>
 <td>{{operator.metro}}</td>
 
-{{#if licenseHasName}}
+<!-- {{#if licenseHasName}}
 	<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{operator.feeds.firstObject.license_name}}</a></td>
 {{else}}
 	<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a></td>
-{{/if}}	
+{{/if}}	 -->
 
-<td>
-<!-- the icon used depends on license details -->
-<!-- this is very repetitive, but there doesn't seem to be a way to pass a param to
-a function within a conditional in ember/handlebars -->
+{{#if operator.feeds}}
+	{{#if operator.feeds.firstObject.license_name}}
+		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{operator.feeds.firstObject.license_name}}</a></td>
+	{{else}}
+		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a></td>
+	{{/if}}	
 
-	<div class = "license-attr">
-		{{#if attributionUnknown}}
-			<div class = "unknown-requires-attr"></div>			
-		{{else if requiresAttribution}}
-			<div class = "requires-attr"></div>
-		{{else if doesNotRequireAttribution}}
-			<div class = "not-requires-attr"></div>
-		{{/if}}
+	<td>
+		<div class = "license-attr">
+			{{#if attributionUnknown}}
+				<div class = "unknown-requires-attr"></div>			
+			{{else if requiresAttribution}}
+				<div class = "requires-attr"></div>
+			{{else if doesNotRequireAttribution}}
+				<div class = "not-requires-attr"></div>
+			{{/if}}
 
-		{{#if derivationUnknown}}
-			<div class = "unknown-allow-derivation"></div>
-		{{else if derivationAllowed}}
-			<div class = "allow-derivation"></div>
-		{{else if derivationNotAllowed}}
-			<div class = "not-allow-derivation"></div>
-		{{/if}}
+			{{#if derivationUnknown}}
+				<div class = "unknown-allow-derivation"></div>
+			{{else if derivationAllowed}}
+				<div class = "allow-derivation"></div>
+			{{else if derivationNotAllowed}}
+				<div class = "not-allow-derivation"></div>
+			{{/if}}
 
-		{{#if redistributionUnknown}}
-			<div class = "unknown-allow-redistribution"></div>
-		{{else if redistributionAllowed}}
-			<div class = "allow-redistribution"></div>
-		{{else if redistributionNotAllowed}}
-			<div class = "not-allow-redistribution"></div>
-		{{/if}}
-	</div>
-
-</td>
+			{{#if redistributionUnknown}}
+				<div class = "unknown-allow-redistribution"></div>
+			{{else if redistributionAllowed}}
+				<div class = "allow-redistribution"></div>
+			{{else if redistributionNotAllowed}}
+				<div class = "not-allow-redistribution"></div>
+			{{/if}}
+		</div>
+	</td>
+{{else}}
+	<td colspan=2>No feed registered (yet!)</td>
+{{/if}}
 <!-- <td class = "link"> -->
 <!-- either single upload icon or two or three icons used here -->
 
