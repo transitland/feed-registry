@@ -13,9 +13,9 @@ export default Ember.Component.extend({
         }
     }),
     regionSortClass: Ember.computed('sortProperties', function() {
-        if (this.get('sortProperties')[0] === 'municipality') {
+        if (this.get('sortProperties')[0] === 'metro') {
             return 'sort-down';
-        } else if (this.get('sortProperties')[0] === 'municipality:desc') {
+        } else if (this.get('sortProperties')[0] === 'metro:desc') {
             return 'sort-up';
         } else {
             return 'not-sorted';
