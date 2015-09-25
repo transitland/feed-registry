@@ -3,12 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'tr', 
 
-  licenseHasName: function(){
-    if (this.get('operator.feeds.firstObject.license_name') !== null){
-      return true;
-    } 
-  }.property('operator.feeds.firstObject.license_name'),
-
   requiresAttribution: function(){
     return this.get('operator.feeds.firstObject.license_use_without_attribution') === 'yes';
   }.property('operator.feeds.firstObject.license_use_without_attribution'),
