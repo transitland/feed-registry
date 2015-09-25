@@ -22,6 +22,26 @@ export default Ember.Component.extend({
         }
     }),
 
+    stateSortClass: Ember.computed('sortProperties', function() {
+        if (this.get('sortProperties')[0] === 'state') {
+            return 'sort-down';
+        } else if (this.get('sortProperties')[0] === 'state:desc') {
+            return 'sort-up';
+        } else {
+            return 'not-sorted';
+        }
+    }),
+
+    countrySortClass: Ember.computed('sortProperties', function() {
+        if (this.get('sortProperties')[0] === 'country') {
+            return 'sort-down';
+        } else if (this.get('sortProperties')[0] === 'country:desc') {
+            return 'sort-up';
+        } else {
+            return 'not-sorted';
+        }
+    }),
+
     actions:{
 
         sortBy: function(property) {
