@@ -4,10 +4,10 @@ export default Ember.Component.extend({
   tagName: 'tr', 
 
   requiresAttribution: function(){
-    return this.get('operator.feeds.firstObject.license_use_without_attribution') === 'yes';
+    return this.get('operator.feeds.firstObject.license_use_without_attribution') === 'no';
   }.property('operator.feeds.firstObject.license_use_without_attribution'),
   doesNotRequireAttribution: function(){
-    return this.get('operator.feeds.firstObject.license_use_without_attribution') === 'no';
+    return this.get('operator.feeds.firstObject.license_use_without_attribution') === 'yes';
   }.property('operator.feeds.firstObject.license_use_without_attribution'),
   attributionUnknown: function(){
     return this.get('operator.feeds.firstObject.license_use_without_attribution') === 'unknown';
