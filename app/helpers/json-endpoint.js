@@ -6,16 +6,13 @@ export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(url
   var endpoint = '';
 
   if (url.charAt(0) === 'o'){
-	entity = 'operators/';
-	endpoint = baseURL + entity;
+    entity = 'operators/';
+    endpoint = baseURL + entity + url;
   } else if (url.charAt(0) === 'f'){
-	entity = 'feeds/';
-	endpoint = baseURL + entity;
-  };
+    entity = 'feeds/';
+    endpoint = baseURL + entity + url;
+  }
   
-  console.log("entity: ", entity);
-  console.log("baseURL: ", baseURL);
-  console.log("endpoint: ", endpoint);
-
-  return endpoint+url;
+  return new Ember.Handlebars.SafeString('<a href =' + endpoint +' target = "_blank">' + endpoint + '</a>');
 });
+
