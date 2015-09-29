@@ -1,7 +1,9 @@
 import DS from 'ember-data';
 
+import ENV from 'feed-registry/config/environment';
+
 export default DS.RESTAdapter.extend({
-	host: 'http://localhost:3000',
+	host: ENV.datastoreHost,
 	namespace: 'api/v1'
 });
 

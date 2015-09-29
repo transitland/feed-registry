@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    datastoreHost: 'http://dev.transit.land',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -27,6 +28,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+  if (environment === 'local') {
+    ENV.datastoreHost = 'http://localhost:3000';
+
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
@@ -44,6 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.datastoreHost = 'https://transit.land';
     ENV.baseURL = '/feed-registry';
   }
 
