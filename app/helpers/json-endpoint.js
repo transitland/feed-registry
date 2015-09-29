@@ -1,8 +1,10 @@
 import Ember from 'ember';
+import ENV from 'feed-registry/config/environment';
+
 
 export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(url) {
   var entity = '';
-  var baseURL = 'https://transit.land/api/v1/';
+  var baseURL = ENV.datastoreHost+'/api/v1/';
   var endpoint = '';
 
   if (url.charAt(0) === 'o'){
