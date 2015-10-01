@@ -2,7 +2,7 @@ import Ember from 'ember';
 import ENV from 'feed-registry/config/environment';
 
 
-export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(param) {
+export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(param, text) {
   var entity = '';
   var baseURL = ENV.datastoreHost+'/api/v1/';
   var endpoint = baseURL + entity + param;
@@ -15,6 +15,8 @@ export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(par
   
   if (param.charAt(1) === '-'){
     return new Ember.Handlebars.SafeString('<a href =' + endpoint +' target = "_blank">' + endpoint + '</a>');
+  } else if (param.charAt(0) === '/') {
+    return new Ember.Handlebars.SafeString('<a href =' + ENV.datastoreHost + param + ' target = "_blank">' + text + '</a>');
   } else {
     return new Ember.Handlebars.SafeString('<a href =' + baseURL + param + ' target = "_blank">' + param + '</a>');
   }
