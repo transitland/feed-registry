@@ -4,10 +4,11 @@ footer {
   position: fixed;
   z-index: -1;
   background-color: #eee;
-  background-image: url('/images/ferry_bg.png');
-  background-position: 0px 55px;
+  background-image: url('../images/ferry_bg.png');
+  background-position: center bottom;
   background-repeat: repeat-x;
   height: $footer-h;
+  
   .container {
     color: #666;
     margin: 0 auto;
