@@ -30,8 +30,8 @@ You will need the following things properly installed on your computer.
 
 ##Configuration
 To change the configuration, edit the config/environment.js file in the following ways:
-* The Feed Registry connects to the [Transitland Datastore API](https://github.com/transitland/transitland-datastore/). By default, it connects to `https://transit.land`. To override, change the datastoreHost setting: `datastoreHost = 'https://transit.land';`.
-* By default, the Feed Registry is served at `/`. To change the path for deployment, edit the `baseURL = '/feed-registry'` setting.
+* The Feed Registry connects to the [Transitland Datastore API](https://github.com/transitland/transitland-datastore/). By default, it connects to the Datastore API instance running at https://transit.land. To override, change the `datastoreHost` setting. For example: `datastoreHost = 'http://localhost:3000';`.
+* By default, the Feed Registry is served at `/`. To change the path for deployment, edit the `baseURL` setting. For example: `baseURL = '/feed-registry';`.
 
 ## Running / Development
 
