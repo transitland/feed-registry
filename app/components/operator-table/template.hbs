@@ -1,0 +1,19 @@
+<div class = "table-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class = "{{nameSortClass}}" {{action "sortBy" "name"}}>Agency Name</th>
+        <th class = "{{regionSortClass}}" {{action "sortBy" "metro"}}>Region</th>
+        <th class = "{{stateSortClass}}" {{action "sortBy" "state"}}>State</th>
+        <th class = "{{countrySortClass}}" {{action "sortBy" "country"}}>Country</th>
+        <th>License</th>
+        <th>License Details <a href = "https://transit.land/an-open-project/#aggregated-data" target = "_blank"><i class="fa fa-question-circle"></i></a></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each operator in sortedOperators}}
+    	  {{operator-table/operator-row operator=operator}}
+    	{{/each}} 
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,35 @@
+<div class="page-container operator-page">
+{{#link-to "index"}}
+	<i class="fa fa-caret-left"></i> Feed Registry 
+{{/link-to}}
+	<h3 class = "agency-name">{{model.name}} {{#if model.short_name}}
+	({{model.short_name}})
+	{{/if}}
+	</h3>
+
+	<table class = "agency-table">
+		<tr><td> Onestop ID <a href = "https://github.com/transitland/onestop-id-scheme/" target = "_blank"><i class="question-circle"></i></a></td><td>{{model.onestop_id}}</td></tr>
+		{{#if model.metro}}
+			<tr><td>Region</td><td>{{model.metro}}</td></tr>
+		{{/if}}
+		<tr><td>State</td><td>{{model.state}}</td></tr>
+		<tr><td>Country</td><td>{{model.country}}</td></tr>
+		<tr><td>Website</td><td> <a href = "{{model.website}}"  target = "_blank">{{model.website}}</a></td></tr>
+		<tr><td>Timezone</td><td>{{model.timezone}}</td></tr>
+		<tr><td>Identifiers</td><td>{{model.identifiers}}</td></tr>
+		<tr><td>JSON</td><td>{{json-endpoint model.onestop_id}}</td></tr>
+	</table>
+	
+		
+{{#each feed in model.feeds}}
+	{{feed-detail feed=feed}}
+{{else}}
+	<h4>HEY YOU SHOULD WRITE GOOD SENTENCE TO CONVINCE PEOPLE TO UPLOAD </h4>
+{{/each}}
+
+</div>
+<div>
+<p>
+If you notice an error, or would like to add a feed, please email us at <a href="mailto:transitland@mapzen.com">transitland@mapzen.com</a>.</p>
+</div>
+
