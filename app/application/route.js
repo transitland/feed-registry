@@ -8,6 +8,3 @@ export default Ember.Route.extend({
         });
 	}
 });
-
-// moving this out of the application route breaks the app
-// no feed or operator models are accessed
