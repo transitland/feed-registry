@@ -7,12 +7,6 @@
 <td>{{operator.state}}</td>
 <td>{{operator.country}}</td>
 
-<!-- {{#if licenseHasName}}
-	<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{operator.feeds.firstObject.license_name}}</a></td>
-{{else}}
-	<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a></td>
-{{/if}}	 -->
-
 {{#if operator.feeds}}
 	{{#if operator.feeds.firstObject.license_name}}
 		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{operator.feeds.firstObject.license_name}}</a></td>
@@ -50,15 +44,3 @@
 {{else}}
 	<td colspan=2><i>No feed registered (yet!)</i></td>
 {{/if}}
-<!-- <td class = "link"> -->
-<!-- either single upload icon or two or three icons used here -->
-
-	<!-- {{#unless operator.feed}}
-		<a class = "upload-btn"> upload </a>
-		{{else}}
-		
-		<a class = "link-btn" {{bind-attr href='operator.feed.url'}}> api </a>
-		
-	{{/unless}}
-
-</td> -->

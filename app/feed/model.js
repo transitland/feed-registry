@@ -2,7 +2,6 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 var Feed = DS.Model.extend({
-	// operator: DS.belongsTo('operator', { async: true }),
 	onestop_id: Ember.computed.alias('id'),
 	url: DS.attr('string'),
 	feed_format: DS.attr('string'),
