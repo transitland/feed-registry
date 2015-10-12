@@ -45,13 +45,10 @@ export default Ember.Component.extend({
     actions:{
 
         sortBy: function(property) {
-        	console.log("sortby");
             if (this.get('sortProperties')[0] === property) {
                 this.set('sortProperties', [property + ':desc']);
-                console.log("descending");
             } else {
                 this.set('sortProperties', [property]);
-                console.log("ascending");
             }
         } 
     }
