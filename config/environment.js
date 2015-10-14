@@ -7,6 +7,7 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     datastoreHost: 'https://transit.land',
+    allowEditingMode: false,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -22,6 +23,7 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.datastoreHost = 'http://dev.transit.land';
+    ENV.allowEditingMode = true;
   }
 
   if (environment === 'local') {
