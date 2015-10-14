@@ -4,6 +4,15 @@
 
 <main>
 	{{operator-table operators=model.operators}}
+
 </main>
 
 {{closing-copy}}
+
+
+
+{{#if editingMode}} 
+	{{#link-to "operators.new" operator}}
+		<a class="btn btn-default" role="button">Add an Operator</a>
+	{{/link-to}}
+{{/if}}

@@ -6,11 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-    this.route('operators', function(){
-        this.route('show', { path: "/:operator_id" });
-    });
-    this.route('error', { path: "*path" });
-  
+  this.route('operators', function(){
+    this.route('show', { path: "/:operator_id" });
+    this.route('new');
+  });
+  this.route('error', { path: "*path" });
+
+  this.route('operators.new');
 });
 
 export default Router;
