@@ -24,11 +24,13 @@ module.exports = function(environment) {
   if (environment === 'development') {
     ENV.datastoreHost = 'http://dev.transit.land';
     ENV.allowEditingMode = true;
+    ENV.datastoreAuthToken = 'CHANGETHISLOCALLY';
   }
 
   if (environment === 'local') {
     ENV.datastoreHost = 'http://localhost:3000';
-
+    ENV.allowEditingMode = true;
+    ENV.datastoreAuthToken = 'CHANGETHISLOCALLY';
   }
 
   if (environment === 'test') {
