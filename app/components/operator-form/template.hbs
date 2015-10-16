@@ -1,7 +1,59 @@
-Name: {{input value=operator.name}}
-Short name: {{input value=operator.short_name}}
-country {{input value=operator.country}}
-state {{input value=operator.state}}
-metro {{input value=operator.metro}}
-website {{input value=operator.website}}
-timezone {{input value=operator.timezone}}
+<table class="table table-bordered">
+	<tbody>
+		<tr colspan="3">
+			<td>
+				<th>Operator full name</th>
+				<tr>{{input type="text" class="form-control" value=operator.name}}</tr>
+			</td>
+			<td>
+				<th>Short name</th>
+				<tr>{{input type="text" class="form-control" value=operator.short_name}}</tr>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<th>country</th>
+				<tr>
+					<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" {{input value=operator.country}}> Select a country
+  						<span class="caret"></span>
+  					</button>
+  				</tr>
+			</td>
+			<td>
+				<th>state</th>
+				<tr>
+					<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" {{input value=operator.state}}> Select a state
+  						<span class="caret"></span>
+  					</button>
+				</tr>
+			</td>
+			<td>
+				<th>metro</th>
+				<tr>{{input type="text" class="form-control" value=operator.metro}}</tr>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">(For operators that spread across multiple cities, metros, or states, specify the operator headquarters)</td>
+		</tr>
+		<tr>
+			<td>
+				<th>website</th>
+				<tr>{{input type="text" class="form-control" value=operator.website}}</tr>
+			</td>
+			<td>
+				<th>timezone</th>
+				<tr>
+					<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" {{input value=operator.timezone}}> Select a timezone
+  						<span class="caret"></span>
+  					</button>
+				</tr>
+			</td>
+		</tr>
+		<tr> 
+			<td>
+				<th>geometry</th>
+				<tr>map goes here</tr>
+			</td>
+		</tr>
+	</tbody>
+</table>
