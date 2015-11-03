@@ -12,6 +12,11 @@
       border-right: 1px solid #bbb;
       border-bottom:1px solid #bbb;
 
+      //license has too long content now
+      &.license {
+        width: 200px;
+      }
+
       @mixin sort-icon {
         cursor: pointer;
         position: relative;
