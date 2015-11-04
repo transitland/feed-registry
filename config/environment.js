@@ -48,11 +48,17 @@ module.exports = function(environment) {
   if (environment === 'staging') {
     ENV.datastoreHost = 'http://dev.transit.land';
     ENV.baseURL = '/feed-registry';
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-47035811-4'
+    };
   }
 
   if (environment === 'production') {
     ENV.datastoreHost = 'https://transit.land';
     ENV.baseURL = '/feed-registry';
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-47035811-2'
+    };
   }
 
   return ENV;
