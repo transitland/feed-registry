@@ -1,0 +1,19 @@
+.input-form {
+	color: red;
+	.row {
+		border: 1px solid;
+		color: green;
+	}
+	.input-form-lable{
+		border: 1px dotted;
+		color: orange;
+
+	}
+	.input-form-field{
+		color: purple;
+	}
+}
+
+div[class^='col-'],div[class*=' col-']{
+	padding: 0;
+}
