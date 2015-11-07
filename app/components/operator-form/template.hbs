@@ -1,16 +1,16 @@
 <div class="container input-form">
 	<div class="row">
-		<div class="col-sm-7 col-xs-12">
+		<div class="col-sm-7 col-xs-12 input-section">
 			<div class="input-form-lable">Operator full name</div>
-			<div class="input-form-field">{{input type="text" class="form-control" value=operator.name}}</div>
+			<div class="input-form-field" {{input type="text" class="form-control" value=operator.name}}>e.g. Bay Area Rapid Transit</div>
 		</div>
-		<div class="col-sm-5 col-xs-12">
+		<div class="col-sm-5 col-xs-12 input-section">
 			<div class="input-form-lable">Operator short name (optional)</div>
-			<div class="input-form-field">{{input type="text" class="form-control" value=operator.short_name}}</div>
+			<div class="input-form-field" {{input type="text" class="form-control" value=operator.short_name}}>e.g. BART</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-4 col-xs-12">
+		<div class="col-sm-4 col-xs-12 input-section">
 			<div class="input-form-lable">Country</div>
 			<div class="input-form-field">
 				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" {{input type="text" class="form-control" value=operator.country}}>Select a country
@@ -18,7 +18,7 @@
 	  			</button>
 	  		</div>
 		</div>
-		<div class="col-sm-4 col-xs-12">
+		<div class="col-sm-4 col-xs-12 input-section">
 			<div class="input-form-lable">State</div>
 			<div class="input-form-field">
 				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" {{input type="text" class="form-control" value=operator.state}}>Select a state
@@ -26,7 +26,7 @@
 	  			</button>
 	  		</div>
 		</div>
-		<div class="col-sm-4 col-xs-12">
+		<div class="col-sm-4 col-xs-12 input-section">
 			<div class="input-form-lable">Municipality/Region</div>
 			<div class="input-form-field">
 				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" {{input type="text" class="form-control" value=operator.metro}}>e.g. Oakland
@@ -36,19 +36,21 @@
   		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12 col-xs-12 input-form-guide">For operators that spread across multiple cities, metros, or states, specify the operator headquarters
+		<div class="col-sm-12 col-xs-12 input-form-guide input-section">For operators that spread across multiple cities, metros, or states, specify the operator headquarters
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-7 col-xs-12">
+		<div class="col-sm-7 col-xs-12 input-section">
 			<div class="input-form-lable">Website</div>
-			<div class="input-form-field">{{input type="text" class="form-control" value=operator.website}}</div>
+			<div class="input-form-field" {{input type="text" class="form-control" value=operator.website}}>http://somethinguseful.com</div>
 		</div>
-		<div class="col-sm-5 col-xs-12">
+		<div class="col-sm-5 col-xs-12 input-section">
+			<div class="input-form-lable">Select time zone</div>
 			<div class="input-form-field">
 				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" {{input type="text" class="form-control" value=operator.timezone}}>Time zone
 					<span class="caret"></span>
 	  			</button>
+
 	  		</div>
 		</div>
 	</div>	
