@@ -11,6 +11,12 @@ export default Ember.Route.extend({
       operator.set('id', 'o-9q9-FAKE');
       var changeset = operator.toChangeset();
       changeset.save();
+    },
+    emailSignup: function(){
+      console.log("sucessful email signup");
+    },
+    addOperatorForm: function() {
+      return("{{operator-form operator=model}}");
     }
   }
 });

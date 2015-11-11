@@ -1,1 +1,15 @@
-{{yield}}
+<div class="add-feed-nav">
+	<div class="add-feed-nav-title">
+		<h1>{{header-text}}</h1>
+	</div>
+
+{{#unless submitted}}
+	<div class="add-feed-nav-tabs">
+		{{add-feed-tabs/add-feed-tab tab-text="Test 1"}}
+		{{add-feed-tabs/add-feed-tab tab-text="Test 2"}}
+		<button class="btn">Upload feed</button>
+		<button class="btn">Add operator(s)</button>
+		<button class="btn">License info & submit</button>
+	</div>
+{{/unless}}
+</div>

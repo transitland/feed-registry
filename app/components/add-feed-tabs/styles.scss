@@ -1,0 +1,42 @@
+.add-feed-nav{
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	background-color: $grey-color-dark;
+	width: 100vw;
+	
+
+	.add-feed-nav-title {
+		padding-top: 20px;
+		padding-bottom: 40px;
+		text-align: center;
+		color: #ffffff;
+	}
+
+	.add-feed-nav-tabs {
+		text-align: center;
+		margin-bottom: 0;
+		background-color: $grey-color-dark;
+	}
+
+	.btn {
+		color: $grey-color;
+		outline: 0;
+		background-color: $grey-color-dark;
+		margin: 0;
+		margin-left: 10px;
+		border-bottom: 5px solid;
+		box-shadow: 0;
+		border-radius: 0;
+
+		&:hover {
+			color: $logo-color-3;
+
+		}
+
+		&:focus {
+			color: $logo-color-1;	
+			border-bottom-color: $logo-color-1;	
+		}
+	}
+}
