@@ -3,13 +3,24 @@
 		<h1>{{header-text}}</h1>
 	</div>
 
-{{#unless submitted}}
+{{#if upload}}
 	<div class="add-feed-nav-tabs">
-		{{add-feed-tabs/add-feed-tab tab-text="Test 1"}}
-		{{add-feed-tabs/add-feed-tab tab-text="Test 2"}}
-		<button class="btn">Upload feed</button>
+		<!-- {{add-feed-tabs/add-feed-tab tab-text="Test 1"}} -->
+		<!-- {{add-feed-tabs/add-feed-tab tab-text="Test 2"}} -->
+		<button class="btn tab">Upload feed</button>
 		<button class="btn">Add operator(s)</button>
 		<button class="btn">License info & submit</button>
 	</div>
-{{/unless}}
+{{else}}
+		
+
+	<div class="add-feed-nav-tabs">
+		{{add-feed-tabs/add-feed-tab tab-text="Upload feed" tab-class="tab"}}
+		{{add-feed-tabs/add-feed-tab tab-text="Add operator(s)" tab-class=""}}
+		{{add-feed-tabs/add-feed-tab tab-text="License info & submit" tab-class=""}}
+		<!-- <button class="btn">Upload feed</button>
+		<button class="btn tab">Add operator(s)</button>
+		<button class="btn">License info & submit</button> -->
+	</div>
+{{/if}}
 </div>

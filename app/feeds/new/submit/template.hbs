@@ -1,1 +1,24 @@
-{{outlet}}
+<div class="fullvw-wrapper">
+	{{add-feed-tabs header-text="SUCCESS!" submitted=true}}
+</div>
+<div class="container">
+	<p>Thank you for adding a feed! We have created a changeset to review on Transitland.</p>
+	<p>Would you like to be notified your changes are live?</p>
+</div>
+<div class="container email-input-form">
+	<div class="row">
+		<div class="col-sm-5 input-section">
+			<div class="input-form-lable">Email Address</div>
+			<div class="input-form-field" {{input type="text" class="form-control" value=operator.website}}>someone@example.com</div>
+		</div>
+		<div class="col-sm-2 input-section btn">
+			<input type="button" {{action 'emailSignup'}} class="btn btn-primary" value="GET NOTIFIED" >
+		</div>
+	</div>	
+</div>
+<div class="container email-caption">
+	We won't spam you, promise.
+</div>
+{{#link-to "feeds.new.add-operator" class="btn btn-default" role="button"}}
+		Return to add-license
+{{/link-to}}

@@ -1,1 +1,20 @@
-{{outlet}}
+<div class="fullvw-wrapper">
+	{{add-feed-tabs header-text="ADD A TRANSIT FEED" submitted=false}}
+</div>
+
+
+<div>
+	{{add-feed-blurb blurb-text="Need blurb for add operator form instructions."}}
+	{{operator-form operator=model}}
+</div>
+<br>
+<div align=left>
+{{#link-to "feeds.new.index" class="btn btn-default" role="button"}}
+  Back
+{{/link-to}}
+</div>
+<div align=right>
+{{#link-to "feeds.new.license" class="btn btn-default" role="button"}}
+  Next >
+{{/link-to}}
+</div>

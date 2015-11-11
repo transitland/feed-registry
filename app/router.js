@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('new', function() {
       this.route('add-operator');
       this.route('submit');
+      this.route('license');
     });
   });
 });

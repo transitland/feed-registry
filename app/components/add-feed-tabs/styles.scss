@@ -29,14 +29,11 @@
 		box-shadow: 0;
 		border-radius: 0;
 
-		&:hover {
-			color: $logo-color-3;
-
+		.tab {
+			color: $logo-color-1;
+			border-color: $logo-color-1;
 		}
 
-		&:focus {
-			color: $logo-color-1;	
-			border-bottom-color: $logo-color-1;	
-		}
+	
 	}
 }
