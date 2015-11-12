@@ -13,27 +13,35 @@
 		color: #ffffff;
 	}
 
-	.add-feed-nav-tabs {
+	.row {
 		text-align: center;
 		margin-bottom: 0;
-		background-color: $grey-color-dark;
 	}
 
-	.btn {
+	.tab {
 		color: $grey-color;
 		outline: 0;
+		width: 15%;
+		display: inline-block;
 		background-color: $grey-color-dark;
 		margin: 0;
 		margin-left: 10px;
 		border-bottom: 5px solid;
 		box-shadow: 0;
 		border-radius: 0;
+	}
 
-		.tab {
-			color: $logo-color-1;
-			border-color: $logo-color-1;
-		}
-
-	
+	.tab-current {
+		outline: 0;
+		width: 15%;
+		display: inline-block;
+		background-color: $grey-color-dark;
+		margin: 0;
+		margin-left: 10px;
+		border-bottom: 5px solid;
+		box-shadow: 0;
+		border-radius: 0;
+		color: $logo-color-1;
+		border-color: $logo-color-1;
 	}
 }

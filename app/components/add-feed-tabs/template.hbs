@@ -4,13 +4,13 @@
 	</div>
 
 {{#unless submitted}}
-		<div class="add-feed-nav-tabs">
-		{{add-feed-tabs/add-feed-tab tab-text="Upload feed" tab-class="tab"}}
+	<div class="col-sm-12 col-xs-12 row">
+		<!-- {{add-feed-tabs/add-feed-tab tab-text="Upload feed" tab-class="tab"}}
 		{{add-feed-tabs/add-feed-tab tab-text="Add operator(s)" tab-class=""}}
-		{{add-feed-tabs/add-feed-tab tab-text="License info & submit" tab-class=""}}
-		<!-- <button class="btn">Upload feed</button>
-		<button class="btn tab">Add operator(s)</button>
-		<button class="btn">License info & submit</button> -->
+		{{add-feed-tabs/add-feed-tab tab-text="License info & submit" tab-class=""}} -->
+		<div class={{upload-tab-class}}>Upload feed</div>
+		<div class={{add-operator-tab-class}}>Add operator(s)</div>
+		<div class={{license-tab-class}}>License info & submit</div>
 	</div>
 {{/unless}}
 </div>
