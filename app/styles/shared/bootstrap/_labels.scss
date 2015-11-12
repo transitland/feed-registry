@@ -16,7 +16,7 @@
 
   // [converter] extracted a& to a.label
 
-  // Empty labels collapse automatically (not available in IE8)
+  // Empty labels collapse automatically (not availabel in IE8)
   &:empty {
     display: none;
   }
