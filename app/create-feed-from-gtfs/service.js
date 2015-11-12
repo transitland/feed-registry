@@ -9,5 +9,8 @@ export default Ember.Service.extend({
       this.set('feedModel', newFeedModel);
     }
     return this.get('feedModel');
+  },
+  downloadGtfsArchiveAndParseIntoFeedModel: function() {
+    return true;
   }
 });
