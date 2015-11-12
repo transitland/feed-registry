@@ -5,7 +5,9 @@
 
 <div>
 	{{add-feed-blurb blurb-text="Need blurb for add operator form instructions."}}
-	{{operator-form operator=model}}
+	{{#each operator in model.operators}}
+		{{operator-form operator=operator}}
+	{{/each}}
 </div>
 <br>
 <div align=left>
