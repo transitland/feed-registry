@@ -4,11 +4,17 @@ export default Ember.Controller.extend({
   createFeedFromGtfsService: Ember.inject.service('create-feed-from-gtfs'),
   actions: {
     next: function() {
-      if (this.get('createFeedFromGtfsService').downloadGtfsArchiveAndParseIntoFeedModel()) {
-        this.transitionToRoute('feeds.new.add-operator');
-      } else {
-        alert('TODO: replace me with a nicer error message');
-      }
+      var controller = this;
+      this
+        .get('createFeedFromGtfsService')
+        .downloadGtfsArchiveAndParseIntoFeedModel()
+        .then(function(){
+          controller.transitionToRoute('feeds.new.add-operator');
+        })
+        .catch(function(){
+          alert('Error');
+          // controller.transitionToRoute('error');
+        });
     }
   }
 });
