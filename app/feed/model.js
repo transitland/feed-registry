@@ -16,6 +16,15 @@ var Feed = DS.Model.extend({
 	last_imported_at: DS.attr('string'),
 	created_at: DS.attr('date'),
 	updated_at: DS.attr('date'),
+  addOperator: function(operator) {
+    this.get('operators').createRecord({
+      id: operator.onestop_id,
+      name: operator.name,
+      website: operator.website,
+      onestop_id: operator.onestop_id,
+      timezone: operator.timezone
+    })
+  }
 });
 
 
