@@ -11,6 +11,17 @@ export default Ember.Service.extend({
     return this.get('feedModel');
   },
   downloadGtfsArchiveAndParseIntoFeedModel: function() {
-    return true;
+    var feedModel = this.createOrFindFeedModel();
+    // var url = 'http://www.caltrain.com/Assets/GTFS/caltrain/GTFS-Caltrain-Devs.zip';
+    var url = feedModel.get('url');
+    var adapter = this.get('store').adapterFor('fetch_info');
+    var fetch_info_url = adapter.urlPrefix()+'/fetch_info';
+    var promise = adapter.ajax(fetch_info_url, 'post', {data:{url:url}});
+    promise.then(function(response) {
+      response.operators.map(function(operator){
+        feedModel.addOperator(operator)
+      });
+    });
+    return promise
   }
 });
