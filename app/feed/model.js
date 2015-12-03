@@ -28,7 +28,18 @@ var Feed = DS.Model.extend({
       geometry: operator.geometry,
       tags: operator.tags
     })
-  }
+  },
+	toChange: function() {
+		var feedJson = this.toJSON();
+		feedJson.onestopId = this.id;
+		// remove attributes that don't need to be submitted to server
+		feedJson = _.omit(feedJson, ['created_at', 'updated_at', 'operators']);
+		// remove any attributes with null values, undefined values, or empty strings
+		feedJson = _.omit(feedJson, function(value) {
+			return value === null || value === '' || value === undefined;
+		});
+    return feedJson;
+	}
 });
 
 

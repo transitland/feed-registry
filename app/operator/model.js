@@ -26,19 +26,7 @@ var Operator = DS.Model.extend({
 		operatorJson = _.omit(operatorJson, function(value) {
 			return value === null || value === '' || value === undefined;
 		});
-
-		var changeset = this.store.createRecord('changeset', {
-			notes: 'This is a test. TODO put a custom message here.',
-			payload: {
-				changes: [
-					{
-						action: 'createUpdate',
-						operator: operatorJson
-					}
-				]
-			}
-		});
-		return changeset;
+    return operatorJson;
 	}
 });
 
