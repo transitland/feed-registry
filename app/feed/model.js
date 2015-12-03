@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import _ from 'npm:lodash';
 
 var Feed = DS.Model.extend({
 	onestop_id: Ember.computed.alias('id'),
@@ -16,6 +17,8 @@ var Feed = DS.Model.extend({
 	last_imported_at: DS.attr('string'),
 	created_at: DS.attr('date'),
 	updated_at: DS.attr('date'),
+  geometry: DS.attr(),
+  tags: DS.attr(),
   addOperator: function(operator) {
     this.get('operators').createRecord({
       id: operator.onestop_id,
