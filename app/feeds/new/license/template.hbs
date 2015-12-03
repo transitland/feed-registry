@@ -20,7 +20,7 @@
 		<div class="col-sm-12 col-xs-12 input-form-guide input-section">Pick the license restrictions. Select 'Unknown'if you are not sure.
 		</div>
 	</div>
-	
+
 	<div class="col-sm-12 col-xs-12 row">
 		<div class="col-sm-6 col-xs-6 input-section">
 			<div class="input-form-label">Attribution for feed data</div>
@@ -51,7 +51,7 @@
 	  		<button type="button" class="col-sm-1 btn btn-default">Unknown</button>
   		</div>
 	</div>
-	
+
 </div>
 
 <br>
@@ -61,7 +61,5 @@
 {{/link-to}}
 </div>
 <div align=right>
-{{#link-to "feeds.new.submit" class="btn btn-default" role="button"}}
-	SUBMIT FEED
-{{/link-to}}
+	<a class="btn btn-default" role="button" {{action "submit"}}>SUBMIT FEED ></a>
 </div>
