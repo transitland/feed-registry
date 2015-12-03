@@ -27,5 +27,21 @@ export default Ember.Service.extend({
       }
     });
     return promise
-  }
+  },
+	toChangeset: function() {
+    var feedModel = this.createOrFindFeedModel();
+    var changes = [];
+    changes.push({action:'createUpdate', feed:feedModel.toChange()})
+    console.log(feedModel.get('operators'));
+    feedModel.get('operators').map(function(operator){
+      changes.push({action:'createUpdate', operator:operator.toChange()})
+    });
+		var changeset = this.get('store').createRecord('changeset', {
+			notes: 'This is a test. TODO put a custom message here.',
+			payload: {
+				changes: changes
+			}
+		});
+		return changeset;
+	}
 });
