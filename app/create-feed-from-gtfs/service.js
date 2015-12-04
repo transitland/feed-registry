@@ -20,6 +20,8 @@ export default Ember.Service.extend({
     var promise = adapter.ajax(fetch_info_url, 'post', {data:{url:url}});
     promise.then(function(response) {
       if (response.status == 'complete') {
+        // feedModel.update(response.feed);
+        feedModel.set('id', response.feed.onestop_id);
         //feedModel.get('operators').unloadAll();
         return response.operators.map(function(operator){feedModel.addOperator(operator)});
       } else if (response.status == 'processing') {
@@ -32,7 +34,6 @@ export default Ember.Service.extend({
     var feedModel = this.createOrFindFeedModel();
     var changes = [];
     changes.push({action:'createUpdate', feed:feedModel.toChange()})
-    console.log(feedModel.get('operators'));
     feedModel.get('operators').map(function(operator){
       changes.push({action:'createUpdate', operator:operator.toChange()})
     });
