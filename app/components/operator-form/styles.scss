@@ -11,6 +11,11 @@
 
 	}
 
+	.label {
+		color: $logo-color-3;
+		padding: 5px 0px 3px 5px;
+	}
+
 	.row {
 		border-bottom: 2px solid $grey-color-light;
 	}
@@ -21,9 +26,8 @@
 	.input-form-field{
 		color: $grey-color-light;
 		padding: 5px 0px 3px 5px;
-
-
 	}
+	
 	.input-form-guide{
 		color: $grey-color;
 		background: $grey-color-light;
@@ -35,6 +39,10 @@
 		background-color: #fdfdfd;
 	}
 }
+.label {
+		color: $logo-color-3;
+		padding: 5px 0px 3px 5px;
+	}
 
 .form-caption {
 		text-align: left;
