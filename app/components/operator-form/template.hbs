@@ -44,8 +44,10 @@
 		<div class="col-sm-5 col-xs-12 input-section">
 			<div class="input-form-label">Select time zone</div>
 			<div class="input-form-field">
-				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">{{input type="text" class="form-control" value=operator.timezone placeholder="Time zone"}}
-					<span class="caret"></span>
+				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+					{{#power-select options=names onchange=(action "foo") as |name|}}
+      					{{name}}
+    				{{/power-select}}
 	  			</button>
 
 	  		</div>
