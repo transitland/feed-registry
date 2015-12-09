@@ -24,15 +24,9 @@
 	<div class="col-sm-12 col-xs-12 row input-section">
 		<div class="input-form-label">Attribution for feed data
 	        <div class="btn-group" data-toggle="buttons">
-	            <label class="btn btn-default">
-	                <input type="radio" value="Optional" /> Optional
-	            </label> 
-	            <label class="btn btn-default">
-	                <input type="radio" value="Required" /> Required
-	            </label> 
-	            <label class="btn btn-default">
-	                <input type="radio" value="Unknown" /> Unknown
-	            </label> 
+	                <button class="btn btn-default" type="button" value="Optional" {{action "setAttribution" "optional"}}> Optional</button>
+	                <button class="btn btn-default" type="button" value="Required" {{action "setAttribution" "required"}}> Required</button>
+	                <button class="btn btn-default" type="button" value="Unknown" {{action "setAttribution" "unknown"}}> Unknown</button>
 	        </div>
         </div>
 	</div>

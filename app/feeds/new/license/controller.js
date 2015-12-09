@@ -11,8 +11,10 @@ export default Ember.Controller.extend({
         controller.transitionToRoute('feeds.new.submit');
       }).catch(function(){
         alert('Error with submission');
-      })
-
+      });
+    },
+    setAttribution: function(attribution){
+      this.model.set("license_use_without_attribution", attribution);
     }
   }
 });
