@@ -4,11 +4,12 @@ export default DS.RESTSerializer.extend({
 	// Custom json root. The API returns objects in the "data" key.
 	// We need to re-assign it to the singular version of the model name.
 	// So {data: {name: foo}} becomes {post: {name: foo}}
-	
-	normalizeSingleResponse: function(store, primaryModelClass, rawPayload, id, requestType) {
+	extractSingle: function(store, primaryType, rawPayload, recordId) {
+		var typeKey = primaryType.typeKey;
 		var payload = {};
-		payload[primaryModelClass.modelName] = rawPayload;
-		return this._super(store, primaryModelClass, payload, id, requestType);
+		payload[typeKey] = rawPayload;
+
+		return this._super(store, primaryType, payload, recordId);
 	},
 
 	primaryKey: 'onestop_id',
