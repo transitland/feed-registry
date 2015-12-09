@@ -82,8 +82,12 @@
       &:before {
         @extend .tooltip-point;
       }
-      &:after {
+      &.onestop-id-tooltip:after {
         content: 'Onestop IDs are globally unique identifiers for transit feeds, operators, routes, and stops. Use them to query the Transitland API or use them in your own apps and analyses. More info on Github.';
+        @extend .tooltip;
+      }
+      &.attribution-text-tooltip:after {
+        content: "This feed's license requires you to include this text wherever you use its data.";
         @extend .tooltip;
       }
     }

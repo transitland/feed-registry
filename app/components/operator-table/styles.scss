@@ -2,6 +2,7 @@
   width: 110%;
   margin-left: -5%;
   margin-right: -5%;
+  margin-bottom: 50px;
   font-size: 16px;
 
   thead {
@@ -10,6 +11,11 @@
     th {
       border-right: 1px solid #bbb;
       border-bottom:1px solid #bbb;
+
+      //license has too long content now
+      &.license {
+        width: 200px;
+      }
 
       @mixin sort-icon {
         cursor: pointer;

@@ -1,6 +1,9 @@
 <td>
 	{{#link-to "operators.show" operator}}
 		{{operator.name}}
+		{{#if operator.short_name}}
+	<br>({{operator.short_name}})
+	{{/if}}
 	{{/link-to}}
 </td>
 <td>{{operator.metro}}</td>
