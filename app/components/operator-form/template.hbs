@@ -45,9 +45,12 @@
 			<div class="input-form-label">Select time zone</div>
 			<div class="input-form-field">
 				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
-					{{#power-select options=names onchange=(action "foo") as |name|}}
-      					{{name}}
-    				{{/power-select}}
+					<!-- {{#power-select options=names selected=selected onchange=(action (mut selected)) as |name|}}
+				      {{name}}
+				    {{/power-select}} -->
+				    {{#power-select selected=destination options=cities onchange=(action (mut destination)) as |name|}}
+				      {{name}}
+				    {{/power-select}}
 	  			</button>
 
 	  		</div>
