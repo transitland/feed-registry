@@ -1,8 +1,5 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	names: ['Stefan', 'Miguel', 'Tomster', 'Pluto'],
-	actions: {
-		foo(){}
-	}
+      names: [ "María", "Søren Larsen", "João", "Saša Jurić", "Íñigo" ]
 });
