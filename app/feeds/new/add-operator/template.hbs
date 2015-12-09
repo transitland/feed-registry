@@ -1,0 +1,23 @@
+<div class="fullvw-wrapper">
+	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab" add-operator-tab-class="tab-current" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
+</div>
+
+
+<div>
+	{{add-feed-blurb blurb-text="Need blurb for add operator form instructions."}}
+	{{#each operator in model.operators}}
+		{{operator-form operator=operator}}
+		<br>
+	{{/each}}
+</div>
+<br>
+<div align=left>
+{{#link-to "feeds.new.index" class="btn btn-default" role="button"}}
+  Back
+{{/link-to}}
+</div>
+<div align=right>
+{{#link-to "feeds.new.license" class="btn btn-default" role="button"}}
+  Next >
+{{/link-to}}
+</div>

@@ -1,0 +1,26 @@
+<div class="fullvw-wrapper">
+	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab-current" add-operator-tab-class="tab" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
+</div>
+<div class="container">
+	<p>Need blurb here for upload a feed.</p>
+</div>
+<div class="container email-input-form">
+	<div class="row">
+		<div class="col-sm-5 input-section">
+			<div class="input-form-label">Parse a .GTFS feed URL</div>
+			<div class="input-form-field"> {{input type="text" class="form-control" value=model.url placeholder="http://..."}}</div>
+		</div>
+	</div>
+</div>
+<br>
+<div class="container email-caption">
+	Transitland will periodically check this URL for updates
+</div>
+<br>
+<div align="left">
+	{{#link-to "index" class="btn btn-default" role="button"}}
+			Cancel
+	{{/link-to}}
+
+	<a class="btn btn-default" role="button" {{action "next"}}>Next ></a>
+</div>

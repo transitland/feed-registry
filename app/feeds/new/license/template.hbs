@@ -1,0 +1,65 @@
+<div class="fullvw-wrapper">
+	{{add-feed-tabs header-text="ADD A TRANSIT FEED" submitted=false upload-tab-class="tab" add-operator-tab-class="tab" license-tab-class="tab-current" submitted=false}}
+</div>
+
+<div>
+	{{add-feed-blurb blurb-text="Need blurb for add license form instructions."}}
+</div>
+<div class="container input-form">
+	<div class="row">
+		<div class="col-sm-7 col-xs-12 input-section">
+			<div class="input-form-label">License name</div>
+			<div class="input-form-field" {{input type="text" class="form-control" value=operator.name}}>e.g. Creative Commons 2.0</div>
+		</div>
+		<div class="col-sm-5 col-xs-12 input-section">
+			<div class="input-form-label">License URL</div>
+			<div class="input-form-field" {{input type="text" class="form-control" value=operator.short_name}}>http://...</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-xs-12 input-form-guide input-section">Pick the license restrictions. Select 'Unknown'if you are not sure.
+		</div>
+	</div>
+
+	<div class="col-sm-12 col-xs-12 row">
+		<div class="col-sm-6 col-xs-6 input-section">
+			<div class="input-form-label">Attribution for feed data</div>
+		</div>
+		<div class="btn-group-lg" role="group">
+			<button type="button" class="btn btn-default">Optional</button>
+			<button type="button" class="btn btn-default">Required</button>
+	  		<button type="button" class="btn btn-default">Unknown</button>
+  		</div>
+	</div>
+	<div class="col-sm-12 col-xs-12 row">
+		<div class="col-sm-6 col-xs-6 input-section">
+			<div class="input-form-label">Creation of derived data products</div>
+		</div>
+		<div class="btn-group-lg" role="group">
+			<button type="button" class="btn btn-default">Permitted</button>
+			<button type="button" class="btn btn-default">Not permitted</button>
+	  		<button type="button" class="btn btn-default">Unknown</button>
+  		</div>
+	</div>
+	<div class="col-sm-12 col-xs-12 row">
+		<div class="col-sm-6 col-xs-6 input-section">
+			<div class="input-form-label">Redistribution of feed as-is</div>
+		</div>
+		<div class="cbtn-group-lg" role="group">
+			<button type="button" class="col-sm-1 btn btn-default">Permitted</button>
+			<button type="button" class="col-sm-1 btn btn-default">Not permitted</button>
+	  		<button type="button" class="col-sm-1 btn btn-default">Unknown</button>
+  		</div>
+	</div>
+
+</div>
+
+<br>
+<div align=left>
+{{#link-to "feeds.new.index" class="btn btn-default" role="button"}}
+  Back
+{{/link-to}}
+</div>
+<div align=right>
+	<a class="btn btn-default" role="button" {{action "submit"}}>SUBMIT FEED ></a>
+</div>

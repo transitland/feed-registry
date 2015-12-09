@@ -15,7 +15,9 @@ var Operator = DS.Model.extend({
 	timezone: DS.attr('string'),
 	created_at: DS.attr('date'),
 	updated_at: DS.attr('date'),
-	toChangeset: function() {
+  geometry: DS.attr(),
+  tags: DS.attr(),
+	toChange: function() {
 		var operatorJson = this.toJSON();
 		operatorJson.onestopId = this.id;
 		// remove attributes that don't need to be submitted to server
@@ -24,19 +26,7 @@ var Operator = DS.Model.extend({
 		operatorJson = _.omit(operatorJson, function(value) {
 			return value === null || value === '' || value === undefined;
 		});
-
-		var changeset = this.store.createRecord('changeset', {
-			notes: 'This is a test. TODO put a custom message here.',
-			payload: {
-				changes: [
-					{
-						action: 'createUpdate',
-						operator: operatorJson
-					}
-				]
-			}
-		});
-		return changeset;
+    return operatorJson;
 	}
 });
 

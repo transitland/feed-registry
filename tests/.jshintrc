@@ -1,9 +1,7 @@
 {
   "predef": [
-    "document": true,
-    "window": true,
-    "WowENV": true,
-    "moment": true,
+    "document",
+    "window",
     "location",
     "setTimeout",
     "$",

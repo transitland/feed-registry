@@ -1,0 +1,62 @@
+.input-form {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	background-color: #fdfdfd;
+	border-top: 2px solid $grey-color-light;
+	border-left: 2px solid $grey-color-light;
+
+	.input-section {
+		border-right: 2px solid $grey-color-light;
+
+	}
+
+	.label {
+		color: $logo-color-3;
+		padding: 5px 0px 3px 5px;
+	}
+
+	.row {
+		border-bottom: 2px solid $grey-color-light;
+	}
+	.input-form-label{
+		color: $logo-color-3;
+		padding: 5px 0px 3px 5px;
+	}
+	.input-form-field{
+		color: $grey-color-light;
+		padding: 5px 0px 3px 5px;
+	}
+	
+	.input-form-guide{
+		color: $grey-color;
+		background: $grey-color-light;
+		text-align: center;
+		padding: 5px 0px 3px 5px;
+		
+	}
+	.btn{
+		background-color: #fdfdfd;
+	}
+	.dropdown-toggle{
+		width: 100%;
+	}
+}
+.label {
+		color: $logo-color-3;
+		padding: 5px 0px 3px 5px;
+	}
+
+.form-caption {
+		text-align: left;
+		font-family: $base-font-family;
+		font-size: $base-font-size;
+		font-style: italic;
+		line-height: $base-line-height;
+		font-weight: $base-font-weight;
+		color: $grey-color;
+	}
+
+div[class^='col-'],div[class*=' col-']{
+	padding: 0;
+}

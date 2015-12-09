@@ -15,7 +15,7 @@
   }
 
   // Hover states for `.table-hover`
-  // Note: this is not available for cells or rows within `thead` or `tfoot`.
+  // Note: this is not availabel for cells or rows within `thead` or `tfoot`.
   .table-hover > tbody > tr {
     > td.#{$state}:hover,
     > th.#{$state}:hover,
