@@ -128,7 +128,8 @@
 		background-color: #fdfdfd;
 	}
 	.btn.active, .btn:active{
-		background-color: red;
+		color: $grey-color-light;
+		background-color: $grey-color;
 	}
 	.btn-group{
 		 margin-left: 15px; 
