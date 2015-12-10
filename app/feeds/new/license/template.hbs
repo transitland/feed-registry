@@ -28,9 +28,9 @@
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Attribution for feed data
 		        <div class="btn-group" data-toggle="buttons">
-		                <button class="btn btn-default" type="button" value="Optional" {{action "setAttribution" "optional"}}> Optional</button>
-		                <button class="btn btn-default" type="button" value="Required" {{action "setAttribution" "required"}}> Required</button>
-		                <button class="btn btn-default" type="button" value="Unknown" {{action "setAttribution" "unknown"}}> Unknown</button>
+							{{license-form-toggle-button attr=model.license_use_without_attribution text="Optional" value="yes"}}
+							{{license-form-toggle-button attr=model.license_use_without_attribution text="Required" value="no"}}
+							{{license-form-toggle-button attr=model.license_use_without_attribution text="Unknown" value="unknown"}}
 		        </div>
 	        </div>
 					{{#if showLicenseAttributionText}}
@@ -43,9 +43,9 @@
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Creation of derived data products
 				<div class="btn-group" data-toggle="buttons">
-		                <button class="btn btn-default" type="button" value="Permitted" {{action "setCreateDerived" "permitted"}}> Optional</button>
-		                <button class="btn btn-default" type="button" value="Not Permitted" {{action "setCreateDerived" "not permitted"}}> Required</button>
-		                <button class="btn btn-default" type="button" value="Unknown" {{action "setCreateDerived" "unknown"}}> Unknown</button>
+						{{license-form-toggle-button attr=model.license_create_derived_product text="Permitted" value="yes"}}
+						{{license-form-toggle-button attr=model.license_create_derived_product text="Not Permitted" value="no"}}
+						{{license-form-toggle-button attr=model.license_create_derived_product text="Unknown" value="unknown"}}
 		        </div>
 	        </div>
 		</div>
@@ -54,9 +54,9 @@
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Redistribution of feed as-is
 		        <div class="btn-group" data-toggle="buttons">
-		                <button class="btn btn-default" type="button" value="Optional" {{action "setRedistribute" "optional"}}> Optional</button>
-		                <button class="btn btn-default" type="button" value="Required" {{action "setRedistribute" "required"}}> Required</button>
-		                <button class="btn btn-default" type="button" value="Unknown" {{action "setRedistribute" "unknown"}}> Unknown</button>
+							{{license-form-toggle-button attr=model.license_redistribute text="Optional" value="yes"}}
+							{{license-form-toggle-button attr=model.license_redistribute text="Required" value="no"}}
+							{{license-form-toggle-button attr=model.license_redistribute text="Unknown" value="unknown"}}
 		        </div>
 	        </div>
 		</div>
@@ -78,4 +78,3 @@
 		{{/link-to}}
 	</div>
 </div>
-
