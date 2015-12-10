@@ -23,18 +23,24 @@
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	background-color: #fdfdfd;
+	background-color: #ffffff;
+	border: 0;
 
-	.row {
+	/*.row {
 		border: 2px solid $grey-color-light;
-	}
+	}*/
 	.input-form-label{
 		color: $logo-color-3;
 		padding: 5px 0px 3px 5px;
 	}
-	.input-form-field{
-		color: $grey-color-light;
+	.ember-text-field{
+		color: $grey-color;
+		border: 0;
 		padding: 5px 0px 3px 5px;
+		width: 100%;
+		&:focus{
+			outline: none;
+		}
 
 	}
 
@@ -76,7 +82,7 @@
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	background-color: #fdfdfd;
+	background-color: #ffffff;
 	border-top: 2px solid $grey-color-light;
 	border-left: 2px solid $grey-color-light;
 
