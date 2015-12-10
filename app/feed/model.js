@@ -18,6 +18,7 @@ var Feed = DS.Model.extend({
 	last_imported_at: DS.attr('string'),
 	created_at: DS.attr('date'),
 	updated_at: DS.attr('date'),
+	operators_in_feed: DS.attr(),
   geometry: DS.attr(),
   tags: DS.attr(),
   addOperator: function(operator) {
@@ -34,7 +35,15 @@ var Feed = DS.Model.extend({
 		var feedJson = this.toJSON();
 		feedJson.onestopId = this.id;
 		// remove attributes that don't need to be submitted to server
-		feedJson = _.omit(feedJson, ['created_at', 'updated_at', 'operators']);
+		// feedJson.includesOperators = feedJson.operators_in_feed;
+		var includesOperators = [];
+		this.get('operators_in_feed').each(function() {
+			includesOperators.push({
+				gtfsAgencyId: this.gtfs_agency_id,
+				operatorOnestopId: this.operator_onestop_id
+			})
+		});
+		feedJson = _.omit(feedJson, ['created_at', 'updated_at', 'operators', 'operators_in_feed']);
 		// remove any attributes with null values, undefined values, or empty strings
 		feedJson = _.omit(feedJson, function(value) {
 			return value === null || value === '' || value === undefined;

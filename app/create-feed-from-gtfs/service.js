@@ -24,6 +24,7 @@ export default Ember.Service.extend({
     promise.then(function(response) {
       if (response.status == 'complete') {
         feedModel.set('id', response.feed.onestop_id);
+        feedModel.set('operators_in_feed', response.feed.operators_in_feed);
         return response.operators.map(function(operator){feedModel.addOperator(operator)});
       } else if (response.status == 'processing') {
         return Ember.run.later(controller, function(){this.downloadGtfsArchiveAndParseIntoFeedModel(retries)}, 1000);
@@ -34,10 +35,10 @@ export default Ember.Service.extend({
 	toChangeset: function() {
     var feedModel = this.createOrFindFeedModel();
     var changes = [];
-    changes.push({action:'createUpdate', feed:feedModel.toChange()})
     feedModel.get('operators').map(function(operator){
       changes.push({action:'createUpdate', operator:operator.toChange()})
     });
+    changes.push({action:'createUpdate', feed:feedModel.toChange()})
 		var changeset = this.get('store').createRecord('changeset', {
 			notes: 'This is a test. TODO put a custom message here.',
 			payload: {
