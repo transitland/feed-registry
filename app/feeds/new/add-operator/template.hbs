@@ -2,9 +2,13 @@
 	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab" add-operator-tab-class="tab-current" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
 </div>
 
+<div class="add-operator-info">
+	<p>
+		We've fetched the GTFS feed from that URL, parsed it, and listed out the {{model.operators.length}} operator(s) listed in the feed. For each operator, please check its detail and add in any extra information about its location.
+	</p>
+</div>
 
 <div>
-	{{add-feed-blurb blurb-text="Need blurb for add operator form instructions."}}
 	{{#each operator in model.operators}}
 		{{operator-form operator=operator}}
 		<br>
