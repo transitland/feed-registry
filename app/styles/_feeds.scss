@@ -50,15 +50,56 @@
 
 		&:hover {
 			color: $logo-color-3;
+			background-color: $grey-color;
+
 
 		}
 
 		&:focus {
-			color: $logo-color-1;	
+			color: $logo-color-1;
+			background-color: $grey-color;
+
+		}
+		&:active {
+			color: $logo-color-1;
+			background-color: #FFFFFF;
+			box-shadow: 0;
 		}
 	}
 	
 }
+
+.btn{
+		background-color: #FFFFFF;
+		color: $grey-color;
+		border: 0;
+		outline: 0;
+		margin: 3px;
+		box-shadow: 0;
+		border-radius: 0;
+		text-align: center;
+
+		&:hover {
+			color: $logo-color-3;
+			background-color: #FFFFFF;
+			box-shadow: 0;
+
+
+		}
+
+		&:focus {
+			color: $logo-color-1;
+			background-color: #FFFFFF;
+			box-shadow: 0;
+
+		}
+
+		&:active {
+			color: $logo-color-1;
+			background-color: #FFFFFF;
+			box-shadow: 0;
+		}
+	}
 
 .input-form {
 	font-family: $base-font-family;
