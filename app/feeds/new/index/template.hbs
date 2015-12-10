@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="input-form-label">GTFS feed URL</div>
-			<div class="input-form-field"> {{input type="text" value=model.url placeholder="http://..."}}</div>
+			<div class="input-form-field">{{input type="text" value=model.url placeholder="http://..."}}</div>
 		</div>
 	</div>
 </div>
@@ -17,10 +17,12 @@
 	After this feed is added to Transitland, our servers will periodically check this URL for updates
 </div>
 <br>
-<div align="left">
-	{{#link-to "index" class="btn btn-default" role="button"}}
-			Cancel
-	{{/link-to}}
+<div class="container email-input-form">
 
-	<a class="btn btn-default" role="button" {{action "next"}}>Next ></a>
+	<div align="left">
+		{{#link-to 'index' class="btn btn-default"}}
+				Cancel
+		{{/link-to}}
+		<a class="btn btn-default" role="button" {{action "next"}}>Next ></a>
+	</div>
 </div>
