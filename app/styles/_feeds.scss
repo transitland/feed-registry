@@ -97,6 +97,16 @@
 	.row {
 		border-bottom: 2px solid $grey-color-light;
 	}
+	.ember-text-field{
+		color: $grey-color;
+		border: 0;
+		padding: 0px 0px 3px 5px;
+		width: 100%;
+		&:focus{
+			outline: none;
+		}
+
+	}
 	.input-form-label{
 		color: $logo-color-3;
 		padding: 5px 0px 3px 5px;
@@ -116,6 +126,9 @@
 	}
 	.btn{
 		background-color: #fdfdfd;
+	}
+	.btn.active, .btn:active{
+		background-color: red;
 	}
 }
 
