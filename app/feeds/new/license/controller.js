@@ -15,6 +15,12 @@ export default Ember.Controller.extend({
     },
     setAttribution: function(attribution){
       this.model.set("license_use_without_attribution", attribution);
+    },
+    setCreateDerived: function(derived){
+      this.model.set("license_create_derived_product", derived);
+    },
+    setRedistribute: function(redistribute){
+      this.model.set("license_redistribute", redistribute);
     }
   }
 });

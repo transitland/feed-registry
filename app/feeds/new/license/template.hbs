@@ -33,31 +33,19 @@
 
 	<div class="col-sm-12 col-xs-12 row input-section">
 		<div class="input-form-label">Creation of derived data products
-	        <div class="btn-group" data-toggle="buttons">
-	            <label class="btn btn-default">
-	                <input type="radio" value="Permitted" /> Permitted
-	            </label> 
-	            <label class="btn btn-default">
-	                <input type="radio" value="Not Permitted" /> Not Permitted
-	            </label> 
-	            <label class="btn btn-default">
-	                <input type="radio" value="Unknown" /> Unknown
-	            </label> 
+			<div class="btn-group" data-toggle="buttons">
+	                <button class="btn btn-default" type="button" value="Permitted" {{action "setCreateDerived" "permitted"}}> Optional</button>
+	                <button class="btn btn-default" type="button" value="Not Permitted" {{action "setCreateDerived" "not permitted"}}> Required</button>
+	                <button class="btn btn-default" type="button" value="Unknown" {{action "setCreateDerived" "unknown"}}> Unknown</button>
 	        </div>
         </div>
 	</div>
 	<div class="col-sm-12 col-xs-12 row input-section">
 		<div class="input-form-label">Redistribution of feed as-is
 	        <div class="btn-group" data-toggle="buttons">
-	            <label class="btn btn-default">
-	                <input type="radio" value="Permitted" /> Permitted
-	            </label> 
-	            <label class="btn btn-default">
-	                <input type="radio" value="Not Permitted" /> Not Permitted
-	            </label> 
-	            <label class="btn btn-default">
-	                <input type="radio" value="Unknown" /> Unknown
-	            </label> 
+	                <button class="btn btn-default" type="button" value="Optional" {{action "setRedistribute" "optional"}}> Optional</button>
+	                <button class="btn btn-default" type="button" value="Required" {{action "setRedistribute" "required"}}> Required</button>
+	                <button class="btn btn-default" type="button" value="Unknown" {{action "setRedistribute" "unknown"}}> Unknown</button>
 	        </div>
         </div>
 	</div>
