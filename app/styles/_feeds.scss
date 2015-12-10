@@ -1,7 +1,7 @@
 .fullvw-wrapper {
 	margin-left: calc(50% - 50vw);
 	width: 100 vw;
-	
+
 }
 .p {
 	text-align: center;
@@ -35,9 +35,9 @@
 	.input-form-field{
 		color: $grey-color-light;
 		padding: 5px 0px 3px 5px;
-		
+
 	}
-	
+
 	.btn{
 		background-color: $grey-color;
 		color: $grey-color-light;
@@ -54,10 +54,10 @@
 		}
 
 		&:focus {
-			color: $logo-color-1;	
+			color: $logo-color-1;
 		}
 	}
-	
+
 }
 
 .input-form {
@@ -91,7 +91,7 @@
 		background: $grey-color-light;
 		text-align: center;
 		padding: 5px 0px 3px 5px;
-		
+
 	}
 	.btn{
 		background-color: #fdfdfd;
@@ -103,4 +103,13 @@
 
 div[class^='col-'],div[class*=' col-']{
 	padding: 0;
+}
+
+.add-operator-info p{
+	text-align: center;
+	margin: 40px 50px 40px 50px;
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	font-weight: $base-font-weight;
 }
