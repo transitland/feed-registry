@@ -1,24 +1,25 @@
 <div class="fullvw-wrapper">
 	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab" add-operator-tab-class="tab" license-tab-class="tab" submit-tab-class="tab-current" submitted=false}}
 </div>
-<div class="container">
-	<p>Thank you for adding a feed! We have created a changeset to review on Transitland.</p>
-	<p>Would you like to be notified your changes are live?</p>
+<div class="add-operator-info">
+	<p>
+		Would you like to be notified your changes are live?
+	</p>
 </div>
+
+
 <div class="container email-input-form">
 	<div class="row">
-		<div class="col-sm-5 input-section">
-			<div class="input-form-label">Email Address</div>
-			<div class="input-form-field" {{input type="text" class="form-control" value=operator.website}}>someone@example.com</div>
+		<div class="col-sm-12">
+			<div class="input-form-label">Email address (optional)</div>
+			<div class="input-form-field">{{input type="text" value=email placeholder="someone@example.com"}}</div>
 		</div>
-		<div class="col-sm-2 input-section btn">
-			<input type="button" {{action 'emailSignup'}} class="btn btn-primary" value="GET NOTIFIED" >
-		</div>
-	</div>	
+	</div>
+	<br>
+	<div align="left">
+		{{#link-to "feeds.new.license" class="btn btn-default" role="button"}}
+			Return to license info
+		{{/link-to}}
+		<input type="button" {{action 'submit'}} class="btn btn-default" value="SUBMIT FEED">
+	</div>
 </div>
-<div class="container email-caption">
-	We won't spam you, promise.
-</div>
-{{#link-to "feeds.new.license" class="btn btn-default" role="button"}}
-		Return to add-license
-{{/link-to}}

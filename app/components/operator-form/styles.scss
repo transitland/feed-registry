@@ -2,9 +2,47 @@
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	background-color: #fdfdfd;
+	background-color: #ffffff;
 	border-top: 2px solid $grey-color-light;
 	border-left: 2px solid $grey-color-light;
+	.input-form-label{
+		color: $logo-color-3;
+		padding: 0px 0px 3px 5px;
+	}
+	.ember-text-field{
+		color: $grey-color;
+		border: 0;
+		padding: 0px 0px 3px 5px;
+		width: 100%;
+		&:focus{
+			outline: none;
+		}
+
+	}
+
+	.btn{
+		background-color: $grey-color;
+		color: $grey-color-light;
+		border: 0;
+		outline: 0;
+		margin: 3px;
+		box-shadow: 0;
+		border-radius: 0;
+		text-align: center;
+
+		&:hover {
+			color: $logo-color-3;
+			background-color: $grey-color;
+
+
+		}
+
+		&:focus {
+			color: $logo-color-1;
+			background-color: $grey-color;
+		}
+		
+	}
 
 	.input-section {
 		border-right: 2px solid $grey-color-light;
@@ -13,26 +51,19 @@
 
 	.label {
 		color: $logo-color-3;
-		padding: 5px 0px 3px 5px;
+		padding: 0px 0px 3px 5px;
 	}
 
 	.row {
 		border-bottom: 2px solid $grey-color-light;
 	}
-	.input-form-label{
-		color: $logo-color-3;
-		padding: 5px 0px 3px 5px;
-	}
-	.input-form-field{
-		color: $grey-color-light;
-		padding: 5px 0px 3px 5px;
-	}
+	
 	
 	.input-form-guide{
 		color: $grey-color;
 		background: $grey-color-light;
 		text-align: center;
-		padding: 5px 0px 3px 5px;
+		padding: 0px 0px 3px 5px;
 		
 	}
 	.btn{
@@ -42,9 +73,10 @@
 		width: 100%;
 	}
 }
+
 .label {
 		color: $logo-color-3;
-		padding: 5px 0px 3px 5px;
+		padding: 0px 0px 3px 5px;
 	}
 
 .form-caption {

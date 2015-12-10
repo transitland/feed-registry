@@ -1,7 +1,10 @@
 .fullvw-wrapper {
 	margin-left: calc(50% - 50vw);
 	width: 100 vw;
-	
+
+}
+.row{
+	padding:0;
 }
 .p {
 	text-align: center;
@@ -23,21 +26,27 @@
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	background-color: #fdfdfd;
+	background-color: #ffffff;
+	border: 0;
 
-	.row {
+	/*.row {
 		border: 2px solid $grey-color-light;
-	}
+	}*/
 	.input-form-label{
 		color: $logo-color-3;
 		padding: 5px 0px 3px 5px;
 	}
-	.input-form-field{
-		color: $grey-color-light;
+	.ember-text-field{
+		color: $grey-color;
+		border: 0;
 		padding: 5px 0px 3px 5px;
-		
+		width: 100%;
+		&:focus{
+			outline: none;
+		}
+
 	}
-	
+
 	.btn{
 		background-color: $grey-color;
 		color: $grey-color-light;
@@ -50,21 +59,33 @@
 
 		&:hover {
 			color: $logo-color-3;
+			background-color: $grey-color;
+
 
 		}
 
 		&:focus {
-			color: $logo-color-1;	
+			color: $logo-color-1;
+			background-color: $grey-color;
 		}
+		
 	}
-	
+
 }
+.success {
+	/*left: 0;*/
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    /*margin-top: 50px;*/
+}
+
 
 .input-form {
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	background-color: #fdfdfd;
+	background-color: #ffffff;
 	border-top: 2px solid $grey-color-light;
 	border-left: 2px solid $grey-color-light;
 
@@ -76,25 +97,41 @@
 	.row {
 		border-bottom: 2px solid $grey-color-light;
 	}
+	.ember-text-field{
+		color: $grey-color;
+		border: 0;
+		padding: 0px 0px 3px 5px;
+		width: 100%;
+		&:focus{
+			outline: none;
+		}
+
+	}
 	.input-form-label{
 		color: $logo-color-3;
 		padding: 5px 0px 3px 5px;
 	}
 	.input-form-field{
-		color: $grey-color-light;
-		padding: 5px 0px 3px 5px;
-
-
+		color: $grey-color;
+		padding: 3px 3px 3px 3px;
 	}
+
 	.input-form-guide{
 		color: $grey-color;
 		background: $grey-color-light;
 		text-align: center;
 		padding: 5px 0px 3px 5px;
-		
+
+
 	}
 	.btn{
 		background-color: #fdfdfd;
+	}
+	.btn.active, .btn:active{
+		background-color: red;
+	}
+	.btn-group{
+		 margin-left: 15px; 
 	}
 }
 
@@ -103,4 +140,13 @@
 
 div[class^='col-'],div[class*=' col-']{
 	padding: 0;
+}
+
+.add-operator-info p{
+	text-align: center;
+	margin: 40px 50px 40px 50px;
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	font-weight: $base-font-weight;
 }
