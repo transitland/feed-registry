@@ -29,6 +29,10 @@
 	                <button class="btn btn-default" type="button" value="Unknown" {{action "setAttribution" "unknown"}}> Unknown</button>
 	        </div>
         </div>
+				{{#if showLicenseAttributionText}}
+					<div class="input-form-label">Attribution text:</div>
+					{{textarea value=model.license_attribution_text placeholder="e.g., Using data copyright (C) Bay Area Rapid Transit"}}
+				{{/if}}
 	</div>
 
 	<div class="col-sm-12 col-xs-12 row input-section">
@@ -49,7 +53,7 @@
 	        </div>
         </div>
 	</div>
-	
+
 
 </div>
 
