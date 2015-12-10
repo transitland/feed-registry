@@ -20,6 +20,7 @@ Router.map(function() {
       this.route('add-operator');
       this.route('submit');
       this.route('license');
+      this.route('success');
     });
   });
 });
