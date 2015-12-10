@@ -10,22 +10,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-4 col-xs-12 input-section">
-			<div class="input-form-label">Country</div>
-			<div class="input-form-field">
-				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown"> {{input type="text" class="form-control" value=operator.country placeholder="Select a country"}}
-					<span class="caret"></span>
-	  			</button>
-	  		</div>
-		</div>
-		<div class="col-sm-4 col-xs-12 input-section">
-			<div class="input-form-label">State</div>
-			<div class="input-form-field">
-				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown"> {{input type="text" class="form-control" value=operator.state placeholder="Select a state"}}
-					<span class="caret"></span>
-	  			</button>
-	  		</div>
-		</div>
+		{{operator-form/country-region-select countryName=operator.country regionName=operator.state}}
 		<div class="col-sm-4 col-xs-12 input-section">
 			<div class="input-form-label">Municipality/Region</div>
 			<div class="input-form-field">
@@ -35,7 +20,7 @@
 	  		</div>
   		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-sm-7 col-xs-12 input-section">
 			<div class="input-form-label">Website</div>
@@ -45,10 +30,7 @@
 			<div class="input-form-label">Select time zone</div>
 			<div class="input-form-field">
 				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
-					<!-- {{#power-select options=names selected=selected onchange=(action (mut selected)) as |name|}}
-				      {{name}}
-				    {{/power-select}} -->
-				    {{#power-select selected=destination options=cities onchange=(action (mut destination)) as |name|}}
+    				{{#power-select selected=operator.timezone options=timezones onchange=(action (mut operator.timezone)) as |name|}}
 				      {{name}}
 				    {{/power-select}}
 	  			</button>
@@ -60,5 +42,3 @@
 <div class="form-caption">
 	For operators that spread across multiple cities, metros, or states, specify the operator headquarters
 </div>
-
-
