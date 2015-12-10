@@ -50,15 +50,20 @@
 
 		&:hover {
 			color: $logo-color-3;
+			background-color: $grey-color;
+
 
 		}
 
 		&:focus {
 			color: $logo-color-1;
+			background-color: $grey-color;
 		}
+		
 	}
 
 }
+
 
 .input-form {
 	font-family: $base-font-family;
