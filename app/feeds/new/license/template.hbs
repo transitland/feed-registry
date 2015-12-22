@@ -4,77 +4,93 @@
 
 <div class="add-operator-info">
 	<p>
-		You've completed all the required steps for adding a feed and its operator(s) to Transitland. But if you also have time to read through the license attached to the feed, it will be of great help to everyone who uses Transitland data. At a minimum, it's great if you can list the URL for the feed's license (a webpage, a PDF, or a Word document are all fine). Even better is if you can skim through the license and answer all of the following questions about what the license does and does not allow. We'll display this information for all Transitland users on the Feed Registry.
+		Thanks for helping us catalog the contents of the feed. Now, please help us find any licenses or terms attached to the feed.
 	</p>
 </div>
-
 <div class="container input-form">
 	<div class="row">
-		<div class="col-sm-7 col-xs-12 input-section">
-			<div class="input-form-label">License name</div>
-			<div class="input-form-field">{{input type="text" value=this.model.license_name placeholder="e.g. Creative Commons 2.0"}}</div>
-		</div>
-		<div class="col-sm-5 col-xs-12 input-section">
-			<div class="input-form-label">License URL</div>
-			<div class="input-form-field">{{input type="text" value=this.model.license_url placeholder="http://..."}}</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 input-form-guide input-section">Pick the license restrictions. Select 'Unknown'if you are not sure.
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 input-section">
-			<div class="input-form-label">Attribution for feed data
-		        <div class="btn-group" data-toggle="buttons">
-							{{license-form-toggle-button attr=model.license_use_without_attribution text="Optional" value="yes"}}
-							{{license-form-toggle-button attr=model.license_use_without_attribution text="Required" value="no"}}
-							{{license-form-toggle-button attr=model.license_use_without_attribution text="Unknown" value="unknown"}}
-		        </div>
-	        </div>
-					{{#if showLicenseAttributionText}}
-						<div class="input-form-label">Attribution text:</div>
-						{{textarea value=model.license_attribution_text placeholder="e.g., Using data copyright (C) Bay Area Rapid Transit"}}
-					{{/if}}
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 input-section">
-			<div class="input-form-label">Creation of derived data products
+		<div class="col-sm-12 input-section">
+			<div class="input-form-label">Is a license attached to the feed?
 				<div class="btn-group" data-toggle="buttons">
-						{{license-form-toggle-button attr=model.license_create_derived_product text="Permitted" value="yes"}}
-						{{license-form-toggle-button attr=model.license_create_derived_product text="Not Permitted" value="no"}}
-						{{license-form-toggle-button attr=model.license_create_derived_product text="Unknown" value="unknown"}}
-		        </div>
-	        </div>
+					{{license-form-toggle-button attr=license_present_mode text="Yes" value=true}} {{license-form-toggle-button attr=license_present_mode text="No" value=false}}
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 input-section">
-			<div class="input-form-label">Redistribution of feed as-is
-		        <div class="btn-group" data-toggle="buttons">
-							{{license-form-toggle-button attr=model.license_redistribute text="Optional" value="yes"}}
-							{{license-form-toggle-button attr=model.license_redistribute text="Required" value="no"}}
-							{{license-form-toggle-button attr=model.license_redistribute text="Unknown" value="unknown"}}
-		        </div>
-	        </div>
+	{{#if license_present_mode}}
+		<div class="row">
+			<div class="col-sm-7 col-xs-12 input-section">
+				<div class="input-form-label">License name</div>
+				<div class="input-form-field">{{input type="text" value=this.model.license_name placeholder="e.g. Creative Commons 2.0"}}</div>
+			</div>
+			<div class="col-sm-5 col-xs-12 input-section">
+				<div class="input-form-label">License URL</div>
+				<div class="input-form-field">{{input type="text" value=this.model.license_url placeholder="http://..."}}</div>
+			</div>
 		</div>
-	</div>
+			<div class="row">
+				<div class="col-sm-12 input-section">
+					<div class="input-form-label">Can you read and interpret the license?
+						<div class="btn-group" data-toggle="buttons">
+							{{license-form-toggle-button attr=interpret_license_mode text="Yes" value=true}} {{license-form-toggle-button attr=interpret_license_mode text="No" value=false}}
+						</div>
+					</div>
+				</div>
+			</div>
+	{{/if}}
+	{{#if interpret_license_mode}}
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 input-form-guide input-section">Pick the license restrictions. Select 'Unknown'if you are not sure.
+			</div>
+		</div>
 
-
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 input-section">
+				<div class="input-form-label">Attribution for feed data
+					<div class="btn-group" data-toggle="buttons">
+						{{license-form-toggle-button attr=model.license_use_without_attribution text="Optional" value="yes"}} {{license-form-toggle-button attr=model.license_use_without_attribution text="Required" value="no"}} {{license-form-toggle-button attr=model.license_use_without_attribution
+						text="Unknown" value="unknown"}}
+					</div>
+				</div>
+				{{#if showLicenseAttributionText}}
+					<div class="input-form-label">Attribution text:</div>
+					{{textarea value=model.license_attribution_text placeholder="e.g., Using data copyright (C) Bay Area Rapid Transit"}}
+				{{/if}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 input-section">
+				<div class="input-form-label">Creation of derived data products
+					<div class="btn-group" data-toggle="buttons">
+						{{license-form-toggle-button attr=model.license_create_derived_product text="Permitted" value="yes"}} {{license-form-toggle-button attr=model.license_create_derived_product text="Not Permitted" value="no"}} {{license-form-toggle-button attr=model.license_create_derived_product
+						text="Unknown" value="unknown"}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-xs-12 input-section">
+				<div class="input-form-label">Redistribution of feed as-is
+					<div class="btn-group" data-toggle="buttons">
+						{{license-form-toggle-button attr=model.license_redistribute text="Optional" value="yes"}} {{license-form-toggle-button attr=model.license_redistribute text="Required" value="no"}} {{license-form-toggle-button attr=model.license_redistribute text="Unknown"
+						value="unknown"}}
+					</div>
+				</div>
+			</div>
+		</div>
+	{{/if}}
 </div>
 
 <br>
 <div class="container email-input-form">
 	<div align="left">
-		{{#link-to 'feeds.new.add-operator' class="btn btn-default"}}
-				Back
+		{{#link-to 'feeds.new.add-operator' class="btn btn-default" }}
+			Back
 		{{/link-to}}
 	</div>
 	<div align="right">
-		{{#link-to 'feeds.new.submit' class="btn btn-default"}}
-				Next >
+		{{#link-to 'feeds.new.submit' class="btn btn-default" }}
+			Next >
 		{{/link-to}}
 	</div>
 </div>
