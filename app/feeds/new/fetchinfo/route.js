@@ -25,10 +25,9 @@ export default Ember.Route.extend({
         return Ember.run.later(controller, function(){
           transition.retry({retries: 10});
         }, 1000);
-      } else {
-        console.log('feeds.new.fetchinfo response error 1');
-        return true
       }
+    }).catch(function() {
+      feedModel.get('errors').add('url','The feed URL is invalid. Please check the link and try again.');
     });
     return promise
   },
@@ -37,7 +36,7 @@ export default Ember.Route.extend({
       console.log('feeds.new.fetchinfo loading');
       return true
     },
-    error: function() {
+    error: function(error, transition) {
       console.log('feeds.new.fetchinfo error');
       this.transitionTo('feeds.new');
       return true
