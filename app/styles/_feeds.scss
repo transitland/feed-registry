@@ -38,6 +38,9 @@
 	}
 	.ember-text-field{
 		color: #333333;
+		font-size: 16px;
+		font-weight: normal;
+
 		border: 0;
 		padding: 5px 0px 3px 5px;
 		width: 100%;
@@ -83,8 +86,9 @@
 
 .input-form {
 	font-family: $base-font-family;
-	font-size: $base-font-size;
+	font-size: 16px;
 	color: #333333;
+	font-weight: normal;	
 	line-height: $base-line-height;
 	background-color: #ffffff;
 	border-top: 2px solid $grey-color-light;

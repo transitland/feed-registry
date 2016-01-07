@@ -1,6 +1,5 @@
 .input-form {
 	font-family: $base-font-family;
-	font-size: 16px;
 	line-height: $base-line-height;
 	background-color: #ffffff;
 	border-top: 2px solid $grey-color-light;
@@ -11,6 +10,8 @@
 	}
 	.ember-text-field{
 		color: #333333;
+		font-size: 16px;
+		font-weight: normal;
 		border: 0;
 		padding: 0px 0px 3px 5px;
 		width: 100%;
@@ -76,6 +77,9 @@
 
 .ember-power-select-trigger{
 	color: #333333;
+	font-size: 16px;
+	font-weight: normal;
+
 }
 
 .label {
