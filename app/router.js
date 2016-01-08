@@ -17,6 +17,7 @@ Router.map(function() {
 
   this.route('feeds', function() {
     this.route('new', function() {
+      this.route('fetchinfo');
       this.route('add-operator');
       this.route('submit');
       this.route('license');
