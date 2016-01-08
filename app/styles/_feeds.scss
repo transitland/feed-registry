@@ -158,3 +158,23 @@ div[class^='col-'],div[class*=' col-']{
 	line-height: $base-line-height;
 	font-weight: $base-font-weight;
 }
+
+/* ian: error handling */
+.has-error {
+  .container {
+    border: blue;
+  }
+  .row {
+    border-color: #d2837d;
+  }
+  .error {
+    padding: 8px;
+    font-weight: bold;
+    background: #edccca;
+  }
+  .warning {
+    padding: 8px;
+    font-weight: bold;
+    background: #f7ecca;
+  }
+}
