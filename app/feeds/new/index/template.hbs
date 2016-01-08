@@ -14,11 +14,13 @@
 			<div class="input-form-field">{{input type="text" value=model.url placeholder="http://..."}}</div>
 		</div>
 	</div>
-  {{#each model.errors.url as |error|}}
+  {{#if model.errors}}
     <div class="row">
-      <div class="input-form-label">{{error.message}}</div>
+      {{#each model.errors as |error|}}
+        <div class="col-sm-12 error">{{error.message}}</div>
+      {{/each}}
     </div>
-  {{/each}}
+  {{/if}}
 </div>
 
 <br>
