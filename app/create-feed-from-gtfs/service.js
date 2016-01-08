@@ -25,12 +25,13 @@ export default Ember.Service.extend({
       if (response.status == 'complete') {
         feedModel.set('id', response.feed.onestop_id);
         feedModel.set('operators_in_feed', response.feed.operators_in_feed);
+        console.log("create-feed-from-gtfs service clear here?");
         return response.operators.map(function(operator){feedModel.addOperator(operator)});
       } else if (response.status == 'processing') {
         return Ember.run.later(controller, function(){this.downloadGtfsArchiveAndParseIntoFeedModel(retries)}, 1000);
       }
     });
-    return promise
+    return promise;
   },
 	toChangeset: function() {
     var feedModel = this.createOrFindFeedModel();

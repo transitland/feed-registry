@@ -8,6 +8,10 @@
 			<div class="input-form-label">Operator short name (optional)</div>
 			<div class="input-form-field">{{input type="text" value=operator.short_name placeholder="e.g. BART"}}</div>
 		</div>
+		<!-- <div class="col-sm-4 col-xs-12 input-section">
+			<div class="input-form-label">Website</div>
+			<div class="input-form-field">{{input type="text" value=operator.website placeholder="http://somethinguseful.com"}}</div>
+		</div> -->
 	</div>
 	<div class="row">
 		{{operator-form/country-region-select countryName=operator.country regionName=operator.state}}
@@ -18,17 +22,9 @@
 	</div>
 
 	<div class="row">
-		<div class="col-sm-7 col-xs-12 input-section">
+		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Website</div>
 			<div class="input-form-field">{{input type="text" value=operator.website placeholder="http://somethinguseful.com"}}</div>
-		</div>
-		<div class="col-sm-5 col-xs-12 input-section">
-			<div class="input-form-label">Select time zone</div>
-			<div class="input-form-field">
-				{{#power-select selected=operator.timezone options=timezones onchange=(action (mut operator.timezone)) as |name|}}
-			      {{name}}
-			    {{/power-select}}
-		    </div>
 		</div>
 	</div>
 </div>
