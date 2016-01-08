@@ -3,19 +3,16 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   store: Ember.inject.service(),
   feedModel: null,
-  createOrFindFeedModel: function() {
-    if (this.get('feedModel') == null) {
-      var newFeedModel = this.get('store').createRecord('feed', { });
+  createFeedModel: function() {
+    var newFeedModel = this.get('store').createRecord('feed', { });
       this.set('feedModel', newFeedModel);
-    }
-    return this.get('feedModel');
   },
   downloadGtfsArchiveAndParseIntoFeedModel: function(retries) {
     retries = (retries || 60);
     if (retries-- <= 0) {
-      throw "Timeout"
+      throw "Timeout";
     }
-    var feedModel = this.createOrFindFeedModel();
+    var feedModel = this.get('feedModel');
     var url = feedModel.get('url');
     var adapter = this.get('store').adapterFor('feeds');
     var fetch_info_url = adapter.urlPrefix()+'/feeds/fetch_info';
@@ -30,10 +27,10 @@ export default Ember.Service.extend({
         return Ember.run.later(controller, function(){this.downloadGtfsArchiveAndParseIntoFeedModel(retries)}, 1000);
       }
     });
-    return promise
+    return promise;
   },
 	toChangeset: function() {
-    var feedModel = this.createOrFindFeedModel();
+    var feedModel = this.get('feedModel');
     var changes = [];
     feedModel.get('operators').map(function(operator){
       changes.push({action:'createUpdate', operator:operator.toChange()})
