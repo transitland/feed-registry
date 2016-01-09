@@ -1,12 +1,18 @@
 <div class="container input-form">
 	<div class="row">
-		<div class="col-sm-7 col-xs-12 input-section">
+		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Operator full name</div>
 			<div class="input-form-field">{{input type="text" value=operator.name placeholder="e.g. Bay Area Rapid Transit"}}</div>
 		</div>
-		<div class="col-sm-5 col-xs-12 input-section">
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-xs-12 input-section">
 			<div class="input-form-label">Operator short name (optional)</div>
 			<div class="input-form-field">{{input type="text" value=operator.short_name placeholder="e.g. BART"}}</div>
+		</div>
+		<div class="col-sm-6 col-xs-12 input-section">
+			<div class="input-form-label">Website</div>
+			<div class="input-form-field">{{input type="text" value=operator.website placeholder="http://somethinguseful.com"}}</div>
 		</div>
 	</div>
 	<div class="row">
@@ -17,20 +23,6 @@
   		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-sm-7 col-xs-12 input-section">
-			<div class="input-form-label">Website</div>
-			<div class="input-form-field">{{input type="text" value=operator.website placeholder="http://somethinguseful.com"}}</div>
-		</div>
-		<div class="col-sm-5 col-xs-12 input-section">
-			<div class="input-form-label">Select time zone</div>
-			<div class="input-form-field">
-				{{#power-select selected=operator.timezone options=timezones onchange=(action (mut operator.timezone)) as |name|}}
-			      {{name}}
-			    {{/power-select}}
-		    </div>
-		</div>
-	</div>
 </div>
 <div class="form-caption">
 	For operators that spread across multiple cities, metros, or states, specify the operator headquarters
