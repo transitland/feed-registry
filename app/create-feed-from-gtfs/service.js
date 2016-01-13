@@ -34,9 +34,9 @@ export default Ember.Service.extend({
 		var changes = [];
 		feedModel.get('operators').map(function(operator) {
 			debugger;
-			console.log("toChangeset operator included?: "+operator.include_in_changeset);
-			if (operator.include_in_changeset === true) {
-				console.log('operator included in changeset: ' + operator.include_in_changeset);
+			console.log("toChangeset operator included?: "+operator.get('include_in_changeset'));
+			if (operator.get('include_in_changeset') === true) {
+				console.log('operator included in changeset: ' + operator.get('include_in_changeset'));
 				changes.push({action:'createUpdate', operator:operator.toChange()});
 			}
 		});
