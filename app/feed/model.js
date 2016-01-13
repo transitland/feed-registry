@@ -29,7 +29,7 @@ var Feed = DS.Model.extend({
       timezone: operator.timezone,
       geometry: operator.geometry,
       tags: operator.tags
-    })
+    });
   },
   toChange: function() {
     var feedJson = this.toJSON();
@@ -38,7 +38,7 @@ var Feed = DS.Model.extend({
       return {
         gtfsAgencyId: oif.gtfs_agency_id,
         operatorOnestopId: oif.operator_onestop_id
-      }
+      };
     });
     // remove attributes that don't need to be submitted to server
     feedJson = _.omit(feedJson, ['created_at', 'updated_at', 'operators', 'operators_in_feed']);

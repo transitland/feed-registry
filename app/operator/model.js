@@ -15,8 +15,9 @@ var Operator = DS.Model.extend({
 	timezone: DS.attr('string'),
 	created_at: DS.attr('date'),
 	updated_at: DS.attr('date'),
-  geometry: DS.attr(),
-  tags: DS.attr(),
+	include_in_changeset: DS.attr('boolean', { defaultValue: true }),
+	geometry: DS.attr(),
+	tags: DS.attr(),
 	toChange: function() {
 		var operatorJson = this.toJSON();
 		operatorJson.onestopId = this.id;
@@ -26,7 +27,7 @@ var Operator = DS.Model.extend({
 		operatorJson = _.omit(operatorJson, function(value) {
 			return value === null || value === '' || value === undefined;
 		});
-    return operatorJson;
+		return operatorJson;
 	}
 });
 
