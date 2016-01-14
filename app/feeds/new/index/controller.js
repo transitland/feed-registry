@@ -5,7 +5,6 @@ export default Ember.Controller.extend({
   actions: {
     next: function() {
       var controller = this;
-      console.log("feed index controller next");
       this
         .get('createFeedFromGtfsService')
         .downloadGtfsArchiveAndParseIntoFeedModel()
