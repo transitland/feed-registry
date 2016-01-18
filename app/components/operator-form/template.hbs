@@ -1,13 +1,13 @@
 <div class="container input-form">
 	<div class="row">
 		<div class="col-sm-12 col-xs-12 input-section">
-			<div class="checkbox">
-			    <label>
-			      <input type="checkbox" {{action "check"}}> Add this operator
-			    </label>
+			<div class="input-form-label">Include this operator?
+			    <div class="btn-group" data-toggle="buttons">
+					{{license-form-toggle-button attr=include_operator_mode text="Yes" value=true}} {{license-form-toggle-button attr=include_operator_mode text="No" value=false}}
+				</div>
 		    </div>
   		</div>
-  	</div>
+	</div>
 	<div class="row">
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Operator full name</div>

@@ -31,18 +31,6 @@ export default Ember.Component.extend({
 		 "America/Nome",
 		 "America/Adak",
 		 "Pacific/Honolulu"
-	],
-	// isChecked: Ember.computed('include_in_changeset', function() {
-	// 	if operator.get('include_in_changeset') === this.get('value')) {
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// }),
-	actions: {
-		check() {
-			console.log("select operator")
-			// operator.set('include_in_changeset', this.get('value'));
-		}
-	}
+	]
+
 });
