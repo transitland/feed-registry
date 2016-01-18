@@ -3,13 +3,9 @@
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Include this operator?</div>
 				<div class="input-form-field">
-					{{#if isIncluded}}
-						<button class="btn btn-default {{if isIncluded "active"}}" type="button" {{action "clickYes"}}>Yes</button>
-						<button class="btn btn-default" type="button" {{action "clickNo" message="yes"}}>No</button>
-					{{else}}
-						<button class="btn btn-default" type="button" {{action "clickYes"}}>Yes</button>
-						<button class="btn btn-default {{unless isIncluded "active"}}" type="button" {{action "clickNo" message="No"}}>No</button>
-					{{/if}}
+					<button class="btn btn-default {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+					<button class="btn btn-default {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+					
 		    </div>
   		</div>
 	</div>
