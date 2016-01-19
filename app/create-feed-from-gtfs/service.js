@@ -30,17 +30,20 @@ export default Ember.Service.extend({
 		return promise;
 		},
 	toChangeset: function() {
-    var feedModel = this.get('feedModel');
-    var changes = [];
-    feedModel.get('operators').map(function(operator){
-      changes.push({action:'createUpdate', operator:operator.toChange()});
-    });
-    changes.push({action:'createUpdate', feed:feedModel.toChange()});
-		var changeset = this.get('store').createRecord('changeset', {
-			notes: 'This is a test. TODO put a custom message here.',
-			payload: {
-				changes: changes
+		var feedModel = this.get('feedModel');
+		var changes = [];
+		feedModel.get('operators').map(function(operator) {
+			if (operator.get('include_in_changeset') === true) {
+				console.log("operator added to changeset: " + operator.get('name'));
+				changes.push({action:'createUpdate', operator:operator.toChange()});
 			}
+		});
+		changes.push({action:'createUpdate', feed:feedModel.toChange()});
+			var changeset = this.get('store').createRecord('changeset', {
+				notes: 'This is a test. TODO put a custom message here.',
+				payload: {
+					changes: changes
+				}
 		});
 		return changeset;
 	}

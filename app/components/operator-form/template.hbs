@@ -1,6 +1,16 @@
 <div class="container input-form">
 	<div class="row">
 		<div class="col-sm-12 col-xs-12 input-section">
+			<div class="input-form-label">Include this operator?</div>
+				<div class="input-form-field">
+					<button class="btn btn-default {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+					<button class="btn btn-default {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+					
+		    </div>
+  		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Operator full name</div>
 			<div class="input-form-field">{{input type="text" value=operator.name placeholder="e.g. Bay Area Rapid Transit"}}</div>
 		</div>
