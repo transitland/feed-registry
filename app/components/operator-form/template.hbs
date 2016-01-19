@@ -1,5 +1,5 @@
 <div class="container input-form">
-<!-- if more than one operator in feed -->
+{{#unless numberOfOperators}}
 	<div class="row">
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Include this operator?</div>
@@ -10,7 +10,7 @@
 		    </div>
   		</div>
 	</div>
-<!-- /if -->
+{{/unless}}
 	<div class="row">
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Operator full name</div>
