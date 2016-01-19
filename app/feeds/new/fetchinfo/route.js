@@ -9,7 +9,7 @@ export default Ember.Route.extend({
   model: function(params, transition) {
     console.log('feeds.new.fetchinfo model');
     var controller = this;
-    var feedModel = this.get('createFeedFromGtfsService').createOrFindFeedModel();
+    var feedModel = this.get('createFeedFromGtfsService').feedModel;
     var url = feedModel.get('url');
     var adapter = this.get('store').adapterFor('feeds');
     var fetch_info_url = adapter.urlPrefix()+'/feeds/fetch_info';
