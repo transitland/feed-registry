@@ -1,6 +1,5 @@
 .input-form {
 	font-family: $base-font-family;
-	font-size: $base-font-size;
 	line-height: $base-line-height;
 	background-color: #ffffff;
 	border-top: 2px solid $grey-color-light;
@@ -10,7 +9,9 @@
 		padding: 0px 0px 3px 5px;
 	}
 	.ember-text-field{
-		color: $grey-color;
+		color: #333333;
+		font-size: 16px;
+		font-weight: normal;
 		border: 0;
 		padding: 0px 0px 3px 5px;
 		width: 100%;
@@ -20,29 +21,7 @@
 
 	}
 
-	.btn{
-		background-color: $grey-color;
-		color: $grey-color-light;
-		border: 0;
-		outline: 0;
-		margin: 3px;
-		box-shadow: 0;
-		border-radius: 0;
-		text-align: center;
-
-		&:hover {
-			color: $logo-color-3;
-			background-color: $grey-color;
-
-
-		}
-
-		&:focus {
-			color: $logo-color-1;
-			background-color: $grey-color;
-		}
-		
-	}
+	
 
 	.input-section {
 		border-right: 2px solid $grey-color-light;
@@ -66,12 +45,14 @@
 		padding: 0px 0px 3px 5px;
 		
 	}
-	.btn{
-		background-color: #fdfdfd;
-	}
-	.dropdown-toggle{
-		width: 100%;
-	}
+	
+}
+
+.ember-power-select-trigger{
+	color: #333333;
+	font-size: 16px;
+	font-weight: normal;
+
 }
 
 .label {
