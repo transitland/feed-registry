@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   actions: {
     next: function() {
       console.log('feeds.new.index');
-      this.transitionToRoute('feeds.new.fetchinfo');
+      this.transitionToRoute('feeds.new.add-operator');
     }
   }
 });
