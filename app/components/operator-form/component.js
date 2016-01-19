@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-<<<<<<< HEAD
+
 	actions: {
 		clickYes() {
 			this.set('operator.include_in_changeset', true);
@@ -10,6 +10,5 @@ export default Ember.Component.extend({
 			this.set('operator.include_in_changeset', false);
 		}
 	}
-=======
->>>>>>> master
+
 });
