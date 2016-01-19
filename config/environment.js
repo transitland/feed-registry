@@ -18,7 +18,18 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'connect-src': "'self' http://dev.transit.land https://transit.land",
+      'img-src': "'self'",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com",
+      'media-src': "'self'",
+      'script-src': "'self' https://maxcdn.bootstrapcdn.com",
+      'font-src': "'self' https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com",
+
+    },
+
   };
 
   if (environment === 'development') {
@@ -31,6 +42,7 @@ module.exports = function(environment) {
     ENV.datastoreHost = 'http://localhost:3000';
     ENV.allowEditingMode = true;
     ENV.datastoreAuthToken = 'CHANGETHISLOCALLY';
+    ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:3000"
   }
 
   if (environment === 'test') {
