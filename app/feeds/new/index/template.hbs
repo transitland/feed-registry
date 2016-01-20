@@ -1,3 +1,7 @@
+{{#if isLoading}}
+  {{loading-spinner}}
+{{/if}}
+
 <div class="fullvw-wrapper">
 	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab-current" add-operator-tab-class="tab" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
 </div>
@@ -7,13 +11,20 @@
 	</p>
 </div>
 <form {{action "next" on="submit"}}>
-	<div class="container email-input-form">
+  <div {{bind-attr class=":container :email-input-form model.errors.url:has-error"}}>
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="input-form-label">GTFS feed URL</div>
 				<div class="input-form-field">{{input type="text" value=model.url placeholder="http://..."}}</div>
 			</div>
 		</div>
+    {{#if model.errors}}
+      <div class="row">
+        {{#each model.errors as |error|}}
+          <div class="col-sm-12 error">{{error.message}}</div>
+        {{/each}}
+      </div>
+    {{/if}}
 	</div>
 	<br>
 	<div class="container email-caption">
