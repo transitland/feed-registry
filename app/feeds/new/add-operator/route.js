@@ -12,6 +12,7 @@ export default Ember.Route.extend({
     promise.then(function(response) {
       if (response.status == 'complete') {
         feedModel.set('id', response.feed.onestop_id);
+        feedModel.set('operators_in_feed', response.feed.operators_in_feed);
         response.operators.map(function(operator){feedModel.addOperator(operator)});
         return feedModel;
       } else if (response.status == 'processing') {
