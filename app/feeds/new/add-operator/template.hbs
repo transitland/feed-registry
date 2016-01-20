@@ -10,11 +10,13 @@
 
 <div>
 	{{#each operator in model.operators}}
-		{{operator-form operator=operator}}
+		{{operator-form operator=operator singleOperator=singleOperator}}
 		<br>
 	{{/each}}
 </div>
 <br>
+<!-- if one or more operator is selected to include in feed -->
+{{#if minimumOperator}}
 <div class="container email-input-form">
 	<div class="row" align="left">
 			{{#link-to 'feeds.new.license' class="btn btn-default"}}
@@ -22,3 +24,7 @@
 			{{/link-to}}
 	</div>
 </div>
+{{else}}
+Include an operator!
+<!-- display button asking to include at least one operator -->
+{{/if}}
