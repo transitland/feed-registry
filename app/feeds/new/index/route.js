@@ -17,8 +17,6 @@ export default Ember.Route.extend({
 	},
   resetController: function(controller, isExiting, transition) {
     // Reset the controller loading state before transition
-    if (isExiting) {
-      controller.set('isLoading', false);
-    }
+    controller.set('isLoading', false);
   }
 });
