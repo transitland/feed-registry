@@ -16,15 +16,16 @@
 </div>
 <br>
 <!-- if one or more operator is selected to include in feed -->
-{{#if minimumOperator}}
+
 <div class="container email-input-form">
 	<div class="row" align="left">
+		{{#if minimumOperator}}
 			{{#link-to 'feeds.new.license' class="btn btn-default"}}
 					Next >
 			{{/link-to}}
+		{{else}}
+			<div class="btn-disabled">Please include at least one operator</div>
+		{{/if}}
 	</div>
 </div>
-{{else}}
-Include an operator!
 <!-- display button asking to include at least one operator -->
-{{/if}}
