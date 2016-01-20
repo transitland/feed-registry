@@ -73,6 +73,17 @@
 		}
 		
 	}
+	.btn-disabled{
+		background-color: $grey-color;
+		color: $grey-color-light;
+		border: 0;
+		outline: 0;
+		margin: 3px;
+		box-shadow: 0;
+		border-radius: 0;
+		text-align: center;
+		
+	}
 
 }
 .success {
