@@ -28,5 +28,10 @@ export default Ember.Route.extend({
   },
   model: function() {
     return this.get('createFeedFromGtfsService').feedModel;
+  },
+  actions: {
+    error: function(error, transition) {
+      return this.transitionTo('feeds.new');
+    }
   }
 });
