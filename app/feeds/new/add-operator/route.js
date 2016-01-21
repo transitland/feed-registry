@@ -21,8 +21,10 @@ export default Ember.Route.extend({
           transition.retry();
         }, 1000);
       }
-    }).catch(function() {
-      feedModel.get('errors').add('url','The feed URL is invalid. Please check the link and try again.');
+    }).catch(function(error) {
+      error.errors.forEach(function(error){
+        feedModel.get('errors').add('url', error.message);  
+      });
     });
     return promise
   },
