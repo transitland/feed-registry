@@ -3,9 +3,20 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+  var fingerprint = false;
+  var prepend = '';
+  if (process.env.EMBER_ENV === 'staging') {
+    fingerprint = true;
+    prepend = 'http://d2tkmr00hnrtoq.cloudfront.net/';
+  } else if (process.env.EMBER_ENV === 'production') {
+    fingerprint = true;
+    prepend = 'https://d11xhlzkgsq6oc.cloudfront.net';
+  }
+
   var app = new EmberApp(defaults, {
     fingerprint: {
-      enabled: false
+      enabled: fingerprint,
+      prepend: prepend
     }
   });
 
