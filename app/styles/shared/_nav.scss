@@ -26,17 +26,17 @@
 }
 
 .logo-image {
-  background-image: url(/images/logo/transitland_logo@1x.png);
+  background-image: url(/assets/images/logo/transitland_logo@1x.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 326px;
   height: 145px;
   margin: 0 auto;
 }
-@media 
-(-webkit-min-device-pixel-ratio: 2), 
-(min-resolution: 192dpi) { 
-    background-image:url(/images/logo/transitland_logo@2x.png);
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    background-image:url(/assets/images/logo/transitland_logo@2x.png);
 }
 
 .circle {
@@ -96,17 +96,17 @@ nav a {
     padding-bottom: 10px;
   }
   .circle{ display:none; }
-  
+
   .logo-image {
     margin: 0 auto;
-    background-image: url(/images/logo/transitland_logo-mobile@1x.png);
-    @media 
-    (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
-        background-image: url(/images/logo/transitland_logo-mobile@2x.png);
+    background-image: url(/assets/images/logo/transitland_logo-mobile@1x.png);
+    @media
+    (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        background-image: url(/assets/images/logo/transitland_logo-mobile@2x.png);
     }
     width: 226px;
     height: 100px;
-    
+
   }
   .navbar-toggle {
     margin-top: 0px;
