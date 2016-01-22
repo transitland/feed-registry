@@ -1,6 +1,6 @@
 <div class="page-container operator-page">
 {{#link-to "index"}}
-	<i class="fa fa-caret-left"></i> Feed Registry 
+	{{fa-icon icon="fa-caret-left"}} Feed Registry
 {{/link-to}}
 	<h3 class = "agency-name">{{model.name}} {{#if model.short_name}}
 	({{model.short_name}})
@@ -19,8 +19,8 @@
 		<tr><td>Identifiers</td><td>{{model.identifiers}}</td></tr>
 		<tr><td>JSON</td><td>{{json-endpoint model.onestop_id}}</td></tr>
 	</table>
-	
-		
+
+
 {{#each feed in model.feeds}}
 	{{feed-detail feed=feed}}
 {{else}}

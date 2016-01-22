@@ -22,6 +22,10 @@ module.exports = function(defaults) {
     'ember-cli-bootstrap-sassy': {
       'js': false,
       'glyphicons': false
+    },
+    // https://github.com/martndemus/ember-cli-font-awesome#customize-with-sassscss
+    emberCliFontAwesome: {
+      useScss: true
     }
   });
 
