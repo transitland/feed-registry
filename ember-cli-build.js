@@ -3,20 +3,32 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-  var fingerprint = false;
-  var prepend = '';
-  if (process.env.EMBER_ENV === 'staging') {
-    fingerprint = true;
-    prepend = 'http://d2tkmr00hnrtoq.cloudfront.net/';
-  } else if (process.env.EMBER_ENV === 'production') {
-    fingerprint = true;
-    prepend = 'https://d11xhlzkgsq6oc.cloudfront.net';
+  var prependUrl;
+  if (EmberApp.env() === 'staging') {
+    prependUrl = 'http://d2tkmr00hnrtoq.cloudfront.net/';
+  } else if (EmberApp.env() === 'production') {
+    prependUrl = 'https://d11xhlzkgsq6oc.cloudfront.net';
   }
 
   var app = new EmberApp(defaults, {
+    minifyJS: {
+      enabled: ['staging', 'production'.indexOf(EmberApp.env()) >= 0]
+    },
+    minifyCSS: {
+      enabled: ['staging', 'production'.indexOf(EmberApp.env()) >= 0]
+    },
+    // http://ember-cli.com/user-guide/#source-maps
+    sourcemaps: {
+      enabled: EmberApp.env() !== 'production'
+    },
+    // https://github.com/aexmachina/ember-cli-sass#usage
+    sassOptions: {
+      sourceMap: EmberApp.env() !== 'production'
+    },
+    // http://ember-cli.com/user-guide/#fingerprinting-and-cdn-urls
     fingerprint: {
-      enabled: fingerprint,
-      prepend: prepend
+      enabled: ['staging', 'production'].indexOf(EmberApp.env()) >= 0,
+      prepend: prependUrl
     },
     // https://www.npmjs.com/package/ember-cli-bootstrap-sassy#bootstrap-javascript
     'ember-cli-bootstrap-sassy': {
