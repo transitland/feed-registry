@@ -16,8 +16,47 @@
     {{content-for 'head-footer'}}
   </head>
   <body>
-    {{content-for 'body'}}
+    <nav class="navbar col-lg-12 col-md-12 col-sm-12">
+      <a href="/"><div class="logo-image"></div></a>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu-bar" aria-expanded="false" aria-controls="navbar">
+          MENU
+        </button>
+      </div>
 
+      <div id="nav-menu-helper"></div>
+      <div id="nav-menu-bar" class="navbar-collapse collapse">
+        <div class="nav-menu">
+          <div class="float-left">
+            <a href="/" target="_self">
+            <div class="circle"></div><div class="main">home</div>
+            </a>
+          </div>
+          <div class="float-left">
+            <a href="/how-it-works" target="_self">
+            <div class="circle"></div><div class="main">how it works</div>
+            </a>
+          </div>
+          <div class="float-left">
+            <a class='active' href="/feed-registry" target="_self">
+            <div class="circle"></div><div class="main">feed registry</div>
+            </a>
+          </div>
+          <div class="float-left">
+            <a href="/playground" target="_self">
+            <div class="circle"></div><div class="main">playground</div>
+            </a>
+          </div>
+          <div class="float-left">
+            <a href="/news" target="_self">
+              <div class="circle"></div><div class="main">news & updates</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {{content-for 'body'}}
 
     {{content-for 'body-footer'}}
     <script src="assets/vendor.js"></script>
