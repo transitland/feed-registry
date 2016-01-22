@@ -17,6 +17,11 @@ module.exports = function(defaults) {
     fingerprint: {
       enabled: fingerprint,
       prepend: prepend
+    },
+    // https://www.npmjs.com/package/ember-cli-bootstrap-sassy#bootstrap-javascript
+    'ember-cli-bootstrap-sassy': {
+      'js': false,
+      'glyphicons': false
     }
   });
 
