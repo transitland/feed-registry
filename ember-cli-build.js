@@ -5,9 +5,9 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var prependUrl;
   if (EmberApp.env() === 'staging') {
-    prependUrl = 'http://d2tkmr00hnrtoq.cloudfront.net/';
+    prependUrl = 'http://d2tkmr00hnrtoq.cloudfront.net/feed-registry/';
   } else if (EmberApp.env() === 'production') {
-    prependUrl = 'https://d11xhlzkgsq6oc.cloudfront.net';
+    prependUrl = 'https://d11xhlzkgsq6oc.cloudfront.net/feed-registry/';
   }
 
   var app = new EmberApp(defaults, {
