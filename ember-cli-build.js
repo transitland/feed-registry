@@ -12,10 +12,10 @@ module.exports = function(defaults) {
 
   var app = new EmberApp(defaults, {
     minifyJS: {
-      enabled: ['staging', 'production'.indexOf(EmberApp.env()) >= 0]
+      enabled: ['staging', 'production'].indexOf(EmberApp.env()) >= 0
     },
     minifyCSS: {
-      enabled: ['staging', 'production'.indexOf(EmberApp.env()) >= 0]
+      enabled: ['staging', 'production'].indexOf(EmberApp.env()) >= 0
     },
     // http://ember-cli.com/user-guide/#source-maps
     sourcemaps: {
