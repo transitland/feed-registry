@@ -7,13 +7,13 @@
         <th class = "{{stateSortClass}}" {{action "sortBy" "state"}}>State</th>
         <th class = "{{countrySortClass}}" {{action "sortBy" "country"}}>Country</th>
         <th class = "license">License</th>
-        <th>License Details <a href = "https://transit.land/an-open-project/#aggregated-data" target = "_blank"><i class="fa fa-question-circle"></i></a></th>
+        <th>License Details <a href = "https://transit.land/an-open-project/#aggregated-data" target = "_blank">{{fa-icon icon="question-circle"}}</a></th>
       </tr>
     </thead>
     <tbody>
       {{#each operator in sortedOperators}}
     	  {{operator-table/operator-row operator=operator}}
-    	{{/each}} 
+    	{{/each}}
     </tbody>
   </table>
 </div>

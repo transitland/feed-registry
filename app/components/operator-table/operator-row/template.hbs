@@ -14,13 +14,13 @@
 	{{#if operator.feeds.firstObject.license_name}}
 		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{operator.feeds.firstObject.license_name}}</a></td>
 	{{else}}
-		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank"><i class="fa fa-external-link"></i></a></td>
-	{{/if}}	
+		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{fa-icon icon="fa-external-link"}}</a></td>
+	{{/if}}
 
 	<td>
 		<div class = "license-attr">
 			{{#if attributionUnknown}}
-				<div class = "unknown-requires-attr"></div>			
+				<div class = "unknown-requires-attr"></div>
 			{{else if requiresAttribution}}
 				<div class = "requires-attr"></div>
 			{{else if doesNotRequireAttribution}}
