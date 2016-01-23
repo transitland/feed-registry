@@ -22,6 +22,9 @@ files to be fetched asynchronously, like: http://discuss.emberjs.com/t/how-to-pa
 export default Ember.Component.extend({
   selectedRegions: [],
   actions: {
+    handleFocus(select, e) {
+          select.actions.open();
+    },
     setCountry(selectedCountry) {
       this.set('selectedCountry', selectedCountry);
       this.set('countryName', selectedCountry.name);
