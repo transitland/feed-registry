@@ -1,8 +1,7 @@
 .fullvw-wrapper {
-	margin-left: calc(50% - 50vw);
 	width: 100 vw;
-	
 }
+
 .p {
 	text-align: center;
 	margin: 40px 50px 40px 50px;
@@ -11,6 +10,7 @@
 	line-height: $base-line-height;
 	font-weight: $base-font-weight;
 }
+
 .email-caption {
 	text-align: left;
 	font-family: $base-font-family;
@@ -18,51 +18,4 @@
 	line-height: $base-line-height;
 	font-weight: $base-font-weight;
 	color: $grey-color;
-}
-.email-input-form {
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	background-color: #fdfdfd;
-
-	.row {
-		border: 2px solid $grey-color-light;
-	}
-	.input-form-label{
-		color: $logo-color-3;
-		padding: 5px 0px 3px 5px;
-	}
-	.input-form-field{
-		color: $grey-color-light;
-		padding: 5px 0px 3px 5px;
-		
-	}
-	
-	.btn{
-		background-color: $grey-color;
-		color: $grey-color-light;
-		border: 0;
-		outline: 0;
-		margin: 3px;
-		box-shadow: 0;
-		border-radius: 0;
-		text-align: center;
-
-		&:hover {
-			color: $logo-color-3;
-
-		}
-
-		&:focus {
-			color: $logo-color-1;	
-		}
-	}
-	
-}
-
-
-
-
-div[class^='col-'],div[class*=' col-']{
-	padding: 0;
 }

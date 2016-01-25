@@ -1,18 +1,18 @@
 <div class="container">
-  {{intro-copy}}
+	{{intro-copy}}
 
-  {{country-count operators=model.operators}}
+	{{country-count operators=model.operators}}
 
-  <main>
-  	{{operator-table operators=model.operators}}
+	<main>
+		{{operator-table operators=model.operators}}
 
-  </main>
+	</main>
 
-  {{closing-copy}}
+	{{closing-copy}}
 
-  {{#if editingMode}}
-  	{{#link-to "feeds.new" class="btn btn-default" role="button"}}
-  		Add a Feed
-  	{{/link-to}}
-  {{/if}}
+	{{#if editingMode}}
+		{{#link-to "feeds.new" class="btn btn-default" role="button"}}
+			Add a Feed
+		{{/link-to}}
+	{{/if}}
 </div>

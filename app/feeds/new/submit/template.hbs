@@ -8,18 +8,21 @@
 </div>
 
 
-<div class="container email-input-form">
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="input-form-label">Email address (optional)</div>
-			<div class="input-form-field">{{input type="text" value=email placeholder="someone@example.com"}}</div>
+<div class="container">
+	<div class="input-form-wrapper">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="input-form-label">Email address (optional)</div>
+				<div class="input-form-field">{{input type="text" value=email placeholder="someone@example.com"}}</div>
+			</div>
 		</div>
 	</div>
-	<br>
-	<div class="row" align="left">
-		{{#link-to "feeds.new.license" class="btn btn-default" role="button"}}
-			&#60; Return to license info
-		{{/link-to}}
-		<input type="button" {{action 'submit'}} class="btn btn-default" value="SUBMIT FEED">
+	<div class="row direction-btn-wrapper">
+		<div class="col-sm-12">
+			{{#link-to "feeds.new.license" class="btn btn-default pull-left" role="button"}}
+				&#60; Return to license info
+			{{/link-to}}
+			<input type="button" {{action 'submit'}} class="btn btn-default pull-right" value="SUBMIT FEED">
+		</div>
 	</div>
 </div>

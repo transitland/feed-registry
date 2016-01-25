@@ -1,42 +1,51 @@
 {{#if isLoading}}
-  {{loading-spinner}}
+	{{loading-spinner}}
 {{/if}}
 
 <div class="fullvw-wrapper">
 	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab-current" add-operator-tab-class="tab" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
 </div>
-<div class="add-operator-info">
-	<p>
-		Ready to start adding a feed to Transitland? Step #1 is to find the URL for a <abbr title="General Transit Feed Specification">GTFS</abbr> feed. The feed should live on a transit authority's server or another authoritative source.
-	</p>
-</div>
-<form {{action "next" on="submit"}}>
-  <div {{bind-attr class=":container :email-input-form model.errors.url:has-error"}}>
-		<div class="row">
+<div class="container">
+	<div class="add-operator-info">
+		<p>
+			Ready to start adding a feed to Transitland? Step #1 is to find the URL for a <abbr title="General Transit Feed Specification">GTFS</abbr> feed. The feed should live on a transit authority's server or another authoritative source.
+		</p>
+	</div>
+	<form {{action "next" on="submit"}}>
+		 <article class="input-form-wrapper">
+			<div {{bind-attr class="model.errors.url:has-error"}}>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="input-form-label">GTFS feed URL</div>
+						<div class="input-form-field">{{input type="text" value=model.url placeholder="http://..."}}</div>
+					</div>
+				</div>
+				{{#if model.errors}}
+					<div class="row">
+						{{#each model.errors as |error|}}
+							<div class="col-sm-12 error">{{error.message}}</div>
+						{{/each}}
+					</div>
+				{{/if}}
+			</div>
+		</article>
+
+
+		<div class="email-caption">
+			After this feed is added to Transitland, our servers will periodically check this URL for updates
+		</div>
+
+		<div class="row direction-btn-wrapper">
 			<div class="col-sm-12">
-				<div class="input-form-label">GTFS feed URL</div>
-				<div class="input-form-field">{{input type="text" value=model.url placeholder="http://..."}}</div>
+				<div class="pull-left">
+					{{#link-to 'index' class="btn btn-default"}}
+							&#60; Cancel
+					{{/link-to}}
+				</div>
+				<div class="pull-right">
+				 <a class="btn btn-default" role="button"  type="submit" {{action "next"}}>Next ></a>
+				</div>
 			</div>
 		</div>
-    {{#if model.errors}}
-      <div class="row">
-        {{#each model.errors as |error|}}
-          <div class="col-sm-12 error">{{error.message}}</div>
-        {{/each}}
-      </div>
-    {{/if}}
-	</div>
-	<br>
-	<div class="container email-caption">
-		After this feed is added to Transitland, our servers will periodically check this URL for updates
-	</div>
-	<br>
-	<div class="container email-input-form">
-		<div class="row" align="left">
-			{{#link-to 'index' class="btn btn-default"}}
-					&#60; Cancel
-			{{/link-to}}
-			<a class="btn btn-default" role="button"  type="submit" {{action "next"}}>Next ></a>
-		</div>
-	</div>
-</form>
+	</form>
+</div>
