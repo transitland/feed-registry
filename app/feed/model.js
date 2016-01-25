@@ -34,21 +34,20 @@ var Feed = DS.Model.extend({
   toChange: function() {
     var feedJson = this.toJSON();
     feedJson.onestopId = this.id;
-    // operator_onestop_id to gtfs_agency_id (add as operator property?)
-    var gtfs_agency_ids = this
-      .get('operators_in_feed')
-      .reduce(function(value,oif){
-        value[oif.operator_onestop_id] = oif.gtfs_agency_id;
-        return value
-      }, {});
+    // Lookup table of operator onestop_id to gtfs agency_id
+    // ex. gtfs_agency_id['o-9q9-caltrain'] = 'ca-us-caltrain';
+    var gtfs_agency_ids = {};
+    this.get('operators_in_feed').forEach(function(oif) {
+      gtfs_agency_ids[oif.operator_onestop_id] = oif.gtfs_agency_id
+    });
     // filter operators by include_in_changeset
     feedJson.includesOperators = this
       .get('operators')
-      .filter(function(o){return o.get('include_in_changeset')})
-      .map(function(o) {
+      .filterBy('include_in_changeset', true)
+      .map(function(operator) {
         return {
-          gtfsAgencyId: gtfs_agency_ids[o.get('onestop_id')],
-          operatorOnestopId: o.get('onestop_id')
+          gtfsAgencyId: gtfs_agency_ids[operator.get('onestop_id')],
+          operatorOnestopId: operator.get('onestop_id')
         }
       });
     // remove attributes that don't need to be submitted to server
