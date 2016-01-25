@@ -7,15 +7,15 @@
 </div>
 <div class="add-operator-info">
 	<p>
-		Ready to start adding a feed to Transitland? Step #1 is to find the URL for a <abbr title="General Transit Feed Specification">GTFS</abbr> feed. The feed should live on a transit authority's server or another authoritative source.
+		Ready to add a feed to Transitland? The first step is to specify the website address for a <abbr title="General Transit Feed Specification">GTFS</abbr> feed. The URL must end with .zip and be hosted by a transit operator or other authoritative source.
 	</p>
 </div>
 <form {{action "next" on="submit"}}>
   <div {{bind-attr class=":container :email-input-form model.errors.url:has-error"}}>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="input-form-label">GTFS feed URL</div>
-				<div class="input-form-field">{{input type="text" value=model.url placeholder="http://..."}}</div>
+				<div class="input-form-label">Paste the feed URL</div>
+				<div class="input-form-field">{{input type="text" value=model.url placeholder="http://... .zip"}}</div>
 			</div>
 		</div>
     {{#if model.errors}}
@@ -28,7 +28,7 @@
 	</div>
 	<br>
 	<div class="container email-caption">
-		After this feed is added to Transitland, our servers will periodically check this URL for updates
+		After this feed is part of the Feed Registry, the Transitland servers will periodically check this URL for updates.
 	</div>
 	<br>
 	<div class="container email-input-form">
