@@ -4,7 +4,7 @@
 
 <div class="add-operator-info">
 	<p>
-		We've fetched the GTFS feed from that URL, parsed it, and listed out the {{model.operators.length}} operator(s) listed in the feed. For each operator, please check its detail and add in any extra information about its location.
+		Transitland checked your feed and found the following number of operators: {{model.operators.length}}. Review the information below and provide additional details about each operator and location it serves. All fields are required unless otherwise indicated.
 	</p>
 </div>
 
@@ -24,7 +24,7 @@
 					Next >
 			{{/link-to}}
 		{{else}}
-			<div class="btn-disabled">Please include at least one operator</div>
+			<div class="btn-disabled">Please include at least one operator.</div>
 		{{/if}}
 	</div>
 </div>
