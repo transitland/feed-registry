@@ -4,13 +4,13 @@
 
 <div class="add-operator-info">
 	<p>
-		Thanks for helping us catalog the contents of the feed. Now, please help us find any licenses or terms attached to the feed.
+		Many feeds have licenses or legal terms that apply to them. Provide as much information as you can about the license for the feed. It is okay if you are unable to answer all the license questions.
 	</p>
 </div>
 <div class="container input-form">
 	<div class="row">
 		<div class="col-sm-12 input-section">
-			<div class="input-form-label">Is a license attached to the feed?
+			<div class="input-form-label">Does the feed have a license?
 				<div class="btn-group" data-toggle="buttons">
 					{{license-form-toggle-button attr=license_present_mode text="Yes" value=true}} {{license-form-toggle-button attr=license_present_mode text="No" value=false}}
 				</div>
@@ -24,13 +24,13 @@
 				<div class="input-form-field">{{input type="text" value=this.model.license_name placeholder="e.g. Creative Commons 2.0"}}</div>
 			</div>
 			<div class="col-sm-5 col-xs-12 input-section">
-				<div class="input-form-label">License URL</div>
+				<div class="input-form-label">License website</div>
 				<div class="input-form-field">{{input type="text" value=this.model.license_url placeholder="http://..."}}</div>
 			</div>
 		</div>
 			<div class="row">
 				<div class="col-sm-12 input-section">
-					<div class="input-form-label">Do you feel comfortable reading and interpreting the license?
+					<div class="input-form-label">Do you feel comfortable interpreting the license?
 						<div class="btn-group" data-toggle="buttons">
 							{{license-form-toggle-button attr=interpret_license_mode text="Yes" value=true}} {{license-form-toggle-button attr=interpret_license_mode text="No" value=false}}
 						</div>
@@ -84,14 +84,14 @@
 <br>
 <div class="container email-input-form">
 	<div class="row">
-		
+
 			{{#link-to 'feeds.new.add-operator' class="btn btn-default" }}
 				&#60; Return to Operator info
 			{{/link-to}}
-		
+
 			{{#link-to 'feeds.new.submit' class="btn btn-default" }}
 				Next >
 			{{/link-to}}
-		
+
 	</div>
 </div>
