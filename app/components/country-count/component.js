@@ -4,7 +4,8 @@ export default Ember.Component.extend({
 	operatorCountries: Ember.computed.mapBy('operators', 'country'),
 	uniqueOperatorCountries: Ember.computed.uniq('operatorCountries'),
 	singleCountry: function(){
-  		return operatorCountries.length === 1;
-  	}
+		console.log("uniqueOperatorCountries length: " + this.uniqueOperatorCountries.length);
+		return this.uniqueOperatorCountries.length === 1;
+	}
 });
 
