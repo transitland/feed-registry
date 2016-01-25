@@ -4,9 +4,9 @@
 		<div class="col-sm-12 col-xs-12 input-section">
 			<div class="input-form-label">Include this operator?</div>
 				<div class="input-form-field">
-					<button class="btn btn-default {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
-					<button class="btn btn-default {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
-					
+					<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+					<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+
 		    </div>
   		</div>
 	</div>

@@ -82,9 +82,7 @@
 		box-shadow: 0;
 		border-radius: 0;
 		text-align: center;
-		
 	}
-
 }
 .success {
 	/*left: 0;*/
@@ -99,7 +97,7 @@
 	font-family: $base-font-family;
 	font-size: 16px;
 	color: #333333;
-	font-weight: normal;	
+	font-weight: normal;
 	line-height: $base-line-height;
 	background-color: #ffffff;
 	border-top: 2px solid $grey-color-light;
@@ -144,8 +142,14 @@
 		background-color: #fdfdfd;
 	}
 	.btn.active, .btn:active{
+		&.yes {
+			background-color: #f7ae56;
+		}
+		&.no {
+			background-color: $grey-color;
+		}
 		color: $grey-color-light;
-		background-color: $grey-color;
+
 	}
 	.btn-group{
 		 margin-left: 15px;
