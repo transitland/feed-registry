@@ -34,12 +34,22 @@ var Feed = DS.Model.extend({
   toChange: function() {
     var feedJson = this.toJSON();
     feedJson.onestopId = this.id;
-    feedJson.includesOperators = (this.get('operators_in_feed') || []).map(function(oif) {
-      return {
-        gtfsAgencyId: oif.gtfs_agency_id,
-        operatorOnestopId: oif.operator_onestop_id
-      };
+    // Lookup table of operator onestop_id to gtfs agency_id
+    // ex. gtfs_agency_id['o-9q9-caltrain'] = 'ca-us-caltrain';
+    var gtfs_agency_ids = {};
+    this.get('operators_in_feed').forEach(function(oif) {
+      gtfs_agency_ids[oif.operator_onestop_id] = oif.gtfs_agency_id
     });
+    // filter operators by include_in_changeset
+    feedJson.includesOperators = this
+      .get('operators')
+      .filterBy('include_in_changeset', true)
+      .map(function(operator) {
+        return {
+          gtfsAgencyId: gtfs_agency_ids[operator.get('onestop_id')],
+          operatorOnestopId: operator.get('onestop_id')
+        }
+      });
     // remove attributes that don't need to be submitted to server
     feedJson = _.omit(feedJson, ['created_at', 'updated_at', 'operators', 'operators_in_feed']);
     // remove any attributes with null values, undefined values, or empty strings

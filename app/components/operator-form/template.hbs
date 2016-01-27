@@ -1,14 +1,15 @@
-<div class="container input-form">
+<div class="input-form-wrapper">
 {{#unless singleOperator}}
 	<div class="row">
-		<div class="col-sm-12 col-xs-12 input-section">
+		<div class="col-sm-4 no-border">
 			<div class="input-form-label">Include this operator?</div>
-				<div class="input-form-field">
-					<button class="btn btn-default {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
-					<button class="btn btn-default {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
-
-		    </div>
-  		</div>
+		</div>
+		<div class="col-sm-8">
+			<div class="input-form-field">
+				<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+				<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+		   </div>
+		 </div>
 	</div>
 {{/unless}}
 	<div class="row">
@@ -29,12 +30,7 @@
 	</div>
 	<div class="row">
 		{{operator-form/country-region-select countryName=operator.country regionName=operator.state}}
-		<div class="col-sm-4 col-xs-12 input-section">
-			<div class="input-form-label">Municipality or region (optional)</div>
-			<div class="input-form-field">{{input type="text" value=operator.metro placeholder="e.g. Oakland"}}</div>
-  		</div>
 	</div>
-
 </div>
 <div class="form-caption">
 	For operators that spread across multiple cities or states, specify the operator headquarters.
