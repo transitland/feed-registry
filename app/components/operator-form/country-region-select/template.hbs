@@ -1,7 +1,7 @@
 <div class="col-sm-4 col-xs-12 input-section">
 	<div class="input-form-label">Country</div>
 	<div class="input-form-field">
-		{{#power-select options=countries searchField="name" selected=selectedCountry onchange=(action "setCountry") as |country|}}
+		{{#power-select options=countries searchField="name" selected=selectedCountry onchange=(action "setCountry") onfocus=(action "handleFocus") as |country|}}
 			{{country.name}}
 		{{/power-select}}
 	</div>
@@ -9,7 +9,7 @@
 <div class="col-sm-4 col-xs-12 input-section">
 	<div class="input-form-label">State or Province</div>
 	<div class="input-form-field">
-		{{#power-select options=selectedRegions searchField="name" selected=selectedRegion onchange=(action "setRegion") as |region|}}
+		{{#power-select options=selectedRegions searchField="name" selected=selectedRegion onchange=(action "setRegion") onfocus=(action "handleFocus") as |region|}}
 			{{region.name}}
 		{{/power-select}}
 	</div>
