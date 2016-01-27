@@ -1,16 +1,21 @@
 <div class="col-sm-4 col-xs-12 input-section">
-  <div class="input-form-label">Country</div>
-  <div class="input-form-field">
-    {{#power-select options=countries searchField="name" selected=selectedCountry onchange=(action "setCountry") as |country|}}
-      {{country.name}}
-    {{/power-select}}
-  </div>
+	<div class="input-form-label">Country</div>
+	<div class="input-form-field">
+		{{#power-select options=countries searchField="name" selected=selectedCountry onchange=(action "setCountry") as |country|}}
+			{{country.name}}
+		{{/power-select}}
+	</div>
 </div>
 <div class="col-sm-4 col-xs-12 input-section">
-  <div class="input-form-label">State</div>
-  <div class="input-form-field">
-    {{#power-select options=selectedRegions searchField="name" selected=selectedRegion onchange=(action "setRegion") as |region|}}
-      {{region.name}}
-    {{/power-select}}
-  </div>
+	<div class="input-form-label">State</div>
+	<div class="input-form-field">
+		{{#power-select options=selectedRegions searchField="name" selected=selectedRegion onchange=(action "setRegion") as |region|}}
+			{{region.name}}
+		{{/power-select}}
+	</div>
+</div>
+<!-- Municipality/Region moved to here -->
+<div class="col-sm-4 col-xs-12 input-section">
+	<div class="input-form-label">Municipality/Region</div>
+	<div class="input-form-field">{{input type="text" value=operator.metro placeholder="e.g. Oakland"}}</div>
 </div>

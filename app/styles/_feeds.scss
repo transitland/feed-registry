@@ -1,11 +1,7 @@
 .fullvw-wrapper {
-	margin-left: calc(50% - 50vw);
 	width: 100 vw;
+}
 
-}
-.row{
-	padding:0;
-}
 .p {
 	text-align: center;
 	margin: 40px 50px 40px 50px;
@@ -14,6 +10,7 @@
 	line-height: $base-line-height;
 	font-weight: $base-font-weight;
 }
+
 .email-caption {
 	text-align: left;
 	font-family: $base-font-family;
@@ -22,34 +19,9 @@
 	font-weight: $base-font-weight;
 	color: $grey-color;
 }
-.email-input-form {
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	background-color: #ffffff;
-	border: 0;
 
-	/*.row {
-		border: 2px solid $grey-color-light;
-	}*/
-	.input-form-label{
-		color: $logo-color-3;
-		padding: 5px 0px 3px 5px;
-	}
-	.ember-text-field{
-		color: #333333;
-		font-size: 16px;
-		font-weight: normal;
-
-		border: 0;
-		padding: 5px 0px 3px 5px;
-		width: 100%;
-		&:focus{
-			outline: none;
-		}
-
-	}
-
+.direction-btn-wrapper {
+	margin-top: 20px;
 	.btn{
 		background-color: $grey-color;
 		color: $grey-color-light;
@@ -63,8 +35,6 @@
 		&:hover {
 			color: $logo-color-3;
 			background-color: $grey-color;
-
-
 		}
 
 		&:focus {
@@ -82,37 +52,46 @@
 		box-shadow: 0;
 		border-radius: 0;
 		text-align: center;
-		
 	}
-
 }
+
 .success {
-	/*left: 0;*/
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    /*margin-top: 50px;*/
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 
-.input-form {
+.input-form-wrapper {
 	font-family: $base-font-family;
 	font-size: 16px;
 	color: #333333;
-	font-weight: normal;	
+	font-weight: normal;
 	line-height: $base-line-height;
-	background-color: #ffffff;
-	border-top: 2px solid $grey-color-light;
-	border-left: 2px solid $grey-color-light;
+	border: 2px solid $grey-color-light;
 
-	.input-section {
-		border-right: 2px solid $grey-color-light;
+	//this is to have row inside of this wrapper
+	padding-left: 15px;
+	padding-right: 15px;
 
-	}
+	margin-bottom: 20px;
 
-	.row {
+	//Put bottom border for row inside of input-form-wrapper unless it is last child element
+	.row:not(:last-child) {
 		border-bottom: 2px solid $grey-color-light;
 	}
+	//put right border for cols inside of input-form-wrapper unless it is last child element
+	div[class^='col-']:not(:last-child) {
+		border-right: 2px solid $grey-color-light;
+		@include media-query($on-pad) {
+			//no right border on tablet
+			border: 0;
+		}
+		&.no-border {
+			border: 0;
+		}
+	}
+
 	.ember-text-field{
 		color: #333333;
 		border: 0;
@@ -131,21 +110,29 @@
 		color: $grey-color;
 		padding: 3px 3px 3px 3px;
 	}
-
 	.input-form-guide{
 		color: $grey-color;
 		background: $grey-color-light;
 		text-align: center;
 		padding: 5px 0px 3px 5px;
-
-
 	}
+
 	.btn{
 		background-color: #fdfdfd;
+		//sharing text value as class, capitalizing 'yes, no' here.
+		text-transform: capitalize;
 	}
 	.btn.active, .btn:active{
-		color: $grey-color-light;
 		background-color: $grey-color;
+		//bootstrap default add slight shadow inside of active button, disabling it
+		box-shadow: none;
+		&.yes {
+			background-color: #f7ae56;
+		}
+		&.no {
+			// if different color is needed for 'no' toggle
+		}
+		color: $grey-color-light;
 	}
 	.btn-group{
 		 margin-left: 15px;
@@ -159,13 +146,6 @@ textarea{
 	border:10px;
 }
 
-
-
-
-div[class^='col-'],div[class*=' col-']{
-	padding: 0;
-}
-
 .add-operator-info p{
 	text-align: center;
 	margin: 40px 50px 40px 50px;
@@ -175,7 +155,7 @@ div[class^='col-'],div[class*=' col-']{
 	font-weight: $base-font-weight;
 }
 
-/* ian: error handling */
+/* ian: error handling for gtfs feed*/
 .has-error {
   .row {
     border-color: #d2837d;
