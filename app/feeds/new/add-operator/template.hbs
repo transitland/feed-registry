@@ -5,10 +5,9 @@
 <div class="container">
 	<div class="add-operator-info">
 		<p>
-			We've fetched the GTFS feed from that URL, parsed it, and listed out the {{model.operators.length}} {{#if singleOperator}}operator{{else}}operators{{/if}} listed in the feed. For each operator, please check its detail and add in any extra information about its location.
+			Transitland checked your feed and found {{model.operators.length}} {{#if singleOperator}}operator{{else}}operators{{/if}}. Review the information below and provide additional details about each operator and location it serves. All fields are required unless otherwise indicated.
 		</p>
 	</div>
-
 	<div>
 		{{#each operator in model.operators}}
 			{{operator-form operator=operator singleOperator=singleOperator}}

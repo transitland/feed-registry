@@ -4,14 +4,14 @@
 
 <div class="add-operator-info">
 	<p>
-		Thanks for helping us catalog the contents of the feed. Now, please help us find any licenses or terms attached to the feed.
+		Many feeds have licenses or legal terms that apply to them. Provide as much information as you can about the license for the feed. It is okay if you are unable to answer all the license questions.
 	</p>
 </div>
 <div class="container">
 	<div class="input-form-wrapper">
 		<div class="row">
 			<div class="col-sm-4 no-border">
-				<div class="input-form-label"> Is a license attached to the feed?</div>
+				<div class="input-form-label"> Does the feed have a license?</div>
 			</div>
 			<div class="col-sm-8">
 				<div class="input-form-field">
@@ -35,7 +35,7 @@
 			</div>
 				<div class="row">
 					<div class="col-sm-12 input-section">
-						<div class="input-form-label">Do you feel comfortable reading and interpreting the license?
+						<div class="input-form-label">Do you feel comfortable interpreting the license?
 							<div class="btn-group" data-toggle="buttons">
 								{{license-form-toggle-button attr=interpret_license_mode text="yes" value=true}} {{license-form-toggle-button attr=interpret_license_mode text="no" value=false}}
 							</div>
@@ -85,16 +85,15 @@
 			</div>
 		{{/if}}
 	</div>
-
 	<div class="row direction-btn-wrapper">
 		<div class="col-sm-12">
-				{{#link-to 'feeds.new.add-operator' class="btn btn-default pull-left" }}
-					&#60; Return to Operator info
-				{{/link-to}}
+			{{#link-to 'feeds.new.add-operator' class="btn btn-default pull-left" }}
+				&#60; Return to Operator info
+			{{/link-to}}
 
-				{{#link-to 'feeds.new.submit' class="btn btn-default pull-right" }}
-					Next >
-				{{/link-to}}
-			</div>
+			{{#link-to 'feeds.new.submit' class="btn btn-default pull-right" }}
+				Next >
+			{{/link-to}}
+		</div>
 	</div>
 </div>
