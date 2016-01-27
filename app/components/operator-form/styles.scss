@@ -2,8 +2,6 @@
 	font-family: $base-font-family;
 	line-height: $base-line-height;
 	background-color: #ffffff;
-	border-top: 2px solid $grey-color-light;
-	border-left: 2px solid $grey-color-light;
 	.input-form-label{
 		color: $logo-color-3;
 		padding: 0px 0px 3px 5px;
@@ -18,14 +16,6 @@
 		&:focus{
 			outline: none;
 		}
-
-	}
-
-	
-
-	.input-section {
-		border-right: 2px solid $grey-color-light;
-
 	}
 
 	.label {
@@ -33,19 +23,12 @@
 		padding: 0px 0px 3px 5px;
 	}
 
-	.row {
-		border-bottom: 2px solid $grey-color-light;
-	}
-	
-	
 	.input-form-guide{
 		color: $grey-color;
 		background: $grey-color-light;
 		text-align: center;
 		padding: 0px 0px 3px 5px;
-		
 	}
-	
 }
 
 .ember-power-select-trigger{
@@ -69,7 +52,3 @@
 		font-weight: $base-font-weight;
 		color: $grey-color;
 	}
-
-div[class^='col-'],div[class*=' col-']{
-	padding: 0;
-}

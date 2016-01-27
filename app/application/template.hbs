@@ -1,78 +1,33 @@
-<nav class="navbar col-lg-12 col-md-12 col-sm-12">
-  <a href="/"><div class="logo-image"></div></a>
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu-bar" aria-expanded="false" aria-controls="navbar">
-      MENU 
-    </button>
-  </div>
-
-  <div id="nav-menu-helper"></div>
-  <div id="nav-menu-bar" class="navbar-collapse collapse">
-    <div class="nav-menu">
-      <div class="float-left">
-        <a href="/" target="_self">
-        <div class="circle"></div><div class="main">home</div>
-        </a>
-      </div>
-      <div class="float-left">
-        <a href="/how-it-works" target="_self">
-        <div class="circle"></div><div class="main">how it works</div>
-        </a>
-      </div>
-      <div class="float-left">
-        <a class='active' href="/feed-registry" target="_self">
-        <div class="circle"></div><div class="main">feed registry</div>
-        </a>
-      </div>
-      <div class="float-left">
-        <a href="/playground" target="_self">
-        <div class="circle"></div><div class="main">playground</div>
-        </a>
-      </div>
-      <div class="float-left">
-        <a href="/news" target="_self">
-          <div class="circle"></div><div class="main">news & updates</div>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<section id="feed-registry" class="jumbotron">
-  <div class="container">
-  	
-  {{outlet}}
-
-  </div>
-
-</section>
-<footer>
-  <div class="container">
-    <div class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-1">
-        <ul>
-          <h6> technology </h6>
-          <li><a href="/how-it-works">How It Works</a></li>
-          <li><a href="/feed-registry">Feed Registry</a></li>
-          <li><a href="https://github.com/transitland/transitland-datastore/blob/master/README.md#api-endpoints">Datastore API</a></li>
-          <li><a href="/playground">Playground</a> </li>
-        </ul>
-      </div>
-      <div class="col-sm-4 col-xs-6">
-        <ul >
-          <h6> resources </h6>
-          <li><a href="/an-open-project">Data Licensing</a></li>
-          <li><a href="/news">News & Updates </a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3 col-xs-6">
-        <ul>
-          <h6> participate </h6>
-          <li><i class="fa fa-smile-o"></i> <a href="/participate">How to Participate</a></li>
-          <li> <i class="fa fa-github-alt"></i> <a href="//github.com/transitland">GitHub</a></li>
-          <li> <i class="fa fa-twitter"></i> <a href="//twitter.com/transitland">Twitter</a> </li>
-          <li> <i class="fa fa-envelope-o"></i> <a href="mailto:transitland@mapzen.com">Email</a></li>
-        </ul>
-      </div>
-      <p class="center-text"><em>Transitland is sponsored by <a href="https://mapzen.com">Mapzen</a>.</em></p>
-    </div>
-</footer>
+		<section id="feed-registry" class="jumbotron">
+			{{outlet}}
+		</section>
+		<footer>
+			<div class="container">
+				<div class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-1">
+						<ul>
+							<h6> technology </h6>
+							<li><a href="/how-it-works">How It Works</a></li>
+							<li><a href="/feed-registry">Feed Registry</a></li>
+							<li><a href="https://github.com/transitland/transitland-datastore/blob/master/README.md#api-endpoints">Datastore API</a></li>
+							<li><a href="/playground">Playground</a> </li>
+						</ul>
+					</div>
+					<div class="col-sm-4 col-xs-6">
+						<ul >
+							<h6> resources </h6>
+							<li><a href="/an-open-project">Data Licensing</a></li>
+							<li><a href="/news">News & Updates </a></li>
+						</ul>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<ul>
+							<h6> participate </h6>
+							<li>{{fa-icon icon="smile-o"}} <a href="/participate">How to Participate</a></li>
+							<li> {{fa-icon icon="github-alt"}} <a href="//github.com/transitland">GitHub</a></li>
+							<li> {{fa-icon icon="twitter"}} <a href="//twitter.com/transitland">Twitter</a> </li>
+							<li> {{fa-icon icon="envelope-o"}} <a href="mailto:transitland@mapzen.com">Email</a></li>
+						</ul>
+					</div>
+					<p class="center-text"><em>Transitland is sponsored by <a href="https://mapzen.com">Mapzen</a>.</em></p>
+				</div>
+		</footer>

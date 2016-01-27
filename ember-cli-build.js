@@ -3,9 +3,41 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+  var prependUrl;
+  if (EmberApp.env() === 'staging') {
+    prependUrl = 'http://d2tkmr00hnrtoq.cloudfront.net/feed-registry/';
+  } else if (EmberApp.env() === 'production') {
+    prependUrl = 'https://d11xhlzkgsq6oc.cloudfront.net/feed-registry/';
+  }
+
   var app = new EmberApp(defaults, {
+    minifyJS: {
+      enabled: ['staging', 'production'].indexOf(EmberApp.env()) >= 0
+    },
+    minifyCSS: {
+      enabled: ['staging', 'production'].indexOf(EmberApp.env()) >= 0
+    },
+    // http://ember-cli.com/user-guide/#source-maps
+    sourcemaps: {
+      enabled: EmberApp.env() !== 'production'
+    },
+    // https://github.com/aexmachina/ember-cli-sass#usage
+    sassOptions: {
+      sourceMap: EmberApp.env() !== 'production'
+    },
+    // http://ember-cli.com/user-guide/#fingerprinting-and-cdn-urls
     fingerprint: {
-      enabled: false
+      enabled: ['staging', 'production'].indexOf(EmberApp.env()) >= 0,
+      prepend: prependUrl
+    },
+    // https://www.npmjs.com/package/ember-cli-bootstrap-sassy#bootstrap-javascript
+    'ember-cli-bootstrap-sassy': {
+      'js': false,
+      'glyphicons': false
+    },
+    // https://github.com/martndemus/ember-cli-font-awesome#customize-with-sassscss
+    emberCliFontAwesome: {
+      useScss: true
     }
   });
 

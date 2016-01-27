@@ -2,30 +2,31 @@
 	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab" add-operator-tab-class="tab-current" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
 </div>
 
-<div class="add-operator-info">
-	<p>
-		We've fetched the GTFS feed from that URL, parsed it, and listed out the {{model.operators.length}} operator(s) listed in the feed. For each operator, please check its detail and add in any extra information about its location.
-	</p>
-</div>
-
-<div>
-	{{#each operator in model.operators}}
-		{{operator-form operator=operator singleOperator=singleOperator}}
-		<br>
-	{{/each}}
-</div>
-<br>
-<!-- if one or more operator is selected to include in feed -->
-
-<div class="container email-input-form">
-	<div class="row" align="left">
-		{{#if minimumOperator}}
-			{{#link-to 'feeds.new.license' class="btn btn-default"}}
-					Next >
-			{{/link-to}}
-		{{else}}
-			<div class="btn-disabled">Please include at least one operator</div>
-		{{/if}}
+<div class="container">
+	<div class="add-operator-info">
+		<p>
+			Transitland checked your feed and found {{model.operators.length}} {{#if singleOperator}}operator{{else}}operators{{/if}}. Review the information below and provide additional details about each operator and location it serves. All fields are required unless otherwise indicated.
+		</p>
 	</div>
-</div>
+	<div>
+		{{#each operator in model.operators}}
+			{{operator-form operator=operator singleOperator=singleOperator}}
+			<br>
+		{{/each}}
+	</div>
+	<br>
+	<!-- if one or more operator is selected to include in feed -->
+
+	<div class="direction-btn-wrapper row">
+		<div class="col-sm-12">
+			{{#if minimumOperator}}
+				{{#link-to 'feeds.new.license' class="btn btn-default pull-right"}}
+						Next >
+				{{/link-to}}
+			{{else}}
+				<div class="btn-disabled">Please include at least one operator</div>
+			{{/if}}
+		</div>
+	</div>
 <!-- display button asking to include at least one operator -->
+</div>
