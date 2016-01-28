@@ -80,6 +80,13 @@
 	.row:not(:last-child) {
 		border-bottom: 2px solid $grey-color-light;
 	}
+	.row.yes {
+		//this color is tweaked from $logo-color-5 variable, to be background color.
+		background-color: #d7e5da;
+	}
+	.row.no {
+		background-color: $grey-color-light;
+	}
 	//put right border for cols inside of input-form-wrapper unless it is last child element
 	div[class^='col-']:not(:last-child) {
 		border-right: 2px solid $grey-color-light;
@@ -127,7 +134,7 @@
 		//bootstrap default add slight shadow inside of active button, disabling it
 		box-shadow: none;
 		&.yes {
-			background-color: #f7ae56;
+			background-color: $logo-color-5;
 		}
 		&.no {
 			// if different color is needed for 'no' toggle
