@@ -11,15 +11,33 @@
 <div class="container">
 	<div class="input-form-wrapper">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-6">
+				<div class="input-form-label">Name (optional)</div>
+				<div class="input-form-field">{{input type="text" value=model.user.name placeholder="e.g., Therese McMillan"}}</div>
+			</div>
+			<div class="col-sm-6">
 				<div class="input-form-label">Email address (optional)</div>
-				<div class="input-form-field">{{input type="text" value=email placeholder="someone@example.com"}}</div>
+				<div class="input-form-field">{{input type="text" value=model.user.email placeholder="e.g., transitfan@gmail.com"}}</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="input-form-label">User type, which best describes you (optional)</div>
+				<div class="input-form-field">
+					{{#power-select options=userTypes searchField="display" selected=model.user.user_type onchange=(action (mut model.user.user_type)) onfocus=(action "handleFocus") as |userType|}}
+						{{underscored-string-to-title-case userType}}
+					{{/power-select}}
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="input-form-label">Affiliation, if any (optional)</div>
+				<div class="input-form-field">{{input type="text" value=model.user.affiliation placeholder="e.g., Federal Transit Administration"}}</div>
 			</div>
 		</div>
 	</div>
 	<div class="row direction-btn-wrapper">
 		<div class="col-sm-12">
-			{{#link-to "feeds.new.license" class="btn btn-default pull-left" role="button"}}
+			{{#link-to "feeds.new.license" class="btn btn-default pull-left" role="button" }}
 				&#60; Return to license info
 			{{/link-to}}
 			<div class="btn-group" data-toggle="buttons">

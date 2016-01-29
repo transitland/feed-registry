@@ -5,7 +5,7 @@ export default Ember.Route.extend({
 	model: function() {
     var oldModel = this.get('createFeedFromGtfsService').feedModel;
     this.store.unloadAll();
-    var newModel = this.get('createFeedFromGtfsService').createFeedModel();
+    var newModel = this.get('createFeedFromGtfsService').createFeedAndUserModels().feed;
     // Copy over previous url & errors
     if (oldModel != null && oldModel.get('errors.length') > 0) {
       newModel.set('url', oldModel.get('url'));
