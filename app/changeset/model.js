@@ -6,5 +6,6 @@ export default DS.Model.extend({
   applied_at: DS.attr('date'),
   created_at: DS.attr('date'),
   updated_at: DS.attr('date'),
-  payload: DS.attr()
+  payload: DS.attr(),
+  user: DS.belongsTo('user')
 });
