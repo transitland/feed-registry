@@ -1,16 +1,31 @@
 <div class="input-form-wrapper">
 {{#unless singleOperator}}
-	<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row">
-		<div class="col-sm-4 no-border">
-			<div class="input-form-label">Include this operator?</div>
+	{{#if minimumOperator}}
+		<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row">
+			<div class="col-sm-4 no-border">
+				<div class="input-form-label">Include this operator?</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="input-form-field">
+					<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+					<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+			   </div>
+			 </div>
 		</div>
-		<div class="col-sm-8">
-			<div class="input-form-field">
-				<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
-				<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
-		   </div>
-		 </div>
-	</div>
+	{{else}}
+		<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row">
+			<div class="col-sm-4 no-border">
+				<div class="input-form-label">Include this operator?</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="input-form-field">
+					<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+					<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+					Please include at least one operator
+			   </div>
+			 </div>
+		</div>
+	{{/if}}
 {{/unless}}
 	<div class="row">
 		<div class="col-sm-12 col-xs-12 input-section">
