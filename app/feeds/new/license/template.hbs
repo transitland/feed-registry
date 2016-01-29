@@ -9,7 +9,7 @@
 </div>
 <div class="container">
 	<div class="input-form-wrapper">
-		<div class="row">
+		<div class="row {{if license_present_mode "yes"}}{{unless license_present_mode "no"}}">
 			<div class="col-sm-4 no-border">
 				<div class="input-form-label"> Does the feed have a license?</div>
 			</div>
@@ -33,7 +33,7 @@
 					<div class="input-form-field">{{input type="text" value=this.model.license_url placeholder="http://..."}}</div>
 				</div>
 			</div>
-				<div class="row">
+				<div class="row {{if interpret_license_mode "yes"}}{{unless interpret_license_mode "no"}}">
 					<div class="col-sm-12 input-section">
 						<div class="input-form-label">Do you feel comfortable interpreting the license?
 							<div class="btn-group" data-toggle="buttons">
