@@ -1,6 +1,6 @@
 <div class="input-form-wrapper">
 {{#unless singleOperator}}
-	<div class="row">
+	<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row">
 		<div class="col-sm-4 no-border">
 			<div class="input-form-label">Include this operator?</div>
 		</div>
