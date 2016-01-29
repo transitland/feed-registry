@@ -11,22 +11,16 @@
 <div class="container">
 	<div class="input-form-wrapper">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-6">
 				<div class="input-form-label">Name (optional)</div>
 				<div class="input-form-field">{{input type="text" value=model.user.name placeholder="e.g., Therese McMillan"}}</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-6">
 				<div class="input-form-label">Email address (optional)</div>
 				<div class="input-form-field">{{input type="text" value=model.user.email placeholder="e.g., transitfan@gmail.com"}}</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-6">
-				<div class="input-form-label">Affiliation, if any (optional)</div>
-				<div class="input-form-field">{{input type="text" value=model.user.affiliation placeholder="e.g., Federal Transit Administration"}}</div>
-			</div>
 			<div class="col-sm-6">
 				<div class="input-form-label">User type, which best describes you (optional)</div>
 				<div class="input-form-field">
@@ -34,6 +28,10 @@
 						{{underscored-string-to-title-case userType}}
 					{{/power-select}}
 				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="input-form-label">Affiliation, if any (optional)</div>
+				<div class="input-form-field">{{input type="text" value=model.user.affiliation placeholder="e.g., Federal Transit Administration"}}</div>
 			</div>
 		</div>
 	</div>
