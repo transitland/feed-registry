@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	agreeToTerms: false,
 	createFeedFromGtfsService: Ember.inject.service('create-feed-from-gtfs'),
 		actions: {
 			submit: function() {
@@ -11,7 +12,16 @@ export default Ember.Controller.extend({
 					controller.transitionToRoute('feeds.new.success');
 				}).catch(function(){
 					alert('Error with submission');
-			});
+				});
+			},
+			agree: function() {
+				if (this.agreeToTerms === false){
+					// this.set('agreeToTerms', this.get('value'));
+					this.set('agreeToTerms', true);
+				} else {
+					this.set('agreeToTerms', false);
+				}
+				console.log('agreeToTerms: ' + this.agreeToTerms);
+			}
 		}
-	}
 });
