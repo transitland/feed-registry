@@ -1,15 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  userTypes: [
-    "community_builder",
-    "data_enthusiast",
-    "app_developer",
-    "hardware_vendor",
-    "consultant",
-    "transit_agency_staff",
-    "other_public_agency_staff"
-  ],
+	agreeToTerms: false,
+	userTypes: [
+		"community_builder",
+		"data_enthusiast",
+		"app_developer",
+		"hardware_vendor",
+		"consultant",
+		"transit_agency_staff",
+		"other_public_agency_staff"
+	],
   createFeedFromGtfsService: Ember.inject.service('create-feed-from-gtfs'),
   actions: {
     handleFocus: function(select) {
@@ -24,6 +25,14 @@ export default Ember.Controller.extend({
         // TODO: display a better error message
         alert('Error with submission');
       });
-    }
+    },
+    agree: function() {
+				if (this.agreeToTerms === false){
+					// this.set('agreeToTerms', this.get('value'));
+					this.set('agreeToTerms', true);
+				} else {
+					this.set('agreeToTerms', false);
+				}
+			}
   }
 });
