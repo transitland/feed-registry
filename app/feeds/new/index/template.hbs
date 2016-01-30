@@ -8,7 +8,10 @@
 <div class="container">
 	<div class="add-operator-info">
 		<p>
-			Ready to add a feed to Transitland? The first step is to find the web address (URL) to a <abbr title="General Transit Feed Specification">GTFS</abbr> feed. Your link should point directly to a .zip file that is hosted by a transit operator or other authoritative source.
+			Transitland aggregates data feeds from many different sources, including transit agency websites. For each <a href="https://github.com/transitland/transitland-docs/blob/master/glossary.md#general-transit-feed-specification-gtfs" target="_blank">GTFS feed</a> listed in the <a href="https://transit.land/feed-registry" target="_blank">Feed Registry</a>, the Transitland's servers go out on the Internet, fetch a copy, and import it into the Datastore. From there, it's available to visualize using the <a href="https://transit.land/playground" target="_blank">Playground</a> and to querying using the <a href="https://transit.land/how-it-works/#slide-3" target="_blank">Datastore API</a>.
+		</p>
+		<p>
+			For more background about the process of adding a feed, please read <a href="https://github.com/transitland/transitland-docs/blob/master/add-feed.md" target="_blank">the "add a feed" documentation</a>. If you already have in hand a URL for a GTFS feed that's not currently included in Transitland, please continue below!
 		</p>
 	</div>
 	<form {{action "next" on="submit"}}>
