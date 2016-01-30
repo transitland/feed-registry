@@ -19,8 +19,8 @@
   position: absolute;
   top: 30px;
   left: 0px;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #bbb;
@@ -105,9 +105,9 @@
 
   .operator-table {
 
-    td { 
+    td {
       word-wrap: break-word;
-      
+
       &:first-child {
         width: 170px;
       }
