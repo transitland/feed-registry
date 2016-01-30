@@ -1,3 +1,8 @@
+//getting rid of padding of jumbotron on add-operator page, because there is sub nav
+#add-operator.jumbotron {
+	padding: 0;
+}
+
 .fullvw-wrapper {
 	width: 100 vw;
 }

@@ -1,29 +1,31 @@
-<div class="container">
-	{{intro-copy}}
+<section id="feed-registry" class="jumbotron">
+	<div class="container">
+		{{intro-copy}}
 
-	{{country-count operators=model.operators}}
+		{{country-count operators=model.operators}}
 
-	<main>
-		{{operator-table operators=model.operators}}
+		<main>
+			{{operator-table operators=model.operators}}
 
-	</main>
+		</main>
 
-	{{#if editingMode}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="cta-container">
-						<div class="cta-text">
-							<h3> Not seeing a feed you want? Contribute! </h3>
+		{{#if editingMode}}
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="cta-container">
+							<div class="cta-text">
+								<h3> Not seeing a feed you want? Contribute! </h3>
+							</div>
+							<div class="cta-btn">
+								{{#link-to "feeds.new" class="btn btn-action" role="button"}}
+										Add a Feed
+								{{/link-to}}
+							</div>
 						</div>
-						<div class="cta-btn">
-							{{#link-to "feeds.new" class="btn btn-action" role="button"}}
-									Add a Feed
-							{{/link-to}}
-						</div>
-					</div>
+				</div>
 			</div>
-		</div>
-	{{/if}}
+		{{/if}}
 
-	{{closing-copy}}
-</div>
+		{{closing-copy}}
+	</div>
+</section>

@@ -4,11 +4,10 @@
 	display: inline-block;
 	background-color: $grey-color-dark;
 	width: 100vw;
-	
+
 
 	.add-feed-nav-title {
-		padding-top: 20px;
-		padding-bottom: 40px;
+		padding: 80px 0;
 		text-align: center;
 		color: #ffffff;
 	}
@@ -19,28 +18,25 @@
 	}
 
 	.tab {
-		color: $grey-color;
-		outline: 0;
 		width: 15%;
+		color: $grey-color;
+		font-size: 18px;
 		display: inline-block;
 		background-color: $grey-color-dark;
 		margin: 0;
 		margin-left: 10px;
+		padding-bototm: 5px;
 		border-bottom: 5px solid;
-		box-shadow: 0;
-		border-radius: 0;
 	}
 
 	.tab-current {
-		outline: 0;
 		width: 15%;
+		font-size: 18px;
 		display: inline-block;
 		background-color: $grey-color-dark;
 		margin: 0;
 		margin-left: 10px;
 		border-bottom: 5px solid;
-		box-shadow: 0;
-		border-radius: 0;
 		color: $logo-color-1;
 		border-color: $logo-color-1;
 	}
