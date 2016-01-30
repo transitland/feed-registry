@@ -11,17 +11,18 @@
 	font-weight: $base-font-weight;
 }
 
-.email-caption {
-	text-align: left;
-	font-family: $base-font-family;
+.caption {
+	//because of italic style, it looks bit off without indentation
+	text-indent: 5px;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 	font-weight: $base-font-weight;
+	font-style: italic;
 	color: $grey-color;
 }
 
 .direction-btn-wrapper {
-	margin-top: 20px;
+	margin-top: 40px;
 	.btn{
 		background-color: $grey-color;
 		color: $grey-color-light;
@@ -41,17 +42,11 @@
 			color: $logo-color-1;
 			background-color: $grey-color;
 		}
-
 	}
-	.btn-disabled{
-		background-color: $grey-color;
-		color: $grey-color-light;
-		border: 0;
-		outline: 0;
-		margin: 3px;
-		box-shadow: 0;
-		border-radius: 0;
-		text-align: center;
+	/*submit feed*/
+	.btn-submit {
+		padding: 15px 100px;
+		font-size: 18px;
 	}
 }
 
@@ -153,13 +148,13 @@ textarea{
 	border:10px;
 }
 
-.add-operator-info p{
-	text-align: center;
-	margin: 40px 50px 40px 50px;
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	font-weight: $base-font-weight;
+.add-operator-info {
+	margin: 50px 0;
+	p {
+		text-align: center;
+		font-family: $base-font-family;
+		font-size: 18px;
+	}
 }
 
 /* ian: error handling for gtfs feed*/
