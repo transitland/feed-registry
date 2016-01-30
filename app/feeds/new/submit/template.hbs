@@ -36,31 +36,29 @@
 		</div>
 	</div>
 	<div class="row direction-btn-wrapper">
-		<div class="col-sm-12">
-			{{#link-to "feeds.new.license" class="btn btn-default pull-left" role="button" }}
-				&#60; Back
-			{{/link-to}}
-			<div class="btn-group" data-toggle="buttons">
-				<div class="checkbox">
-					{{#if agreeToTerms}} 
-						<label>
-							<input type="checkbox" {{action 'agree'}} checked value="" class="pull-right">
-							I agree to the terms of service.
-						</label>
-					{{else}}
-						<label>
-							<input type="checkbox" {{action 'agree'}} value="" class="pull-right">
-							I agree to the terms of service.
-						</label>
-					{{/if}}
-				</div>
-			</div>
+		<div class="col-sm-12 text-center">
+					<div class="checkbox">
+						{{#if agreeToTerms}}
+							<label>
+								<input type="checkbox" {{action 'agree'}} checked value="" class="pull-right">
+								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html"> terms of service. <i class="fa fa-external-link"></i></a>
+							</label>
+						{{else}}
+							<label>
+								<input type="checkbox" {{action 'agree'}} value="" class="pull-right">
+								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html"> terms of service. <i class="fa fa-external-link"></i></a>
+							</label>
+						{{/if}}
+					</div>
 			{{#if agreeToTerms}}
-				<input type="button" {{action 'submit'}} class="btn btn-default pull-right" value="SUBMIT FEED">
+				<input type="button" {{action 'submit'}} class="btn btn-submit" value="SUBMIT FEED">
 			{{else}}
-				<input type="button" {{action 'submit'}} class="btn btn-default pull-right disabled" value="SUBMIT FEED">
+				<input type="button" {{action 'submit'}} class="btn btn-submit" disabled value="SUBMIT FEED">
 			{{/if}}
+			{{!--commenting out go back to license --}}
+			{{!--{{#link-to "feeds.new.license" class="" role="button" }}
+				<i class="fa fa-chevron-left"></i> Return to license info
+			{{/link-to}}--}}
 		</div>
 	</div>
 </div>
-

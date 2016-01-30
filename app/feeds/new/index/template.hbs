@@ -30,8 +30,7 @@
 			</div>
 		</article>
 
-
-		<div class="email-caption">
+		<div class="caption">
 			After this feed is added to Transitland, our servers will periodically check this URL for updates
 		</div>
 
@@ -39,12 +38,12 @@
 		<div class="row direction-btn-wrapper">
 			<div class="col-sm-12">
 				<div class="pull-left">
-					{{#link-to 'index' class="btn btn-default"}}
-							&#60; Cancel
+					{{#link-to 'index' class="btn btn-action"}}
+							<i class="fa fa-chevron-left"></i> Cancel
 					{{/link-to}}
 				</div>
 				<div class="pull-right">
-				 <a class="btn btn-default" role="button"  type="submit" {{action "next"}}>Next ></a>
+				 <a class="btn btn-action" role="button"  type="submit" {{action "next"}}> Next <i class="fa fa-chevron-right"></i></a>
 				</div>
 			</div>
 		</div>
