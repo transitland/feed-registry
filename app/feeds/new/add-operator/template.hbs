@@ -17,23 +17,27 @@
 	<br>
 	<!-- if one or more operator is selected to include in feed -->
 
+
+	{{#unless minimumOperator}}
+		<div class="has-error">
+			<div class="row">
+				<div class="col-sm-12 warning text-center">
+					Please include at least one operator
+				</div>
+			</div>
+		</div>
+	{{/unless}}
+
 	<div class="direction-btn-wrapper row">
 		<div class="col-sm-12">
 			{{#if minimumOperator}}
 				{{#link-to 'feeds.new.license' class="btn btn-default pull-right"}}
-						Next >
+					Next >
 				{{/link-to}}
-			{{else}}
-				<div class="has-error">
-					<div class="row">
-						<div class="col-sm-12 warning text-center">
-							Please include at least one operator
-							{{#link-to 'feeds.new.license' class="btn btn-default pull-right disabled"}}
-								Next >
-							{{/link-to}}
-						</div>
-					</div>
-				</div>
+			{{else}}}
+				{{#link-to 'feeds.new.license' class="btn btn-default pull-right disabled"}}
+					Next >
+				{{/link-to}}
 			{{/if}}
 		</div>
 	</div>
