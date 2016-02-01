@@ -2,15 +2,6 @@
 	width: 100 vw;
 }
 
-.p {
-	text-align: center;
-	margin: 40px 50px 40px 50px;
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	font-weight: $base-font-weight;
-}
-
 .caption {
 	//because of italic style, it looks bit off without indentation
 	text-indent: 5px;
@@ -23,7 +14,8 @@
 
 .direction-btn-wrapper {
 	margin-top: 40px;
-	.btn{
+
+	.btn {
 		background-color: $grey-color;
 		color: $grey-color-light;
 		border: 0;
@@ -33,21 +25,29 @@
 		border-radius: 0;
 		text-align: center;
 
-		&:hover {
+		&:hover, &:focus {
+			background-color: darken($grey-color, 10%);
 			color: $logo-color-3;
-			background-color: $grey-color;
 		}
 
-		&:focus {
-			color: $logo-color-1;
+		&:disabled {
 			background-color: $grey-color;
+			color: $grey-color-light;
 		}
 	}
+
+
+	.disabled {
+		background-color: $grey-color;
+		color: $grey-color-light;
+	}
+
 	/*submit feed*/
 	.btn-submit {
 		padding: 15px 100px;
 		font-size: 18px;
 	}
+
 }
 
 .success {
@@ -110,7 +110,8 @@
 	}
 	.input-form-field{
 		color: $grey-color;
-		padding: 3px 3px 3px 3px;
+		padding: 3px 3px 6px 3px;
+		font-size: 18px;
 	}
 	.input-form-guide{
 		color: $grey-color;
@@ -154,7 +155,6 @@ textarea{
 
 	p {
 		text-align: center;
-		font-family: $base-font-family;
 		font-size: 18px;
 	}
 }

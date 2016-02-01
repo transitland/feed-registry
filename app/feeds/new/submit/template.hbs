@@ -1,17 +1,17 @@
 <div class="fullvw-wrapper">
 	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab" add-operator-tab-class="tab" license-tab-class="tab" submit-tab-class="tab-current" submitted=false}}
 </div>
-<div class="add-operator-info">
-	<p>
-		If you'd like, tell us about yourself! 
-		<br>
-		<br>
-		All fields are optional, but be sure to include your email address if you'd like us to contact you when your feed has been added to the Feed Registry.
-	</p>
-</div>
-
 
 <div class="container">
+	<div class="add-operator-info">
+		<p>
+			<h4>If you'd like, tell us about yourself!</h4>
+		</p>
+		<p>
+			All fields are optional, but be sure to include your email address if you'd like us to contact you when your feed has been added to the Feed Registry.
+		</p>
+	</div>
+
 	<div class="input-form-wrapper">
 		<div class="row">
 			<div class="col-sm-6">
@@ -44,7 +44,7 @@
 						{{#if agreeToTerms}}
 							<label>
 								<input type="checkbox" {{action 'agree'}} checked value="" class="pull-right">
-								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html"> terms of service. <i class="fa fa-external-link"></i></a>
+								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html" target="_blank"> terms of service. <i class="fa fa-external-link"></i></a>
 							</label>
 						{{else}}
 							<label>
