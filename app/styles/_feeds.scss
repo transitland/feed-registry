@@ -29,14 +29,19 @@
 			background-color: darken($grey-color, 10%);
 			color: $logo-color-3;
 		}
-	}
 
-	&:disabled {
-		&:hover, &:focus {
+		&:disabled {
 			background-color: $grey-color;
 			color: $grey-color-light;
 		}
 	}
+
+
+	.disabled {
+		background-color: $grey-color;
+		color: $grey-color-light;
+	}
+
 	/*submit feed*/
 	.btn-submit {
 		padding: 15px 100px;
