@@ -87,6 +87,17 @@
 	.row.no {
 		background-color: $grey-color-light;
 	}
+	.row.error{
+		outline: 2px solid $logo-color-1;
+		border-bottom: none;
+		.col-sm-4{
+			border-right: none;
+		}
+		.input-form-field{
+			color: $logo-color-1;
+			padding-right: 50px;
+		}
+	}
 	//put right border for cols inside of input-form-wrapper unless it is last child element
 	div[class^='col-']:not(:last-child) {
 		border-right: 2px solid $grey-color-light;
@@ -97,6 +108,7 @@
 		&.no-border {
 			border: 0;
 		}
+
 	}
 
 	.ember-text-field{
