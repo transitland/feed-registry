@@ -15,7 +15,7 @@
 					<div class="input-form-label"> Does the feed have a license?</div>
 				</div>
 				<div class="col-sm-8">
-						<div class="yes-no-group" data-toggle="buttons">
+						<div class="btn-group">
 							{{license-form-toggle-button attr=license_present_mode text="yes" value=true}}
 							{{license-form-toggle-button attr=license_present_mode text="no" value=false}}
 						</div>
@@ -37,7 +37,7 @@
 						<div class="input-form-label">Do you feel comfortable interpreting the license?</div>
 					</div>
 					<div class="col-sm-6">
-						<div class="yes-no-group" data-toggle="buttons">
+						<div class="btn-group" data-toggle="buttons">
 							{{license-form-toggle-button attr=interpret_license_mode text="yes" value=true}} {{license-form-toggle-button attr=interpret_license_mode text="no" value=false}}
 						</div>
 					</div>
@@ -54,7 +54,7 @@
 						<div class="input-form-label">Attribution for feed data</div>
 					</div>
 					<div class="col-sm-8">
-						<div class="yes-no-group" data-toggle="buttons">
+						<div class="btn-group" data-toggle="buttons">
 							{{license-form-toggle-button attr=model.license_use_without_attribution text="Optional" value="yes"}} {{license-form-toggle-button attr=model.license_use_without_attribution text="Required" value="no"}} {{license-form-toggle-button attr=model.license_use_without_attribution
 								text="Unknown" value="unknown"}}
 						</div>
@@ -73,7 +73,7 @@
 						<div class="input-form-label">Creation of derived data products</div>
 					</div>
 					<div class="col-sm-8">
-						<div class="yes-no-group" data-toggle="buttons">
+						<div class="btn-group" data-toggle="buttons">
 								{{license-form-toggle-button attr=model.license_create_derived_product text="Permitted" value="yes"}} {{license-form-toggle-button attr=model.license_create_derived_product text="Not Permitted" value="no"}} {{license-form-toggle-button attr=model.license_create_derived_product
 								text="Unknown" value="unknown"}}
 						</div>
@@ -84,7 +84,7 @@
 						<div class="input-form-label">Redistribution of feed as-is</div>
 					</div>
 					<div class="col-sm-8 col-xs-12 input-section">
-						<div class="yes-no-group" data-toggle="buttons">
+						<div class="btn-group" data-toggle="buttons">
 							{{license-form-toggle-button attr=model.license_redistribute text="Optional" value="yes"}} {{license-form-toggle-button attr=model.license_redistribute text="Required" value="no"}} {{license-form-toggle-button attr=model.license_redistribute text="Unknown"
 								value="unknown"}}
 						</div>

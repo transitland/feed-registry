@@ -1,7 +1,3 @@
-.fullvw-wrapper {
-	width: 100 vw;
-}
-
 .caption {
 	//because of italic style, it looks bit off without indentation
 	text-indent: 5px;
@@ -90,7 +86,8 @@
 		display: flex;
 		align-items: center;
 	}
-	.yes-no-group {
+
+	.btn-group {
 		padding: 10px 0;
 	}
 	//put right border for cols inside of input-form-wrapper unless it is last child element
@@ -109,13 +106,18 @@
 	.ember-text-field{
 		color: #333333;
 		border: 0;
-		padding: 0;
-		padding-left: 5px;
+		padding: 5px;
 		width: 100%;
 		&:focus{
 			outline: 1px solid rgba(82,168,236,.4);
 			box-shadow: 0 0 8px rgba(82,168,236,.4) !important;
 		}
+	}
+
+	.ember-power-select {
+		//text field has 5px padding on top and bottom
+		//this margin is balance with that padding
+		margin: 5px 0;
 	}
 
 	.input-form-label{

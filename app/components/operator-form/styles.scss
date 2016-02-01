@@ -1,6 +1,4 @@
 .input-form {
-	font-family: $base-font-family;
-	line-height: $base-line-height;
 	background-color: #ffffff;
 	.input-form-label{
 		color: $logo-color-3;
@@ -8,19 +6,10 @@
 	}
 	.ember-text-field{
 		color: #333333;
-		font-size: 16px;
 		font-weight: normal;
 		border: 0;
 		padding: 0px 0px 3px 5px;
 		width: 100%;
-		&:focus{
-			outline: none;
-		}
-	}
-
-	.label {
-		color: $logo-color-3;
-		padding: 0px 0px 3px 5px;
 	}
 
 	.input-form-guide{
@@ -33,12 +22,8 @@
 
 .ember-power-select-trigger{
 	color: #333333;
-	font-size: 16px;
-	font-weight: normal;
+	//default power select's line-height makes div's height change depending on the content
+	line-height: inherit;
+	box-sizing: border-box;
 
 }
-
-.label {
-		color: $logo-color-3;
-		padding: 0px 0px 3px 5px;
-	}

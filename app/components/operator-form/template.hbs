@@ -6,9 +6,14 @@
 				<div class="input-form-label">Include this operator?</div>
 			</div>
 			<div class="col-sm-8">
-				<div class="yes-no-group">
-					<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
-					<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+				<div class="btn-group">
+					<!--ember puts dummy span on top of component, this span is to mimick that behaviour-->
+					<span>
+						<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+					</span>
+					<span>
+						<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+					</span>
 				</div>
 			</div>
 		</div>
