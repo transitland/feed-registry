@@ -16,8 +16,8 @@
 	margin-top: 40px;
 
 	.btn {
-		background-color: $grey-color;
-		color: $grey-color-light;
+		background-color: $logo-color-3;
+		color: #fff;
 		border: 0;
 		outline: 0;
 		margin: 3px;
@@ -26,10 +26,13 @@
 		text-align: center;
 
 		&:hover, &:focus {
-			background-color: darken($grey-color, 10%);
-			color: $logo-color-3;
+			background-color: darken($logo-color-3, 20%);
 		}
 
+		&:focus {
+			outline: 1px solid rgba(82,168,236,.4);
+			box-shadow: 0 0 8px rgba(82,168,236,.8) !important;
+		}
 		&:disabled {
 			background-color: $grey-color;
 			color: $grey-color-light;
@@ -72,15 +75,23 @@
 	margin-bottom: 20px;
 
 	//Put bottom border for row inside of input-form-wrapper unless it is last child element
+
 	.row:not(:last-child) {
 		border-bottom: 2px solid $grey-color-light;
 	}
 	.row.yes {
 		//this color is tweaked from $logo-color-5 variable, to be background color.
-		background-color: #d7e5da;
+		background-color: lighten($logo-color-3, 30%);//#d7e5da;
+		display: flex;
+		align-items: center;
 	}
 	.row.no {
 		background-color: $grey-color-light;
+		display: flex;
+		align-items: center;
+	}
+	.yes-no-group {
+		padding: 10px 0;
 	}
 	//put right border for cols inside of input-form-wrapper unless it is last child element
 	div[class^='col-']:not(:last-child) {
@@ -90,6 +101,7 @@
 			border: 0;
 		}
 		&.no-border {
+			//this input is inline
 			border: 0;
 		}
 	}
@@ -97,27 +109,29 @@
 	.ember-text-field{
 		color: #333333;
 		border: 0;
-		padding: 0px 0px 3px 5px;
+		padding: 0;
+		padding-left: 5px;
 		width: 100%;
 		&:focus{
-			outline: none;
+			outline: 1px solid rgba(82,168,236,.4);
+			box-shadow: 0 0 8px rgba(82,168,236,.4) !important;
 		}
-
 	}
+
 	.input-form-label{
-		color: $logo-color-3;
-		padding: 5px 0px 3px 5px;
+		color: #888;
+		text-transform: uppercase;
+		letter-spacing: 0.9px;
+		font-size: 14px;
+		padding: 10px 0px 3px 5px;
 	}
 	.input-form-field{
-		color: $grey-color;
-		padding: 3px 3px 6px 3px;
+		padding: 3px 3px 10px 3px;
 		font-size: 18px;
 	}
 	.input-form-guide{
-		color: $grey-color;
 		background: $grey-color-light;
-		text-align: center;
-		padding: 5px 0px 3px 5px;
+		padding: 10px 20px;
 	}
 
 	.btn{
@@ -130,7 +144,7 @@
 		//bootstrap default add slight shadow inside of active button, disabling it
 		box-shadow: none;
 		&.yes {
-			background-color: $logo-color-5;
+			background-color: darken($logo-color-3,20%);
 		}
 		&.no {
 			// if different color is needed for 'no' toggle
@@ -152,10 +166,9 @@ textarea{
 .add-operator-info {
 	margin-top: 80px;
 	margin-bottom: 40px;
-
 	p {
-		text-align: center;
 		font-size: 18px;
+		line-height: 1.5em;
 	}
 }
 

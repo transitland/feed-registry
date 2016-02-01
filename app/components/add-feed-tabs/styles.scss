@@ -4,7 +4,7 @@
 	display: inline-block;
 	background-color: $grey-color-dark;
 	width: 100vw;
-
+	//padding-bottom: 1px;
 
 	.add-feed-nav-title {
 		padding: 80px 0;
@@ -25,19 +25,12 @@
 		background-color: $grey-color-dark;
 		margin: 0;
 		margin-left: 10px;
-		padding-bototm: 5px;
+		padding-bottom: 3px;
 		border-bottom: 5px solid;
-	}
-
-	.tab-current {
-		width: 15%;
-		font-size: 18px;
-		display: inline-block;
-		background-color: $grey-color-dark;
-		margin: 0;
-		margin-left: 10px;
-		border-bottom: 5px solid;
-		color: $logo-color-1;
-		border-color: $logo-color-1;
+		//box-shadow: 0px 1px 0px $grey-color-dark;
+		&.current {
+			color: #fff;
+			border-color: #fff;
+		}
 	}
 }
