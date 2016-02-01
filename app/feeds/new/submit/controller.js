@@ -25,7 +25,6 @@ export default Ember.Controller.extend({
         // TODO: display a better error message
         alert('Error with submission');
       });
-    	this.store.unloadAll();
     },
     agree: function() {
 				if (this.agreeToTerms === false){
@@ -36,7 +35,4 @@ export default Ember.Controller.extend({
 				}
 			}
  	 }
- 	 // clearLocalDatastore: function (){
-   //  	this.store.unloadAll();
- 	 // }
 });
