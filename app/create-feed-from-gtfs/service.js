@@ -42,3 +42,4 @@ export default Ember.Service.extend({
 
 // set up function on the service to check if there is a feed model that comes back with the service.
 // if there's not, then transition user to URL page
+// 
