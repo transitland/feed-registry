@@ -1,0 +1,104 @@
+
+.input-form-wrapper {
+
+  border: 2px solid $grey-color-light;
+
+  //this is to have row inside of this wrapper
+  padding-left: 15px;
+  padding-right: 15px;
+
+  margin-bottom: 5px;
+
+
+  //Put bottom border for row inside of input-form-wrapper unless it is last child element
+  .row:not(:last-child) {
+    border-bottom: 2px solid $grey-color-light;
+  }
+
+  .row.yes {
+    background-color: lighten($logo-color-3, 30%);//#d7e5da;
+    display: flex;
+    align-items: center;
+  }
+
+  .row.no {
+    background-color: $grey-color-light;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-group {
+    padding: 10px 0;
+  }
+
+  .row.error{
+    outline: 2px solid $logo-color-1;
+  }
+  //put right border for cols inside of input-form-wrapper unless it is last child element
+  div[class^='col-']:not(:last-child) {
+    border-right: 2px solid $grey-color-light;
+    @include media-query($on-pad) {
+      //no right border on tablet
+      border: 0;
+    }
+    &.no-border {
+      //this input is inline
+      border: 0;
+    }
+
+  }
+
+  .ember-text-field{
+    color: #333333;
+    border: 0;
+    padding: 5px;
+    width: 100%;
+    &:focus{
+      outline: 1px solid rgba(82,168,236,.4);
+      box-shadow: 0 0 8px rgba(82,168,236,.4) !important;
+    }
+  }
+
+  .ember-power-select {
+    //text field has 5px padding on top and bottom
+    //this margin is balance with that padding
+    margin: 5px 0;
+  }
+
+  .input-form-label{
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    font-size: 14px;
+    padding: 10px 0px 3px 5px;
+  }
+  .input-form-field{
+    padding: 3px 3px 10px 3px;
+    font-size: 18px;
+  }
+  .input-form-guide{
+    background: $grey-color-light;
+    padding: 10px 20px;
+  }
+
+  .btn{
+    background-color: #fdfdfd;
+    //sharing text value as class, capitalizing 'yes, no' here.
+    text-transform: capitalize;
+  }
+  .btn.active, .btn:active{
+    background-color: $grey-color;
+    //bootstrap default add slight shadow inside of active button, disabling it
+    box-shadow: none;
+    &.yes {
+      background-color: darken($logo-color-3,20%);
+    }
+    &.no {
+      // if different color is needed for 'no' toggle
+    }
+    color: $grey-color-light;
+  }
+  .btn-group{
+     margin-left: 15px;
+  }
+}

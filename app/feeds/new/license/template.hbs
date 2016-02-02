@@ -8,7 +8,6 @@
 			Many feeds have licenses or legal terms that apply to them. Provide as much information as you can about the license for the feed. It is okay if you are unable to answer all the license questions.
 		</p>
 	</div>
-	<div class="container">
 		<div class="input-form-wrapper">
 			<div class="row {{if license_present_mode "yes"}}{{unless license_present_mode "no"}}">
 				<div class="col-sm-4 no-border">
@@ -95,12 +94,11 @@
 		<div class="row direction-btn-wrapper">
 			<div class="col-sm-12">
 				{{#link-to 'feeds.new.add-operator' class="btn btn-action pull-left" }}
-					<i class="fa fa-chevron-left"></i> Return to Operator info
+					<i class="fa fa-chevron-left"></i> back
 				{{/link-to}}
 				{{#link-to 'feeds.new.submit' class="btn btn-action pull-right" }}
 					Next <i class="fa fa-chevron-right"></i>
 				{{/link-to}}
 			</div>
 		</div>
-	</div>
 </div>
