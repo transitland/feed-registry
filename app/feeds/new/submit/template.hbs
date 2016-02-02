@@ -39,29 +39,28 @@
 		</div>
 	</div>
 	<div class="row direction-btn-wrapper">
-		<div class="col-sm-12 text-center">
-					<div class="checkbox">
+		<div class="col-sm-12">
+			{{#link-to "feeds.new.license" class="btn btn-action pull-left" role="button" }}
+				<i class="fa fa-chevron-left"></i> back
+			{{/link-to}}
+					<div class="term-agreement pull-right">
 						{{#if agreeToTerms}}
-							<label>
-								<input type="checkbox" {{action 'agree'}} checked value="" class="pull-right">
-								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html" target="_blank"> terms of service. <i class="fa fa-external-link"></i></a>
-							</label>
+							<div class="instruction">
+								<input type="checkbox" {{action 'agree'}} checked value="">
+								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html" target="_blank"> contributor agreement. <i class="fa fa-external-link"></i></a>
+							</div>
 						{{else}}
-							<label>
-								<input type="checkbox" {{action 'agree'}} value="" class="pull-right">
-								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html" target="_blank"> terms of service. <i class="fa fa-external-link"></i></a>
-							</label>
+							<div class="instruction">
+								<input type="checkbox" {{action 'agree'}} value="">
+								By submitting feed, I agree to Transitland's <a href="https://transit.land/an-open-project/developer-agreement.html" target="_blank"> contributor agreement. <i class="fa fa-external-link"></i></a>
+							</div>
+						{{/if}}
+						{{#if agreeToTerms}}
+							<input type="button" {{action 'submit'}} class="btn btn-action pull-right" value="SUBMIT FEED">
+						{{else}}
+							<input type="button" {{action 'submit'}} class="btn btn-action pull-right" disabled value="SUBMIT FEED">
 						{{/if}}
 					</div>
-			{{#if agreeToTerms}}
-				<input type="button" {{action 'submit'}} class="btn btn-submit" value="SUBMIT FEED">
-			{{else}}
-				<input type="button" {{action 'submit'}} class="btn btn-submit" disabled value="SUBMIT FEED">
-			{{/if}}
-			{{!--commenting out go back to license --}}
-			{{!--{{#link-to "feeds.new.license" class="" role="button" }}
-				<i class="fa fa-chevron-left"></i> Return to license info
-			{{/link-to}}--}}
 		</div>
 	</div>
 </div>

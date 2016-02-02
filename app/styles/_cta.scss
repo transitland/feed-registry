@@ -6,6 +6,11 @@
   background-color: #eee;
   display: table;
 
+  @include media-query($on-small-screen) {
+    width: 100%;
+    margin: 10px 0;
+  }
+
   .cta-text {
     display: table-cell;
   }
