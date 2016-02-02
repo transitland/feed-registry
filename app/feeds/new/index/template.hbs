@@ -3,7 +3,7 @@
 {{/if}}
 
 <div class="fullvw-wrapper">
-	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab-current" add-operator-tab-class="tab" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
+	{{add-feed-tabs header-text="ADD A TRANSIT FEED" upload-tab-class="tab current" add-operator-tab-class="tab" license-tab-class="tab" submit-tab-class="tab" submitted=false}}
 </div>
 <div class="container">
 	<div class="add-operator-info">
@@ -20,7 +20,7 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="input-form-label">Paste the GTFS feed URL</div>
-						<div class="input-form-field">{{input type="text" value=model.url placeholder="http://... .zip"}}</div>
+						<div class="input-form-field">{{input type="text" value=model.url placeholder="http://... .zip" autofocus=true}}</div>
 					</div>
 				</div>
 				{{#if model.errors}}
