@@ -1,22 +1,41 @@
 <div class="operator-info">
 	<div class="input-form-wrapper">
 	{{#unless singleOperator}}
-		<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row">
-			<div class="col-sm-4 no-border">
-				<div class="input-form-label">Include this operator?</div>
-			</div>
-			<div class="col-sm-8">
-				<div class="btn-group">
-					<!--ember puts dummy span on top of component, this span is to mimick that behaviour-->
-					<span>
-						<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
-					</span>
-					<span>
-						<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
-					</span>
+		{{#if minimumOperator}}
+			<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row">
+				<div class="col-sm-4 no-border">
+					<div class="input-form-label">Include this operator?</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="btn-group">
+						<!--ember puts dummy span on top of component, this span is to mimick that behaviour-->
+						<span>
+							<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+						</span>
+						<span>
+							<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+						</span>
+					</div>
 				</div>
 			</div>
-		</div>
+		{{else}}
+			<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} error row">
+				<div class="col-sm-4">
+					<div class="input-form-label">Include this operator?</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="btn-group">
+						<!--ember puts dummy span on top of component, this span is to mimick that behaviour-->
+						<span>
+							<button class="btn btn-default yes {{if operator.include_in_changeset "active"}}" type="button" {{action "clickYes"}}>Yes</button>
+						</span>
+						<span>
+							<button class="btn btn-default no {{unless operator.include_in_changeset "active"}}" type="button" {{action "clickNo"}}>No</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		{{/if}}
 	{{/unless}}
 		<div class="row">
 			<div class="col-sm-12 col-xs-12 input-section">
