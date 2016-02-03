@@ -10,17 +10,7 @@
 	</div>
 	<div>
 		{{#each operator in model.operators}}
-			{{#unless minimumOperator}}
-				<div class="row has-error">
-					<div class="col-sm-12">
-						<div class="warning">
-							Please include at least one operator
-						</div>
-					</div>
-				</div>
-			{{/unless}}
 			{{operator-form operator=operator singleOperator=singleOperator minimumOperator=minimumOperator}}
-			<br>
 		{{/each}}
 	</div>
 

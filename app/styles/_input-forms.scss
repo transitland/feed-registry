@@ -1,3 +1,9 @@
+///these colors are borrowed from bootstrap
+
+$error-color: #a94442;
+$error-bg-color: #f2dede;
+$warn-color: #8a6d3b;
+$warn-bg-color: #fcf8e3;
 
 .input-form-wrapper {
 
@@ -9,6 +15,8 @@
 
   margin-bottom: 5px;
 
+  position: relative;
+
 
   //Put bottom border for row inside of input-form-wrapper unless it is last child element
   .row:not(:last-child) {
@@ -17,22 +25,22 @@
 
   .row.yes {
     background-color: lighten($logo-color-3, 30%);//#d7e5da;
+  }
+
+  .inline-items {
     display: flex;
     align-items: center;
   }
 
   .row.no {
     background-color: $grey-color-light;
-    display: flex;
-    align-items: center;
   }
 
-  .btn-group {
-    padding: 10px 0;
+  .row.warn {
+    outline: 2px solid $warn-color;
   }
-
-  .row.error{
-    outline: 2px solid $logo-color-1;
+  .row.error {
+    outline: 2px solid $error-color;
   }
   //put right border for cols inside of input-form-wrapper unless it is last child element
   div[class^='col-']:not(:last-child) {
@@ -41,9 +49,13 @@
       //no right border on tablet
       border: 0;
     }
-    &.no-border {
+    &.inline-label {
       //this input is inline
       border: 0;
+    }
+    &.inline-label > .input-form-label {
+      //inline label is being centered with display: flex, of parnt row, so we should disable label's own padding
+      padding: 0;
     }
 
   }
@@ -60,8 +72,8 @@
   }
 
   .ember-power-select {
-    //text field has 5px padding on top and bottom
-    //this margin is balance with that padding
+    //text field has 5px padding on top and bottom, and power select is inline with the text field
+    //this margin is to balance with that padding
     margin: 5px 0;
   }
 
@@ -81,7 +93,12 @@
     padding: 10px 20px;
   }
 
-  .btn{
+  .btn-group {
+    padding: 10px 0;
+    margin-left: 15px;
+  }
+
+  .btn {
     background-color: #fdfdfd;
     //sharing text value as class, capitalizing 'yes, no' here.
     text-transform: capitalize;
@@ -98,7 +115,45 @@
     }
     color: $grey-color-light;
   }
-  .btn-group{
-     margin-left: 15px;
+}
+
+
+@mixin warn-msg($color, $bg-color) {
+  background-color: $bg-color;
+  color: $color;
+  width: 100%;
+  position: absolute;
+  top: -39px;
+  margin-left: -15px;
+  outline: 2px solid $color;
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.error-tip {
+  @include warn-msg($error-color,  $error-bg-color);
+}
+
+.warning-tip {
+  @include warn-msg($warn-color, $warn-bg-color);
+}
+
+/* ian: error handling for gtfs feed*/
+.has-error {
+  .row {
+    outline: 2px solid #f2dede;
+  }
+  .error {
+    padding: 8px;
+    font-weight: bold;
+    background: #edccca;
+  }
+  .warning {
+    padding: 8px;
+    font-weight: bold;
+    background: #f7ecca;
   }
 }
+
+
