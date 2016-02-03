@@ -13,7 +13,7 @@ export default Ember.Route.extend({
         newModel.get('errors').add(error.attribute, error.message);
       });
     }
-    return newModel
+    return newModel;
 	},
   resetController: function(controller, isExiting, transition) {
     // Reset the controller loading state before transition

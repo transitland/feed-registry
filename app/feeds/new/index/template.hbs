@@ -37,13 +37,22 @@
 			After this feed is added to Transitland, our servers will periodically check this URL for updates
 		</div>
 
-
-		<div class="row direction-btn-wrapper">
-			<div class="col-sm-12">
-				<div class="pull-right">
-				 <a class="btn btn-action" role="button"  type="submit" {{action "next"}}> Next <i class="fa fa-chevron-right"></i></a>
+		{{#if model.url}}
+			<div class="row direction-btn-wrapper">
+				<div class="col-sm-12">
+					<div class="pull-right">
+					 <a class="btn btn-action" role="button"  type="submit" {{action "next"}}> Next <i class="fa fa-chevron-right"></i></a>
+					</div>
 				</div>
 			</div>
-		</div>
+		{{else}}
+			<div class="row direction-btn-wrapper">
+				<div class="col-sm-12">
+					<div class="pull-right">
+					 <a class="btn btn-action" disabled role="button"  type="submit" {{action "next"}}> Next <i class="fa fa-chevron-right"></i></a>
+					</div>
+				</div>
+			</div>
+		{{/if}}
 	</form>
 </div>
