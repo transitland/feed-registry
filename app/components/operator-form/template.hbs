@@ -2,7 +2,7 @@
 	<div class="input-form-wrapper">
 	{{#unless singleOperator}}
 		{{#if minimumOperator}}
-			<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row">
+			<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} row inline-items">
 				<div class="col-sm-4 inline-label">
 					<div class="input-form-label">Include this operator?</div>
 				</div>
@@ -22,7 +22,7 @@
 				<div class="error-tip">
 			 		<i class="fa fa-exclamation-circle"></i> Please include at least one operator to continue.
 			 	</div>
-			<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} error row">
+			<div class="{{if operator.include_in_changeset "yes"}} {{unless operator.include_in_changeset "no"}} error inline-items row">
 				<div class="col-sm-4 inline-label">
 					<div class="input-form-label">Include this operator?</div>
 				</div>

@@ -25,14 +25,15 @@ $warn-bg-color: #fcf8e3;
 
   .row.yes {
     background-color: lighten($logo-color-3, 30%);//#d7e5da;
+  }
+
+  .inline-items {
     display: flex;
     align-items: center;
   }
 
   .row.no {
     background-color: $grey-color-light;
-    display: flex;
-    align-items: center;
   }
 
   .row.warn {
