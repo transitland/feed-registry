@@ -15,7 +15,6 @@
 		background-color: $logo-color-3;
 		color: #fff;
 		border: 0;
-		outline: 0;
 		margin: 3px;
 		box-shadow: 0;
 		border-radius: 0;
@@ -26,19 +25,20 @@
 		}
 
 		&:focus {
-			outline: 1px solid rgba(82,168,236,.4);
+			outline: 2px solid rgba(82,168,236,.4);
 			box-shadow: 0 0 8px rgba(82,168,236,.8) !important;
 		}
-		&:disabled {
+		&:disabled, &[disabled] {
 			background-color: $grey-color;
 			color: $grey-color-light;
+      cursor: not-allowed;
 		}
 	}
-
 
 	.disabled {
 		background-color: $grey-color;
 		color: $grey-color-light;
+    cursor: not-allowed;
 	}
 
 	/*submit feed*/
@@ -62,12 +62,16 @@
   width: 100%;
 }
 
-.operator-info { margin-bottom: 20px;}
+.operator-info {
+  margin-bottom: 50px;
+}
+
+
+
 
 textarea{
 	width:100%;
 	padding:10px;
-	outline:0px;
 	border:10px;
 }
 
@@ -78,21 +82,4 @@ textarea{
 		font-size: 18px;
 		line-height: 1.5em;
 	}
-}
-
-/* ian: error handling for gtfs feed*/
-.has-error {
-  .row {
-    border-color: #d2837d;
-  }
-  .error {
-    padding: 8px;
-    font-weight: bold;
-    background: #edccca;
-  }
-  .warning {
-    padding: 8px;
-    font-weight: bold;
-    background: #f7ecca;
-  }
 }

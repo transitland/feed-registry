@@ -15,23 +15,22 @@
 		</p>
 	</div>
 	<form {{action "next" on="submit"}}>
-		<article class="input-form-wrapper">
-			<div {{bind-attr class="model.errors.url:has-error"}}>
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="input-form-label">Paste the GTFS feed URL</div>
-						<div class="input-form-field">{{input type="text" value=model.url placeholder="http://... .zip" autofocus=true}}</div>
-					</div>
+		<div class="input-form-wrapper">
+			{{#if model.errors}}
+					{{#each model.errors as |error|}}
+						<div class="error-tip">
+							<i class="fa fa-exclamation-circle"></i> {{error.message}}
+						</div>
+					{{/each}}
+			{{/if}}
+
+			<div class="row {{if model.errors.url "error"}}">
+				<div class="col-sm-12">
+					<div class="input-form-label">Paste the GTFS feed URL</div>
+					<div class="input-form-field">{{input type="text" value=model.url placeholder="http://... .zip" autofocus=true}}</div>
 				</div>
-				{{#if model.errors}}
-					<div class="row">
-						{{#each model.errors as |error|}}
-							<div class="col-sm-12 error">{{error.message}}</div>
-						{{/each}}
-					</div>
-				{{/if}}
 			</div>
-		</article>
+		</div>
 
 		<div class="caption">
 			After this feed is added to Transitland, our servers will periodically check this URL for updates

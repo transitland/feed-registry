@@ -10,7 +10,7 @@
 	</div>
 		<div class="input-form-wrapper">
 			<div class="row {{if license_present_mode "yes"}}{{unless license_present_mode "no"}}">
-				<div class="col-sm-4 no-border">
+				<div class="col-sm-4 inline-label">
 					<div class="input-form-label"> Does the feed have a license?</div>
 				</div>
 				<div class="col-sm-8">
@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div class="row {{if interpret_license_mode "yes"}}{{unless interpret_license_mode "no"}}">
-					<div class="col-sm-6 no-border">
+					<div class="col-sm-6 inline-label">
 						<div class="input-form-label">Do you feel comfortable interpreting the license?</div>
 					</div>
 					<div class="col-sm-6">
@@ -49,7 +49,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-sm-4 col-xs-12 no-border">
+					<div class="col-sm-4 col-xs-12 inline-label">
 						<div class="input-form-label">Attribution for feed data</div>
 					</div>
 					<div class="col-sm-8">
@@ -61,14 +61,14 @@
 				</div>
 				{{#if showLicenseAttributionText}}
 					<div class="row">
-						<div class="col-sm-12 col-xs-12 no-border">
+						<div class="col-sm-12 col-xs-12 inline-label">
 							<div class="input-form-label">Attribution text:</div>
 							<div class="input-form-field">{{textarea value=model.license_attribution_text placeholder="e.g., Using data copyright (C) Bay Area Rapid Transit"}}</div>
 						</div>
 					</div>
 				{{/if}}
 				<div class="row">
-					<div class="col-sm-4 col-xs-12 no-border">
+					<div class="col-sm-4 col-xs-12 inline-label">
 						<div class="input-form-label">Creation of derived data products</div>
 					</div>
 					<div class="col-sm-8">
@@ -79,7 +79,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-4 col-xs-12 no-border">
+					<div class="col-sm-4 col-xs-12 inline-label">
 						<div class="input-form-label">Redistribution of feed as-is</div>
 					</div>
 					<div class="col-sm-8 col-xs-12 input-section">
