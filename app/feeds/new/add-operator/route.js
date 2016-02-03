@@ -26,7 +26,7 @@ export default Ember.Route.extend({
         feedModel.get('errors').add('url', error.message);  
       });
     });
-    return promise
+    return promise;
   },
   model: function() {
     return this.get('createFeedFromGtfsService').feedModel;
