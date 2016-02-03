@@ -26,17 +26,12 @@
 }
 
 .logo-image {
-  background-image: url(/assets/images/logo/transitland_logo@1x.png);
+  background-image: url(/assets/images/logo/transitland_logo.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 326px;
   height: 145px;
   margin: 0 auto;
-}
-@media
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-    background-image:url(/assets/images/logo/transitland_logo@2x.png);
 }
 
 .circle {
