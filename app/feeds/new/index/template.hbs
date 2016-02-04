@@ -16,8 +16,9 @@
 		<p>
 		If you know of a feed, please continue below!
 		</p>
-
-
+		<p>
+			{{documentation-link "add-feed.md#find-the-link-to-the-feed" "Learn more about how to find the link to the feed"}}
+		</p>
 	</div>
 	<form {{action "next" on="submit"}}>
 		<div class="input-form-wrapper">
@@ -38,7 +39,7 @@
 		</div>
 
 		<div class="caption">
-			After this feed is added to Transitland, our servers will periodically check this URL for updates
+			After this feed is added to Transitland, our servers will periodically check this URL for updates.
 		</div>
 
 		{{#if model.url}}

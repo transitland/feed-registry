@@ -7,6 +7,9 @@
 		<p>
 			Transitland checked your feed and found {{model.operators.length}} {{#if singleOperator}}operator{{else}}operators{{/if}}. Review the information below and provide additional details about each operator and location it serves. All fields are required unless otherwise indicated.
 		</p>
+		<p>
+			{{documentation-link "add-feed.md#choose-the-transit-operators-in-the-feed" "Learn more about how to choose the transit operators in the feed"}}
+		</p>
 	</div>
 	<div>
 		{{#each operator in model.operators}}
