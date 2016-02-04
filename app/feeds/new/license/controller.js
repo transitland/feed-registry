@@ -10,5 +10,27 @@ export default Ember.Controller.extend({
       this.set('model.license_attribution_text', null);
       return false;
     }
-  })
+  }),
+  resetInterpretations: function(){
+      this.set('model.license_use_without_attribution', null);
+      this.set('model.license_create_derived_product', null);
+      this.set('model.license_redistribute', null);
+      this.set('model.license_attribution_text', null);
+  },
+  resetLicense: function(){
+    this.resetInterpretations();
+    this.set('model.license_name', null);
+    this.set('model.license_url', null);
+    this.interpret_license_mode = false;
+  },
+
+  actions: {
+    click: function(){
+      if (this.license_present_mode === false){
+        this.resetLicense();
+      } else if (this.interpret_license_mode === false){
+        this.resetInterpretations();
+      }
+    }
+  }
 });
