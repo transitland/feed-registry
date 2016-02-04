@@ -30,7 +30,7 @@ export default Ember.Service.extend({
       feed: feedModel.toChange()
     });
     var changeset = this.get('store').createRecord('changeset', {
-      notes: 'This is a test. TODO put a custom message here.',
+      notes: `Changed submitted from Feed Registry for feed at ${feedModel.get('url')}`,
       payload: {
         changes: changes
       }
