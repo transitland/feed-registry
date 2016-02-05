@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   store: Ember.inject.service(),
+  routing: Ember.inject.service('-routing'),
   feedModel: null,
   userModel: null,
   createFeedAndUserModels: function() {
@@ -13,6 +14,16 @@ export default Ember.Service.extend({
       feed: newFeedModel,
       user: newUserModel
     };
+  },
+  getFeedOrTransitionToStart: function() {
+    if (this.feedModel === null) {
+      return this.get('routing').transitionTo('feeds.new');
+    } else {
+      return {
+        feedModel: this.feedModel,
+        userModel: this.userModel
+      };
+    }
   },
   toChangeset: function() {
     var feedModel = this.get('feedModel');
