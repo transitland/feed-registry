@@ -20,21 +20,35 @@ files to be fetched asynchronously, like: http://discuss.emberjs.com/t/how-to-pa
 */
 
 export default Ember.Component.extend({
+  setCountryAndRegionFromExistingValues: function() {
+    let currentCountryName = this.get('operator.country');
+    let currentRegionName = this.get('operator.state');
+    if (currentCountryName !== null) {
+      this.set('selectedCountry', _.find(this.countries, function(country) {
+        return country.name === currentCountryName;
+      }));
+    }
+    if (currentRegionName !== null) {
+      this.set('selectedRegion', _.find(this.regions, function(region) {
+        return region.name === currentRegionName;
+      }));
+    }
+  }.on('init'),
   selectedRegions: [],
   actions: {
-    handleFocus(select, e) {
-          select.actions.open();
+    handleFocus(select) {
+      select.actions.open();
     },
     setCountry(selectedCountry) {
       this.set('selectedCountry', selectedCountry);
-      this.set('countryName', selectedCountry.name);
+      this.set('operator.country', selectedCountry.name);
       this.set('selectedRegions', _.filter(this.regions, function(region) {
         return region.iso === selectedCountry.iso;
       }));
     },
     setRegion(selectedRegion) {
       this.set('selectedRegion', selectedRegion);
-      this.set('regionName', selectedRegion.name);
+      this.set('operator.state', selectedRegion.name);
     }
   },
   countries: [{
