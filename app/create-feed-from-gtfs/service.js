@@ -19,10 +19,7 @@ export default Ember.Service.extend({
     if (this.feedModel === null) {
       return this.get('routing').transitionTo('feeds.new');
     } else {
-      return {
-        feedModel: this.feedModel,
-        userModel: this.userModel
-      };
+      return this.feedModel;
     }
   },
   toChangeset: function() {
