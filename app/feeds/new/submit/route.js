@@ -6,8 +6,8 @@ export default Ember.Route.extend({
 	model: function() {
   		var feedModel = this.get('createFeedFromGtfsService').getFeedOrTransitionToStart();
 		return {
-			feedModel: feedModel,
-			userModel: this.get('createFeedFromGtfsService').userModel
+			feed: feedModel,
+			user: this.get('createFeedFromGtfsService').userModel
 		};
 	}
 });
