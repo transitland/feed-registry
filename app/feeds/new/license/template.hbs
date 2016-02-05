@@ -46,17 +46,16 @@
 				</div>
 				{{#if interpret_license_mode}}
 					<div class="row">
-						<div class="col-sm-12 col-xs-12 input-form-guide">Pick the license restrictions. Select 'Unknown'if you are not sure.
-						</div>
+						<div class="col-sm-12 col-xs-12 input-form-guide">Does the license allow:</div>
 					</div>
 
 					<div class="row inline-items">
 						<div class="col-sm-4 col-xs-12 inline-label">
-							<div class="input-form-label">Attribution for feed data</div>
+							<div class="input-form-label">usage without attribution?</div>
 						</div>
 						<div class="col-sm-8">
 							<div class="btn-group" data-toggle="buttons">
-								{{license-form-toggle-button attr=model.license_use_without_attribution text="Optional" value="yes"}} {{license-form-toggle-button attr=model.license_use_without_attribution text="Required" value="no"}} {{license-form-toggle-button attr=model.license_use_without_attribution
+								{{license-form-toggle-button attr=model.license_use_without_attribution text="Yes" value="yes"}} {{license-form-toggle-button attr=model.license_use_without_attribution text="No" value="no"}} {{license-form-toggle-button attr=model.license_use_without_attribution
 									text="Unknown" value="unknown"}}
 							</div>
 						</div>
@@ -64,29 +63,29 @@
 					{{#if showLicenseAttributionText}}
 						<div class="row">
 							<div class="col-sm-12 col-xs-12 inline-label">
-								<div class="input-form-label">Attribution text:</div>
+								<div class="input-form-label">What attribution text, if any, is required?</div>
 								<div class="input-form-field">{{textarea value=model.license_attribution_text placeholder="e.g., Using data copyright (C) Bay Area Rapid Transit"}}</div>
 							</div>
 						</div>
 					{{/if}}
 					<div class="row inline-items">
 						<div class="col-sm-4 col-xs-12 inline-label">
-							<div class="input-form-label">Creation of derived data products</div>
+							<div class="input-form-label">derived data products?</div>
 						</div>
 						<div class="col-sm-8">
 							<div class="btn-group" data-toggle="buttons">
-									{{license-form-toggle-button attr=model.license_create_derived_product text="Permitted" value="yes"}} {{license-form-toggle-button attr=model.license_create_derived_product text="Not Permitted" value="no"}} {{license-form-toggle-button attr=model.license_create_derived_product
+									{{license-form-toggle-button attr=model.license_create_derived_product text="Yes" value="yes"}} {{license-form-toggle-button attr=model.license_create_derived_product text="No" value="no"}} {{license-form-toggle-button attr=model.license_create_derived_product
 									text="Unknown" value="unknown"}}
 							</div>
 						</div>
 					</div>
 					<div class="row inline-items">
 						<div class="col-sm-4 col-xs-12 inline-label">
-							<div class="input-form-label">Redistribution of feed as-is</div>
+							<div class="input-form-label">redistribution of entire feed?</div>
 						</div>
 						<div class="col-sm-8 col-xs-12 input-section">
 							<div class="btn-group" data-toggle="buttons">
-								{{license-form-toggle-button attr=model.license_redistribute text="Optional" value="yes"}} {{license-form-toggle-button attr=model.license_redistribute text="Required" value="no"}} {{license-form-toggle-button attr=model.license_redistribute text="Unknown"
+								{{license-form-toggle-button attr=model.license_redistribute text="Yes" value="yes"}} {{license-form-toggle-button attr=model.license_redistribute text="No" value="no"}} {{license-form-toggle-button attr=model.license_redistribute text="Unknown"
 									value="unknown"}}
 							</div>
 						</div>
