@@ -17,10 +17,10 @@
 }
 @-moz-keyframes spinning {
   0% {
-    -moz-transform: -moz-rotate(0deg);
+    -moz-transform: rotate(0deg);
   }
   100% {
-    -moz-transform: -moz-rotate(360deg);
+    -moz-transform: rotate(360deg);
   }
 }
 #loading {
