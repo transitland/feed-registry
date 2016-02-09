@@ -3,7 +3,7 @@ footer {
   bottom: 0;
   background-color: #eee;
   display: inline-block;
-  background-image:url('/assets/images/ferry_bg.png');
+  background-image: url('/assets/images/ferry_bg.png');
   background-position: center bottom;
   background-repeat: repeat-x;
   .container {
@@ -31,6 +31,11 @@ footer {
     }
   }
   .fa { padding-right:5px; }
+  .mapzen-text {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
 }
 
 @include media-query($on-ipad) {
