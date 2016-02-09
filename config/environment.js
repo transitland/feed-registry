@@ -20,13 +20,13 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-      'default-src': "'none'",
+      'default-src': "'none' http://d2tkmr00hnrtoq.cloudfront.net/ https://d11xhlzkgsq6oc.cloudfront.net",
       'connect-src': "'self' http://dev.transit.land https://transit.land",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com",
       'media-src': "'self'",
-      'script-src': "'self' https://maxcdn.bootstrapcdn.com",
-      'font-src': "'self' https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com",
+      'script-src': "'self'",
+      'font-src': "'self' https://fonts.gstatic.com",
 
     },
 
@@ -36,6 +36,7 @@ module.exports = function(environment) {
     ENV.datastoreHost = 'http://dev.transit.land';
     ENV.allowEditingMode = true;
     ENV.datastoreAuthToken = 'CHANGETHISLOCALLY';
+    ENV.contentSecurityPolicy['connect-src'] = "'self' http://dev.transit.land"
   }
 
   if (environment === 'local') {
@@ -64,6 +65,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-4'
     };
+    ENV.contentSecurityPolicy['connect-src'] = "'self' http://dev.transit.land"
   }
 
   if (environment === 'production') {
@@ -72,6 +74,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-2'
     };
+    ENV.contentSecurityPolicy['connect-src'] = "'self' https://transit.land"
   }
 
   return ENV;
