@@ -20,13 +20,13 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-      'default-src': "'none' http://d2tkmr00hnrtoq.cloudfront.net/ https://d11xhlzkgsq6oc.cloudfront.net",
+      'default-src': "'none' http://d2tkmr00hnrtoq.cloudfront.net https://d11xhlzkgsq6oc.cloudfront.net",
       'connect-src': "'self' http://dev.transit.land https://transit.land",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com",
       'media-src': "'self'",
       'script-src': "'self'",
-      'font-src': "'self' https://fonts.gstatic.com",
+      'font-src': "'self' https://fonts.gstatic.com http://d2tkmr00hnrtoq.cloudfront.net https://d11xhlzkgsq6oc.cloudfront.net",
 
     },
 
