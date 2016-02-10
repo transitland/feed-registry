@@ -70,6 +70,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.datastoreHost = 'https://transit.land';
+    ENV.allowEditingMode = true;
     ENV.baseURL = '/feed-registry';
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-2'
