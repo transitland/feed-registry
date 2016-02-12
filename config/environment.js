@@ -57,7 +57,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'staging') {
-    ENV.datastoreHost = 'http://dev.transit.land';
+    ENV.datastoreHost = 'https://dev.transit.land';
     ENV.allowEditingMode = true;
     ENV.baseURL = '/feed-registry';
     ENV.googleAnalytics = {
