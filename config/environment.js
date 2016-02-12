@@ -26,8 +26,7 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
       'media-src': "'self'",
       'script-src': "'self'",
-      'font-src': "'self' https://fonts.gstatic.com https://*.cloudfront.net",
-
+      'font-src': "'self' https://fonts.gstatic.com https://*.cloudfront.net"
     },
 
   };
