@@ -11,12 +11,17 @@
 <td>{{operator.country}}</td>
 
 {{#if operator.feeds}}
-	{{#if operator.feeds.firstObject.license_name}}
-		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{operator.feeds.firstObject.license_name}}</a></td>
-	{{else}}
-		<td><a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">{{fa-icon icon="fa-external-link"}}</a></td>
-	{{/if}}
-
+	<td>
+		{{#if operator.feeds.firstObject.license_url}}
+			<a href = "{{operator.feeds.firstObject.license_url}}" target = "_blank">
+				{{#if operator.feeds.firstObject.license_name}}
+					{{operator.feeds.firstObject.license_name}}
+				{{else}}
+					{{fa-icon icon="fa-external-link"}}
+				{{/if}}
+			</a>
+		{{/if}}
+	</td>
 	<td>
 		<div class = "license-attr">
 			{{#if attributionUnknown}}
