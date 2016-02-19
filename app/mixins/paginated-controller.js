@@ -11,6 +11,7 @@ export default Ember.Mixin.create({
     if (this.model.meta && "next" in this.model.meta) {
       return Ember.isPresent(this.model.meta.next);
     } else {
+      console.log("meta: " + this.model.meta);
       return false;
     }
   }),
