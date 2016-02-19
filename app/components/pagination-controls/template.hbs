@@ -1,0 +1,7 @@
+{{#if hasPreviousPage}}
+  {{#link-to route (query-params offset=previousOffset) class="btn btn-default"}}Previous{{/link-to}}
+{{/if}}
+
+{{#if hasNextPage}}
+  {{#link-to route (query-params offset=nextOffset) class="btn btn-default"}}Next{{/link-to}}
+{{/if}}

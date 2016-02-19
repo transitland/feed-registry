@@ -7,5 +7,5 @@ export default DS.RESTAdapter.extend({
 	namespace: 'api/v1',
 	headers: {
 		'Authorization': 'Token token=' + ENV.datastoreAuthToken
-  }
+	}
 });
