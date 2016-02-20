@@ -34,13 +34,12 @@ module.exports = function(environment) {
   if (environment === 'development') {
     ENV.datastoreHost = 'https://dev.transit.land';
     ENV.allowEditingMode = true;
-    ENV.datastoreAuthToken = 'CHANGETHISLOCALLY';
+    ENV.apiProxyKey= 'transitland-YFO6jk8';
   }
 
   if (environment === 'local') {
     ENV.datastoreHost = 'http://localhost:3000';
     ENV.allowEditingMode = true;
-    ENV.datastoreAuthToken = 'CHANGETHISLOCALLY';
     ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:3000"
   }
 
@@ -63,6 +62,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-4'
     };
+    ENV.apiProxyKey= 'transitland-YFO6jk8';
   }
 
   if (environment === 'production') {
@@ -72,6 +72,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-2'
     };
+    ENV.apiProxyKey= 'transitland-k3a9ArI';
   }
 
   return ENV;
