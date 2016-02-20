@@ -1,12 +1,14 @@
 <section id="feed-registry" class="jumbotron">
 	<div class="container">
-		{{intro-copy}} {{country-count operators=model.operators}}
+		<div>{{intro-copy}}</div>
+		<br>
 
 		<main>
 			{{operator-table operators=model}}
-			{{pagination-controls route="index" hasPreviousPage=hasPreviousPage hasNextPage=hasNextPage previousOffset=previousOffset nextOffset=nextOffset}}
+			<div class="row direction-btn-wrapper">
+				{{pagination-controls route="index" hasPreviousPage=hasPreviousPage hasNextPage=hasNextPage previousOffset=previousOffset nextOffset=nextOffset}}
+			</div>
 		</main>
-
 
 		{{#if editingMode}}
 			<div class="row">
