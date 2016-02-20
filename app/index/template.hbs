@@ -5,7 +5,9 @@
 
 		<main>
 			{{operator-table operators=model}}
-			{{pagination-controls route="index" hasPreviousPage=hasPreviousPage hasNextPage=hasNextPage previousOffset=previousOffset nextOffset=nextOffset}}
+			<div class="row direction-btn-wrapper">
+				{{pagination-controls route="index" hasPreviousPage=hasPreviousPage hasNextPage=hasNextPage previousOffset=previousOffset nextOffset=nextOffset}}
+			</div>
 		</main>
 
 		{{#if editingMode}}
