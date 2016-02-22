@@ -14,9 +14,13 @@ export default DS.RESTAdapter.extend({
 			let data = {};
 			if (typeof(hash.data) === 'string') {
 				data = JSON.parse(hash.data);
-			} else {
+			} else if (typeof(hash.data) !== "undefined") {
 				data = hash.data;
+			} else {
+				// use object literal {}?
+				data = new Object();
 			}
+			// use data.api_key here instead of data["api_key"]?
 			data["api_key"] = ENV.apiProxyKey;
 			hash.data = data;
 		}
