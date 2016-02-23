@@ -17,10 +17,8 @@ export default DS.RESTAdapter.extend({
 			} else if (typeof(hash.data) !== "undefined") {
 				data = hash.data;
 			} else {
-				// use object literal {}?
-				data = new Object();
+				data = {};
 			}
-			// use data.api_key here instead of data["api_key"]?
 			data["api_key"] = ENV.apiProxyKey;
 			hash.data = data;
 		}
