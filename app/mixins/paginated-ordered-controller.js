@@ -1,9 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
-  // FOR TESTING:
-  perPage: 5,
-  // perPage: 50,
+  perPage: 50,
   queryParams: ["offset", "sort_order", "sort_key"],
   offset: 0,
   sort_order: "asc",
