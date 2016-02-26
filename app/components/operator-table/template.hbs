@@ -2,16 +2,16 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th class = "{{nameSortClass}}" {{action "sortBy" "name"}}>Operator Name</th>
-        <th class = "{{regionSortClass}}" {{action "sortBy" "metro"}}>Region</th>
-        <th class = "{{stateSortClass}}" {{action "sortBy" "state"}}>State or Province</th>
-        <th class = "{{countrySortClass}}" {{action "sortBy" "country"}}>Country</th>
+        <th class = "{{nameSortClass}}" {{action "changeSort" "name"}}>Operator Name</th>
+        <th class = "{{regionSortClass}}" {{action "changeSort" "metro"}}>Region</th>
+        <th class = "{{stateSortClass}}" {{action "changeSort" "state"}}>State or Province</th>
+        <th class = "{{countrySortClass}}" {{action "changeSort" "country"}}>Country</th>
         <th class = "license">License</th>
         <th>License Details <a href = "https://transit.land/an-open-project/#aggregated-data" target = "_blank">{{fa-icon icon="question-circle"}}</a></th>
       </tr>
     </thead>
     <tbody>
-      {{#each operator in sortedOperators}}
+      {{#each operator in operators}}
     	  {{operator-table/operator-row operator=operator}}
     	{{/each}}
     </tbody>

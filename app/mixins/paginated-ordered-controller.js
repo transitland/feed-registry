@@ -4,8 +4,10 @@ export default Ember.Mixin.create({
   // FOR TESTING:
   perPage: 5,
   // perPage: 50,
-  queryParams: ["offset"],
+  queryParams: ["offset", "sort_order", "sort_key"],
   offset: 0,
+  sort_order: "asc",
+  sort_key: "name",
 
   hasPreviousPage: Ember.computed("offset", function() {
     return this.get("offset") > 0;
