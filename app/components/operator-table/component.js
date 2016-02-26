@@ -1,55 +1,58 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	sortProperties: ['name'],
-    sortedOperators: Ember.computed.sort('operators', 'sortProperties'),
-    nameSortClass: Ember.computed('sortProperties', function() {
-        if (this.get('sortProperties')[0] === 'name') {
+
+
+	 
+    nameSortClass: Ember.computed('sortKey', 'sortOrder', function() {
+        if (this.get('sortKey') === 'name' && this.get('sortOrder') === 'asc') {
             return 'sort-down';
-        } else if (this.get('sortProperties')[0] === 'name:desc') {
+        } else if (this.get('sortKey') === 'name' && this.get('sortOrder') === 'desc') {
             return 'sort-up';
         } else {
             return 'not-sorted';
         }
     }),
-    regionSortClass: Ember.computed('sortProperties', function() {
-        if (this.get('sortProperties')[0] === 'metro') {
+    regionSortClass: Ember.computed('sortKey', 'sortOrder', function() {
+        if (this.get('sortKey') === 'metro' && this.get('sortOrder') === 'asc') {
             return 'sort-down';
-        } else if (this.get('sortProperties')[0] === 'metro:desc') {
+        } else if (this.get('sortKey') === 'metro'&& this.get('sortOrder') === 'desc') {
             return 'sort-up';
         } else {
             return 'not-sorted';
         }
     }),
 
-    stateSortClass: Ember.computed('sortProperties', function() {
-        if (this.get('sortProperties')[0] === 'state') {
+    stateSortClass: Ember.computed('sortKey', 'sortOrder', function() {
+        if (this.get('sortKey') === 'state'&& this.get('sortOrder') === 'asc') {
             return 'sort-down';
-        } else if (this.get('sortProperties')[0] === 'state:desc') {
+        } else if (this.get('sortKey') === 'state'&& this.get('sortOrder') === 'desc') {
             return 'sort-up';
         } else {
             return 'not-sorted';
         }
     }),
 
-    countrySortClass: Ember.computed('sortProperties', function() {
-        if (this.get('sortProperties')[0] === 'country') {
+    countrySortClass: Ember.computed('sortKey', 'sortOrder', function() {
+        if (this.get('sortKey') === 'country'&& this.get('sortOrder') === 'asc') {
             return 'sort-down';
-        } else if (this.get('sortProperties')[0] === 'country:desc') {
+        } else if (this.get('sortKey') === 'country'&& this.get('sortOrder') === 'desc') {
             return 'sort-up';
         } else {
             return 'not-sorted';
         }
     }),
+
 
     actions:{
 
-        sortBy: function(property) {
-            if (this.get('sortProperties')[0] === property) {
-                this.set('sortProperties', [property + ':desc']);
+        changeSort: function(sortKey) {
+            if (this.get('sortOrder') === 'desc') {
+                var sortOrder = 'asc';
             } else {
-                this.set('sortProperties', [property]);
+                var sortOrder = 'desc';
             }
+            this.sendAction('changeSort', sortOrder, sortKey);
         } 
     }
 });
