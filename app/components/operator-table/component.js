@@ -47,7 +47,10 @@ export default Ember.Component.extend({
     actions:{
 
         changeSort: function(sortKey) {
-            if (this.get('sortOrder') === 'desc') {
+            if (this.get('sortKey') !== sortKey){
+                var sortOrder = 'asc';
+            }
+            else if (this.get('sortOrder') === 'desc') {
                 var sortOrder = 'asc';
             } else {
                 var sortOrder = 'desc';
