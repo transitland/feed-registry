@@ -5,6 +5,7 @@ import ENV from 'feed-registry/config/environment';
 export default DS.RESTAdapter.extend({
 	host: ENV.datastoreHost,
 	namespace: 'api/v1',
+	coalesceFindRequests: true,
 	ajaxOptions: function(url, type, options) {
 		var hash = this._super(url, type, options);
 		// only need to include api_key when making GET requests
