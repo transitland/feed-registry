@@ -12,7 +12,8 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 			this.transitionTo({
 				queryParams: {
 					"sort_order": sortOrder,
-					"sort_key": sortKey
+					"sort_key": sortKey,
+					"offset": 0,
 				}
 			});
 		}
