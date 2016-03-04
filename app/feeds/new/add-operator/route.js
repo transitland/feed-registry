@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         feedModel.set('operators_in_feed', response.feed.operators_in_feed);
         response.operators.map(function(operator){feedModel.addOperator(operator)});
         return feedModel;
-      } else if (response.status == 'processing') {
+      } else {
         transition.abort();
         return Ember.run.later(controller, function(){
           transition.retry();
@@ -23,7 +23,7 @@ export default Ember.Route.extend({
       }
     }).catch(function(error) {
       error.errors.forEach(function(error){
-        feedModel.get('errors').add('url', error.message);  
+        feedModel.get('errors').add('url', error.message);
       });
     });
     return promise;
