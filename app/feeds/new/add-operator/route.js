@@ -16,6 +16,8 @@ export default Ember.Route.extend({
         response.operators.map(function(operator){feedModel.addOperator(operator)});
         return feedModel;
       } else {
+        // progress bar
+        console.log(response.status);
         transition.abort();
         return Ember.run.later(controller, function(){
           transition.retry();
