@@ -1,5 +1,5 @@
 {{#if isLoading}}
-	{{loading-spinner progress=progress progressStatus=progressStatus}} TEST: {{progressStatus}} {{progress}}
+	{{loading-spinner progress=progress progressStatus=progressStatus}}
 {{/if}}
 
 <div class="fullvw-wrapper">
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-		<div>{{progressStatus}}</div>
+		<div>{{progressStatus}}: {{progress}}</div>
 
 		<div class="caption">
 			After this feed is added to Transitland, our servers will periodically check this URL for updates.

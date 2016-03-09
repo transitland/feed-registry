@@ -18,7 +18,19 @@ export default Ember.Route.extend({
         return feedModel;
       } else {
         // progress bar
-        feedsController.send("updateProgress", response.status, response.progress);
+        var status = null;
+        var progress = null;
+        if (response.status === "downloading"){
+          status = response.status + " (step 1 of 2)";
+        } else {
+          status = response.status + " (step 2 of 2)";
+        }
+        if (isNaN(response.progress)){
+          progress = "0%";
+        } else {
+          progress = Math.floor(response.progress * 100) + "%";
+        }
+        feedsController.send("updateProgress", status, progress);
 
         transition.abort();
         return Ember.run.later(controller, function(){
