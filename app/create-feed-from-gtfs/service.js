@@ -5,6 +5,7 @@ export default Ember.Service.extend({
   routing: Ember.inject.service('-routing'),
   feedModel: null,
   userModel: null,
+ 
   createFeedAndUserModels: function() {
     var newFeedModel = this.get('store').createRecord('feed', {});
 		var newUserModel = this.get('store').createRecord('user', {});

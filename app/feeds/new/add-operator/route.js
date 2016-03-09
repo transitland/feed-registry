@@ -4,6 +4,7 @@ export default Ember.Route.extend({
   createFeedFromGtfsService: Ember.inject.service('create-feed-from-gtfs'),
   beforeModel: function(transition) {
     var controller = this;
+    var feedsController = this.controllerFor('feeds.new.index');
     var feedModel = this.get('createFeedFromGtfsService').feedModel;
     var url = feedModel.get('url');
     var adapter = this.get('store').adapterFor('feeds');
@@ -17,7 +18,8 @@ export default Ember.Route.extend({
         return feedModel;
       } else {
         // progress bar
-        console.log(response.status);
+        feedsController.send("updateProgress", response.status, response.progress);
+
         transition.abort();
         return Ember.run.later(controller, function(){
           transition.retry();
