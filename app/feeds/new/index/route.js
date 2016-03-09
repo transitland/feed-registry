@@ -18,5 +18,7 @@ export default Ember.Route.extend({
   resetController: function(controller, isExiting, transition) {
     // Reset the controller loading state before transition
     controller.set('isLoading', false);
+    controller.set('progress', null);
+    controller.set('progressStatus', null);
   }
 });
