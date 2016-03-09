@@ -34,7 +34,9 @@
 				</div>
 			</div>
 		</div>
-		<div>{{progressStatus}}: {{progress}}</div>
+		{{#if isLoading}}
+			<div>{{progressStatus}}: {{progress}}</div>
+		{{/if}}
 
 		<div class="caption">
 			After this feed is added to Transitland, our servers will periodically check this URL for updates.
