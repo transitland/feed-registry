@@ -26,11 +26,17 @@
 					</td>
 				</tr>
 				<!-- If a feed has been imported at import_level >= 1 then also link to GeoJSON for routes and stops. -->
-				{{#unless feedImportLevelNull}}
+				{{#if feedImportLevelZero}}
 					<tr><td>Operator service area</td><td>{{json-endpoint model.onestop_id}}, {{geojson-endpoint model.feeds.firstObject.onestop_id}} ({{geojson-io model.feeds.firstObject.onestop_id}})</td></tr>
-				{{/unless}}
+				{{/if}}
+				{{#if feedImportLevelOne}}
+					<tr><td>Routes</td><td>{{json-endpoint model.onestop_id}}, {{geojson-endpoint model.feeds.firstObject.onestop_id}} ({{geojson-io model.feeds.firstObject.onestop_id}})</td></tr>
+					
+					<tr><td>Stops</td><td>{{json-endpoint model.onestop_id}}, {{geojson-endpoint model.feeds.firstObject.onestop_id}} ({{geojson-io model.feeds.firstObject.onestop_id}})</td></tr>
+				{{/if}}
+
 				<!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
-				{{#if scheduleStopPair}}
+				{{#if feedImportLevelTwo}}
 					<tr><td>Schedule-stop-pairs</td><td>{{ssp-endpoint model.feeds.firstObject.onestop_id}}</td></tr>
 				{{/if}}
 			</table>

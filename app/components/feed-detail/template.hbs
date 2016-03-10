@@ -30,9 +30,9 @@
 	<tr><td>Agency checked on</td><td>{{format-date feed.last_fetched_at}}</td></tr>
 	<tr><td>Feed updated on</td><td>{{format-date feed.updated_at}}</td></tr>
 
-	{{#unless feedImportLevelNull}}
+	{{#if feedImportLevelZero}}
 		<tr><td>Feed bounding box</td><td>{{json-endpoint feed.onestop_id}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io feed.onestop_id}})</td></tr>
-	{{/unless}}
+	{{/if}}
 
 
 </table>
