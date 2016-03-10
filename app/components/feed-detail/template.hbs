@@ -31,4 +31,15 @@
 	<tr><td>Feed updated on</td><td>{{format-date feed.updated_at}}</td></tr>
 	<tr><td>Feed Import Level</td><td>{{feed.import_level_of_active_feed_version}}</td></tr>
 	<tr><td>JSON</td><td>{{json-endpoint feed.onestop_id}}</td></tr>
+	
+	<!-- If a feed has been imported at import_level >= 1 then also link to GeoJSON for routes and stops. -->
+	<!-- {{#if feed.import_level_of_active_feed_version}}
+	<tr><td>GeoJSON</td><td>{{geojson-endpoint feed.onestop_id}}</td></tr>
+	{{/if}} -->
+
+	<!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
+	<!-- {{#if feed.import_level_of_active_feed_version}}
+	<tr><td>GeoJSON</td><td> schedule stop pair query </td></tr>
+	{{/if}} -->
+	
 </table>
