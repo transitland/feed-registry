@@ -4,6 +4,7 @@ export default Ember.Route.extend({
   createFeedFromGtfsService: Ember.inject.service('create-feed-from-gtfs'),
   beforeModel: function(transition) {
     var controller = this;
+    var feedsController = this.controllerFor('feeds.new.index');
     var feedModel = this.get('createFeedFromGtfsService').feedModel;
     var url = feedModel.get('url');
     var adapter = this.get('store').adapterFor('feeds');
@@ -16,6 +17,34 @@ export default Ember.Route.extend({
         response.operators.map(function(operator){feedModel.addOperator(operator)});
         return feedModel;
       } else {
+        // progress bar
+        var status = null;
+        var progress = null;
+
+        // progress = Math.floor(response.progress * 100) + "%";
+
+        if (isNaN(response.progress)){
+          progress = "";
+        } else if (response.progress === 0){
+          progress = "";
+        } else {
+          progress = Math.floor(response.progress * 100) + "%";
+        }
+        
+        if (response.status === "queued"){
+          status =  "Queued...";
+        } else if (response.status === "downloading"){
+          status = "Downloading (step 1 of 3)...";
+        } else if (response.status === "parsing") {
+          status = "Parsing (step 2 of 3)...";
+        } else {
+          status = "Processing (step 3 of 3)...";
+        }
+
+
+
+        feedsController.send("updateProgress", status, progress);
+
         transition.abort();
         return Ember.run.later(controller, function(){
           transition.retry();
