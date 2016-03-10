@@ -29,22 +29,10 @@
 	<tr><td>Redistribution allowed</td><td>{{feed.license_redistribute}}</td></tr>
 	<tr><td>Agency checked on</td><td>{{format-date feed.last_fetched_at}}</td></tr>
 	<tr><td>Feed updated on</td><td>{{format-date feed.updated_at}}</td></tr>
-	<tr><td>API Data Available</td>
-		<td>
-			{{#if feedImportLevelZero}}Operator polygons{{/if}}{{#if feedImportLevelOne}}, points/lines{{/if}}{{#if feedImportLevelTwo}}, time schedule{{/if}}{{#if feedImportLevelFour}}, routing{{/if}}
-			{{#if feedImportLevelNull}}None at this time.{{/if}}
-		</td>
-	</tr>
-	<tr><td>JSON</td><td>{{json-endpoint feed.onestop_id}}</td></tr>
-	
-	<!-- If a feed has been imported at import_level >= 1 then also link to GeoJSON for routes and stops. -->
+
 	{{#unless feedImportLevelNull}}
-		<tr><td>GeoJSON</td><td>{{geojson-endpoint feed.onestop_id}} (view with {{geojson-io feed.onestop_id}})</td></tr>
+		<tr><td>Feed bounding box</td><td>{{json-endpoint feed.onestop_id}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io feed.onestop_id}})</td></tr>
 	{{/unless}}
 
-	<!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
-	{{#if scheduleStopPair}}
-		<tr><td>Schedule-stop-pairs</td><td>{{ssp-endpoint feed.onestop_id}}</td></tr>
-	{{/if}}
 
 </table>

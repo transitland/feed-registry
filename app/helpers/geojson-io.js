@@ -13,11 +13,11 @@ export default Ember.Handlebars.registerBoundHelper('geojson-io',function(param,
   }
 
   if (param.charAt(1) === '-'){
-    return new Ember.Handlebars.SafeString('<a href =' + baseURL + entity + param +'.geojson target = "_blank">' + 'geojson.io</a>');
+    return new Ember.Handlebars.SafeString('<a href =' + baseURL + entity + param +'.geojson target = "_blank">view</a>');
   } else if (param.charAt(0) === '/') {
-    return new Ember.Handlebars.SafeString('<a href =' + ENV.datastoreHost + param + '.geojson target = "_blank">' + 'geojson.io</a>');
+    return new Ember.Handlebars.SafeString('<a href =' + ENV.datastoreHost + param + '.geojson target = "_blank">view</a>');
   } else {
-    return new Ember.Handlebars.SafeString('<a href =' + baseURL + param + '.geojson target = "_blank">' + 'geojson.io</a>');
+    return new Ember.Handlebars.SafeString('<a href =' + baseURL + param + '.geojson target = "_blank">view</a>');
   }
 });
 

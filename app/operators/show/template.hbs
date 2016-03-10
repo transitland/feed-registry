@@ -9,7 +9,7 @@
 			{{/if}}
 			</h3>
 
-			<table class = "agency-table">
+			<table class = "operator-table">
 				<tr><td> Onestop ID <a href = "https://github.com/transitland/onestop-id-scheme/" target = "_blank"><i class="question-circle onestop-id-tooltip"></i></a></td><td>{{model.onestop_id}}</td></tr>
 				{{#if model.metro}}
 					<tr><td>Region</td><td>{{model.metro}}</td></tr>
@@ -19,7 +19,20 @@
 				<tr><td>Website</td><td> <a href = "{{model.website}}"  target = "_blank">{{model.website}}</a></td></tr>
 				<tr><td>Timezone</td><td>{{model.timezone}}</td></tr>
 				<tr><td>Identifiers</td><td>{{model.identifiers}}</td></tr>
-				<tr><td>JSON</td><td>{{json-endpoint model.onestop_id}}</td></tr>
+				<tr><td>Data Available</td>
+					<td>
+						{{#if feedImportLevelZero}}Operator polygons{{/if}}{{#if feedImportLevelOne}}, points/lines{{/if}}{{#if feedImportLevelTwo}}, time schedule{{/if}}{{#if feedImportLevelFour}}, routing{{/if}}
+						{{#if feedImportLevelNull}}None at this time.{{/if}}
+					</td>
+				</tr>
+				<!-- If a feed has been imported at import_level >= 1 then also link to GeoJSON for routes and stops. -->
+				{{#unless feedImportLevelNull}}
+					<tr><td>Operator service area</td><td>{{json-endpoint model.onestop_id}}, {{geojson-endpoint model.feeds.firstObject.onestop_id}} ({{geojson-io model.feeds.firstObject.onestop_id}})</td></tr>
+				{{/unless}}
+				<!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
+				{{#if scheduleStopPair}}
+					<tr><td>Schedule-stop-pairs</td><td>{{ssp-endpoint model.feeds.firstObject.onestop_id}}</td></tr>
+				{{/if}}
 			</table>
 
 
