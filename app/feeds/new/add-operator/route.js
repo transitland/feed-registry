@@ -20,16 +20,29 @@ export default Ember.Route.extend({
         // progress bar
         var status = null;
         var progress = null;
-        if (response.status === "downloading"){
-          status = response.status + " (step 1 of 2)";
-        } else {
-          status = response.status + " (step 2 of 2)";
-        }
+
+        // progress = Math.floor(response.progress * 100) + "%";
+
         if (isNaN(response.progress)){
-          progress = "0%";
+          progress = "";
+        } else if (response.progress === 0){
+          progress = "";
         } else {
           progress = Math.floor(response.progress * 100) + "%";
         }
+        
+        if (response.status === "queued"){
+          status =  "Queued...";
+        } else if (response.status === "downloading"){
+          status = "Downloading (step 1 of 3)...";
+        } else if (response.status === "parsing") {
+          status = "Parsing (step 2 of 3)...";
+        } else {
+          status = "Processing (step 3 of 3)...";
+        }
+
+
+
         feedsController.send("updateProgress", status, progress);
 
         transition.abort();
