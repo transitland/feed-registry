@@ -20,14 +20,15 @@
 		</td>
 	</tr>
 	<tr><td>Attribution optional</td><td>{{feed.license_use_without_attribution}}</td></tr>
+	
 	{{#if feed.license_attribution_text}}
-	<tr><td>Attribution text<i class="question-circle attribution-text-tooltip"></i></td><td>{{feed.license_attribution_text}}</td></tr>
-
-
+		<tr><td>Attribution text<i class="question-circle attribution-text-tooltip"></i></td><td>{{feed.license_attribution_text}}</td></tr>
 	{{/if}}
+	
 	<tr><td>Derivation allowed</td><td>{{feed.license_create_derived_product}}</td></tr>
 	<tr><td>Redistribution allowed</td><td>{{feed.license_redistribute}}</td></tr>
 	<tr><td>Agency checked on</td><td>{{format-date feed.last_fetched_at}}</td></tr>
 	<tr><td>Feed updated on</td><td>{{format-date feed.updated_at}}</td></tr>
+	<tr><td>Feed Import Level</td><td>{{feed.import_level_of_active_feed_version}}</td></tr>
 	<tr><td>JSON</td><td>{{json-endpoint feed.onestop_id}}</td></tr>
 </table>
