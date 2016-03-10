@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 	feedImportLevelFour: Ember.computed.gte('feed.import_level_of_active_feed_version', 4),
 
 	feedImportLevelNull: function() {
-		return (this.get('import_level_of_active_feed_version') >= 0);
+		return (this.get('feed.import_level_of_active_feed_version') === null);
   	}.property('feed.import_level_of_active_feed_version'),
 
 	scheduleStopPair: Ember.computed.gte('feed.import_level_of_active_feed_version', 2)
