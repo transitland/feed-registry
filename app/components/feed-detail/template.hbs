@@ -38,11 +38,15 @@
 	<tr><td>JSON</td><td>{{json-endpoint feed.onestop_id}}</td></tr>
 	
 	<!-- If a feed has been imported at import_level >= 1 then also link to GeoJSON for routes and stops. -->
+	<!-- list out the full GeoJSON URL as a link and then also have a "(view with geojson.io)" link at the end? -->
+	<!-- note that you have to encode the GeoJSON API URL before you put it in to the full geojson.io URL -->
 	{{#if feed.import_level_of_active_feed_version}}
-		<tr><td>GeoJSON</td><td>link to geoJSON.io</td></tr>
+		<tr><td>GeoJSON</td><td>{{geojson-endpoint feed.onestop_id}}</td></tr>
 	{{/if}}
 
 	<!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
+	
+
 	{{#if scheduleStopPair}}
 		<tr><td>SSP</td><td> link to schedule stop pair query </td></tr>
 	{{/if}}
