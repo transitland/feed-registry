@@ -29,13 +29,3 @@ export default Ember.Handlebars.registerBoundHelper('geojson-io',function(param,
 		}
 	}
 });
-
-
-// http://geojson.io/#data=data:text/x-url,http%3A%2F%2Fapi.tiles.mapbox.com%2Fv3%2Ftmcw.map-gdv4cswo%2Fmarkers.geojson
-
-// encodeURIComponent(str);
-
-// http://geojson.io/#data=data:text/x-url,%2Fapi%2Fv1%2Fstops%3FservedBy=f-9q9-bart.geojson
-
-// http%3A%2F%2Ftransit.land%2Fapi%2Fv1%2F
-

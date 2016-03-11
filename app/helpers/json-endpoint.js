@@ -26,9 +26,3 @@ export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(par
     }
   }
 });
-
-// GET /api/v1/operators/o-9q9-bart
-
-
-// GET /api/v1/routes?operatedBy=o-9q9-BART
-// GET /api/v1/stops?servedBy=o-9q9-BART
