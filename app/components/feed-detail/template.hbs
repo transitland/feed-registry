@@ -31,7 +31,9 @@
 	<tr><td>Feed updated on</td><td>{{format-date feed.updated_at}}</td></tr>
 
 	{{#if feedImportLevelZero}}
-		<tr><td>Feed bounding box</td><td>{{json-endpoint feed.onestop_id}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io feed.onestop_id}})</td></tr>
+		<tr><td>Feed bounding box</td>
+			<td>{{json-endpoint feed.onestop_id}}{{#if feedImportLevelOne}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io feed.onestop_id}}){{/if}}</td>
+		</tr>
 	{{/if}}
 
 

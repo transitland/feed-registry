@@ -9,7 +9,7 @@ export default Ember.Handlebars.registerBoundHelper('ssp-endpoint',function(para
   if (param.charAt(0) === 'o'){
     entity = 'operators_';
   } else if (param.charAt(0) === 'f'){
-    entity = 'feeds_';
+    entity = 'feed_';
   }
 
   if (param.charAt(1) === '-'){
