@@ -7,9 +7,9 @@ export default Ember.Handlebars.registerBoundHelper('ssp-endpoint',function(para
   var baseURL = ENV.datastoreHost+'/api/v1/schedule_stop_pairs?';
 
   if (param.charAt(0) === 'o'){
-    entity = 'operators_';
+    entity = 'operator_onestop_id=';
   } else if (param.charAt(0) === 'f'){
-    entity = 'feed_';
+    entity = 'feed_onestop_id=';
   }
 
   if (param.charAt(1) === '-'){

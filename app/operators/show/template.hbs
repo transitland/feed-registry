@@ -36,7 +36,7 @@
 				{{/if}}
 				<!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
 				{{#if feedImportLevelTwo}}
-					<tr><td>Schedule-stop-pairs</td><td>{{ssp-endpoint model.feeds.firstObject.onestop_id}}</td></tr>
+					<tr><td>Schedule-stop-pairs<a href = "https://github.com/transitland/transitland-datastore/blob/master/doc/schedule_api.md" target = "_blank"><i class="question-circle ssp-tooltip"></i></a></td><td>{{ssp-endpoint model.feeds.firstObject.onestop_id}}</td></tr>
 				{{/if}}
 			</table>
 
