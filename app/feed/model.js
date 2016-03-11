@@ -21,6 +21,7 @@ var Feed = DS.Model.extend({
   operators_in_feed: DS.attr(),
   geometry: DS.attr(),
   tags: DS.attr(),
+  import_level_of_active_feed_version: DS.attr(),
   addOperator: function(operator) {
     this.get('operators').createRecord({
       id: operator.onestop_id,

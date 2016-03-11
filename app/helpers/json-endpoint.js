@@ -2,7 +2,7 @@ import Ember from 'ember';
 import ENV from 'feed-registry/config/environment';
 
 
-export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(param, text) {
+export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(param, attr) {
   var entity = '';
   var baseURL = ENV.datastoreHost+'/api/v1/';
 
@@ -12,12 +12,17 @@ export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(par
     entity = 'feeds/';
   }
 
-  if (param.charAt(1) === '-'){
-    return new Ember.Handlebars.SafeString('<a href =' + baseURL + entity + param +' target = "_blank">' + baseURL + entity + param + '</a>');
-  } else if (param.charAt(0) === '/') {
-    return new Ember.Handlebars.SafeString('<a href =' + ENV.datastoreHost + param + ' target = "_blank">' + text + '</a>');
+  if (attr === "routes") {
+    return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'routes?operatedBy=' + param +' target = "_blank">JSON</a>');
+  } else if (attr === "stops") {
+    return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'stops?servedBy=' + param +' target = "_blank">JSON</a>');
   } else {
-    return new Ember.Handlebars.SafeString('<a href =' + baseURL + param + ' target = "_blank">' + param + '</a>');
+    if (param.charAt(1) === '-'){
+      return new Ember.Handlebars.SafeString('<a href =' + baseURL + entity + param +' target = "_blank">JSON</a>');
+    } else if (param.charAt(0) === '/') {
+      return new Ember.Handlebars.SafeString('<a href =' + ENV.datastoreHost + param + ' target = "_blank">JSON</a>');
+    } else {
+      return new Ember.Handlebars.SafeString('<a href =' + baseURL + param + ' target = "_blank">JSON</a>');
+    }
   }
 });
-
