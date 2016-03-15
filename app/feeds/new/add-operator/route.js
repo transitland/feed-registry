@@ -12,6 +12,7 @@ export default Ember.Route.extend({
     var promise = adapter.ajax(fetch_info_url, 'post', {data:{url:url}});
     promise.then(function(response) {
       if (response.status == 'complete') {
+        feedModel.set('geometry', response.feed.geometry);
         feedModel.set('id', response.feed.onestop_id);
         feedModel.set('operators_in_feed', response.feed.operators_in_feed);
         response.operators.map(function(operator){feedModel.addOperator(operator)});
