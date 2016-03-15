@@ -32,7 +32,7 @@
 
 	{{#if feedImportLevelZero}}
 		<tr><td>Feed bounding box</td>
-			<td>{{json-endpoint feed.onestop_id}}{{#if feedImportLevelOne}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io feed.onestop_id}}){{/if}}</td>
+			<td>{{json-endpoint feed.onestop_id "" "JSON"}}{{#if feedImportLevelOne}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io feed.onestop_id}}){{/if}}</td>
 		</tr>
 	{{/if}}
 
