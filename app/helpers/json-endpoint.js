@@ -6,10 +6,6 @@ export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(par
   var entity = '';
   var baseURL = ENV.datastoreHost+'/api/v1/';
 
-  if (text === undefined) {
-    text = "JSON";
-  }
-
   if (param.charAt(0) === 'o'){
     entity = 'operators/';
   } else if (param.charAt(0) === 'f'){

@@ -27,12 +27,12 @@
 				</tr>
 				<!-- If a feed has been imported at import_level >= 1 then also link to GeoJSON for routes and stops. -->
 				{{#if feedImportLevelZero}}
-					<tr><td>Operator service area</td><td>{{json-endpoint model.onestop_id}}, {{geojson-endpoint model.onestop_id}} ({{geojson-io model.onestop_id}})</td></tr>
+					<tr><td>Operator service area</td><td>{{json-endpoint model.onestop_id "" "JSON"}}, {{geojson-endpoint model.onestop_id}} ({{geojson-io model.onestop_id}})</td></tr>
 				{{/if}}
 				{{#if feedImportLevelOne}}
-					<tr><td>Routes</td><td>{{json-endpoint model.onestop_id "routes"}}, {{geojson-endpoint model.onestop_id "routes"}} ({{geojson-io model.onestop_id "routes"}})</td></tr>
+					<tr><td>Routes</td><td>{{json-endpoint model.onestop_id "routes" "JSON"}}, {{geojson-endpoint model.onestop_id "routes"}} ({{geojson-io model.onestop_id "routes"}})</td></tr>
 					
-					<tr><td>Stops</td><td>{{json-endpoint model.onestop_id "stops"}}, {{geojson-endpoint model.onestop_id "stops"}} ({{geojson-io model.onestop_id "stops"}})</td></tr>
+					<tr><td>Stops</td><td>{{json-endpoint model.onestop_id "stops" "JSON"}}, {{geojson-endpoint model.onestop_id "stops"}} ({{geojson-io model.onestop_id "stops"}})</td></tr>
 				{{/if}}
 				<!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
 				{{#if feedImportLevelTwo}}
