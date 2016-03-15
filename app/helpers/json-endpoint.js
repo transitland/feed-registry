@@ -5,7 +5,6 @@ import ENV from 'feed-registry/config/environment';
 export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(param, attr, text) {
   var entity = '';
   var baseURL = ENV.datastoreHost+'/api/v1/';
-  // var text = "JSON";
 
   if (text === undefined) {
     text = "JSON";
