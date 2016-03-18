@@ -13,9 +13,9 @@ export default Ember.Handlebars.registerBoundHelper('geojson-endpoint',function(
   }
 
 	if (attr === "routes") {
-		return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'routes.geojson?operatedBy=' + param +' target = "_blank">GeoJSON</a>');
+		return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'routes.geojson?operated_by=' + param +' target = "_blank">GeoJSON</a>');
 	} else if (attr === "stops") {
-		return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'stops.geojson?servedBy=' + param +' target = "_blank">GeoJSON</a>');
+		return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'stops.geojson?served_by=' + param +' target = "_blank">GeoJSON</a>');
 	} else {
 		if (param.charAt(1) === '-'){
 			return new Ember.Handlebars.SafeString('<a href =' + baseURL + entity + param +'.geojson target = "_blank">GeoJSON</a>');

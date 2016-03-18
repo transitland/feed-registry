@@ -13,9 +13,9 @@ export default Ember.Handlebars.registerBoundHelper('json-endpoint',function(par
   }
 
   if (attr === "routes") {
-    return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'routes?operatedBy=' + param +' target = "_blank">' + text + '</a>');
+    return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'routes?operated_by=' + param +' target = "_blank">' + text + '</a>');
   } else if (attr === "stops") {
-    return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'stops?servedBy=' + param +' target = "_blank">' + text + '</a>');
+    return new Ember.Handlebars.SafeString('<a href =' + baseURL + 'stops?served_by=' + param +' target = "_blank">' + text + '</a>');
   } else {
     if (param.charAt(1) === '-'){
       return new Ember.Handlebars.SafeString('<a href =' + baseURL + entity + param +' target = "_blank">' + text + '</a>');

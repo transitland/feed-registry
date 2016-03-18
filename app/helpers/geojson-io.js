@@ -14,10 +14,10 @@ export default Ember.Handlebars.registerBoundHelper('geojson-io',function(param,
 
 
 	if (attr === "routes") {
-		var routes = encodeURIComponent('routes.geojson?operatedBy=');
+		var routes = encodeURIComponent('routes.geojson?operated_by=');
 		return new Ember.Handlebars.SafeString('<a href =' + baseURL + routes + param +' target = "_blank">view</a>');
 	} else if (attr === "stops") {
-		var stops = encodeURIComponent('stops.geojson?servedBy=');
+		var stops = encodeURIComponent('stops.geojson?served_by=');
 		return new Ember.Handlebars.SafeString('<a href =' + baseURL + stops + param +' target = "_blank">view</a>');
 	} else {
 		if (param.charAt(1) === '-'){
