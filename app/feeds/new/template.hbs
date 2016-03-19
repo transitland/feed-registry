@@ -1,3 +1,8 @@
 <section id="add-operator" class="jumbotron">
-  {{outlet}}
+  {{outlet feedExists=feedExists}}
 </section>
+{{#if feedExists}}
+	<p>feeds/new/template feedExists</p>
+{{else}}
+	<p>no feeds/new/template feedExists</p>
+{{/if}}

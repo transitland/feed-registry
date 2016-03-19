@@ -4,18 +4,26 @@ export default Ember.Route.extend({
   createFeedFromGtfsService: Ember.inject.service('create-feed-from-gtfs'),
   beforeModel: function(transition) {
     var controller = this;
-    var feedsController = this.controllerFor('feeds.new.index');
+    var feedsIndexController = this.controllerFor('feeds.new.index');
+    var feedsController = this.controllerFor('feeds.new');
     var feedModel = this.get('createFeedFromGtfsService').feedModel;
     var url = feedModel.get('url');
     var adapter = this.get('store').adapterFor('feeds');
     var fetch_info_url = adapter.urlPrefix()+'/feeds/fetch_info';
     var promise = adapter.ajax(fetch_info_url, 'post', {data:{url:url}});
     promise.then(function(response) {
-      if (response.status == 'complete') {
+      if (response.status === 'complete') {
         feedModel.set('geometry', response.feed.geometry);
         feedModel.set('id', response.feed.onestop_id);
         feedModel.set('operators_in_feed', response.feed.operators_in_feed);
-        response.operators.map(function(operator){feedModel.addOperator(operator)});
+        response.operators.map(function(operator){feedModel.addOperator(operator);});
+
+        // var feedExists = true;
+
+        // if (response.warnings) {
+        if (typeof(response.warnings) !== 'undefined'){
+          feedsController.set('feedExists', true);
+        }
         return feedModel;
       } else {
         // progress bar
@@ -42,9 +50,7 @@ export default Ember.Route.extend({
           status = "Processing (step 3 of 3)...";
         }
 
-
-
-        feedsController.send("updateProgress", status, progress);
+        feedsIndexController.send("updateProgress", status, progress);
 
         transition.abort();
         return Ember.run.later(controller, function(){

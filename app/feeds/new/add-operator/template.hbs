@@ -4,12 +4,18 @@
 
 <div class="container">
 	<div class="add-operator-info">
+		
 		<p>
 			Transitland checked your feed and found {{model.operators.length}} {{#if singleOperator}}operator{{else}}operators{{/if}}. Review the information below and provide additional details about each operator and location it serves.
 		</p>
 		<p>
 			{{documentation-link "add-feed.md#choose-the-transit-operators-in-the-feed" "Learn more about transit operators"}}
 		</p>
+		{{#if feedExists}}
+			<p>feeds/new/add-operator/template feedExists</p>
+		{{else}}
+			<p>no feeds/new/add-operator/template feedExists</p>
+		{{/if}}
 	</div>
 	<div>
 		{{#each operator in model.operators}}
