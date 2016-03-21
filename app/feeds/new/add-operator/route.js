@@ -31,8 +31,6 @@ export default Ember.Route.extend({
         var status = null;
         var progress = null;
 
-        // progress = Math.floor(response.progress * 100) + "%";
-
         if (isNaN(response.progress)){
           progress = "";
         } else if (response.progress === 0){
