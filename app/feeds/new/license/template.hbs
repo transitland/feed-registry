@@ -10,6 +10,11 @@
 		<p>
 			{{documentation-link "add-feed.md#identify-the-license-for-the-feed" "Learn more about licenses"}}
 		</p>
+		{{#if feedExists}}
+			<p>feeds/new/license/template feedExists</p>
+		{{else}}
+			<p>no feeds/new/license/template feedExists</p>
+		{{/if}}
 	</div>
 		<div class="input-form-wrapper">
 			<div class="row inline-items {{if license_present_mode "yes"}}{{unless license_present_mode "no"}}">

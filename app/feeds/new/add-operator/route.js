@@ -24,6 +24,7 @@ export default Ember.Route.extend({
         if (typeof(response.warnings) !== 'undefined'){
           feedsController.set('feedExists', true);
         }
+        
         return feedModel;
       } else {
         // progress bar

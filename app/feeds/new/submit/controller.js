@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	feedsController: Ember.inject.controller('feeds.new'),
+	feedExists: Ember.computed.reads('feedsController.feedExists'),
 	agreeToTerms: false,
 	userTypes: [
 		"community_builder",
