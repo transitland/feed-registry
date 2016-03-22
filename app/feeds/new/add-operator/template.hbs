@@ -11,10 +11,12 @@
 		<p>
 			{{documentation-link "add-feed.md#choose-the-transit-operators-in-the-feed" "Learn more about transit operators"}}
 		</p>
-		{{#if feedExists}}
-			<p>This feed currently exists in datastore. Please contribute edits.</p>
-		{{/if}}
 	</div>
+	{{#if feedExists}}
+		<div class="feed-exists-warning">
+			It looks like this feed already exists in the datastore! Please add to or edit the information we currently have.
+		</div>
+	{{/if}}
 	<div>
 		{{#each operator in model.operators}}
 			{{operator-form operator=operator singleOperator=singleOperator minimumOperator=minimumOperator}}
