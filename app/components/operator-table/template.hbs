@@ -1,4 +1,21 @@
 <div class = "table-container">
+  <!-- toggles for IMPORT_LEVEL 0 (feed + operator), 2 (+ stops, routes, & schedules), and 4 (routable on Turn-by-Turn prod) -->
+  <!-- toggle level 0: query for import level === 0 -->
+  <!-- toggle level 2: query for import level === 2 -->
+  <!-- toggle level 4: query for import level === 4 -->
+
+  <div class="radio">
+    <label><input type="radio" name="optradio">All import levels</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="optradio">Import level: 0 (feed & operator)</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="optradio">Import level: 2 (stops, routes & schedules)</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="optradio">Import level: 4 (routable on Turn-by-Turn)</label>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>

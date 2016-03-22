@@ -56,6 +56,11 @@ export default Ember.Component.extend({
                 var sortOrder = 'desc';
             }
             this.sendAction('changeSort', sortOrder, sortKey);
-        } 
+        },
+
+        filterByImportLevel: function(){
+            // check val of import level radio buttons
+            // set query param based on this val
+        }
     }
 });
