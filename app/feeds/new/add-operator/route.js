@@ -15,6 +15,7 @@ export default Ember.Route.extend({
       if (response.status === 'complete') {
         feedModel.set('geometry', response.feed.geometry);
         feedModel.set('id', response.feed.onestop_id);
+        feedModel.set('tags', response.feed.tags);
         feedModel.set('operators_in_feed', response.feed.operators_in_feed);
         response.operators.map(function(operator){feedModel.addOperator(operator);});
 
