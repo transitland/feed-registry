@@ -13,9 +13,7 @@
 		</p>
 	</div>
 	{{#if feedExists}}
-		<div class="feed-exists-warning">
-			It looks like this feed already exists in the datastore! Please add to or edit the information we currently have.
-		</div>
+		{{feed-exists-warning}}
 	{{/if}}
 	<div>
 		{{#each operator in model.operators}}
