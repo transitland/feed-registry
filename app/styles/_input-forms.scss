@@ -139,6 +139,16 @@ $warn-bg-color: #fcf8e3;
   @include warn-msg($warn-color, $warn-bg-color);
 }
 
+.feed-exists-warning {
+  background-color: $warn-bg-color;
+  color: $warn-color;
+  width: 100%;
+  margin-bottom: 25px;
+  border: 2px solid $warn-color;
+  padding: 10px;
+  font-size: 14px;
+}
+
 /* ian: error handling for gtfs feed*/
 .has-error {
   .row {

@@ -26,6 +26,10 @@ var Feed = DS.Model.extend({
     this.get('operators').createRecord({
       id: operator.onestop_id,
       name: operator.name,
+      short_name: operator.short_name,
+      country: operator.country,
+      state: operator.state,
+      metro: operator.metro,
       website: operator.website,
       timezone: operator.timezone,
       geometry: operator.geometry,

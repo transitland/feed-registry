@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  feedsController: Ember.inject.controller('feeds.new'),
+  feedExists: Ember.computed.reads('feedsController.feedExists'),
   license_present_mode: false,
   interpret_license_mode: false,
   showLicenseAttributionText: Ember.computed('model.license_use_without_attribution', function() {
