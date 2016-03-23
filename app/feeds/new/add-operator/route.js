@@ -19,9 +19,6 @@ export default Ember.Route.extend({
         feedModel.set('operators_in_feed', response.feed.operators_in_feed);
         response.operators.map(function(operator){feedModel.addOperator(operator);});
 
-        // var feedExists = true;
-
-        // if (response.warnings) {
         if (typeof(response.warnings) !== 'undefined'){
           feedsController.set('feedExists', true);
         }
