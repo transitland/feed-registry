@@ -58,9 +58,17 @@ export default Ember.Component.extend({
             this.sendAction('changeSort', sortOrder, sortKey);
         },
 
-        filterByImportLevel: function(){
-            // check val of import level radio buttons
-            // set query param based on this val
-        }
+        // import level changes
+        // filterByImportLevel: function(importLevelSortKey){
+        //     // check val of import level radio buttons
+        //     // set query param based on this val
+        //     if (this.get('importLevel') !== importLevelSortKey){
+        //         var importLevel = importLevelSortKey
+        //     }
+        //     console.log("importLevel: " + importLevel);
+        //     console.log("import_level_of_active_feed_version: " + this.get('import_level_of_active_feed_version'));
+        //     this.sendAction('filterByImportLevel', importLevel, importLevelSortKey);
+
+        // }
     }
 });
