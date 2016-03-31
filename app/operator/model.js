@@ -19,10 +19,19 @@ var Operator = DS.Model.extend({
 	geometry: DS.attr(),
 	tags: DS.attr(),
 	toChange: function() {
-		var operatorJson = this.toJSON();
+		var operatorJson = {};
+    // Map Ember data attributes to Operator Schema
 		operatorJson.onestopId = this.id;
-		// remove attributes that don't need to be submitted to server
-		operatorJson = _.omit(operatorJson, ['created_at', 'updated_at', 'feeds', 'include_in_changeset']);
+		operatorJson.name = this.get('name');
+		operatorJson.shortName = this.get('short_name');
+		operatorJson.country = this.get('country');
+		operatorJson.state = this.get('state');
+		operatorJson.metro = this.get('metro');
+		operatorJson.website = this.get('website');
+		operatorJson.timezone = this.get('timezone');
+		operatorJson.geometry = this.get('geometry');
+		operatorJson.identifiers = this.get('identifiers');
+		operatorJson.tags = this.get('tags');
 		// remove any attributes with null values, undefined values, or empty strings
 		operatorJson = _.omit(operatorJson, function(value) {
 			return value === null || value === '' || value === undefined;
