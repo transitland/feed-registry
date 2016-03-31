@@ -37,8 +37,20 @@ var Feed = DS.Model.extend({
     });
   },
   toChange: function() {
-    var feedJson = this.toJSON();
+    var feedJson = {};
+    // Map Ember data attributes to Feed Schema
     feedJson.onestopId = this.id;
+    feedJson.geometry = this.get('geometry');
+    feedJson.name = this.get('name');
+    feedJson.tags = this.get('tags');
+    feedJson.url = this.get('url');
+    feedJson.feedFormat = this.get('feed_format');
+    feedJson.licenseName = this.get('license_name');
+    feedJson.licenseUrl = this.get('license_url');
+    feedJson.licenseUseWithoutAttribution = this.get('license_use_without_attribution');
+    feedJson.licenseAttributionText = this.get('license_attribution_text');
+    feedJson.licenseCreateDerivedProduct = this.get('license_create_derived_product');
+    feedJson.licenseRedistribute = this.get('license_redistribute');
     // Lookup table of operator onestop_id to gtfs agency_id
     // ex. gtfs_agency_id['o-9q9-caltrain'] = 'ca-us-caltrain';
     var gtfs_agency_ids = {};
@@ -55,8 +67,6 @@ var Feed = DS.Model.extend({
           operatorOnestopId: operator.get('onestop_id')
         }
       });
-    // remove attributes that don't need to be submitted to server
-    feedJson = _.omit(feedJson, ['created_at', 'updated_at', 'operators', 'operators_in_feed']);
     // remove any attributes with null values, undefined values, or empty strings
     feedJson = _.omit(feedJson, function(value) {
       return value === null || value === '' || value === undefined;
