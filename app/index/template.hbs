@@ -1,6 +1,10 @@
 <section id="feed-registry" class="jumbotron">
 	<div class="container">
-		<div>{{intro-copy}}</div>
+		{{#if import_level}}
+			<div>{{intro-copy import_level=import_level}}</div>
+		{{else}}
+			<div>{{intro-copy}}</div>
+		{{/if}}
 		<br>
 
 		<main>
