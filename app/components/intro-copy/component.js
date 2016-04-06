@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	importLevelFilterExists: function(){
-		console.log("IL: " + this.get('import_level'));
 		return this.get('import_level');
 	}.property('import_level'),
 
