@@ -5,7 +5,8 @@
 <p>The Feed Registry lists all the transit operators and feeds included in Transitland. See what each feed's license will allow you to do with it and click through to get more details about the data included in the feed.</p>
 
 {{#if importLevelFilterExists}}
-<p>You are viewing feeds with 
-	{{#if feedImportLevelZero}} operator shape{{/if}}{{#if feedImportLevelOne}}, stop points, {{#unless feedImportLevelTwo}}and{{/unless}} route lines{{/if}}{{#if feedImportLevelTwo}}, {{#unless feedImportLevelFour}}and {{/unless}}schedule{{/if}}{{#if feedImportLevelFour}}, and routing{{/if}}
-	 data available.</p>
+	<p>You are viewing feeds with {{#if feedImportLevelZero}} operator shape{{/if}}{{#if feedImportLevelOne}}, stop points, {{#unless feedImportLevelTwo}}and{{/unless}} route lines{{/if}}{{#if feedImportLevelTwo}}, {{#unless feedImportLevelFour}}and {{/unless}}schedule{{/if}}{{#if feedImportLevelFour}}, and routing{{/if}} data available.</p>
+	{{#link-to "index"}}
+		{{fa-icon icon="fa-caret-left"}} View All Feeds
+	{{/link-to}}
 {{/if}}
