@@ -56,6 +56,6 @@ export default Ember.Component.extend({
                 var sortOrder = 'desc';
             }
             this.sendAction('changeSort', sortOrder, sortKey);
-        } 
+        },
     }
 });
