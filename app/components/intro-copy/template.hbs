@@ -6,7 +6,11 @@
 
 {{#if importLevelFilterExists}}
 	{{#if supportedLevel}}
-		<p>You are viewing feeds with {{#if feedImportLevelZero}} operator shape{{/if}}{{#if feedImportLevelOne}}, stop points, {{#unless feedImportLevelTwo}}and{{/unless}} route lines{{/if}}{{#if feedImportLevelTwo}}, {{#unless feedImportLevelFour}}and {{/unless}}schedule{{/if}}{{#if feedImportLevelFour}}, and routing{{/if}} data available.</p>
+		{{#if feedImportLevelFour}}
+		<p>You are viewing <strong>only feeds that are routable</strong> using <a href="https://mapzen.com/products/turn-by-turn/">Mapzen Turn-by-Turn</a>. Operator shape, stop points, route lines, and schedule data are also available from these feeds.</p>
+		{{else}}
+		<p>You are viewing feeds with {{#if feedImportLevelZero}} operator shape{{/if}}{{#if feedImportLevelOne}}, stop points, {{#unless feedImportLevelTwo}}and{{/unless}} route lines{{/if}}{{#if feedImportLevelTwo}}, and schedule{{/if}} data available.</p>
+		{{/if}}
 	{{else}}
 		<p>You are filtering by an unsupported import level.</p>
 	{{/if}}
@@ -14,4 +18,3 @@
 		{{fa-icon icon="fa-caret-left"}} View All Feeds
 	{{/link-to}}
 {{/if}}
-	
