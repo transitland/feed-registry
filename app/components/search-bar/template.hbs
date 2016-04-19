@@ -1,3 +1,11 @@
-<form>
-	<input type="text" name="location">
-</form>
+{{#power-select
+	options=countries 
+	searchField="name" 
+	selected=selectedCountry 
+	allowClear=true
+	placeholder="Filter list by location..."
+	onchange=(action "setCountry") 
+	onfocus=(action "handleFocus") as |country|
+}}
+	{{country.name}}
+{{/power-select}}
