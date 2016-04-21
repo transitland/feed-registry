@@ -13,7 +13,6 @@ to "bake" these arrays:
   curl https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta/wof-country-latest.csv | csvtojson | jq 'map(.|= with_entries(select(.key == ("iso", "name")))) | sort_by(.name)' | pbcopy
 3. build region list:
   curl https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta/wof-region-latest.csv | csvtojson | jq 'map(.|= with_entries(select(.key == ("iso", "name")))) | sort_by(.name)' | pbcopy
-4. manually edit French overseas departments: https://en.wikipedia.org/wiki/ISO_3166-2:FR#Overseas_departments
 
 TODO: In the future, we may want to split apart the regions into separate JSON
 files to be fetched asynchronously, like: http://discuss.emberjs.com/t/how-to-parse-a-local-json-file/9225/2
@@ -239,20 +238,8 @@ export default Ember.Component.extend({
     "iso": "FR",
     "name": "France"
   }, {
-    "iso": "GP",
-    "name": "France (Guadeloupe)"
-  }, {
     "iso": "GF",
-    "name": "France (Guyane)"
-  }, {
-    "iso": "RE",
-    "name": "France (La Réunion)"
-  }, {
-    "iso": "MQ",
-    "name": "France (Martinique)"
-  }, {
-    "iso": "YT",
-    "name": "France (Mayotte)"
+    "name": "French Guiana"
   }, {
     "iso": "GA",
     "name": "Gabon"
@@ -277,6 +264,9 @@ export default Ember.Component.extend({
   }, {
     "iso": "GD",
     "name": "Grenada"
+  }, {
+    "iso": "GP",
+    "name": "Guadeloupe"
   }, {
     "iso": "GT",
     "name": "Guatemala"
@@ -422,11 +412,17 @@ export default Ember.Component.extend({
     "iso": "MH",
     "name": "Marshall Islands"
   }, {
+    "iso": "MQ",
+    "name": "Martinique"
+  }, {
     "iso": "MR",
     "name": "Mauritania"
   }, {
     "iso": "MU",
     "name": "Mauritius"
+  }, {
+    "iso": "YT",
+    "name": "Mayotte"
   }, {
     "iso": "MX",
     "name": "Mexico"
@@ -526,6 +522,9 @@ export default Ember.Component.extend({
   }, {
     "iso": "CG",
     "name": "Republic of Congo"
+  }, {
+    "iso": "RE",
+    "name": "Reunion"
   }, {
     "iso": "RO",
     "name": "Romania"
