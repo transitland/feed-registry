@@ -1,6 +1,6 @@
 <h4 class = "detail">Feed Detail</h4>
 <table class = "operator-table">
-	<tr><td>Onestop ID <a href = "https://github.com/transitland/onestop-id-scheme/" target = "_blank"><i class="question-circle onestop-id-tooltip"></i></a></td><td>{{feed.onestop_id}}</td></tr>
+	<tr><td>Onestop ID <a href = "https://transit.land/documentation/onestop-id-scheme/" target = "_blank"><i class="question-circle onestop-id-tooltip"></i></a></td><td>{{feed.onestop_id}}</td></tr>
 	<tr><td>Data location</td><td><a href = "{{feed.url}}"  target = "_blank">{{feed.url}}</a></td></tr>
 	<tr><td>Format</td><td>{{feed.feed_format}}</td></tr>
 	<tr>
@@ -20,11 +20,11 @@
 		</td>
 	</tr>
 	<tr><td>Attribution optional</td><td>{{feed.license_use_without_attribution}}</td></tr>
-	
+
 	{{#if feed.license_attribution_text}}
 		<tr><td>Attribution text<i class="question-circle attribution-text-tooltip"></i></td><td>{{feed.license_attribution_text}}</td></tr>
 	{{/if}}
-	
+
 	<tr><td>Derivation allowed</td><td>{{feed.license_create_derived_product}}</td></tr>
 	<tr><td>Redistribution allowed</td><td>{{feed.license_redistribute}}</td></tr>
 	<tr><td>Agency checked on</td><td>{{format-date feed.last_fetched_at}}</td></tr>
