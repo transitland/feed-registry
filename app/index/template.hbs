@@ -3,7 +3,8 @@
 		{{#if import_level}}
 			<div>{{intro-copy import_level=import_level}}</div>
 		{{else}}
-			<div>{{intro-copy}}</div>
+			<div>{{intro-copy operators=model}}</div>
+			<div>{{search-bar test=(action "test")}}</div>
 		{{/if}}
 		<br>
 

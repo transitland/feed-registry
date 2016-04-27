@@ -28,6 +28,12 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 					"offset": 0,
 				}
 			});
+		},
+		test: function(){
+			console.log(this.store.find('operator', 'aggregate'));
+			var places = this.store.find('operator', 'aggregate');
+			// var placesJSON = JSON.parse(places);
+			// debugger;
 		}
 	}
 });
