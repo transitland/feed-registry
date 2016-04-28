@@ -5,9 +5,5 @@ export default ApplicationSerializer.extend({
 		feeds: {
 			key: 'represented_in_feed_onestop_ids'
 		}
-	},
-
-	normalize: function(modelClass, resourceHash, prop){
-		debugger;
 	}
 });
