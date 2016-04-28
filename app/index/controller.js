@@ -33,7 +33,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 			console.log(this.store.find('operator', 'aggregate'));
 			var places = this.store.find('operator', 'aggregate');
 			// var placesJSON = JSON.parse(places);
-			// debugger;
+			places.then(function(data){debugger;});
 		}
 	}
 });
