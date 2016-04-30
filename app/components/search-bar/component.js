@@ -1,10 +1,14 @@
 import Ember from 'ember';
-// import DS from 'ember-data';
 
-// import ENV from 'feed-registry/config/environment';
 
 
 export default Ember.Component.extend({
+
+  // model: function() {
+  //   debugger;
+  //   console.log("store query: " + this.store.query('operator', 'aggregate'))
+  //   return this.store.query('operator', 'aggregate');
+  // },
 
   // model: function(params) {
   //   return this.store.find('operator', params['aggregate']);
@@ -13,6 +17,7 @@ export default Ember.Component.extend({
   // baseURL: ENV.datastoreHost+'/api/v1/operators/aggregate',
 
   names: [ "María", "Søren Larsen", "João", "Saša Jurić", "Íñigo" ],
+  places: [],
 
   // for (var key in json){
   //   if (json.hasOwnProperty(key)){
@@ -28,12 +33,17 @@ export default Ember.Component.extend({
   // }
   actions: {
     test: function(){
-      this.sendAction('test', "aggregate");
+      this.sendAction('test');
+      var countries = this.geographies.country;
+      console.log("geographies: " + this.geographies.get("firstObject.country"));
+      for (var key in countries){
+         console.log(key);
+       }
+      // console.log("places: " + this.store.findAll("geography"));
+      // console.log("places: " + this.store.findAll('geography'));
     }
   }
 
 
 
 });
-
-// https://transit.land/api/v1/operators/aggregate

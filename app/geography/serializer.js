@@ -5,9 +5,19 @@ export default DS.RESTSerializer.extend({
 	normalizeResponse: function(store, primaryModelClass, payload, id, requestType){
 		var geographies = {
 			geographies: [
-				{id: 1, placeName: "Mexico", type: "country", count: "7" }
+				{
+					id: 1,
+					// placeName: payload.country, 
+					country: payload.country,
+					state: payload.state,
+					metro: payload.metro, 
+					// type: "country", 
+					// count: payload.country.count, 
+				}
 			]
-		}
+		};
+		console.log(payload);
+		console.log(geographies);
 		return this._super(store, primaryModelClass, geographies, id, requestType);
 	}
 });

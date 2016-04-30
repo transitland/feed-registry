@@ -30,10 +30,12 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 			});
 		},
 		test: function(){
-			console.log(this.store.findAll('geography'));
 			var places = this.store.findAll('geography');
-			// var placesJSON = JSON.parse(places);
-			places.then(function(data){debugger;});
+			// console.log("geographies: " + this.store.findAll('geographies'));
+			// console.log("geography: " + this.store.findAll('geography'));
+
+			// places.then(function(data){debugger;});
+			// places.then(function(data){debugger;});
 		}
 	}
 });
