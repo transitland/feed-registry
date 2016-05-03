@@ -83,11 +83,11 @@
         @extend .tooltip-point;
       }
       &.onestop-id-tooltip:after {
-        content: 'Onestop IDs are globally unique identifiers for transit feeds, operators, routes, and stops. Use them to query the Transitland API or use them in your own apps and analyses. More info on Github.';
+        content: 'Onestop IDs are globally unique identifiers for transit feeds, operators, routes, and stops. Use them to query the Transitland API or use them in your own apps and analyses.';
         @extend .tooltip;
       }
       &.ssp-tooltip:after {
-        content: 'Schedule-stop-pairs are schedule data, represented as possible trips between two stops. More info on Github.';
+        content: 'Schedule-stop-pairs are schedule data, represented as possible trips between two stops.';
         @extend .tooltip;
       }
       &.attribution-text-tooltip:after {
