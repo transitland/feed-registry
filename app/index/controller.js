@@ -19,13 +19,8 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	editingMode: Ember.computed(function(){
 		return ENV.allowEditingMode;
 	}),
-	findListOfPlaces: Ember.computed(function() {
-		var geography = this.store.findAll('geography');
-		var places = [];
-		console.log(geography);
-		console.log(geography.get('firstObject'));
-		// console.log(data.get('country'));
-		console.log(places);
+	testComplete: Ember.computed(function() {
+		return this.store.findAll('geography');
 	}),
 	actions: {
 		transitionToNewSort: function(sortOrder, sortKey){
@@ -36,15 +31,9 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 					"offset": 0,
 				}
 			});
+		},
+		test: function(){
+			var places = this.store.findAll('geography');
 		}
 	}
 });
-
-  // var data = this.model.get('firstObject');
-  //     this.set('data', data);
-
-      // var places = []; 
-      // places = places.concat(Object.keys(data.get('country')));
-      // places = places.concat(Object.keys(data.get('state')));
-      // places = places.concat(Object.keys(data.get('metro')));
-      // this.set('places', places);
