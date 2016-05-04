@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-
+    place: null,
 	 
     nameSortClass: Ember.computed('sortKey', 'sortOrder', function() {
         if (this.get('sortKey') === 'name' && this.get('sortOrder') === 'asc') {
@@ -43,9 +43,7 @@ export default Ember.Component.extend({
         }
     }),
 
-
     actions:{
-
         changeSort: function(sortKey) {
             if (this.get('sortKey') !== sortKey){
                 var sortOrder = 'asc';

@@ -37,8 +37,11 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 			var places = this.store.findAll('geography');
 		},
 		filterByPlace: function(place){
-      		this.set('place', place);
-      		
+      		console.log('-1-');
+        	console.log(place, this.get('place'));
+			this.set('place', place);
+			console.log('-2-');
+        	console.log(place, this.get('place'));
 		}
 	}
 });

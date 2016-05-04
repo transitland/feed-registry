@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'tr', 
+  
 
   requiresAttribution: function(){
     return this.get('operator.feeds.firstObject.license_use_without_attribution') === 'no';
