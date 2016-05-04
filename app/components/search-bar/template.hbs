@@ -1,10 +1,11 @@
 {{#power-select
+  selected=place
   options=places
   onopen=(action "findPlaces")
+  onclose=(action "filterByPlace")
   searchPlaceholder="Type to filter..."
-  selected=place
-  onchange=(action (mut place))
-  as |location|
+  onchange=(action "setPlace")
+  as |place|
 }}
-  {{location}}
+  {{place}}
 {{/power-select}}

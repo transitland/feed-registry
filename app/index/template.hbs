@@ -4,7 +4,7 @@
 			<div>{{intro-copy import_level=import_level}}</div>
 		{{else}}
 			<div>{{intro-copy operators=model}}</div>
-			<div>{{search-bar findPlaces=(action "findPlaces") model=placesModel}}</div>
+			<div>{{search-bar findPlaces=(action "findPlaces") filterByPlace=(action "filterByPlace", place) model=placesModel}}</div>
 		{{/if}}
 		<br>
 

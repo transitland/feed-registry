@@ -6,6 +6,7 @@ import ENV from 'feed-registry/config/environment';
 export default Ember.Controller.extend(PaginatedOrderedController, {
 	queryParams: ['import_level'],
 	import_level: null,
+	place: null,
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
 		var operators = this.get('model');
@@ -34,6 +35,10 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 		},
 		findPlaces: function(){
 			var places = this.store.findAll('geography');
+		},
+		filterByPlace: function(place){
+      		this.set('place', place);
+      		
 		}
 	}
 });
