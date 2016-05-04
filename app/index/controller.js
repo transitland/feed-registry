@@ -19,7 +19,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	editingMode: Ember.computed(function(){
 		return ENV.allowEditingMode;
 	}),
-	testComplete: Ember.computed(function() {
+	placesModel: Ember.computed(function() {
 		return this.store.findAll('geography');
 	}),
 	actions: {
@@ -32,7 +32,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				}
 			});
 		},
-		test: function(){
+		findPlaces: function(){
 			var places = this.store.findAll('geography');
 		}
 	}
