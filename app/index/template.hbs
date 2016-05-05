@@ -2,6 +2,7 @@
 	<div class="container">
 		{{#if import_level}}
 			<div>{{intro-copy import_level=import_level}}</div>
+			<div>{{search-bar findPlaces=(action "findPlaces") filterByPlace=(action "filterByPlace") model=placesModel}}</div>
 		{{else}}
 			<div>{{intro-copy operators=model}}</div>
 			<div>{{search-bar findPlaces=(action "findPlaces") filterByPlace=(action "filterByPlace") model=placesModel}}</div>
@@ -9,7 +10,7 @@
 		<br>
 
 		<main>
-			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key place=place changeSort=(action "transitionToNewSort")}}
+			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key place=place typeOfPlace=typeOfPlace changeSort=(action "transitionToNewSort")}}
 			<div class="row direction-btn-wrapper">
 				{{pagination-controls route="index" hasPreviousPage=hasPreviousPage hasNextPage=hasNextPage previousOffset=previousOffset nextOffset=nextOffset}}
 			</div>

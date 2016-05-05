@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
     place: null,
+
 	 
     nameSortClass: Ember.computed('sortKey', 'sortOrder', function() {
         if (this.get('sortKey') === 'name' && this.get('sortOrder') === 'asc') {
@@ -41,6 +42,17 @@ export default Ember.Component.extend({
         } else {
             return 'not-sorted';
         }
+    }),
+
+    fromPlace: Ember.computed('place', 'typeOfPlace', function(){
+        console.log("table place: " + this.get('place'));
+        console.log("table typeOfPlace: " + this.get('typeOfPlace'));
+        var operatorName = this.get('operators.name');
+        console.log(operatorName);
+        console.log(this.operators);
+        console.log(this.operators.get('name'));
+        console.log(this.operator);
+        return true;
     }),
 
     actions:{
