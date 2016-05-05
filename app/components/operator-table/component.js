@@ -44,17 +44,6 @@ export default Ember.Component.extend({
         }
     }),
 
-    fromPlace: Ember.computed('place', 'typeOfPlace', function(){
-        console.log("table place: " + this.get('place'));
-        console.log("table typeOfPlace: " + this.get('typeOfPlace'));
-        var operatorName = this.get('operators.name');
-        console.log(operatorName);
-        console.log(this.operators);
-        console.log(this.operators.get('name'));
-        console.log(this.operator);
-        return true;
-    }),
-
     actions:{
         changeSort: function(sortKey) {
             if (this.get('sortKey') !== sortKey){
