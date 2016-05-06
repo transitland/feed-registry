@@ -10,6 +10,16 @@ export default Ember.Mixin.create({
     },
     sort_key: {
     	refreshModel: true
+    },
+    country: {
+      refreshModel: true
+    },
+    state: {
+      refreshModel: true
+    },
+    metro: {
+      refreshModel: true
     }
+
   }
 });

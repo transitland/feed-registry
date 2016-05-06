@@ -1,4 +1,9 @@
 <div class = "table-container">
+  {{#if queryParamExists}}
+        {{#link-to "index" (query-params import_level="null" country="null" state="null" metro="null" name="null")}}
+          {{fa-icon icon="fa-caret-left"}} View All Feeds
+        {{/link-to}}
+  {{/if}}
   <table class="table table-striped">
     <thead>
       <tr>
@@ -12,7 +17,7 @@
     </thead>
     <tbody>
       {{#each operator in operators}}
-    	  {{operator-table/operator-row operator=operator}}
+    	     {{operator-table/operator-row operator=operator}}
     	{{/each}}
     </tbody>
   </table>
