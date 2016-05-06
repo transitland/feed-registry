@@ -13,17 +13,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	metro: null,
 	name: null,
 	
-	queryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', 'name', function(){
-		var import_level = this.get('import_level');
-		var country = this.get('country');
-		var state = this.get('state');
-		var metro = this.get('metro');
-		var name = this.get('name');
-
-		if (import_level || country || state || metro || name){
-			return true;
-		}
-	}),
+	
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
 		var operators = this.get('model');
