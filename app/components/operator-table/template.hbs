@@ -1,6 +1,6 @@
 <div class = "table-container">
   {{#if queryParamExists}}
-        {{#link-to "index" (query-params import_level="null" country="null" state="null" metro="null" name="null")}}
+        {{#link-to "index" (query-params place="null" import_level="null" country="null" state="null" metro="null" name="null" resetPlace=(action "resetPlace"))}}
           {{fa-icon icon="fa-caret-left"}} View All Feeds
         {{/link-to}}
   {{/if}}
@@ -22,3 +22,4 @@
     </tbody>
   </table>
 </div>
+

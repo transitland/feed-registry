@@ -12,7 +12,8 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	state: null,
 	metro: null,
 	name: null,
-	
+	selected: null,
+
 	
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
@@ -31,6 +32,10 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 		return this.store.findAll('geography');
 	}),
 	actions: {
+		resetPlace: function(){
+			this.set('selected', null);
+		},
+		
 		transitionToNewSort: function(sortOrder, sortKey){
 			this.transitionTo({
 				queryParams: {
