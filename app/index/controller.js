@@ -35,7 +35,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				}
 			});
 		},
-		transitionToLocationFilter: function(country){
+		transitionToLocationFilter: function(country, state, metro){
 			this.transitionTo({
 				queryParams: {
 					"country": country,
@@ -48,20 +48,21 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 			var places = this.store.findAll('geography');
 		},
 		filterByPlace: function(place, typeOfPlace){
+			// var placeString= place.replace(" ", "%20");
 			this.set('place', place);
 			this.set('typeOfPlace', typeOfPlace);
 			if (typeOfPlace === "country"){
-				this.set('country', place);
+				this.set('country', this.place);
 				this.set('state', null);
 				this.set('metro', null);
 			} else if (typeOfPlace === "state"){
 				this.set('country', null);
-				this.set('state', place);
+				this.set('state', this.place);
 				this.set('metro', null);
-			} else if (typeOfPlace === "country"){
+			} else if (typeOfPlace === "metro"){
 				this.set('country', null);
 				this.set('state', null);
-				this.set('metro', place);
+				this.set('metro', this.place);
 			}
 		}
 	}
