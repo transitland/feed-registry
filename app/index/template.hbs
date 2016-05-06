@@ -10,7 +10,7 @@
 		<br>
 
 		<main>
-			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key country=country changeSort=(action "transitionToNewSort")}}
+			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key country=country state=state metro=metro changeSort=(action "transitionToNewSort")}}
 			<div class="row direction-btn-wrapper">
 				{{pagination-controls route="index" hasPreviousPage=hasPreviousPage hasNextPage=hasNextPage previousOffset=previousOffset nextOffset=nextOffset}}
 			</div>

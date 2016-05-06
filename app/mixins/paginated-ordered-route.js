@@ -13,6 +13,13 @@ export default Ember.Mixin.create({
     },
     country: {
       refreshModel: true
+    },
+    state: {
+      refreshModel: true
+    },
+    metro: {
+      refreshModel: true
     }
+
   }
 });

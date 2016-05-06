@@ -8,7 +8,6 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	import_level: null,
 	place: null,
 	typeOfPlace: null,
-	placeString: null,
 	country: null,
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
@@ -39,7 +38,9 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 		transitionToLocationFilter: function(country){
 			this.transitionTo({
 				queryParams: {
-					"country": country
+					"country": country,
+					"state": state,
+					"metro": metro,
 				}
 			});
 		},
@@ -51,11 +52,17 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 			this.set('typeOfPlace', typeOfPlace);
 			if (typeOfPlace === "country"){
 				this.set('country', place);
+				this.set('state', null);
+				this.set('metro', null);
+			} else if (typeOfPlace === "state"){
+				this.set('country', null);
+				this.set('state', place);
+				this.set('metro', null);
+			} else if (typeOfPlace === "country"){
+				this.set('country', null);
+				this.set('state', null);
+				this.set('metro', place);
 			}
-			console.log("country: " + this.country);
-			var placeString = place.replace(" ", "%20");
-			this.set('placeString', placeString);
-			console.log("https://transit.land/api/v1/operators?"+typeOfPlace+"="+placeString);
 		}
 	}
 });
