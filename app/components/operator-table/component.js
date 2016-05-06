@@ -3,6 +3,19 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
     place: null,
+    
+
+    queryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', function(){
+        var import_level = this.get('import_level');
+        var country = this.get('country');
+        var state = this.get('state');
+        var metro = this.get('metro');
+
+        if (import_level || country || state || metro){
+            console.log("true");
+            return true;
+        }
+    }),
 
 	 
     nameSortClass: Ember.computed('sortKey', 'sortOrder', function() {

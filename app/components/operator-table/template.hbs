@@ -1,4 +1,9 @@
 <div class = "table-container">
+  {{#if queryParamExists}}
+        {{#link-to "index" (query-params import_level="null" country="null" state="null" metro="null")}}
+          {{fa-icon icon="fa-caret-left"}} View All Feeds
+        {{/link-to}}
+  {{/if}}
   <table class="table table-striped">
     <thead>
       <tr>
