@@ -16,8 +16,7 @@ export default Ember.Component.extend({
             return true;
         }
     }),
-
-	 
+ 
     nameSortClass: Ember.computed('sortKey', 'sortOrder', function() {
         if (this.get('sortKey') === 'name' && this.get('sortOrder') === 'asc') {
             return 'sort-down';
@@ -69,5 +68,10 @@ export default Ember.Component.extend({
             }
             this.sendAction('changeSort', sortOrder, sortKey);
         },
+        resetPlace: function(){
+          this.sendAction('resetPlace', "null");
+        }
     }
+
+
 });

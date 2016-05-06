@@ -5,9 +5,9 @@ export default Ember.Component.extend({
   countries: null,
   country: null,
   typeOfPlace: null,
-
-  actions: {
-
+  selected: null,
+  
+  actions: { 
     findPlaces: function(){
       this.sendAction('findPlaces');
       var data = this.model.get('firstObject');
@@ -34,6 +34,7 @@ export default Ember.Component.extend({
 
     setPlace: function(place){
       this.set('place', place);
+      this.set('selected', null);
       if (this.countries.indexOf(place) >= 0){
         this.set('typeOfPlace', 'country');
       } else if (this.states.indexOf(place) >= 0){

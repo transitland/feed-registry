@@ -19,6 +19,9 @@ export default Ember.Mixin.create({
     },
     metro: {
       refreshModel: true
+    },
+    name: {
+      refreshModel: true
     }
 
   }
