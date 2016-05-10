@@ -12,6 +12,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	state: null,
 	metro: null,
 	name: null,
+	short_name: null,
 	selected: null,
 
 	
@@ -45,22 +46,18 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				}
 			});
 		},
-		transitionToLocationFilter: function(country, state, metro){
+		transitionToLocationFilter: function(country, state, metro, name, short_name){
 			this.transitionTo({
 				queryParams: {
 					"country": country,
 					"state": state,
 					"metro": metro,
-				}
-			});
-		},
-		transitionToNameFilter: function(name){
-			this.transitionTo({
-				queryParams: {
 					"name": name,
+					"short_name": short_name
 				}
 			});
 		},
+		
 		findPlaces: function(){
 			var places = this.store.findAll('geography');
 		},
@@ -72,14 +69,32 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				this.set('country', this.place);
 				this.set('state', null);
 				this.set('metro', null);
+				this.set('name', null);
+				this.set('short_name', null);
 			} else if (typeOfPlace === "state"){
 				this.set('country', null);
 				this.set('state', this.place);
 				this.set('metro', null);
+				this.set('name', null);
+				this.set('short_name', null);
 			} else if (typeOfPlace === "metro"){
 				this.set('country', null);
 				this.set('state', null);
 				this.set('metro', this.place);
+				this.set('name', null);
+				this.set('short_name', null);
+			} else if (this.names.indexOf(place) >= 0){
+				this.set('country', null);
+				this.set('state', null);
+				this.set('metro', null);
+				this.set('typeOfPlace', 'name');
+				this.set('short_name', null);
+			} else if (this.short_names.indexOf(place) >= 0){
+				this.set('country', null);
+				this.set('state', null);
+				this.set('metro', null);
+				this.set('name', null);
+				this.set('typeOfPlace', 'short_name');
 			}
 		}
 	}
