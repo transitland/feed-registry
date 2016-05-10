@@ -1,51 +1,65 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  place: null,
+  placeOrName: null,
   countries: null,
   country: null,
-  typeOfPlace: null,
+  name: null,
+  short_name: null,
+  typeOfPlaceOrName: null,
   selected: null,
   
   actions: { 
-    findPlaces: function(){
-      this.sendAction('findPlaces');
+    findPlacesAndNames: function(){
+      this.sendAction('findPlacesAndNames');
       var data = this.model.get('firstObject');
 
       var countries = [];
       var states = [];
       var metros = [];
+      var names = [];
+      var short_names = [];
 
       countries = countries.concat(Object.keys(data.get('country')));
       states = states.concat(Object.keys(data.get('state')));
       metros = metros.concat(Object.keys(data.get('metro')));
+      names = names.concat(Object.keys(data.get('name')));
+      short_names = short_names.concat(Object.keys(data.get('short_name')));
     
       this.set('countries', countries);
       this.set('states', states);
       this.set('metros', metros);
+      this.set('names', names);
+      this.set('short_names', short_names);
 
-      var places = []; 
-      places = places.concat(Object.keys(data.get('country')));
-      places = places.concat(Object.keys(data.get('state')));
-      places = places.concat(Object.keys(data.get('metro')));
-      this.set('places', places);
+      var placesAndNames = []; 
+      placesAndNames = placesAndNames.concat(Object.keys(data.get('country')));
+      placesAndNames = placesAndNames.concat(Object.keys(data.get('state')));
+      placesAndNames = placesAndNames.concat(Object.keys(data.get('metro')));
+      placesAndNames = placesAndNames.concat(Object.keys(data.get('name')));
+      placesAndNames = placesAndNames.concat(Object.keys(data.get('short_name')));
+      this.set('placesAndNames', placesAndNames);
 
     },
 
-    setPlace: function(place){
-      this.set('place', place);
+    setPlaceOrName: function(placeOrName){
+      this.set('placeOrName', placeOrName);
       this.set('selected', null);
-      if (this.countries.indexOf(place) >= 0){
-        this.set('typeOfPlace', 'country');
-      } else if (this.states.indexOf(place) >= 0){
-        this.set('typeOfPlace', 'state');
-      } else if (this.metros.indexOf(place) >= 0){
-        this.set('typeOfPlace', 'metro');
+      if (this.countries.indexOf(placeOrName) >= 0){
+        this.set('typeOfPlaceOrName', 'country');
+      } else if (this.states.indexOf(placeOrName) >= 0){
+        this.set('typeOfPlaceOrName', 'state');
+      } else if (this.metros.indexOf(placeOrName) >= 0){
+        this.set('typeOfPlaceOrName', 'metro');
+      } else if (this.names.indexOf(placeOrName) >= 0){
+        this.set('typeOfPlaceOrName', 'name');
+      } else if (this.short_names.indexOf(placeOrName) >= 0){
+        this.set('typeOfPlaceOrName', 'short_name');
       }
     },
 
-    filterByPlace: function(){
-      this.sendAction('filterByPlace', this.place, this.typeOfPlace);
+    filterByPlaceOrName: function(){
+      this.sendAction('filterByPlaceOrName', this.placeOrName, this.typeOfPlaceOrName);
     }
   }
 });

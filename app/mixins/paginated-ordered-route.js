@@ -22,6 +22,9 @@ export default Ember.Mixin.create({
     },
     name: {
       refreshModel: true
+    },
+    short_name: {
+      refreshModel: true
     }
 
   }

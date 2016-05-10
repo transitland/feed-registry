@@ -2,17 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-    place: null,
+    placeOrName: null,
 
 
-    queryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', 'name', function(){
+    queryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', 'name', 'short_name', function(){
         var import_level = this.get('import_level');
         var country = this.get('country');
         var state = this.get('state');
         var metro = this.get('metro');
         var name = this.get('name');
+        var short_name = this.get('short_name');
 
-        if (import_level || country || state || metro || name){
+        if (import_level || country || state || metro || name || short_name){
             return true;
         }
     }),
@@ -68,8 +69,8 @@ export default Ember.Component.extend({
             }
             this.sendAction('changeSort', sortOrder, sortKey);
         },
-        resetPlace: function(){
-          this.sendAction('resetPlace', "null");
+        resetPlaceOrName: function(){
+          this.sendAction('resetPlaceOrName', "null");
         }
     }
 

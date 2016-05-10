@@ -6,12 +6,13 @@ import ENV from 'feed-registry/config/environment';
 export default Ember.Controller.extend(PaginatedOrderedController, {
 	queryParams: ['import_level'],
 	import_level: null,
-	place: null,
-	typeOfPlace: null,
+	placeOrName: null,
+	typeOfPlaceOrName: null,
 	country: null,
 	state: null,
 	metro: null,
 	name: null,
+	short_name: null,
 	selected: null,
 
 	
@@ -28,11 +29,11 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	editingMode: Ember.computed(function(){
 		return ENV.allowEditingMode;
 	}),
-	placesModel: Ember.computed(function() {
+	placesAndNamesModel: Ember.computed(function() {
 		return this.store.findAll('geography');
 	}),
 	actions: {
-		resetPlace: function(){
+		resetPlaceOrName: function(){
 			this.set('selected', null);
 		},
 		
@@ -45,41 +46,54 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				}
 			});
 		},
-		transitionToLocationFilter: function(country, state, metro){
+		transitionToLocationOrNameFilter: function(country, state, metro, name, short_name){
 			this.transitionTo({
 				queryParams: {
 					"country": country,
 					"state": state,
 					"metro": metro,
-				}
-			});
-		},
-		transitionToNameFilter: function(name){
-			this.transitionTo({
-				queryParams: {
 					"name": name,
+					"short_name": short_name
 				}
 			});
 		},
-		findPlaces: function(){
-			var places = this.store.findAll('geography');
+		
+		findPlacesAndNames: function(){
+			var placesAndNames = this.store.findAll('geography');
 		},
-		filterByPlace: function(place, typeOfPlace){
-			// var placeString= place.replace(" ", "%20");
-			this.set('place', place);
-			this.set('typeOfPlace', typeOfPlace);
-			if (typeOfPlace === "country"){
-				this.set('country', this.place);
+		filterByPlaceOrName: function(placeOrName, typeOfPlaceOrName){
+			this.set('placeOrName', placeOrName);
+			this.set('typeOfPlaceOrName', typeOfPlaceOrName);
+			if (typeOfPlaceOrName === "country"){
+				this.set('country', this.placeOrName);
 				this.set('state', null);
 				this.set('metro', null);
-			} else if (typeOfPlace === "state"){
+				this.set('name', null);
+				this.set('short_name', null);
+			} else if (typeOfPlaceOrName === "state"){
 				this.set('country', null);
-				this.set('state', this.place);
+				this.set('state', this.placeOrName);
 				this.set('metro', null);
-			} else if (typeOfPlace === "metro"){
+				this.set('name', null);
+				this.set('short_name', null);
+			} else if (typeOfPlaceOrName === "metro"){
 				this.set('country', null);
 				this.set('state', null);
-				this.set('metro', this.place);
+				this.set('metro', this.placeOrName);
+				this.set('name', null);
+				this.set('short_name', null);
+			} else if (typeOfPlaceOrName === "name"){
+				this.set('country', null);
+				this.set('state', null);
+				this.set('metro', null);
+				this.set('name', this.placeOrName);
+				this.set('short_name', null);
+			} else if (typeOfPlaceOrName === "short_name"){
+				this.set('country', null);
+				this.set('state', null);
+				this.set('metro', null);
+				this.set('name', null);
+				this.set('short_name', this.placeOrName);
 			}
 		}
 	}
