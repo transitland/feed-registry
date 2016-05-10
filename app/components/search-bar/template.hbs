@@ -1,11 +1,11 @@
 {{#power-select
   selected=selected
-  options=places
-  onopen=(action "findPlaces")
-  onclose=(action "filterByPlace")
+  options=placesAndNames
+  onopen=(action "findPlacesAndNames")
+  onclose=(action "filterByPlaceOrName")
   placeholder="Type to filter by operator name or location..."
-  onchange=(action "setPlace")
-  as |place|
+  onchange=(action "setPlaceOrName")
+  as |placeOrName|
 }}
-  {{place}}
+  {{placeOrName}}
 {{/power-select}}

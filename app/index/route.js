@@ -8,7 +8,6 @@ export default Ember.Route.extend(PaginatedOrderedRoute, {
 	actions: {
 		queryParamsDidChange: function(){
 			this.refresh();
-			// this.set('place', null);
 		}
 	}
 });

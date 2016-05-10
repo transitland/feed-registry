@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-    place: null,
+    placeOrName: null,
 
 
     queryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', 'name', 'short_name', function(){
@@ -69,8 +69,8 @@ export default Ember.Component.extend({
             }
             this.sendAction('changeSort', sortOrder, sortKey);
         },
-        resetPlace: function(){
-          this.sendAction('resetPlace', "null");
+        resetPlaceOrName: function(){
+          this.sendAction('resetPlaceOrName', "null");
         }
     }
 

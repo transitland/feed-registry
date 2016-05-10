@@ -5,7 +5,7 @@
 		{{else}}
 			<div>{{intro-copy operators=model}}</div>
 		{{/if}}
-		<div>{{search-bar findPlaces=(action "findPlaces") filterByPlace=(action "filterByPlace") selected=selected place=place model=placesModel}}</div>
+		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") selected=selected placeOrName=placeOrName model=placesAndNamesModel}}</div>
 		<br>
 		<main>
 			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key selected=selected import_level=import_level country=country state=state metro=metro name=name short_name=short_name changeSort=(action "transitionToNewSort")}}
