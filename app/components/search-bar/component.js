@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   place: null,
+  // places: [],
   countries: null,
   country: null,
   name: null,

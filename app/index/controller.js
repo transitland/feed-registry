@@ -83,18 +83,18 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				this.set('metro', this.place);
 				this.set('name', null);
 				this.set('short_name', null);
-			} else if (this.names.indexOf(place) >= 0){
+			} else if (typeOfPlace === "name"){
 				this.set('country', null);
 				this.set('state', null);
 				this.set('metro', null);
-				this.set('typeOfPlace', 'name');
+				this.set('name', this.place);
 				this.set('short_name', null);
-			} else if (this.short_names.indexOf(place) >= 0){
+			} else if (typeOfPlace === "short_name"){
 				this.set('country', null);
 				this.set('state', null);
 				this.set('metro', null);
 				this.set('name', null);
-				this.set('typeOfPlace', 'short_name');
+				this.set('short_name', this.place);
 			}
 		}
 	}
