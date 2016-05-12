@@ -1,11 +1,13 @@
 .ember-power-select-trigger{
-	border-radius: 0px;
+	display: table-cell;
+	vertical-align: middle;
+
 }
 
 .ember-basic-dropdown{
-	background-color: green;
+	display: table;
 	width: 50%;
-	
-	
-
+	border-radius: 0px;
+	margin-left: auto;
+	margin-right: auto;
 }
