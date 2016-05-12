@@ -1,10 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  queryParams: ['feedUrl'],
+  feedUrl: null,
+
   createFeedFromGtfsService: Ember.inject.service('create-feed-from-gtfs'),
   progressStatus: null,
   progress: null,
- 
+
   actions: {
     next: function() {
       this.toggleProperty('isLoading');
