@@ -14,7 +14,6 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	name: null,
 	short_name: null,
 	selected: null,
-
 	
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
@@ -29,6 +28,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	editingMode: Ember.computed(function(){
 		return ENV.allowEditingMode;
 	}),
+
 	placesAndNamesModel: Ember.computed(function() {
 		return this.store.findAll('geography');
 	}),

@@ -5,9 +5,23 @@ export default Ember.Component.extend({
   countries: null,
   country: null,
   name: null,
+  metro: null,
   short_name: null,
   typeOfPlaceOrName: null,
   selected: null,
+
+  queryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', 'name', 'short_name', function(){
+        var import_level = this.get('import_level');
+        var country = this.get('country');
+        var state = this.get('state');
+        var metro = this.get('metro');
+        var name = this.get('name');
+        var short_name = this.get('short_name');
+
+        if (import_level || country || state || metro || name || short_name){
+            return true;
+        }
+    }),
   
   actions: { 
     findPlacesAndNames: function(){
