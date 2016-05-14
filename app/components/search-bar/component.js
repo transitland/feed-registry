@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   countries: null,
   country: null,
   name: null,
+  metro: null,
   short_name: null,
   typeOfPlaceOrName: null,
   selected: null,
