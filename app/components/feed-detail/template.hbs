@@ -36,5 +36,10 @@
 		</tr>
 	{{/if}}
 
-
 </table>
+
+<div class="row direction-btn-wrapper pull-right">
+  {{#link-to 'feeds.new' (query-params feedUrl=feed.url) class="btn btn-action" role="button"}}
+    Edit feed and operator details
+  {{/link-to}}
+</div>
