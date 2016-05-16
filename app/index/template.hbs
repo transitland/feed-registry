@@ -5,11 +5,15 @@
 		{{else}}
 			<div>{{intro-copy operators=model}}</div>
 		{{/if}}
-		{{#if queryParamExists}}
-			<div> You are viewing all feeds in {{country}} </div>
-		{{else}}
-		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") selected=selected placeOrName=placeOrName model=placesAndNamesModel}}</div>
+		{{#if placeQueryParamExists}}
+			<div> You are viewing all feeds in {{country}}{{state}}{{metro}} </div>
 		{{/if}}
+		{{#if nameQueryParamExists}}
+			<div> You are viewing all feeds by {{name}}{{short_name}} </div>
+		{{/if}}
+
+		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") selected=selected placeOrName=placeOrName model=placesAndNamesModel}}</div>
+	
 	
 		<br>
 		<main>

@@ -15,15 +15,22 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	short_name: null,
 	selected: null,
 
-	queryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', 'name', 'short_name', function(){
+	placeQueryParamExists: Ember.computed('import_level', 'country', 'state', 'metro', function(){
         var import_level = this.get('import_level');
         var country = this.get('country');
         var state = this.get('state');
         var metro = this.get('metro');
+
+        if (import_level || country || state || metro){
+            return true;
+        }
+    }),
+
+    nameQueryParamExists: Ember.computed('name', 'short_name', function(){
         var name = this.get('name');
         var short_name = this.get('short_name');
 
-        if (import_level || country || state || metro || name || short_name){
+        if (name || short_name){
             return true;
         }
     }),
