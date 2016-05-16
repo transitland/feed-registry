@@ -6,9 +6,10 @@
 			<div>{{intro-copy operators=model}}</div>
 		{{/if}}
 		{{#if queryParamExists}}
-			<div> You are viewing all feeds in {{placeOrName}} </div>
-		{{/if}}
+			<div> You are viewing all feeds in {{country}} </div>
+		{{else}}
 		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") selected=selected placeOrName=placeOrName model=placesAndNamesModel}}</div>
+		{{/if}}
 	
 		<br>
 		<main>
