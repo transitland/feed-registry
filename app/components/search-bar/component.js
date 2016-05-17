@@ -16,19 +16,19 @@ export default Ember.Component.extend({
       var data = this.model.get('firstObject');
 
       var countries = [];
-      var states = [];
+      var statesOrProvinces = [];
       var metros = [];
       var names = [];
       var short_names = [];
 
       countries = countries.concat(Object.keys(data.get('country')));
-      states = states.concat(Object.keys(data.get('state')));
+      statesOrProvinces = statesOrProvinces.concat(Object.keys(data.get('state')));
       metros = metros.concat(Object.keys(data.get('metro')));
       names = names.concat(Object.keys(data.get('name')));
       short_names = short_names.concat(Object.keys(data.get('short_name')));
     
       this.set('countries', countries);
-      this.set('states', states);
+      this.set('statesOrProvinces', statesOrProvinces);
       this.set('metros', metros);
       this.set('names', names);
       this.set('short_names', short_names);
@@ -48,7 +48,7 @@ export default Ember.Component.extend({
       this.set('selected', null);
       if (this.countries.indexOf(placeOrName) >= 0){
         this.set('typeOfPlaceOrName', 'country');
-      } else if (this.states.indexOf(placeOrName) >= 0){
+      } else if (this.statesOrProvinces.indexOf(placeOrName) >= 0){
         this.set('typeOfPlaceOrName', 'state');
       } else if (this.metros.indexOf(placeOrName) >= 0){
         this.set('typeOfPlaceOrName', 'metro');
