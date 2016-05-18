@@ -14,13 +14,13 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	name: null,
 	short_name: null,
 	selected: null,
-	
+
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
 		var operators = this.get('model');
 
 		if (import_level) {
-			return operators.filterBy('import_level', import_level);	
+			return operators.filterBy('import_level', import_level);
 		} else {
 			return operators;
 		}
@@ -34,15 +34,15 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 		return this.store.findAll('geography');
 	}),
 
-	getPlaceOrName: Ember.computed(function() {
-	    return this.get('country') || this.get('state') || this.get('metro')
+	getPlaceOrName: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
+	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')
 	}),
 
 	actions: {
 		resetPlaceOrName: function(){
 			this.set('selected', null);
 		},
-		
+
 		transitionToNewSort: function(sortOrder, sortKey){
 			this.transitionTo({
 				queryParams: {
@@ -63,7 +63,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				}
 			});
 		},
-		
+
 		findPlacesAndNames: function(){
 			var placesAndNames = this.store.findAll('geography');
 		},
