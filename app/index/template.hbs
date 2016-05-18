@@ -6,7 +6,7 @@
 			<div>{{intro-copy operators=model}}</div>
 		{{/if}}
 		
-		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") selected=selected placeOrName=placeOrName model=placesAndNamesModel}}</div>
+		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel}}</div>
 		
 		<br>
 		<main>
