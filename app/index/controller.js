@@ -100,41 +100,5 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 			this.set(this.typeOfPlaceOrName, this.placeOrName);
 			console.log(this.placeOrName, this.typeOfPlaceOrName);
 		}
-
-		// filterByPlaceOrName: function(placeOrName, typeOfPlaceOrName){
-		// 	this.set('placeOrName', placeOrName);
-		// 	this.set('typeOfPlaceOrName', typeOfPlaceOrName);
-		// 	if (typeOfPlaceOrName === "country"){
-		// 		this.set('country', this.placeOrName);
-		// 		this.set('state', null);
-		// 		this.set('metro', null);
-		// 		this.set('name', null);
-		// 		this.set('short_name', null);
-		// 	} else if (typeOfPlaceOrName === "state"){
-		// 		this.set('country', null);
-		// 		this.set('state', this.placeOrName);
-		// 		this.set('metro', null);
-		// 		this.set('name', null);
-		// 		this.set('short_name', null);
-		// 	} else if (typeOfPlaceOrName === "metro"){
-		// 		this.set('country', null);
-		// 		this.set('state', null);
-		// 		this.set('metro', this.placeOrName);
-		// 		this.set('name', null);
-		// 		this.set('short_name', null);
-		// 	} else if (typeOfPlaceOrName === "name"){
-		// 		this.set('country', null);
-		// 		this.set('state', null);
-		// 		this.set('metro', null);
-		// 		this.set('name', this.placeOrName);
-		// 		this.set('short_name', null);
-		// 	} else if (typeOfPlaceOrName === "short_name"){
-		// 		this.set('country', null);
-		// 		this.set('state', null);
-		// 		this.set('metro', null);
-		// 		this.set('name', null);
-		// 		this.set('short_name', this.placeOrName);
-		// 	}
-		// }
 	}
 });
