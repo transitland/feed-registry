@@ -5,16 +5,10 @@
 		{{else}}
 			<div>{{intro-copy operators=model}}</div>
 		{{/if}}
-		{{#if placeQueryParamExists}}
-			<div> You are viewing all feeds in {{country}}{{state}}{{metro}} </div>
-		{{/if}}
-		{{#if nameQueryParamExists}}
-			<div> You are viewing all feeds by {{name}}{{short_name}} </div>
-		{{/if}}
 
-		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") selected=selected placeOrName=placeOrName model=placesAndNamesModel}}</div>
-	
-	
+		
+		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel}}</div>
+		
 		<br>
 		<main>
 			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key selected=selected import_level=import_level country=country state=state metro=metro name=name short_name=short_name changeSort=(action "transitionToNewSort")}}
