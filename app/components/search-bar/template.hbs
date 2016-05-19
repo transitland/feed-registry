@@ -1,6 +1,7 @@
 {{#power-select
   selected=placeOrName
   options=placesAndNames
+  allowClear=true
   onopen=(action "findPlacesAndNames")
   placeholder="Search by operator name or location"
   onchange=(action "setPlaceOrName")

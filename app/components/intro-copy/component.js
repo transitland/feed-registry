@@ -23,6 +23,10 @@ export default Ember.Component.extend({
 		}
 	}.property('import_level'),
 
+	getPlaceOrName: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
+	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')
+	}),
+
 	supportedLevel: function(){
 		if (this.import_level >= 0 && this.import_level <= 4){
 			return true;

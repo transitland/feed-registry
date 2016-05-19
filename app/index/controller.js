@@ -39,9 +39,15 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')
 	}),
 
+	placeOrNameExists: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
+	    if(this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')){
+			return true;
+		}
+	}),
+
 	actions: {
 		resetPlaceOrName: function(){
-			this.set('selected', null);
+			this.set('placeOrName', null);
 		},
 
 		transitionToNewSort: function(sortOrder, sortKey){

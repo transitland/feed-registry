@@ -5,5 +5,6 @@ export default DS.Model.extend({
 	state: DS.attr(),
 	metro: DS.attr(),
 	name: DS.attr(),
-	short_name: DS.attr()
+	short_name: DS.attr(),
+	countryCount: DS.attr()
 });

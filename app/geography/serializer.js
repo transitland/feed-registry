@@ -11,7 +11,8 @@ export default DS.RESTSerializer.extend({
 					state: payload.state,
 					metro: payload.metro,
 					name: payload.name,
-					short_name: payload.short_name
+					short_name: payload.short_name,
+					countryCount: payload.country.count
 				}
 			]
 		};
