@@ -6,10 +6,10 @@
 			<div>{{intro-copy operators=model}}</div>
 		{{/if}}
 
-		
-		
+
+
 		{{#if getPlaceOrName}}
-		<p>You are viewing all of the <strong>{{countryCount}} {{country}}{{state}}{{metro}}{{name}}{{short_name}}</strong> feeds currently available in Transitland.</p>
+		<p>You are viewing all of the <strong>{{model.meta.total}} {{country}}{{state}}{{metro}}{{name}}{{short_name}}</strong> feeds currently available in Transitland.</p>
 		{{else}}
 		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel}}</div>
 		{{/if}}
