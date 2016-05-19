@@ -4,7 +4,7 @@ import ENV from 'feed-registry/config/environment';
 
 
 export default Ember.Controller.extend(PaginatedOrderedController, {
-	queryParams: ['import_level'],
+	queryParams: ['import_level', 'total'],
 	import_level: null,
 	placeOrName: null,
 	typeOfPlaceOrName: null,
@@ -14,7 +14,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	name: null,
 	short_name: null,
 	selected: null,
-
+	total: true,
 
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
