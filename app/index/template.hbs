@@ -7,12 +7,16 @@
 		{{/if}}
 
 
-
-		{{#if getPlaceOrName}}
-		<p>You are viewing all of the <strong>{{model.meta.total}} {{country}}{{state}}{{metro}}{{name}}{{short_name}}</strong> feeds currently available in Transitland.</p>
-		{{else}}
 		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel}}</div>
+		
+		{{#if getPlaceOrName}}
+		<div class="filterInfoContainer">
+			<div class="filterInfoSubcontainer">
+				<div class="filterInfo">You are viewing the <strong>{{model.meta.total}} {{country}}{{state}}{{metro}}{{name}}{{short_name}}</strong> feed{{#if multipleFeeds}}s{{/if}} currently available in Transitland Datastore</div>
+			</div>
+		</div>	
 		{{/if}}
+		
 		<br>
 		<main>
 			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key selected=selected import_level=import_level country=country state=state metro=metro name=name short_name=short_name changeSort=(action "transitionToNewSort")}}

@@ -36,11 +36,20 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	}),
 
 	getPlaceOrName: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
+		this.totalOperators = this.model.meta.total;
 	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')
 	}),
 
 	placeOrNameExists: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
 	    if(this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')){
+			return true;
+		}
+	}),
+
+	multipleFeeds: Ember.computed(totalOperators, function(){
+		console.log(totalOperators);
+
+		if (this.model.meta.total > 1) {
 			return true;
 		}
 	}),
@@ -105,7 +114,6 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				this.set('name', null);
 			}
 			this.set(this.typeOfPlaceOrName, this.placeOrName);
-			console.log(this.placeOrName, this.typeOfPlaceOrName);
 		}
 	}
 });
