@@ -4,7 +4,7 @@ import ENV from 'feed-registry/config/environment';
 
 
 export default Ember.Controller.extend(PaginatedOrderedController, {
-	queryParams: ['import_level'],
+	queryParams: ['import_level', 'total'],
 	import_level: null,
 	placeOrName: null,
 	typeOfPlaceOrName: null,
@@ -14,6 +14,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	name: null,
 	short_name: null,
 	selected: null,
+	total: true,
 
 	filterByImportLevel: Ember.computed('import_level', function(){
 		var import_level = this.get('import_level');
@@ -35,12 +36,25 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	}),
 
 	getPlaceOrName: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
+		this.totalOperators = this.model.meta.total;
 	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')
+	}),
+
+	placeOrNameExists: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
+	    if(this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')){
+			return true;
+		}
+	}),
+
+	multipleFeeds: Ember.computed('this.model.meta.total', function() {
+		if (this.get('this.model.meta.total') >= 2) {
+			return true;
+		}
 	}),
 
 	actions: {
 		resetPlaceOrName: function(){
-			this.set('selected', null);
+			this.set('placeOrName', null);
 		},
 
 		transitionToNewSort: function(sortOrder, sortKey){
@@ -98,7 +112,6 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				this.set('name', null);
 			}
 			this.set(this.typeOfPlaceOrName, this.placeOrName);
-			console.log(this.placeOrName, this.typeOfPlaceOrName);
 		}
 	}
 });

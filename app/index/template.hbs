@@ -5,8 +5,17 @@
 		{{else}}
 			<div>{{intro-copy operators=model}}</div>
 		{{/if}}
-		
+
+
 		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel}}</div>
+		
+		{{#if getPlaceOrName}}
+			<div class="filterInfoContainer">
+				<div class="filterInfoSubcontainer">
+					<div class="filterInfo">There {{#if multipleFeeds}}are{{else}}is{{/if}} currently <strong>{{model.meta.total}}</strong> feed{{#if multipleFeeds}}s{{/if}} available in the Transitland Datastore for <strong>{{country}}{{state}}{{metro}}{{name}}{{short_name}}</strong>.</div>
+				</div>
+			</div>	
+		{{/if}}
 		
 		<br>
 		<main>
