@@ -46,10 +46,8 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 		}
 	}),
 
-	multipleFeeds: Ember.computed(totalOperators, function(){
-		console.log(totalOperators);
-
-		if (this.model.meta.total > 1) {
+	multipleFeeds: Ember.computed('this.model.meta.total', function() {
+		if (this.get('this.model.meta.total') >= 2) {
 			return true;
 		}
 	}),
