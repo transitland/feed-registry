@@ -102,6 +102,21 @@ h3{
   }
 }
 
+.filterInfoContainer{
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filterInfo{
+  display: table-cell;
+  vertical-align: middle;
+  padding: 15px;
+  strong{
+   color:$logo-color-3;
+  }
+}
+
 
 @include media-query($on-ipad) {
 
