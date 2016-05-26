@@ -1,8 +1,10 @@
 <div class = "table-container">
   {{#if queryParamExists}}
+    <div class="breadcrumb">
         {{#link-to "index" (query-params placeOrName="null" import_level="null" country="null" state="null" metro="null" name="null" short_name="null" resetPlaceOrName=(action "resetPlaceOrName"))}}
           {{fa-icon icon="fa-caret-left"}} View All Feeds
         {{/link-to}}
+    </div>
   {{/if}}
   <table class="table table-striped">
     <thead>
