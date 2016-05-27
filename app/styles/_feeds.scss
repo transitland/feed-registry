@@ -1,3 +1,8 @@
+.title {
+  margin-bottom: $spacing-unit*2;
+  margin-top: $spacing-unit*1.5;
+}
+
 .caption {
 	//because of italic style, it looks bit off without indentation
 	text-indent: 5px;

@@ -10,6 +10,8 @@ export default Ember.Component.extend({
   typeOfPlaceOrName: null,
   selected: null,
 
+  multipleOperators: Ember.computed.gte('totalOperators', 2),
+
   actions: {
     findPlacesAndNames: function(){
       this.sendAction('findPlacesAndNames');
@@ -57,6 +59,8 @@ export default Ember.Component.extend({
       } else if (this.short_names.indexOf(placeOrName) >= 0){
         typeOfPlaceOrName = 'short_name';
       }
+      this.set(placeOrName, placeOrName);
+      this.set(typeOfPlaceOrName, typeOfPlaceOrName);
       this.sendAction('filterByPlaceOrName', placeOrName, typeOfPlaceOrName);
     }
   }
