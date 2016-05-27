@@ -32,9 +32,9 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.datastoreHost = 'https://dev.transit.land';
+    ENV.datastoreHost = 'https://transit.land';
     ENV.allowEditingMode = true;
-    ENV.apiProxyKey= 'transitland-YFO6jk8';
+    ENV.apiProxyKey= 'transitland-_ngAKUs';
   }
 
   if (environment === 'local') {
