@@ -39,6 +39,7 @@ export default Ember.Component.extend({
       placesAndNames = placesAndNames.concat(Object.keys(data.get('metro')));
       placesAndNames = placesAndNames.concat(Object.keys(data.get('name')));
       placesAndNames = placesAndNames.concat(Object.keys(data.get('short_name')));
+      placesAndNames.sort();
       this.set('placesAndNames', placesAndNames);
 
     },
