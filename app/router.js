@@ -11,7 +11,6 @@ Router.map(function() {
   this.route('operators', function(){
     this.route('show', { path: "/:operator_id" });
   });
-  this.route('error', { path: "*path" });
 
   this.route('feeds', function() {
     this.route('new', function() {
@@ -21,6 +20,8 @@ Router.map(function() {
       this.route('success');
     });
   });
+
+  this.route('error', { path: "*path" });
 });
 
 Ember.Router.reopen({
