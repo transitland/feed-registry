@@ -1,7 +1,5 @@
 import Ember from 'ember';
 import PaginatedOrderedController from 'feed-registry/mixins/paginated-ordered-controller';
-import ENV from 'feed-registry/config/environment';
-
 
 export default Ember.Controller.extend(PaginatedOrderedController, {
 	queryParams: ['import_level', 'country', 'state', 'metro', 'name', 'short_name'],
@@ -14,10 +12,6 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	name: null,
 	short_name: null,
 	selected: null,
-
-	editingMode: Ember.computed(function(){
-		return ENV.allowEditingMode;
-	}),
 
 	placesAndNamesModel: Ember.computed(function() {
 		return this.store.findAll('geography');
