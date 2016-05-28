@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 import _ from 'npm:lodash';
+import centroid from 'npm:turf-centroid';
 
 var Operator = DS.Model.extend({
 	feeds: DS.hasMany('feed', { async: true }),
@@ -37,7 +38,18 @@ var Operator = DS.Model.extend({
 			return value === null || value === '' || value === undefined;
 		});
 		return operatorJson;
-	}
+	},
+  centroid: Ember.computed('geometry', function () {
+    let geometry = this.get('geometry');
+    if (Ember.isPresent(geometry)) {
+      var operatorCentroid = centroid({
+        "type": "Feature",
+        "properties": {},
+        "geometry": geometry
+      });
+      return operatorCentroid.geometry.coordinates;
+    }
+   })
 });
 
 
