@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   linkToTurnByTurnDemo: Ember.computed('model.centroid', 'operatorFirstFeed.isAtLeastImportLevelFour', function () {
     if (this.get('operatorFirstFeed.isAtLeastImportLevelFour')) {
       let centroid = this.get('model.centroid');
-      return 'http://valhalla.github.io/demos/routing/#loc=13,' + centroid[1] + ',' + centroid[0];
+      return 'http://http://valhalla.github.io/demos/routing/multimodal.html#loc=13,' + centroid[1] + ',' + centroid[0];
     }
   })
 });
