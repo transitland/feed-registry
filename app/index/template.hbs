@@ -1,22 +1,17 @@
 <section id="feed-registry" class="jumbotron">
 	<div class="container">
-		{{#if import_level}}
-			<div>{{intro-copy import_level=import_level}}</div>
-		{{else}}
-			<div>{{intro-copy operators=model}}</div>
-		{{/if}}
+    <div class="title col-md-12 center-text">
+      <h2>FEED REGISTRY</h2>
+    </div>
 
+    <p>The Feed Registry lists all the transit operators and feeds included in Transitland. See what each feed's license will allow you to do with it and click through to get more details about feeds associated with each operator.</p>
 
-		<div>{{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel}}</div>
-		
-		{{#if getPlaceOrName}}
-			<div class="filterInfoContainer">
-				<div class="filterInfoSubcontainer">
-					<div class="filterInfo">There {{#if multipleFeeds}}are{{else}}is{{/if}} currently <strong>{{model.meta.total}}</strong> feed{{#if multipleFeeds}}s{{/if}} available in the Transitland Datastore for <strong>{{country}}{{state}}{{metro}}{{name}}{{short_name}}</strong>.</div>
-				</div>
-			</div>	
-		{{/if}}
-		
+    {{#if import_level}}
+      {{import-level-filter importLevel=import_level totalOperators=model.meta.total}}
+    {{else}}
+      {{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel totalOperators=model.meta.total}}
+    {{/if}}
+
 		<br>
 		<main>
 			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key selected=selected import_level=import_level country=country state=state metro=metro name=name short_name=short_name changeSort=(action "transitionToNewSort")}}
@@ -25,29 +20,23 @@
 			</div>
 		</main>
 
-		{{#if editingMode}}
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="cta-container">
-						<div class="cta-text">
-							<h3>Know a feed that's missing?</h3>
-						</div>
-						<div class="cta-btn">
-							{{#link-to "feeds.new" class="btn btn-action" role="button" }}
-								Add a Feed
-							{{/link-to}}
-						</div>
-					</div>
-				</div>
-			</div>
-			<p>
-				We would love your help to expand Transitland's coverage throughout the world. If you know of a feed, {{#link-to "feeds.new"}}add it here{{/link-to}}. To correct an error in an existing entry, click the operator name to view and edit its details.
-			</p>
-		{{else}}
-			<p>
-				We need your help to expand our coverage to other parts of the world. If you would like to add a feed (or if you notice an error in an existing entry) please email us at <a href="mailto:transitland@mapzen.com">transitland@mapzen.com</a>.
-			</p>
-		{{/if}}
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="cta-container">
+          <div class="cta-text">
+            <h3>Know a feed that's missing?</h3>
+          </div>
+          <div class="cta-btn">
+            {{#link-to "feeds.new" class="btn btn-action" role="button" }}
+              Add a Feed
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>
+      We would love your help to expand Transitland's coverage throughout the world. If you know of a feed, {{#link-to "feeds.new"}}add it here{{/link-to}}. To correct an error in an existing entry, click the operator name to view and edit its details.
+    </p>
 
 		<p>
 			Looking for machine-readable JSON instead? The <a href="/how-it-works/#slide-3">Datastore API</a> can provide all these {{json-endpoint "operators" "" "operators"}} or all these {{json-endpoint "feeds" "" "feeds"}}.

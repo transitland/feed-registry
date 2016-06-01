@@ -22,6 +22,10 @@ var Feed = DS.Model.extend({
   geometry: DS.attr(),
   tags: DS.attr(),
   import_level_of_active_feed_version: DS.attr(),
+	isAtLeastImportLevelZero: Ember.computed.gte('import_level_of_active_feed_version', 0),
+	isAtLeastImportLevelOne: Ember.computed.gte('import_level_of_active_feed_version', 1),
+	isAtLeastImportLevelTwo: Ember.computed.gte('import_level_of_active_feed_version', 2),
+	isAtLeastImportLevelFour: Ember.computed.gte('import_level_of_active_feed_version', 4),
   addOperator: function(operator) {
     this.get('operators').createRecord({
       id: operator.onestop_id,

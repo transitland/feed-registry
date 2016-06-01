@@ -10,3 +10,11 @@
 }}
   {{placeOrName}}
 {{/power-select}}
+
+{{#if placeOrName}}
+  <div class="filterInfoContainer">
+    <div class="filterInfoSubcontainer">
+      <div class="filterInfo">There {{#if multipleOperators}}are{{else}}is{{/if}} currently <strong>{{totalOperators}}</strong> operator{{#if multipleOperators}}s{{/if}} available in the Transitland Datastore for <strong>{{placeOrName}}</strong>.</div>
+    </div>
+  </div>
+{{/if}}

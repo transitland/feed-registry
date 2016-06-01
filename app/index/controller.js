@@ -1,10 +1,8 @@
 import Ember from 'ember';
 import PaginatedOrderedController from 'feed-registry/mixins/paginated-ordered-controller';
-import ENV from 'feed-registry/config/environment';
-
 
 export default Ember.Controller.extend(PaginatedOrderedController, {
-	queryParams: ['import_level', 'total'],
+	queryParams: ['import_level', 'country', 'state', 'metro', 'name', 'short_name'],
 	import_level: null,
 	placeOrName: null,
 	typeOfPlaceOrName: null,
@@ -14,22 +12,6 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 	name: null,
 	short_name: null,
 	selected: null,
-	total: true,
-
-	filterByImportLevel: Ember.computed('import_level', function(){
-		var import_level = this.get('import_level');
-		var operators = this.get('model');
-
-		if (import_level) {
-			return operators.filterBy('import_level', import_level);
-		} else {
-			return operators;
-		}
-	}),
-
-	editingMode: Ember.computed(function(){
-		return ENV.allowEditingMode;
-	}),
 
 	placesAndNamesModel: Ember.computed(function() {
 		return this.store.findAll('geography');
@@ -37,17 +19,11 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 
 	getPlaceOrName: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
 		this.totalOperators = this.model.meta.total;
-	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')
+	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name');
 	}),
 
 	placeOrNameExists: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
 	    if(this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')){
-			return true;
-		}
-	}),
-
-	multipleFeeds: Ember.computed('this.model.meta.total', function() {
-		if (this.get('this.model.meta.total') >= 2) {
 			return true;
 		}
 	}),

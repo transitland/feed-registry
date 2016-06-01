@@ -7,7 +7,6 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     datastoreHost: 'https://transit.land',
-    allowEditingMode: false,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -32,14 +31,12 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.datastoreHost = 'https://dev.transit.land';
-    ENV.allowEditingMode = true;
-    ENV.apiProxyKey= 'transitland-YFO6jk8';
+    ENV.datastoreHost = 'https://transit.land';
+    ENV.apiProxyKey= 'transitland-_ngAKUs';
   }
 
   if (environment === 'local') {
     ENV.datastoreHost = 'http://localhost:3000';
-    ENV.allowEditingMode = true;
     ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:3000"
   }
 
@@ -57,7 +54,6 @@ module.exports = function(environment) {
 
   if (environment === 'staging') {
     ENV.datastoreHost = 'https://dev.transit.land';
-    ENV.allowEditingMode = true;
     ENV.baseURL = '/feed-registry';
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-4'
@@ -67,7 +63,6 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.datastoreHost = 'https://transit.land';
-    ENV.allowEditingMode = true;
     ENV.baseURL = '/feed-registry';
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-2'
