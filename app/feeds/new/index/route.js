@@ -22,7 +22,7 @@ export default Ember.Route.extend({
     // check for a feedUrl specified in query parameter
     // in the case of editing an existing feed or
     // an outside link-in with feedUrl specified
-    if (params.hasOwnProperty('feedUrl')) {
+    if (params.hasOwnProperty('feedUrl') && Ember.isPresent(params.feedUrl)) {
       newModel.set('url', params.feedUrl);
     }
     return newModel;

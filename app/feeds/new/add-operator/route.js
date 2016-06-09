@@ -24,7 +24,7 @@ export default Ember.Route.extend({
         } else if ((response.warnings).length === 0){
           feedsController.set('feedExists', false);
         }
-        
+
         return feedModel;
       } else {
         // progress bar
@@ -38,7 +38,7 @@ export default Ember.Route.extend({
         } else {
           progress = Math.floor(response.progress * 100) + "%";
         }
-        
+
         if (response.status === "queued"){
           status =  "Queued...";
         } else if (response.status === "downloading"){
@@ -68,7 +68,9 @@ export default Ember.Route.extend({
   },
   actions: {
     error: function(error, transition) {
-      return this.transitionTo('feeds.new');
+      // If there was a feedUrl query parameter, clear it out.
+      // It's already been set on the feed model.
+      return this.transitionTo('feeds.new', { queryParams: { feedUrl: 'null' }});
     }
   }
 });
