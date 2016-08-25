@@ -84,11 +84,8 @@ var Feed = DS.Model.extend({
           operatorOnestopId: operator.get('onestop_id')
         }
       });
-    // remove any attributes with null values, undefined values, or empty strings
-    feedJson = _.omit(feedJson, function(value) {
-      return value === null || value === '' || value === undefined;
-    });
-    return feedJson;
+    // Remove any attributes with null values, undefined values, or empty strings
+    return change;
   }
 });
 
