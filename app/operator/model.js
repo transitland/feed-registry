@@ -20,24 +20,35 @@ var Operator = DS.Model.extend({
 	geometry: DS.attr(),
 	tags: DS.attr(),
 	toChange: function() {
-		var operatorJson = {};
-    // Map Ember data attributes to Operator Schema
-		operatorJson.onestopId = this.id;
-		operatorJson.name = this.get('name');
-		operatorJson.shortName = this.get('short_name');
-		operatorJson.country = this.get('country');
-		operatorJson.state = this.get('state');
-		operatorJson.metro = this.get('metro');
-		operatorJson.website = this.get('website');
-		operatorJson.timezone = this.get('timezone');
-		operatorJson.geometry = this.get('geometry');
-		operatorJson.identifiers = this.get('identifiers');
-		operatorJson.tags = this.get('tags');
+    var changed_key_map = {
+      name: 'name',
+      short_name: 'shortName',
+      country: 'country',
+      state: 'state',
+      metro: 'metro',
+      website: 'website',
+      timezone: 'timezone',
+      geometry: 'geometry',
+      tags: 'tags',
+    }
+    var change = {};
+    change.onestopId = this.id;
+    var changed_attributes = this.changedAttributes();
+    for (var changed_key in changed_attributes) {
+      var old_value = changed_attributes[changed_key][0];
+      var new_value = changed_attributes[changed_key][1];
+      var new_key = changed_key_map[changed_key];
+      if (new_key) {
+        change[new_key] = new_value;
+      } else {
+        console.log('No handler for:', changed_key)
+      }
+    };
 		// remove any attributes with null values, undefined values, or empty strings
-		operatorJson = _.omit(operatorJson, function(value) {
+		change = _.omit(change, function(value) {
 			return value === null || value === '' || value === undefined;
 		});
-		return operatorJson;
+    return change;
 	},
   centroid: Ember.computed('geometry', function () {
     let geometry = this.get('geometry');
