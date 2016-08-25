@@ -41,10 +41,7 @@ var Feed = DS.Model.extend({
     });
   },
   toChange: function() {
-    var change = {};
-    change.onestopId = this.id;
     // Map Ember data attributes to Feed Schema
-    var changed_attributes = this.changedAttributes();
     var changed_key_map = {
       geometry: 'geometry',
       name: 'name',
@@ -58,6 +55,9 @@ var Feed = DS.Model.extend({
       license_create_derived_product: 'licenseCreateDerivedProduct',
       license_redistribute: 'licenseRedistribute'
     }
+    var change = {};
+    change.onestopId = this.id;
+    var changed_attributes = this.changedAttributes();
     for (var changed_key in changed_attributes) {
       var old_value = changed_attributes[changed_key][0];
       var new_value = changed_attributes[changed_key][1];
@@ -85,6 +85,9 @@ var Feed = DS.Model.extend({
         }
       });
     // Remove any attributes with null values, undefined values, or empty strings
+    change = _.omit(change, function(value) {
+      return value === null || value === '' || value === undefined;
+    });
     return change;
   }
 });
