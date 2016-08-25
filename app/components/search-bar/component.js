@@ -59,8 +59,8 @@ export default Ember.Component.extend({
       } else if (this.short_names.indexOf(placeOrName) >= 0){
         typeOfPlaceOrName = 'short_name';
       }
-      this.set(placeOrName, placeOrName);
-      this.set(typeOfPlaceOrName, typeOfPlaceOrName);
+      this.set('placeOrName', placeOrName);
+      this.set('typeOfPlaceOrName', typeOfPlaceOrName);
       this.sendAction('filterByPlaceOrName', placeOrName, typeOfPlaceOrName);
     }
   }
