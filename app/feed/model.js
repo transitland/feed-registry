@@ -41,28 +41,41 @@ var Feed = DS.Model.extend({
     });
   },
   toChange: function() {
-    var feedJson = {};
+    var change = {};
+    change.onestopId = this.id;
     // Map Ember data attributes to Feed Schema
-    feedJson.onestopId = this.id;
-    feedJson.geometry = this.get('geometry');
-    feedJson.name = this.get('name');
-    feedJson.tags = this.get('tags');
-    feedJson.url = this.get('url');
-    feedJson.feedFormat = this.get('feed_format');
-    feedJson.licenseName = this.get('license_name');
-    feedJson.licenseUrl = this.get('license_url');
-    feedJson.licenseUseWithoutAttribution = this.get('license_use_without_attribution');
-    feedJson.licenseAttributionText = this.get('license_attribution_text');
-    feedJson.licenseCreateDerivedProduct = this.get('license_create_derived_product');
-    feedJson.licenseRedistribute = this.get('license_redistribute');
+    var changed_attributes = this.changedAttributes();
+    var changed_key_map = {
+      geometry: 'geometry',
+      name: 'name',
+      tags: 'tags',
+      url: 'url',
+      feed_format: 'feedFormat',
+      license_name: 'licenseName',
+      license_url: 'licenseUrl',
+      license_use_without_attribution: 'licenseUseWithoutAttribution',
+      license_attribution_text: 'licenseAttributionText',
+      license_create_derived_product: 'licenseCreateDerivedProduct',
+      license_redistribute: 'licenseRedistribute'
+    }
+    for (var changed_key in changed_attributes) {
+      var old_value = changed_attributes[changed_key][0];
+      var new_value = changed_attributes[changed_key][1];
+      var new_key = changed_key_map[changed_key];
+      if (new_key) {
+        change[new_key] = new_value;
+      } else {
+        console.log('No handler for:', changed_key)
+      }
+    };
     // Lookup table of operator onestop_id to gtfs agency_id
     // ex. gtfs_agency_id['o-9q9-caltrain'] = 'ca-us-caltrain';
     var gtfs_agency_ids = {};
-    this.get('operators_in_feed').forEach(function(oif) {
+    (this.get('operators_in_feed') || []).forEach(function(oif) {
       gtfs_agency_ids[oif.operator_onestop_id] = oif.gtfs_agency_id
     });
-    // filter operators by include_in_changeset
-    feedJson.includesOperators = this
+    // Filter operators by include_in_changeset
+    change.includesOperators = this
       .get('operators')
       .filterBy('include_in_changeset', true)
       .map(function(operator) {
