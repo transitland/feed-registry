@@ -5,7 +5,32 @@ export default Ember.Service.extend({
   routing: Ember.inject.service('-routing'),
   feedModel: null,
   userModel: null,
- 
+  parseFetchInfoResponse: function(response) {
+    var store = this.get('store');
+    // Set the feedModel id to the response feed onestop_id;
+    var feed_onestop_id = response.feed.onestop_id;
+    var feedModel = this.get('feedModel');
+    feedModel.set('id', feed_onestop_id);
+    // Set operator-feed relation
+    (response.operators || []).forEach(function(operator) {
+      operator.represented_in_feed_onestop_ids = [feed_onestop_id];
+    });
+    // Push to payload; will set state to loaded
+    store.pushPayload({
+      feeds: [response.feed],
+      operators: response.operators
+    });
+    // Refresh the feedModel reference;
+    var feedModel = store.peekRecord('feed', feed_onestop_id);
+    this.set('feedModel', feedModel);
+    return feedModel;
+  },
+  parseFetchInfoErrors: function(response){
+    var feedModel = this.get('feedModel');
+    response.errors.forEach(function(error){
+      feedModel.get('errors').add('url', error.message);
+    });
+  },
   createFeedAndUserModels: function() {
     var newFeedModel = this.get('store').createRecord('feed', {});
 		var newUserModel = this.get('store').createRecord('user', {});
@@ -48,4 +73,3 @@ export default Ember.Service.extend({
     return changeset;
   }
 });
-
