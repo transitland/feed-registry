@@ -26,20 +26,6 @@ var Feed = DS.Model.extend({
 	isAtLeastImportLevelOne: Ember.computed.gte('import_level_of_active_feed_version', 1),
 	isAtLeastImportLevelTwo: Ember.computed.gte('import_level_of_active_feed_version', 2),
 	isAtLeastImportLevelFour: Ember.computed.gte('import_level_of_active_feed_version', 4),
-  addOperator: function(operator) {
-    this.get('operators').createRecord({
-      id: operator.onestop_id,
-      name: operator.name,
-      short_name: operator.short_name,
-      country: operator.country,
-      state: operator.state,
-      metro: operator.metro,
-      website: operator.website,
-      timezone: operator.timezone,
-      geometry: operator.geometry,
-      tags: operator.tags
-    });
-  },
   toChange: function() {
     // Map Ember data attributes to Feed Schema
     var changed_key_map = {
