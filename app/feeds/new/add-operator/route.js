@@ -7,8 +7,7 @@ export default Ember.Route.extend({
     var feedsIndexController = this.controllerFor('feeds.new.index');
     var feedsController = this.controllerFor('feeds.new');
     var service = this.get('createFeedFromGtfsService');
-    var feedModel = this.get('createFeedFromGtfsService').feedModel;
-    var url = feedModel.get('url');
+    var url = this.get('createFeedFromGtfsService').feedModel.get('url');
     var adapter = this.get('store').adapterFor('feeds');
     var fetch_info_url = adapter.urlPrefix()+'/feeds/fetch_info';
     var promise = adapter.ajax(fetch_info_url, 'post', {data:{url:url}});
