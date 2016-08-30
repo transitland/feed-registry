@@ -27,33 +27,27 @@ var Feed = DS.Model.extend({
 	isAtLeastImportLevelTwo: Ember.computed.gte('import_level_of_active_feed_version', 2),
 	isAtLeastImportLevelFour: Ember.computed.gte('import_level_of_active_feed_version', 4),
   toChange: function() {
-    // Map Ember data attributes to Feed Schema
-    var changed_key_map = {
-      geometry: 'geometry',
-      name: 'name',
-      tags: 'tags',
-      url: 'url',
-      feed_format: 'feedFormat',
-      license_name: 'licenseName',
-      license_url: 'licenseUrl',
-      license_use_without_attribution: 'licenseUseWithoutAttribution',
-      license_attribution_text: 'licenseAttributionText',
-      license_create_derived_product: 'licenseCreateDerivedProduct',
-      license_redistribute: 'licenseRedistribute'
-    }
+    // The change
     var change = {};
     change.onestopId = this.id;
-    var changed_attributes = this.changedAttributes();
-    for (var changed_key in changed_attributes) {
-      var old_value = changed_attributes[changed_key][0];
-      var new_value = changed_attributes[changed_key][1];
-      var new_key = changed_key_map[changed_key];
-      if (new_key) {
-        change[new_key] = new_value;
-      } else {
-        console.log('No handler for:', changed_key)
-      }
-    };
+    // Map Ember data attributes to Feed Schema
+    var changed_key_map = new Set([
+      'geometry',
+      'name',
+      'tags',
+      'url',
+      'feed_format',
+      'license_name',
+      'license_url',
+      'license_use_without_attribution',
+      'license_attribution_text',
+      'license_create_derived_product',
+      'license_redistribute'
+    ]);
+    var changed_keys = new Set([Object.keys(this.changedAttributes())]) && changed_key_map;
+    for (let key of changed_keys) {
+      change[key.camelize()] = this.get(key);
+    }
     // Lookup table of operator onestop_id to gtfs agency_id
     // ex. gtfs_agency_id['o-9q9-caltrain'] = 'ca-us-caltrain';
     var gtfs_agency_ids = {};
