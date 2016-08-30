@@ -7,21 +7,19 @@ export default Ember.Service.extend({
   userModel: null,
   parseFetchInfoResponse: function(response) {
     var store = this.get('store');
-    // Set the feedModel id to the response feed onestop_id;
-    var feed_onestop_id = response.feed.onestop_id;
-    var feedModel = this.get('feedModel');
-    feedModel.set('id', feed_onestop_id);
-    // Set operator-feed relation
+    // Feeds
+    var existing_feed = false;
+    var feed_data = store.normalize('feed', response.feed);
+    var feedModel = existing_feed ? store.push('feed', feed_data) : store.createRecord('feed', feed_data);
+    // Operators
     (response.operators || []).forEach(function(operator) {
-      operator.represented_in_feed_onestop_ids = [feed_onestop_id];
-    });
-    // Push to payload; will set state to loaded
-    store.pushPayload({
-      feeds: [response.feed],
-      operators: response.operators
+      operator.represented_in_feed_onestop_ids = [feedModel.id];
+      var operator_data = store.normalize('operator', operator);
+      var existing_operator = true;
+      var operatorModel = existing_operator ? store.push('operator', operator_data) : store.createRecord('operator', operator_data);
     });
     // Refresh the feedModel reference;
-    feedModel = store.peekRecord('feed', feed_onestop_id);
+    // feedModel = store.peekRecord('feed', feed_onestop_id);
     this.set('feedModel', feedModel);
     return feedModel;
   },
