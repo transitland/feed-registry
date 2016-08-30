@@ -12,14 +12,12 @@ export default Ember.Service.extend({
     // Note: store.normalize operates in-place!
     var feed_data = store.normalize('feed', response.feed);
     var feedModel = existing.contains(feed_data.id) ? store.push('feed', feed_data) : store.createRecord('feed', feed_data);
-    console.log("Feed:", feedModel.id, " state:", feedModel.get('currentState.stateName'));
     // Operators
     store.unloadAll('operator');
     (response.operators || []).forEach(function(operator) {
       var operator_data = store.normalize('operator', operator);
       operator_data.feeds = [feedModel];
       var operatorModel = existing.contains(operator_data.id) ? store.push('operator', operator_data) : store.createRecord('operator', operator_data);
-      console.log("Operator:", operatorModel.id, " state:", operatorModel.get('currentState.stateName'));
     });
     // Reset the feedModel reference;
     this.set('feedModel', feedModel);
