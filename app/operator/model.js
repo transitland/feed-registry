@@ -20,30 +20,25 @@ var Operator = DS.Model.extend({
 	geometry: DS.attr(),
 	tags: DS.attr(),
 	toChange: function() {
-    var changed_key_map = {
-      name: 'name',
-      short_name: 'shortName',
-      country: 'country',
-      state: 'state',
-      metro: 'metro',
-      website: 'website',
-      timezone: 'timezone',
-      geometry: 'geometry',
-      tags: 'tags',
-    }
+    // The change
     var change = {};
     change.onestopId = this.id;
-    var changed_attributes = this.changedAttributes();
-    for (var changed_key in changed_attributes) {
-      var old_value = changed_attributes[changed_key][0];
-      var new_value = changed_attributes[changed_key][1];
-      var new_key = changed_key_map[changed_key];
-      if (new_key) {
-        change[new_key] = new_value;
-      } else {
-        console.log('No handler for:', changed_key)
-      }
-    };
+    // Map Ember data attributes to Feed Schema
+    var changed_key_map = new Set([
+      'name',
+      'short_name',
+      'country',
+      'state',
+      'metro',
+      'website',
+      'timezone',
+      'geometry',
+      'tags'
+    ]);
+    var changed_keys = new Set([Object.keys(this.changedAttributes())]) && changed_key_map;
+    for (let key of changed_keys) {
+      change[key.camelize()] = this.get(key);
+    }
 		// remove any attributes with null values, undefined values, or empty strings
 		change = _.omit(change, function(value) {
 			return value === null || value === '' || value === undefined;
