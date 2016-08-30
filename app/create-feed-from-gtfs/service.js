@@ -49,14 +49,16 @@ export default Ember.Service.extend({
   toChangeset: function() {
     var feedModel = this.get('feedModel');
     var changes = [];
-    feedModel.get('operators').map(function(operator) {
-      if (operator.get('include_in_changeset') === true) {
+    feedModel
+      .get('operators')
+      .filterBy('hasDirtyAttributes', true)
+      .filterBy('include_in_changeset', true)
+      .map(function(operator) {
         changes.push({
           action: 'createUpdate',
           operator: operator.toChange()
         });
-      }
-    });
+      });
     changes.push({
       action: 'createUpdate',
       feed: feedModel.toChange()
