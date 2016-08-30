@@ -7,16 +7,15 @@ export default Ember.Service.extend({
   userModel: null,
   parseFetchInfoResponse: function(response) {
     var store = this.get('store');
+    var existing = response.warnings.map(function(i) {return i.onestop_id});
     // Feeds
-    var existing_feed = false;
     var feed_data = store.normalize('feed', response.feed);
-    var feedModel = existing_feed ? store.push('feed', feed_data) : store.createRecord('feed', feed_data);
+    var feedModel = existing.contains(response.feed.onestop_id) ? store.push('feed', feed_data) : store.createRecord('feed', feed_data);
     // Operators
     (response.operators || []).forEach(function(operator) {
       operator.represented_in_feed_onestop_ids = [feedModel.id];
       var operator_data = store.normalize('operator', operator);
-      var existing_operator = true;
-      var operatorModel = existing_operator ? store.push('operator', operator_data) : store.createRecord('operator', operator_data);
+      var operatorModel = existing.contains(operator.onestop_id) ? store.push('operator', operator_data) : store.createRecord('operator', operator_data);
     });
     // Refresh the feedModel reference;
     // feedModel = store.peekRecord('feed', feed_onestop_id);
