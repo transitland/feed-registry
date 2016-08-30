@@ -21,7 +21,7 @@ export default Ember.Service.extend({
       operators: response.operators
     });
     // Refresh the feedModel reference;
-    var feedModel = store.peekRecord('feed', feed_onestop_id);
+    feedModel = store.peekRecord('feed', feed_onestop_id);
     this.set('feedModel', feedModel);
     return feedModel;
   },
