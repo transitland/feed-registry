@@ -9,16 +9,19 @@ export default Ember.Service.extend({
     var store = this.get('store');
     var existing = response.warnings.map(function(i) {return i.onestop_id});
     // Feeds
+    // Note: store.normalize operates in-place!
     var feed_data = store.normalize('feed', response.feed);
-    var feedModel = existing.contains(response.feed.onestop_id) ? store.push('feed', feed_data) : store.createRecord('feed', feed_data);
+    var feedModel = existing.contains(feed_data.id) ? store.push('feed', feed_data) : store.createRecord('feed', feed_data);
+    console.log("Feed:", feedModel.id, " state:", feedModel.get('currentState.stateName'));
     // Operators
+    store.unloadAll('operator');
     (response.operators || []).forEach(function(operator) {
-      operator.represented_in_feed_onestop_ids = [feedModel.id];
       var operator_data = store.normalize('operator', operator);
-      var operatorModel = existing.contains(operator.onestop_id) ? store.push('operator', operator_data) : store.createRecord('operator', operator_data);
+      operator_data.feeds = [feedModel];
+      var operatorModel = existing.contains(operator_data.id) ? store.push('operator', operator_data) : store.createRecord('operator', operator_data);
+      console.log("Operator:", operatorModel.id, " state:", operatorModel.get('currentState.stateName'));
     });
-    // Refresh the feedModel reference;
-    // feedModel = store.peekRecord('feed', feed_onestop_id);
+    // Reset the feedModel reference;
     this.set('feedModel', feedModel);
     return feedModel;
   },
