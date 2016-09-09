@@ -63,6 +63,8 @@ export default Ember.Service.extend({
       action: 'createUpdate',
       feed: feedModel.toChange()
     });
+    console.log("Change payload:");
+    console.log(changes);
     var changeset = this.get('store').createRecord('changeset', {
       notes: `Changed submitted from Feed Registry for feed at ${feedModel.get('url')}`,
       payload: {
