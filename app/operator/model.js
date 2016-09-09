@@ -24,7 +24,7 @@ var Operator = DS.Model.extend({
     var change = {};
     change.onestopId = this.id;
     // Map Ember data attributes to Feed Schema
-    var changed_key_map = new Set([
+    var changed_key_map = [
       'name',
       'short_name',
       'country',
@@ -34,8 +34,8 @@ var Operator = DS.Model.extend({
       'timezone',
       'geometry',
       'tags'
-    ]);
-    var changed_keys = new Set([Object.keys(this.changedAttributes())]) && changed_key_map;
+    ];
+    var changed_keys = Object.keys(this.changedAttributes()).filter(key => changed_key_map.contains(key));
     for (let key of changed_keys) {
       change[key.camelize()] = this.get(key);
     }

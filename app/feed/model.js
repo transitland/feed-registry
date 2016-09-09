@@ -31,7 +31,7 @@ var Feed = DS.Model.extend({
     var change = {};
     change.onestopId = this.id;
     // Map Ember data attributes to Feed Schema
-    var changed_key_map = new Set([
+    var changed_key_map = [
       'geometry',
       'name',
       'tags',
@@ -43,8 +43,8 @@ var Feed = DS.Model.extend({
       'license_attribution_text',
       'license_create_derived_product',
       'license_redistribute'
-    ]);
-    var changed_keys = new Set([Object.keys(this.changedAttributes())]) && changed_key_map;
+    ];
+    var changed_keys = Object.keys(this.changedAttributes()).filter(key => changed_key_map.contains(key));
     for (let key of changed_keys) {
       change[key.camelize()] = this.get(key);
     }
