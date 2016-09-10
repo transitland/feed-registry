@@ -26,43 +26,36 @@ var Feed = DS.Model.extend({
 	isAtLeastImportLevelOne: Ember.computed.gte('import_level_of_active_feed_version', 1),
 	isAtLeastImportLevelTwo: Ember.computed.gte('import_level_of_active_feed_version', 2),
 	isAtLeastImportLevelFour: Ember.computed.gte('import_level_of_active_feed_version', 4),
-  addOperator: function(operator) {
-    this.get('operators').createRecord({
-      id: operator.onestop_id,
-      name: operator.name,
-      short_name: operator.short_name,
-      country: operator.country,
-      state: operator.state,
-      metro: operator.metro,
-      website: operator.website,
-      timezone: operator.timezone,
-      geometry: operator.geometry,
-      tags: operator.tags
-    });
-  },
   toChange: function() {
-    var feedJson = {};
+    // The change
+    var change = {};
+    change.onestopId = this.id;
     // Map Ember data attributes to Feed Schema
-    feedJson.onestopId = this.id;
-    feedJson.geometry = this.get('geometry');
-    feedJson.name = this.get('name');
-    feedJson.tags = this.get('tags');
-    feedJson.url = this.get('url');
-    feedJson.feedFormat = this.get('feed_format');
-    feedJson.licenseName = this.get('license_name');
-    feedJson.licenseUrl = this.get('license_url');
-    feedJson.licenseUseWithoutAttribution = this.get('license_use_without_attribution');
-    feedJson.licenseAttributionText = this.get('license_attribution_text');
-    feedJson.licenseCreateDerivedProduct = this.get('license_create_derived_product');
-    feedJson.licenseRedistribute = this.get('license_redistribute');
+    var changed_key_map = [
+      'geometry',
+      'name',
+      'tags',
+      'url',
+      'feed_format',
+      'license_name',
+      'license_url',
+      'license_use_without_attribution',
+      'license_attribution_text',
+      'license_create_derived_product',
+      'license_redistribute'
+    ];
+    var changed_keys = Object.keys(this.changedAttributes()).filter(key => changed_key_map.contains(key));
+    for (let key of changed_keys) {
+      change[key.camelize()] = this.get(key);
+    }
     // Lookup table of operator onestop_id to gtfs agency_id
     // ex. gtfs_agency_id['o-9q9-caltrain'] = 'ca-us-caltrain';
     var gtfs_agency_ids = {};
-    this.get('operators_in_feed').forEach(function(oif) {
+    (this.get('operators_in_feed') || []).forEach(function(oif) {
       gtfs_agency_ids[oif.operator_onestop_id] = oif.gtfs_agency_id
     });
-    // filter operators by include_in_changeset
-    feedJson.includesOperators = this
+    // Filter operators by include_in_changeset
+    change.includesOperators = this
       .get('operators')
       .filterBy('include_in_changeset', true)
       .map(function(operator) {
@@ -71,11 +64,11 @@ var Feed = DS.Model.extend({
           operatorOnestopId: operator.get('onestop_id')
         }
       });
-    // remove any attributes with null values, undefined values, or empty strings
-    feedJson = _.omit(feedJson, function(value) {
+    // Remove any attributes with null values, undefined values, or empty strings
+    change = _.omit(change, function(value) {
       return value === null || value === '' || value === undefined;
     });
-    return feedJson;
+    return change;
   }
 });
 

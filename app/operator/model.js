@@ -20,24 +20,30 @@ var Operator = DS.Model.extend({
 	geometry: DS.attr(),
 	tags: DS.attr(),
 	toChange: function() {
-		var operatorJson = {};
-    // Map Ember data attributes to Operator Schema
-		operatorJson.onestopId = this.id;
-		operatorJson.name = this.get('name');
-		operatorJson.shortName = this.get('short_name');
-		operatorJson.country = this.get('country');
-		operatorJson.state = this.get('state');
-		operatorJson.metro = this.get('metro');
-		operatorJson.website = this.get('website');
-		operatorJson.timezone = this.get('timezone');
-		operatorJson.geometry = this.get('geometry');
-		operatorJson.identifiers = this.get('identifiers');
-		operatorJson.tags = this.get('tags');
+    // The change
+    var change = {};
+    change.onestopId = this.id;
+    // Map Ember data attributes to Feed Schema
+    var changed_key_map = [
+      'name',
+      'short_name',
+      'country',
+      'state',
+      'metro',
+      'website',
+      'timezone',
+      'geometry',
+      'tags'
+    ];
+    var changed_keys = Object.keys(this.changedAttributes()).filter(key => changed_key_map.contains(key));
+    for (let key of changed_keys) {
+      change[key.camelize()] = this.get(key);
+    }
 		// remove any attributes with null values, undefined values, or empty strings
-		operatorJson = _.omit(operatorJson, function(value) {
+		change = _.omit(change, function(value) {
 			return value === null || value === '' || value === undefined;
 		});
-		return operatorJson;
+    return change;
 	},
   centroid: Ember.computed('geometry', function () {
     let geometry = this.get('geometry');

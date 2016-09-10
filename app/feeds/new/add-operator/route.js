@@ -6,26 +6,19 @@ export default Ember.Route.extend({
     var controller = this;
     var feedsIndexController = this.controllerFor('feeds.new.index');
     var feedsController = this.controllerFor('feeds.new');
-    var feedModel = this.get('createFeedFromGtfsService').feedModel;
-    var url = feedModel.get('url');
+    var service = this.get('createFeedFromGtfsService');
+    var url = this.get('createFeedFromGtfsService').feedModel.get('url');
     var adapter = this.get('store').adapterFor('feeds');
     var fetch_info_url = adapter.urlPrefix()+'/feeds/fetch_info';
     var promise = adapter.ajax(fetch_info_url, 'post', {data:{url:url}});
     promise.then(function(response) {
       if (response.status === 'complete') {
-        feedModel.set('geometry', response.feed.geometry);
-        feedModel.set('id', response.feed.onestop_id);
-        feedModel.set('tags', response.feed.tags);
-        feedModel.set('operators_in_feed', response.feed.operators_in_feed);
-        response.operators.map(function(operator){feedModel.addOperator(operator);});
-
         if ((response.warnings).length >= 1){
           feedsController.set('feedExists', true);
         } else if ((response.warnings).length === 0){
           feedsController.set('feedExists', false);
         }
-
-        return feedModel;
+        return service.parseFetchInfoResponse(response);
       } else {
         // progress bar
         var status = null;
@@ -56,10 +49,8 @@ export default Ember.Route.extend({
           transition.retry();
         }, 1000);
       }
-    }).catch(function(error) {
-      error.errors.forEach(function(error){
-        feedModel.get('errors').add('url', error.message);
-      });
+    }).catch(function(response) {
+      return service.parseFetchInfoErrors(response);
     });
     return promise;
   },
