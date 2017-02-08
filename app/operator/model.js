@@ -2,6 +2,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import _ from 'npm:lodash';
 import centroid from 'npm:turf-centroid';
+import iso31662 from 'npm:iso-3166-2';
 
 var Operator = DS.Model.extend({
 	feeds: DS.hasMany('feed', { async: true }),
@@ -10,7 +11,19 @@ var Operator = DS.Model.extend({
 	short_name: DS.attr('string'),
 	onestop_id: Ember.computed.alias('id'),
 	country: DS.attr('string'),
+  countryDisplayName: Ember.computed('country', function() {
+    let countryCode = this.get('country');
+    if (Ember.isPresent(countryCode)) {
+      return iso31662.country(this.get('country')).name;
+    }
+  }),
 	state: DS.attr('string'),
+  stateDisplayName: Ember.computed('state', function() {
+    let stateCode = this.get('state');
+    if (Ember.isPresent(stateCode)) {
+      return iso31662.subdivision(this.get('state')).name;
+    }
+  }),
 	metro: DS.attr('string'),
 	website: DS.attr('string'),
 	timezone: DS.attr('string'),
