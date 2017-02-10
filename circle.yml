@@ -28,7 +28,7 @@ database:
 test:
   override:
     - echo "Let's see if the app will build"
-    - ember build
+    - ember build --environment=ci
 
 deployment:
   staging:

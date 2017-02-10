@@ -43,6 +43,11 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:3000"
   }
 
+  if (environment === 'ci') {
+    ENV.allowEditingMode = true;
+    ENV.locationType = 'auto'; // because Precog can't handle HistoryLocation-style URLs
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
