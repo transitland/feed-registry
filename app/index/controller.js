@@ -88,6 +88,7 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
 				this.set('name', null);
 			}
 			this.set(this.typeOfPlaceOrName, this.placeOrName);
+      this.set('offset', 0); // so we don't leave user stranded on an empty page
 		}
 	}
 });
