@@ -1,3 +1,8 @@
+  {{! NOTE: if an operator happens to have a name that is an exact match with an
+  ISO 3166-1 or 3166-2 code, then it will be converted. For example, if an operator
+  has the name "US" it will be listed as "United States"--hopefully this will
+  never happen! }}
+
 {{#power-select
   selected=placeOrName
   options=placesAndNames
@@ -8,13 +13,13 @@
   onchange=(action "setPlaceOrName")
   as |placeOrName|
 }}
-  {{placeOrName}}
+  {{iso3166-to-name placeOrName}}
 {{/power-select}}
 
 {{#if placeOrName}}
   <div class="filterInfoContainer">
     <div class="filterInfoSubcontainer">
-      <div class="filterInfo">There {{#if multipleOperators}}are{{else}}is{{/if}} currently <strong>{{totalOperators}}</strong> operator{{#if multipleOperators}}s{{/if}} available in the Transitland Datastore for <strong>{{placeOrName}}</strong>.</div>
+      <div class="filterInfo">There {{#if multipleOperators}}are{{else}}is{{/if}} currently <strong>{{totalOperators}}</strong> operator{{#if multipleOperators}}s{{/if}} available in the Transitland Datastore for <strong>{{iso3166-to-name placeOrName}}</strong>.</div>
     </div>
   </div>
 {{/if}}
