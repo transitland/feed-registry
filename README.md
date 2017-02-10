@@ -1,9 +1,10 @@
 # Feed Registry
 
-The Transitland Feed Registry is a directory of public-transit operators and their authoriative data feeds. The directory is a view into Transitland's Datastore API. Currently, it lets users browse operators and their feeds, as well as view the license restrictions on each feed. Soon, the Feed Registry will also let users contribute additional operators and feeds.
+The Transitland Feed Registry is a directory of public-transit operators and their authoriative data feeds. The directory is a view into Transitland's Datastore API; it lets users browse operators and their feeds, as well as view the license restrictions on each feed. The Feed Registry also lets users contribute additional operators and feeds.
 
 * [Browse the Feed Registry](https://transit.land/feed-registry/)
-* [How the Feed Registry fits into the Transitland ecosystem](https://transit.land/how-it-works/)
+* [How the Feed Registry fits into the Transitland ecosystem](https://transit.land/documentation/)
+* [Get started with contributing to the Feed Registry](https://transit.land/news/2016/02/19/get-started-add-feeds.html)
 
 The Feed Registry was built using Ember, with the Ember CLI. 
 * [ember.js](http://emberjs.com/)
