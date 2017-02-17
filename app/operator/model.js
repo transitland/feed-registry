@@ -4,22 +4,26 @@ import _ from 'npm:lodash';
 import centroid from 'npm:turf-centroid';
 
 var Operator = DS.Model.extend({
-	feeds: DS.hasMany('feed', { async: true }),
-	identifiers: DS.attr(),
-	name: DS.attr('string'),
-	short_name: DS.attr('string'),
-	onestop_id: Ember.computed.alias('id'),
-	country: DS.attr('string'),
-	state: DS.attr('string'),
-	metro: DS.attr('string'),
-	website: DS.attr('string'),
-	timezone: DS.attr('string'),
-	created_at: DS.attr('date'),
-	updated_at: DS.attr('date'),
-	include_in_changeset: DS.attr('boolean', { defaultValue: true }),
-	geometry: DS.attr(),
-	tags: DS.attr(),
-	toChange: function() {
+  feeds: DS.hasMany('feed', {
+    async: true
+  }),
+  identifiers: DS.attr(),
+  name: DS.attr('string'),
+  short_name: DS.attr('string'),
+  onestop_id: Ember.computed.alias('id'),
+  country: DS.attr('string'),
+  state: DS.attr('string'),
+  metro: DS.attr('string'),
+  website: DS.attr('string'),
+  timezone: DS.attr('string'),
+  created_at: DS.attr('date'),
+  updated_at: DS.attr('date'),
+  include_in_changeset: DS.attr('boolean', {
+    defaultValue: true
+  }),
+  geometry: DS.attr(),
+  tags: DS.attr(),
+  toChange: function () {
     // The change
     var change = {};
     change.onestopId = this.id;
@@ -39,12 +43,12 @@ var Operator = DS.Model.extend({
     for (let key of changed_keys) {
       change[key.camelize()] = this.get(key);
     }
-		// remove any attributes with null values, undefined values, or empty strings
-		change = _.omit(change, function(value) {
-			return value === null || value === '' || value === undefined;
-		});
+    // remove any attributes with null values, undefined values, or empty strings
+    change = _.omit(change, function (value) {
+      return value === null || value === '' || value === undefined;
+    });
     return change;
-	},
+  },
   centroid: Ember.computed('geometry', function () {
     let geometry = this.get('geometry');
     if (Ember.isPresent(geometry)) {
@@ -55,7 +59,7 @@ var Operator = DS.Model.extend({
       });
       return operatorCentroid.geometry.coordinates;
     }
-   })
+  })
 });
 
 
