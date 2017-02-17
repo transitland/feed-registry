@@ -23,6 +23,21 @@ var Operator = DS.Model.extend({
   }),
   geometry: DS.attr(),
   tags: DS.attr(),
+  tagsAsArray: Ember.computed('tags', function () {
+    // for use in templates
+    // after upgrading to Ember 2.0, replace with {{#each-in}}
+    let tags = this.get('tags');
+    let propertyArray = [];
+    for (var key in tags) {
+      if (tags.hasOwnProperty(key) && key !== "toString") {
+        propertyArray.push({
+          key: key,
+          value: tags[key]
+        });
+      }
+    }
+    return propertyArray;
+  }),
   toChange: function () {
     // The change
     var change = {};

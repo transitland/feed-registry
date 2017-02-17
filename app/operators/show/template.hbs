@@ -37,6 +37,19 @@
           <td>{{model.identifiers}}</td>
         </tr>
         <tr>
+          <td>Tags</td>
+          <td>
+            {{#if model.tags}}
+              <ul class="list-unstyled">
+                {{! TODO: replace with each-in after upgrading to Ember 2}}
+                {{#each model.tagsAsArray as |tag|}}
+                  <li>{{tag.key}}: {{tag.value}}</li>
+                {{/each}}
+              </ul>
+            {{/if}}
+          </td>
+        </tr>
+        <tr>
           <td>Data Available</td>
           <td>
             {{#if operatorFirstFeed.isAtLeastImportLevelZero}}Operator polygons{{/if}}{{#if operatorFirstFeed.isAtLeastImportLevelOne}},
