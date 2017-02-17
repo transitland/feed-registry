@@ -1,45 +1,83 @@
-<h4 class = "detail">Feed Detail</h4>
-<table class = "operator-table">
-	<tr><td>Onestop ID <a href = "https://transit.land/documentation/onestop-id-scheme/" target = "_blank"><i class="question-circle onestop-id-tooltip"></i></a></td><td>{{feed.onestop_id}}</td></tr>
-	<tr><td>Data location</td><td><a href = "{{feed.url}}"  target = "_blank">{{feed.url}}</a></td></tr>
-	<tr><td>Format</td><td>{{feed.feed_format}}</td></tr>
-	<tr>
-		<td>License</td>
-		<td>
-			{{#if feed.license_url}}
-				<a href = "{{feed.license_url}}" target = "_blank">
+<h4 class="detail">Feed Detail</h4>
+<table class="operator-table">
+  <tr>
+    <td>Onestop ID <a href="https://transit.land/documentation/onestop-id-scheme/" target="_blank"><i class="question-circle onestop-id-tooltip"></i></a></td>
+    <td>{{feed.onestop_id}}</td>
+  </tr>
+  <tr>
+    <td>Data location</td>
+    <td><a href="{{feed.url}}" target="_blank">{{feed.url}}</a></td>
+  </tr>
+  <tr>
+    <td>Format</td>
+    <td>{{feed.feed_format}}</td>
+  </tr>
+  <tr>
+    <td>Tags</td>
+    <td>
+      {{#if feed.tags}}
+        <ul class="list-unstyled">
+          {{! TODO: replace with each-in after upgrading to Ember 2}}
+          {{#each feed.tagsAsArray as |tag|}}
+            <li>{{tag.key}}: {{tag.value}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </td>
+  </tr>
+  <tr>
+    <td>License</td>
+    <td>
+      {{#if feed.license_url}}
+      <a href="{{feed.license_url}}" target="_blank">
 					{{#if feed.license_name}}
 						{{feed.license_name}}
 					{{else}}
 						{{fa-icon icon="fa-external-link"}}
 					{{/if}}
-				</a>
-			{{else}}
-				{{fa-icon icon="fa-question"}}
-			{{/if}}
-		</td>
-	</tr>
-	<tr><td>Attribution optional</td><td>{{feed.license_use_without_attribution}}</td></tr>
+				</a> {{else}} {{fa-icon icon="fa-question"}} {{/if}}
+    </td>
+  </tr>
+  <tr>
+    <td>Attribution optional</td>
+    <td>{{feed.license_use_without_attribution}}</td>
+  </tr>
 
-	{{#if feed.license_attribution_text}}
-		<tr><td>Attribution text<i class="question-circle attribution-text-tooltip"></i></td><td>{{feed.license_attribution_text}}</td></tr>
-	{{/if}}
+  {{#if feed.license_attribution_text}}
+  <tr>
+    <td>Attribution text<i class="question-circle attribution-text-tooltip"></i></td>
+    <td>{{feed.license_attribution_text}}</td>
+  </tr>
+  {{/if}}
 
-	<tr><td>Derivation allowed</td><td>{{feed.license_create_derived_product}}</td></tr>
-	<tr><td>Redistribution allowed</td><td>{{feed.license_redistribute}}</td></tr>
-	<tr><td>Agency checked on</td><td>{{format-date feed.last_fetched_at}}</td></tr>
-	<tr><td>Feed updated on</td><td>{{format-date feed.updated_at}}</td></tr>
+  <tr>
+    <td>Derivation allowed</td>
+    <td>{{feed.license_create_derived_product}}</td>
+  </tr>
+  <tr>
+    <td>Redistribution allowed</td>
+    <td>{{feed.license_redistribute}}</td>
+  </tr>
+  <tr>
+    <td>Agency checked on</td>
+    <td>{{format-date feed.last_fetched_at}}</td>
+  </tr>
+  <tr>
+    <td>Feed updated on</td>
+    <td>{{format-date feed.updated_at}}</td>
+  </tr>
 
-	{{#if feedImportLevelZero}}
-		<tr><td>Feed bounding box</td>
-			<td>{{json-endpoint feed.onestop_id "" "JSON"}}{{#if feedImportLevelOne}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io feed.onestop_id}}){{/if}}</td>
-		</tr>
-	{{/if}}
+  {{#if feedImportLevelZero}}
+  <tr>
+    <td>Feed bounding box</td>
+    <td>{{json-endpoint feed.onestop_id "" "JSON"}}{{#if feedImportLevelOne}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io
+      feed.onestop_id}}){{/if}}</td>
+  </tr>
+  {{/if}}
 
 </table>
 
 <div class="row direction-btn-wrapper pull-right">
-  {{#link-to 'feeds.new' (query-params feedUrl=feed.url) class="btn btn-action" role="button"}}
-    Edit feed and operator details
+  {{#link-to 'feeds.new' (query-params feedUrl=feed.url) class="btn btn-action" role="button"}} Edit feed and operator details
   {{/link-to}}
 </div>
