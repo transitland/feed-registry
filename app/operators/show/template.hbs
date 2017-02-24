@@ -4,7 +4,6 @@
       {{#link-to "index"}} {{fa-icon icon="fa-caret-left"}} All Operators {{/link-to}}
       <h3 class="agency-name">{{model.name}} {{#if model.short_name}} ({{model.short_name}}) {{/if}}
       </h3>
-
       <table class="operator-table">
         <tr>
           <td> Onestop ID <a href="https://transit.land/documentation/onestop-id-scheme/" target="_blank"><i class="question-circle onestop-id-tooltip"></i></a></td>
@@ -18,11 +17,11 @@
         {{/if}}
         <tr>
           <td>State</td>
-          <td>{{model.state}}</td>
+          <td>{{model.stateDisplayName}} ({{model.state}})</td>
         </tr>
         <tr>
           <td>Country</td>
-          <td>{{model.country}}</td>
+          <td>{{model.countryDisplayName}} ({{model.country}})</td>
         </tr>
         <tr>
           <td>Website</td>
@@ -40,12 +39,11 @@
           <td>Tags</td>
           <td>
             {{#if model.tags}}
-              <ul class="list-unstyled">
-                {{! TODO: replace with each-in after upgrading to Ember 2}}
-                {{#each model.tagsAsArray as |tag|}}
-                  <li>{{tag.key}}: {{tag.value}}</li>
-                {{/each}}
-              </ul>
+            <ul class="list-unstyled">
+              {{! TODO: replace with each-in after upgrading to Ember 2}} {{#each model.tagsAsArray as |tag|}}
+              <li>{{tag.key}}: {{tag.value}}</li>
+              {{/each}}
+            </ul>
             {{/if}}
           </td>
         </tr>
@@ -69,7 +67,6 @@
           <td>{{json-endpoint model.onestop_id "routes" "JSON"}}, {{geojson-endpoint model.onestop_id "routes"}} ({{geojson-io
             model.onestop_id "routes"}})</td>
         </tr>
-
         <tr>
           <td>Stops</td>
           <td>{{json-endpoint model.onestop_id "stops" "JSON"}}, {{geojson-endpoint model.onestop_id "stops"}} ({{geojson-io

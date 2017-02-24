@@ -45,6 +45,7 @@
     "ember-export-application-global": "^1.0.4",
     "ember-moment": "4.1.0",
     "ember-power-select": "0.10.9",
+    "iso-3166-2": "^0.4.0",
     "lodash": "^3.10.1",
     "turf-centroid": "^3.0.5"
   }

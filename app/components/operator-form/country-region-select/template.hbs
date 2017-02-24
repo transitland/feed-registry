@@ -1,7 +1,7 @@
 <div class="col-sm-4 col-xs-12 input-section">
 	<div class="input-form-label">Country</div>
 	<div class="input-form-field">
-		{{#power-select options=countries searchField="name" selected=selectedCountry onchange=(action "setCountry") onfocus=(action "handleFocus") as |country|}}
+		{{#power-select options=countryDictionary searchField="name" selected=selectedCountry onchange=(action "setCountry") onfocus=(action "handleFocus") as |country|}}
 			{{country.name}}
 		{{/power-select}}
 	</div>
@@ -9,13 +9,13 @@
 <div class="col-sm-4 col-xs-12 input-section">
 	<div class="input-form-label">State or Province</div>
 	<div class="input-form-field">
-		{{#power-select options=selectedRegions searchField="name" selected=selectedRegion onchange=(action "setRegion") onfocus=(action "handleFocus") as |region|}}
-			{{region.name}}
+		{{#power-select options=stateDictionary searchField="name" selected=selectedState onchange=(action "setState") onfocus=(action "handleFocus") as |state|}}
+			{{state.name}} ({{state.type}})
 		{{/power-select}}
 	</div>
 </div>
 <!-- Municipality/Region moved to here -->
 <div class="col-sm-4 col-xs-12 input-section">
-	<div class="input-form-label">Municipality or region (optional)</div>
-	<div class="input-form-field">{{input type="text" value=operator.metro placeholder="e.g. Oakland"}}</div>
+	<div class="input-form-label">Metro</div>
+	<div class="input-form-field">{{input type="text" value=operator.metro placeholder="San Francisco Bay Area"}}</div>
 </div>
