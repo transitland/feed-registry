@@ -1,67 +1,68 @@
 import Ember from 'ember';
+import iso31662 from 'npm:iso-3166-2';
+import _ from 'npm:lodash';
 
 export default Ember.Component.extend({
   placeOrName: null,
-  countries: null,
-  country: null,
-  name: null,
-  metro: null,
-  short_name: null,
-  typeOfPlaceOrName: null,
-  selected: null,
-
+  placesAndNames: [],
   multipleOperators: Ember.computed.gte('totalOperators', 2),
 
   actions: {
     findPlacesAndNames: function(){
       this.sendAction('findPlacesAndNames');
       var data = this.model.get('firstObject');
-
-      var countries = [];
-      var statesOrProvinces = [];
-      var metros = [];
-      var names = [];
-      var short_names = [];
-
-      countries = countries.concat(Object.keys(data.get('country')));
-      statesOrProvinces = statesOrProvinces.concat(Object.keys(data.get('state')));
-      metros = metros.concat(Object.keys(data.get('metro')));
-      names = names.concat(Object.keys(data.get('name')));
-      short_names = short_names.concat(Object.keys(data.get('short_name')));
-
-      this.set('countries', countries);
-      this.set('statesOrProvinces', statesOrProvinces);
-      this.set('metros', metros);
-      this.set('names', names);
-      this.set('short_names', short_names);
-
       var placesAndNames = [];
-      placesAndNames = placesAndNames.concat(Object.keys(data.get('country')));
-      placesAndNames = placesAndNames.concat(Object.keys(data.get('state')));
-      placesAndNames = placesAndNames.concat(Object.keys(data.get('metro')));
-      placesAndNames = placesAndNames.concat(Object.keys(data.get('name')));
-      placesAndNames = placesAndNames.concat(Object.keys(data.get('short_name')));
-      placesAndNames.sort();
+      Object.keys(data.get('country')).forEach(function(isocode) {
+        if (Ember.isPresent(isocode)) {
+          placesAndNames.push({
+            value: isocode,
+            display: iso31662.country(isocode).name,
+            type: 'country'
+          });
+        }
+      });
+      Object.keys(data.get('state')).forEach(function(isocode) {
+        if (Ember.isPresent(isocode)) {
+          placesAndNames.push({
+            value: isocode,
+            display: iso31662.subdivision(isocode).name,
+            type: 'state'
+          });
+        }
+      });
+      Object.keys(data.get('metro')).forEach(function(metro) {
+        if (Ember.isPresent(metro)) {
+          placesAndNames.push({
+            value: metro,
+            display: metro,
+            type: 'metro'
+          });
+        }
+      });
+      Object.keys(data.get('name')).forEach(function(name) {
+        if (Ember.isPresent(name)) {
+          placesAndNames.push({
+            value: name,
+            display: name,
+            type: 'name'
+          });
+        }
+      });
+      Object.keys(data.get('short_name')).forEach(function(shortName) {
+        if (Ember.isPresent(shortName)) {
+          placesAndNames.push({
+            value: shortName,
+            display: shortName,
+            type: 'short_name'
+          });
+        }
+      });
+      placesAndNames = _.sortBy(placesAndNames, 'display');
       this.set('placesAndNames', placesAndNames);
-
     },
 
     setPlaceOrName: function(placeOrName){
-      var typeOfPlaceOrName = null;
-      if (this.countries.indexOf(placeOrName) >= 0){
-        typeOfPlaceOrName = 'country';
-      } else if (this.statesOrProvinces.indexOf(placeOrName) >= 0){
-        typeOfPlaceOrName = 'state';
-      } else if (this.metros.indexOf(placeOrName) >= 0){
-        typeOfPlaceOrName = 'metro';
-      } else if (this.names.indexOf(placeOrName) >= 0){
-        typeOfPlaceOrName = 'name';
-      } else if (this.short_names.indexOf(placeOrName) >= 0){
-        typeOfPlaceOrName = 'short_name';
-      }
-      this.set('placeOrName', placeOrName);
-      this.set('typeOfPlaceOrName', typeOfPlaceOrName);
-      this.sendAction('filterByPlaceOrName', placeOrName, typeOfPlaceOrName);
+      this.sendAction('filterByPlaceOrName', placeOrName.value, placeOrName.type);
     }
   }
 });

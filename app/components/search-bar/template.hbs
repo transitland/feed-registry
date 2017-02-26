@@ -7,19 +7,20 @@
   selected=placeOrName
   options=placesAndNames
   autofocus="autofocus"
+  searchField="display"
   onopen=(action "findPlacesAndNames")
   placeholder="Search by operator name or location"
   searchPlaceholder="Type to filter..."
   onchange=(action "setPlaceOrName")
   as |placeOrName|
 }}
-  {{iso3166-to-name placeOrName}}
+  {{placeOrName.display}} ({{remove-underscore placeOrName.type}})
 {{/power-select}}
 
 {{#if placeOrName}}
   <div class="filterInfoContainer">
     <div class="filterInfoSubcontainer">
-      <div class="filterInfo">There {{#if multipleOperators}}are{{else}}is{{/if}} currently <strong>{{totalOperators}}</strong> operator{{#if multipleOperators}}s{{/if}} available in the Transitland Datastore for <strong>{{iso3166-to-name placeOrName}}</strong>.</div>
+      <div class="filterInfo">There {{#if multipleOperators}}are{{else}}is{{/if}} currently <strong>{{totalOperators}}</strong> operator{{#if multipleOperators}}s{{/if}} available in the Transitland Datastore with {{remove-underscore placeOrName.type}} of <strong>{{placeOrName.display}}</strong>.</div>
     </div>
   </div>
 {{/if}}
