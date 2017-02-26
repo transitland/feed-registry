@@ -9,12 +9,12 @@
     {{#if import_level}}
       {{import-level-filter importLevel=import_level totalOperators=model.meta.total}}
     {{else}}
-      {{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=getPlaceOrName model=placesAndNamesModel totalOperators=model.meta.total}}
+      {{search-bar findPlacesAndNames=(action "findPlacesAndNames") filterByPlaceOrName=(action "filterByPlaceOrName") placeOrName=placeOrName model=placesAndNamesModel totalOperators=model.meta.total}}
     {{/if}}
 
 		<br>
 		<main>
-			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key selected=selected import_level=import_level country=country state=state metro=metro name=name short_name=short_name changeSort=(action "transitionToNewSort")}}
+			{{operator-table operators=model sortOrder=sort_order sortKey=sort_key import_level=import_level country=country state=state metro=metro name=name short_name=short_name changeSort=(action "transitionToNewSort")}}
 			<div class="row direction-btn-wrapper">
 				{{pagination-controls route="index" hasPreviousPage=hasPreviousPage hasNextPage=hasNextPage previousOffset=previousOffset nextOffset=nextOffset}}
 			</div>

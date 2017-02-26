@@ -1,94 +1,76 @@
 import Ember from 'ember';
 import PaginatedOrderedController from 'feed-registry/mixins/paginated-ordered-controller';
+import iso31662 from 'npm:iso-3166-2';
 
 export default Ember.Controller.extend(PaginatedOrderedController, {
-	queryParams: ['import_level', 'country', 'state', 'metro', 'name', 'short_name'],
-	import_level: null,
-	placeOrName: null,
-	typeOfPlaceOrName: null,
-	country: null,
-	state: null,
-	metro: null,
-	name: null,
-	short_name: null,
-	selected: null,
+  queryParams: ['import_level', 'country', 'state', 'metro', 'name', 'short_name'],
+  import_level: null,
+  country: null,
+  state: null,
+  metro: null,
+  name: null,
+  short_name: null,
 
-	placesAndNamesModel: Ember.computed(function() {
-		return this.store.findAll('geography');
-	}),
+  placesAndNamesModel: Ember.computed(function () {
+    return this.store.findAll('geography');
+  }),
 
-	getPlaceOrName: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
-		this.totalOperators = this.model.meta.total;
-	    return this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name');
-	}),
-
-	placeOrNameExists: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function() {
-	    if(this.get('country') || this.get('state') || this.get('metro') || this.get('name') || this.get('short_name')){
-			return true;
-		}
-	}),
-
-	actions: {
-		resetPlaceOrName: function(){
-			this.set('placeOrName', null);
-		},
-
-		transitionToNewSort: function(sortOrder, sortKey){
-			this.transitionTo({
-				queryParams: {
-					"sort_order": sortOrder,
-					"sort_key": sortKey,
-					"offset": 0,
-				}
-			});
-		},
-		transitionToLocationOrNameFilter: function(country, state, metro, name, short_name){
-			this.transitionTo({
-				queryParams: {
-					"country": country,
-					"state": state,
-					"metro": metro,
-					"name": name,
-					"short_name": short_name
-				}
-			});
-		},
-
-		findPlacesAndNames: function(){
-			var placesAndNames = this.store.findAll('geography');
-		},
-
-		filterByPlaceOrName: function(placeOrName, typeOfPlaceOrName){
-			this.set('placeOrName', placeOrName);
-			this.set('typeOfPlaceOrName', typeOfPlaceOrName);
-			if (typeOfPlaceOrName === "country"){
-				this.set('state', null);
-				this.set('metro', null);
-				this.set('name', null);
-				this.set('short_name', null);
-			} else if (typeOfPlaceOrName === "state"){
-				this.set('country', null);
-				this.set('metro', null);
-				this.set('name', null);
-				this.set('short_name', null);
-			} else if (typeOfPlaceOrName === "metro"){
-				this.set('country', null);
-				this.set('state', null);
-				this.set('name', null);
-				this.set('short_name', null);
-			} else if (typeOfPlaceOrName === "name"){
-				this.set('country', null);
-				this.set('state', null);
-				this.set('metro', null);
-				this.set('short_name', null);
-			} else if (typeOfPlaceOrName === "short_name"){
-				this.set('country', null);
-				this.set('state', null);
-				this.set('metro', null);
-				this.set('name', null);
-			}
-			this.set(this.typeOfPlaceOrName, this.placeOrName);
+  placeOrName: Ember.computed('country', 'state', 'metro', 'name', 'short_name', function () {
+    if (this.get('country')) {
+      return {
+        value: this.get('country'),
+        display: iso31662.country(this.get('country')).name,
+        type: 'country'
+      };
+    } else if (this.get('state')) {
+      return {
+        value: this.get('state'),
+        display: iso31662.subdivision(this.get('state')).name,
+        type: 'state'
+      };
+    } else if (this.get('metro')) {
+      return {
+        value: this.get('metro'),
+        display: this.get('metro'),
+        type: 'metro'
+      };
+    } else if (this.get('name')) {
+      return {
+        value: this.get('name'),
+        display: this.get('name'),
+        type: 'name'
+      };
+    } else if (this.get('short_name')) {
+      return {
+        value: this.get('short_name'),
+        display: this.get('short_name'),
+        type: 'short_name'
+      };
+    } else {
+      return null;
+    }
+  }),
+  actions: {
+    transitionToNewSort: function (sortOrder, sortKey) {
+      this.transitionTo({
+        queryParams: {
+          "sort_order": sortOrder,
+          "sort_key": sortKey,
+          "offset": 0,
+        }
+      });
+    },
+    findPlacesAndNames: function () {
+      var placesAndNames = this.store.findAll('geography');
+    },
+    filterByPlaceOrName: function (placeOrNameCode, placeOrNameType) {
+      this.set('country', null);
+      this.set('state', null);
+      this.set('metro', null);
+      this.set('name', null);
+      this.set('short_name', null);
+      this.set(placeOrNameType, placeOrNameCode);
       this.set('offset', 0); // so we don't leave user stranded on an empty page
-		}
-	}
+    }
+  }
 });

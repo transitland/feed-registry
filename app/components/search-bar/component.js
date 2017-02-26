@@ -4,6 +4,7 @@ import _ from 'npm:lodash';
 
 export default Ember.Component.extend({
   placeOrName: null,
+  placesAndNames: [],
   multipleOperators: Ember.computed.gte('totalOperators', 2),
 
   actions: {
@@ -58,11 +59,9 @@ export default Ember.Component.extend({
       });
       placesAndNames = _.sortBy(placesAndNames, 'display');
       this.set('placesAndNames', placesAndNames);
-
     },
 
     setPlaceOrName: function(placeOrName){
-      this.set('placeOrName', placeOrName);
       this.sendAction('filterByPlaceOrName', placeOrName.value, placeOrName.type);
     }
   }
