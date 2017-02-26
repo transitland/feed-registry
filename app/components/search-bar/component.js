@@ -12,46 +12,49 @@ export default Ember.Component.extend({
       var data = this.model.get('firstObject');
       var placesAndNames = [];
       Object.keys(data.get('country')).forEach(function(isocode) {
-        placesAndNames.push({
-          value: isocode,
-          display: iso31662.country(isocode).name,
-          type: 'country'
-        })
+        if (Ember.isPresent(isocode)) {
+          placesAndNames.push({
+            value: isocode,
+            display: iso31662.country(isocode).name,
+            type: 'country'
+          });
+        }
       });
       Object.keys(data.get('state')).forEach(function(isocode) {
-        placesAndNames.push({
-          value: isocode,
-          display: iso31662.subdivision(isocode).name,
-          type: 'state'
-        })
+        if (Ember.isPresent(isocode)) {
+          placesAndNames.push({
+            value: isocode,
+            display: iso31662.subdivision(isocode).name,
+            type: 'state'
+          });
+        }
       });
       Object.keys(data.get('metro')).forEach(function(metro) {
-        placesAndNames.push({
-          value: metro,
-          display: metro,
-          type: 'metro'
-        })
-      });
-      Object.keys(data.get('metro')).forEach(function(metro) {
-        placesAndNames.push({
-          value: metro,
-          display: metro,
-          type: 'metro'
-        })
+        if (Ember.isPresent(metro)) {
+          placesAndNames.push({
+            value: metro,
+            display: metro,
+            type: 'metro'
+          });
+        }
       });
       Object.keys(data.get('name')).forEach(function(name) {
-        placesAndNames.push({
-          value: name,
-          display: name,
-          type: 'name'
-        })
+        if (Ember.isPresent(name)) {
+          placesAndNames.push({
+            value: name,
+            display: name,
+            type: 'name'
+          });
+        }
       });
-      Object.keys(data.get('short_name')).forEach(function(short_name) {
-        placesAndNames.push({
-          value: short_name,
-          display: short_name,
-          type: 'short_name'
-        })
+      Object.keys(data.get('short_name')).forEach(function(shortName) {
+        if (Ember.isPresent(shortName)) {
+          placesAndNames.push({
+            value: shortName,
+            display: shortName,
+            type: 'short_name'
+          });
+        }
       });
       placesAndNames = _.sortBy(placesAndNames, 'display');
       this.set('placesAndNames', placesAndNames);
