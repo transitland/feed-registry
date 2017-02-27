@@ -1,7 +1,7 @@
 <div class = "table-container">
   {{#if queryParamExists}}
     <div class="breadcrumb">
-        {{#link-to "index" (query-params import_level="null" country="null" state="null" metro="null" name="null" short_name="null")}}
+        {{#link-to "index" (query-params import_level="null" country="null" state="null" metro="null" name="null" short_name="null" offset=0)}}
           {{fa-icon icon="fa-caret-left"}} View All Operators
         {{/link-to}}
     </div>
