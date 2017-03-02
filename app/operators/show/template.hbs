@@ -41,7 +41,7 @@
             {{#if model.tags}}
             <ul class="list-unstyled">
               {{! TODO: replace with each-in after upgrading to Ember 2}} {{#each model.tagsAsArray as |tag|}}
-              <li>{{tag.key}}: {{tag.value}}</li>
+              <li>{{tag.key}}: {{linkify tag.value}}</li>
               {{/each}}
             </ul>
             {{/if}}

@@ -19,7 +19,7 @@
         <ul class="list-unstyled">
           {{! TODO: replace with each-in after upgrading to Ember 2}}
           {{#each feed.tagsAsArray as |tag|}}
-            <li>{{tag.key}}: {{tag.value}}</li>
+            <li>{{tag.key}}: {{linkify tag.value}}</li>
           {{/each}}
         </ul>
       {{/if}}
