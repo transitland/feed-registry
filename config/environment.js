@@ -45,7 +45,7 @@ module.exports = function(environment) {
 
   if (environment === 'ci') {
     ENV.allowEditingMode = true;
-    ENV.locationType = 'auto'; // because Precog can't handle HistoryLocation-style URLs
+    ENV.locationType = 'hash'; // because Precog can't handle HistoryLocation-style URLs
   }
 
   if (environment === 'test') {
