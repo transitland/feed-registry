@@ -15,7 +15,7 @@
             <td>{{model.metro}} {{#link-to 'index' (query-params metro=model.metro import_level="null" country="null" state="null" name="null" short_name="null" offset=0)}}{{fa-icon icon="search-plus" title="Search for all operators in this metro region"}}{{/link-to}}</td>
           </tr>
         {{/if}}
-        {{#if mode.state}}
+        {{#if model.state}}
           <tr>
             <td>State/Province</td>
             <td>{{model.stateDisplayName}} ({{model.state}}) {{#link-to 'index' (query-params state=model.state import_level="null" country="null" metro="null" name="null" short_name="null" offset=0)}}{{fa-icon icon="search-plus" title="Search for all operators in this state"}}{{/link-to}}</td>
