@@ -10,18 +10,20 @@
           <td>{{model.onestop_id}}</td>
         </tr>
         {{#if model.metro}}
-        <tr>
-          <td>Region</td>
-          <td>{{model.metro}}</td>
-        </tr>
+          <tr>
+            <td>Metro region</td>
+            <td>{{model.metro}} {{#link-to 'index' (query-params metro=model.metro import_level="null" country="null" state="null" name="null" short_name="null" offset=0)}}{{fa-icon icon="search-plus" title="Search for all operators in this metro region"}}{{/link-to}}</td>
+          </tr>
+        {{/if}}
+        {{#if mode.state}}
+          <tr>
+            <td>State/Province</td>
+            <td>{{model.stateDisplayName}} ({{model.state}}) {{#link-to 'index' (query-params state=model.state import_level="null" country="null" metro="null" name="null" short_name="null" offset=0)}}{{fa-icon icon="search-plus" title="Search for all operators in this state"}}{{/link-to}}</td>
+          </tr>
         {{/if}}
         <tr>
-          <td>State</td>
-          <td>{{model.stateDisplayName}} ({{model.state}})</td>
-        </tr>
-        <tr>
           <td>Country</td>
-          <td>{{model.countryDisplayName}} ({{model.country}})</td>
+          <td>{{model.countryDisplayName}} ({{model.country}}) {{#link-to 'index' (query-params country=model.country import_level="null" state="null" metro="null" name="null" short_name="null" offset=0)}}{{fa-icon icon="search-plus" title="Search for all operators in this country"}}{{/link-to}}</td>
         </tr>
         <tr>
           <td>Website</td>
