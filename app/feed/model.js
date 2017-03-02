@@ -7,6 +7,7 @@ var Feed = DS.Model.extend({
   operators: DS.hasMany('operator', {
     async: true
   }),
+  feed_versions: DS.hasMany('feed-version', { async: true }),
   url: DS.attr('string'),
   feed_format: DS.attr('string'),
   license_name: DS.attr('string'),

@@ -74,7 +74,31 @@
       feed.onestop_id}}){{/if}}</td>
   </tr>
   {{/if}}
-
+  <tr>
+    <td>Feed versions</td>
+    <td>
+      {{#if showArchivedFeedVersions}}
+        {{#each feed.feed_versions as |fv|}}
+          <ul class="list-unstyled">
+            <li>Fetched: {{time-since-with-mouseover fv.fetched_at}}</li>
+            <li>Earliest calendar date: {{moment-format fv.earliest_calendar_date 'MMMM, D YYYY'}}</li>
+            <li>Latest calendar date: {{moment-format fv.latest_calendar_date 'MMMM, D YYYY'}}</li>
+            <li>Download a copy: <a href="{{fv.download_url}}">{{fa-icon icon="download"}}</a></li>
+            {{#if fv.feedvalidator_url}}
+              <li>View Google FeedValidator report: <a href="{{fv.feedvalidator_url}}" target="_blank">{{fa-icon icon="fa-external-link"}}</a></li>
+            {{/if}}
+            {{#if fv.is_active_feed_version}}
+              <li><em>This is the active feed version in the Transitland Datastore.</em></li>
+            {{/if}}
+            <hr>
+          </ul>
+        {{/each}}
+        <button class="btn btn-default" {{action 'toggleArchivedFeedVersion'}}>Hide feed versions</button>
+      {{else}}
+        <button class="btn btn-default" {{action 'toggleArchivedFeedVersion'}}>Show all available feed versions</button>
+      {{/if}}
+    </td>
+  </tr>
 </table>
 
 <div class="row direction-btn-wrapper pull-right">
