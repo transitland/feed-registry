@@ -8,7 +8,6 @@ var Operator = DS.Model.extend({
   feeds: DS.hasMany('feed', {
     async: true
   }),
-  identifiers: DS.attr(),
   name: DS.attr('string'),
   short_name: DS.attr('string'),
   onestop_id: Ember.computed.alias('id'),
