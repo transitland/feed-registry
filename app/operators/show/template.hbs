@@ -57,18 +57,34 @@
         {{#if operatorFirstFeed.isAtLeastImportLevelZero}}
         <tr>
           <td>Operator service area</td>
-          <td>{{json-endpoint model.onestop_id "" "JSON"}}, {{geojson-endpoint model.onestop_id}} ({{geojson-io model.onestop_id}})</td>
+          <td>
+            <ul>
+              <li>{{json-endpoint model.onestop_id "" "JSON from Transitland Datastore API"}}</li>
+              <li>{{geojson-endpoint model.onestop_id}}</li>
+              <li>{{geojson-io model.onestop_id}}</li>
+            </ul>
+          </td>
         </tr>
         {{/if}} {{#if operatorFirstFeed.isAtLeastImportLevelOne}}
         <tr>
           <td>Routes</td>
-          <td>{{json-endpoint model.onestop_id "routes" "JSON"}}, {{geojson-endpoint model.onestop_id "routes"}} ({{geojson-io
-            model.onestop_id "routes"}})</td>
+          <td>
+            <ul>
+              <li>{{json-endpoint model.onestop_id "routes" "JSON from Transitland Datastore API"}}</li>
+              <li>{{geojson-endpoint model.onestop_id "routes"}}</li>
+              <li>{{geojson-io model.onestop_id "routes"}}</li>
+            </ul>
+          </td>
         </tr>
         <tr>
           <td>Stops</td>
-          <td>{{json-endpoint model.onestop_id "stops" "JSON"}}, {{geojson-endpoint model.onestop_id "stops"}} ({{geojson-io
-            model.onestop_id "stops"}})</td>
+          <td>
+            <ul>
+              <li>{{json-endpoint model.onestop_id "stops" "JSON from Transitland Datastore API"}}</li>
+              <li>{{geojson-endpoint model.onestop_id "stops"}}</li>
+              <li>{{geojson-io model.onestop_id "stops"}}</li>
+            </ul>
+          </td>
         </tr>
         {{/if}}
         <!-- If a feed has been imported at import_level >= 2 then also link to a ScheduleStopPair query. -->
