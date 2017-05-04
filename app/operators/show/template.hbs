@@ -37,7 +37,7 @@
           <td>Tags</td>
           <td>
             {{#if model.tags}}
-            <ul class="list-unstyled">
+            <ul>
               {{! TODO: replace with each-in after upgrading to Ember 2}} {{#each model.tagsAsArray as |tag|}}
               <li>{{tag.key}}: {{linkify tag.value}}</li>
               {{/each}}
@@ -46,11 +46,42 @@
           </td>
         </tr>
         <tr>
-          <td>Data Available</td>
+          <td>Data available in Transitland Datastore</td>
           <td>
-            {{#if operatorFirstFeed.isAtLeastImportLevelZero}}Operator polygons{{/if}}{{#if operatorFirstFeed.isAtLeastImportLevelOne}},
-            stops, routes{{/if}}{{#if operatorFirstFeed.isAtLeastImportLevelTwo}}, schedule{{/if}} {{#if operatorFirstFeed.isAtLeastImportLevelNull}}None
-            at this time.{{/if}}
+              <ul>
+                <li>
+                  operator service area
+                  {{#if operatorFirstFeed.isAtLeastImportLevelZero}}
+                    {{fa-icon "check-square-o"}}
+                  {{else}}
+                    {{fa-icon "square-o"}}
+                  {{/if}}
+                </li>
+                <li>
+                  stops
+                  {{#if operatorFirstFeed.isAtLeastImportLevelOne}}
+                    {{fa-icon "check-square-o"}}
+                  {{else}}
+                    {{fa-icon "square-o"}}
+                  {{/if}}
+                </li>
+                <li>
+                  routes
+                  {{#if operatorFirstFeed.isAtLeastImportLevelOne}}
+                    {{fa-icon "check-square-o"}}
+                  {{else}}
+                    {{fa-icon "square-o"}}
+                  {{/if}}
+                </li>
+                <li>
+                  schedule
+                  {{#if operatorFirstFeed.isAtLeastImportLevelTwo}}
+                    {{fa-icon "check-square-o"}}
+                  {{else}}
+                    {{fa-icon "square-o"}}
+                  {{/if}}
+                </li>
+              </ul>
           </td>
         </tr>
         <!-- If a feed has been imported at import_level >= 1 then also link to GeoJSON for routes and stops. -->
