@@ -13,7 +13,7 @@ export default Ember.Handlebars.registerBoundHelper('ssp-endpoint',function(para
   }
 
   if (param.charAt(1) === '-'){
-    return new Ember.Handlebars.SafeString('<a href =' + baseURL + entity + param +' target = "_blank">' + baseURL + entity + param + '</a>');
+    return new Ember.Handlebars.SafeString('<a href ="' + baseURL + entity + param +'" target = "_blank">JSON from Transitland Datastore API</a>');
   } else if (param.charAt(0) === '/') {
     return new Ember.Handlebars.SafeString('<a href =' + ENV.datastoreHost + param + ' target = "_blank">' + text + '</a>');
   } else {

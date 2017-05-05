@@ -5,10 +5,6 @@
     <td>{{feed.onestop_id}}</td>
   </tr>
   <tr>
-    <td>Data location</td>
-    <td><a href="{{feed.url}}" target="_blank">{{feed.url}}</a></td>
-  </tr>
-  <tr>
     <td>Format</td>
     <td>{{feed.feed_format}}</td>
   </tr>
@@ -59,21 +55,36 @@
     <td>{{feed.license_redistribute}}</td>
   </tr>
   <tr>
-    <td>Agency checked on</td>
-    <td>{{format-date feed.last_fetched_at}}</td>
+    <td>Fetched from URL</td>
+    <td><a href="{{feed.url}}" target="_blank">{{feed.url}}</a></td>
   </tr>
   <tr>
-    <td>Feed updated on</td>
-    <td>{{format-date feed.updated_at}}</td>
+    <td>Feed last fetched at</td>
+    <td>{{format-date feed.last_fetched_at}}</td>
   </tr>
 
   {{#if feedImportLevelZero}}
-  <tr>
-    <td>Feed bounding box</td>
-    <td>{{json-endpoint feed.onestop_id "" "JSON"}}{{#if feedImportLevelOne}}, {{geojson-endpoint feed.onestop_id}} ({{geojson-io
-      feed.onestop_id}}){{/if}}</td>
-  </tr>
+    <tr>
+      <td>Feed bounding box</td>
+      <td>
+        <ul>
+          {{#if feedImportLevelOne}}
+            <li>{{geojson-endpoint feed.onestop_id}}</li>
+            <li>{{geojson-io feed.onestop_id}}</li>
+          {{/if}}
+        </ul>
+      </td>
+    </tr>
   {{/if}}
+  <tr>
+    <td>More information about feed in Transitland</td>
+    <td>
+      <ul>
+        <li><a href="/dispatcher/feeds/{{feed.onestop_id}}">View statistics and validation reports in Transitland Dispatcher</a></li>
+        <li>{{json-endpoint feed.onestop_id "" "JSON from Transitland Datastore API"}}</li>
+      </ul>
+    </td>
+  </tr>
   <tr>
     <td>Feed versions</td>
     <td>

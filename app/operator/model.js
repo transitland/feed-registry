@@ -2,6 +2,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import _ from 'npm:lodash';
 import centroid from 'npm:turf-centroid';
+import bbox from 'npm:turf-bbox';
 import iso31662 from 'npm:iso-3166-2';
 
 var Operator = DS.Model.extend({
@@ -85,6 +86,16 @@ var Operator = DS.Model.extend({
         "geometry": geometry
       });
       return operatorCentroid.geometry.coordinates;
+    }
+  }),
+  geometryToBboxString: Ember.computed('geometry', function() {
+    let geometry = this.get('geometry');
+    if (Ember.isPresent(geometry)) {
+      return bbox({
+        "type": "Feature",
+        "properties": {},
+        "geometry": geometry
+      }).join(',');
     }
   })
 });
