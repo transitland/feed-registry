@@ -90,6 +90,7 @@
           <td>Operator service area</td>
           <td>
             <ul>
+              <li>{{mobility-explorer-link query="operator" operator=model text="View as an interactive map in Mapzen Mobility Explorer"}}</li>
               <li>{{json-endpoint model.onestop_id "" "JSON from Transitland Datastore API"}}</li>
               <li>{{geojson-endpoint model.onestop_id}}</li>
               <li>{{geojson-io model.onestop_id}}</li>
@@ -101,6 +102,7 @@
           <td>Routes</td>
           <td>
             <ul>
+              <li>{{mobility-explorer-link query="routesByOperator" operator=model text="View as an interactive map in Mapzen Mobility Explorer"}}</li>
               <li>{{json-endpoint model.onestop_id "routes" "JSON from Transitland Datastore API"}}</li>
               <li>{{geojson-endpoint model.onestop_id "routes"}}</li>
               <li>{{geojson-io model.onestop_id "routes"}}</li>
@@ -111,6 +113,7 @@
           <td>Stops</td>
           <td>
             <ul>
+              <li>{{mobility-explorer-link query="stopsByOperator" operator=model text="View as an interactive map in Mapzen Mobility Explorer"}}</li>
               <li>{{json-endpoint model.onestop_id "stops" "JSON from Transitland Datastore API"}}</li>
               <li>{{geojson-endpoint model.onestop_id "stops"}}</li>
               <li>{{geojson-io model.onestop_id "stops"}}</li>
