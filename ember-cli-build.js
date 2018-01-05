@@ -4,10 +4,12 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var prependUrl;
+
+  // TODO: put static assets on CloudFront
   if (EmberApp.env() === 'staging') {
-    prependUrl = 'https://d2tkmr00hnrtoq.cloudfront.net/feed-registry/';
+    prependUrl = '/feed-registry/';
   } else if (EmberApp.env() === 'production') {
-    prependUrl = 'https://d11xhlzkgsq6oc.cloudfront.net/feed-registry/';
+    prependUrl = '/feed-registry/';
   }
 
   var app = new EmberApp(defaults, {
