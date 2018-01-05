@@ -70,7 +70,7 @@ module.exports = function(environment) {
     ENV.datastoreHost = 'https://transit.land';
     ENV.baseURL = '/feed-registry';
     ENV.googleAnalytics = {
-      webPropertyId: 'UA-47035811-2'
+      webPropertyId: 'UA-47531031-4'
     };
     ENV.apiProxyKey= 'transitland-_ngAKUs';
   }
