@@ -3,7 +3,7 @@
     <div class="filterInfo">
       {{#if supportedImportLevel}}
         {{#if feedImportLevelFour}}
-          You are viewing <strong>only the feed{{#if pluralOperators}}s{{/if}} that are routable</strong> using <a href="https://mapzen.com/projects/turn-by-turn/">Mapzen Turn-by-Turn</a>. Operator shape, stop points, route lines, and schedule data are also available from these feeds.
+          You are viewing <strong>only the feed{{#if pluralOperators}}s{{/if}} that are routable</strong>. Operator shape, stop points, route lines, and schedule data are also available from these feeds.
         {{else}}
           You are viewing <strong>only</strong> the {{totalOperators}} feed{{#if pluralOperators}}s{{/if}} with {{#if feedImportLevelZero}} operator shape{{/if}}{{#if feedImportLevelOne}}, stop points, {{#unless feedImportLevelTwo}}and{{/unless}} route lines{{/if}}{{#if feedImportLevelTwo}}, and schedule{{/if}} data available.
         {{/if}}

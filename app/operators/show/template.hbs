@@ -127,13 +127,6 @@
           <td>Schedules<a href="https://transit.land/documentation/datastore/schedules.html" target="_blank"><i class="question-circle ssp-tooltip"></i></a></td>
           <td>{{ssp-endpoint operatorFirstFeed.onestop_id}}</td>
         </tr>
-        {{/if}} {{#if operatorFirstFeed.isAtLeastImportLevelFour}}
-        <tr>
-          <td>Route using Mapzen Turn-by-Turn<a href="https://mapzen.com/documentation/turn-by-turn/" target="_blank"><i class="question-circle tbt-tooltip"></i></a></td>
-          <td>
-            <a href="{{linkToTurnByTurnDemo}}">Try routing using demo interface</a>
-          </td>
-        </tr>
         {{/if}}
       </table>
 
