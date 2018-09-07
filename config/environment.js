@@ -72,7 +72,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47531031-4'
     };
-    ENV.apiProxyKey= 'transitland-_ngAKUs';
+    ENV.apiProxyKey= '';
   }
 
   return ENV;
