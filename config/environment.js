@@ -63,7 +63,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47035811-4'
     };
-    ENV.apiProxyKey= 'transitland-YFO6jk8';
+    ENV.apiProxyKey= '';
   }
 
   if (environment === 'production') {
@@ -72,7 +72,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47531031-4'
     };
-    ENV.apiProxyKey= 'transitland-_ngAKUs';
+    ENV.apiProxyKey= '';
   }
 
   return ENV;
