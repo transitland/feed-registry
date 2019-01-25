@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 6.10.2
+    version: 6.16.0
 
 dependencies:
   pre:
@@ -9,12 +9,12 @@ dependencies:
   cache_directories:
     - node_modules
     - bower_components
-    - ~/nvm/v6.10.2/lib/node_modules/ember-cli
-    - ~/nvm/v6.10.2/bin/ember
+    - ~/nvm/v6.16.0/lib/node_modules/ember-cli
+    - ~/nvm/v6.16.0/bin/ember
   override:
     - npm prune && npm install
     - bower prune && bower install
-    - if [ ! -e ~/nvm/v6.10.2/bin/ember ]; then npm install -g ember-cli; else echo "ember-cli seems to be cached"; fi;
+    - if [ ! -e ~/nvm/v6.16.0/bin/ember ]; then npm install -g ember-cli; else echo "ember-cli seems to be cached"; fi;
 
 # for Precog
 # https://github.com/mapzen/precog/blob/master/README.md#basic-usage
