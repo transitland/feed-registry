@@ -50,6 +50,13 @@ export default Ember.Controller.extend(PaginatedOrderedController, {
       return null;
     }
   }),
+  pageTitle: Ember.computed('placeOrName', function() {
+    const placeOrName = this.get('placeOrName')
+    if (placeOrName) {
+      const type = placeOrName.type.replace('_', '');
+      return `filtering for ${type}: ${placeOrName.display}`;
+    }
+  }),
   actions: {
     transitionToNewSort: function (sortOrder, sortKey) {
       this.transitionTo({
