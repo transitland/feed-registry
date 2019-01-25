@@ -12,8 +12,8 @@ export default Ember.Component.extend({
     this.set('countryDictionary', dictionary);
 
     // if operator has current values, select the appropriate country and state
-    let currentCountryCode = 'US'; //this.get('operator.country'); <-- TODO remove testing value
-    let currentStateCode = 'US-CA'; //this.get('operator.state');  <-- TODO remove testing value
+    let currentCountryCode = this.get('operator.country');
+    let currentStateCode = this.get('operator.state');
     if (Ember.isPresent(currentCountryCode)) {
       this.send('setCountry', _.find(this.countryDictionary, function(country) {
         return country.code === currentCountryCode;
