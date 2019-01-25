@@ -20,11 +20,11 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none' https://*.cloudfront.net",
-      'connect-src': "'self' https://*.transit.land",
+      'connect-src': "'self' https://transit.land https://*.transit.land",
       'img-src': "'self' data:",
       'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
       'media-src': "'self'",
-      'script-src': "'self'",
+      'script-src': "'self' inline",
       'font-src': "'self' https://fonts.gstatic.com https://*.cloudfront.net"
     },
 
@@ -32,7 +32,7 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.datastoreHost = 'https://transit.land';
-    ENV.apiProxyKey= 'transitland-_ngAKUs';
+    // ENV.apiProxyKey= 'transitland-_ngAKUs';
   }
 
   if (environment === 'local') {
