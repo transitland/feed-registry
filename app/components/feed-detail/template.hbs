@@ -8,6 +8,21 @@
     <td>Format</td>
     <td>{{feed.feed_format}}</td>
   </tr>
+
+  <tr>
+    <td>Urls</td>
+    <td>
+      {{#if feed.urls}}
+        <ul class="list-unstyled">
+          {{! TODO: replace with each-in after upgrading to Ember 2}}
+          {{#each feed.urlsAsArray as |tag|}}
+            <li>{{tag.key}}: {{linkify tag.value}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </td>
+  </tr>
+
   <tr>
     <td>Tags</td>
     <td>
@@ -21,6 +36,7 @@
       {{/if}}
     </td>
   </tr>
+
   <tr>
     <td>License</td>
     <td>
@@ -54,6 +70,8 @@
     <td>Redistribution allowed</td>
     <td>{{feed.license_redistribute}}</td>
   </tr>
+  
+  {{#if feedFormatIsGtfsStatic}}
   <tr>
     <td>Fetched from URL</td>
     <td><a href="{{feed.url}}" target="_blank">{{feed.url}}</a></td>
@@ -63,54 +81,56 @@
     <td>{{format-date feed.last_fetched_at}}</td>
   </tr>
 
-  {{#if feedImportLevelZero}}
+    {{#if feedImportLevelZero}}
+      <tr>
+        <td>Feed bounding box</td>
+        <td>
+          <ul>
+            {{#if feedImportLevelOne}}
+              <li>{{geojson-endpoint feed.onestop_id}}</li>
+              <li>{{geojson-io feed.onestop_id}}</li>
+            {{/if}}
+          </ul>
+        </td>
+      </tr>
+    {{/if}}
     <tr>
-      <td>Feed bounding box</td>
+      <td>More information about feed in Transitland</td>
       <td>
         <ul>
-          {{#if feedImportLevelOne}}
-            <li>{{geojson-endpoint feed.onestop_id}}</li>
-            <li>{{geojson-io feed.onestop_id}}</li>
-          {{/if}}
+          <li><a href="/dispatcher/feeds/{{feed.onestop_id}}">View statistics and validation reports in Transitland Dispatcher</a></li>
+          <li>{{json-endpoint feed.onestop_id "" "JSON from Transitland Datastore API"}}</li>
         </ul>
       </td>
     </tr>
-  {{/if}}
-  <tr>
-    <td>More information about feed in Transitland</td>
-    <td>
-      <ul>
-        <li><a href="/dispatcher/feeds/{{feed.onestop_id}}">View statistics and validation reports in Transitland Dispatcher</a></li>
-        <li>{{json-endpoint feed.onestop_id "" "JSON from Transitland Datastore API"}}</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Feed versions</td>
-    <td>
-      {{#if showArchivedFeedVersions}}
-        {{#each feed.feed_versions as |fv|}}
-          <ul class="list-unstyled">
-            <li>Fetched: {{time-since-with-mouseover fv.fetched_at}}</li>
-            <li>Earliest calendar date: {{moment-format fv.earliest_calendar_date 'MMMM, D YYYY'}}</li>
-            <li>Latest calendar date: {{moment-format fv.latest_calendar_date 'MMMM, D YYYY'}}</li>
-            <li>Download a copy: <a href="{{fv.download_url}}">{{fa-icon icon="download"}}</a></li>
-            {{#if fv.feedvalidator_url}}
-              <li>View Google FeedValidator report: <a href="{{fv.feedvalidator_url}}" target="_blank">{{fa-icon icon="fa-external-link"}}</a></li>
-            {{/if}}
-            {{#if fv.is_active_feed_version}}
-              <li><em>This is the active feed version in the Transitland Datastore.</em></li>
-            {{/if}}
-            <hr>
-          </ul>
-        {{/each}}
-        <button class="btn btn-default" {{action 'toggleArchivedFeedVersion'}}>Hide feed versions</button>
-      {{else}}
-        <button class="btn btn-default" {{action 'toggleArchivedFeedVersion'}}>Show all available feed versions</button>
-      {{/if}}
-    </td>
-  </tr>
-</table>
+    <tr>
+      <td>Feed versions</td>
+      <td>
+        {{#if showArchivedFeedVersions}}
+          {{#each feed.feed_versions as |fv|}}
+            <ul class="list-unstyled">
+              <li>Fetched: {{time-since-with-mouseover fv.fetched_at}}</li>
+              <li>Earliest calendar date: {{moment-format fv.earliest_calendar_date 'MMMM, D YYYY'}}</li>
+              <li>Latest calendar date: {{moment-format fv.latest_calendar_date 'MMMM, D YYYY'}}</li>
+              <li>Download a copy: <a href="{{fv.download_url}}">{{fa-icon icon="download"}}</a></li>
+              {{#if fv.feedvalidator_url}}
+                <li>View Google FeedValidator report: <a href="{{fv.feedvalidator_url}}" target="_blank">{{fa-icon icon="fa-external-link"}}</a></li>
+              {{/if}}
+              {{#if fv.is_active_feed_version}}
+                <li><em>This is the active feed version in the Transitland Datastore.</em></li>
+              {{/if}}
+              <hr>
+            </ul>
+          {{/each}}
+          <button class="btn btn-default" {{action 'toggleArchivedFeedVersion'}}>Hide feed versions</button>
+        {{else}}
+          <button class="btn btn-default" {{action 'toggleArchivedFeedVersion'}}>Show all available feed versions</button>
+        {{/if}}
+      </td>
+    </tr>
+    {{/if}}
+
+  </table>
 
 <div class="row direction-btn-wrapper pull-right">
   {{#link-to 'feeds.new' (query-params feedUrl=feed.url) class="btn btn-action" role="button"}} Edit feed and operator details
