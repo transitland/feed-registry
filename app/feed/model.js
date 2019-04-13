@@ -25,6 +25,7 @@ var Feed = DS.Model.extend({
     return propertyArray;
   }),
   feed_format: DS.attr('string'),
+  type: DS.attr('string'),
   license_name: DS.attr('string'),
   license_url: DS.attr('string'),
   license_use_without_attribution: DS.attr('string'),
@@ -69,7 +70,6 @@ var Feed = DS.Model.extend({
       'name',
       'tags',
       'urls',
-      'feed_format',
       'license_name',
       'license_url',
       'license_use_without_attribution',
