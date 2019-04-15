@@ -24,6 +24,7 @@ var Feed = DS.Model.extend({
     }
     return propertyArray;
   }),
+  authorization: DS.attr(),
   feed_format: DS.attr('string'),
   type: DS.attr('string'),
   license_name: DS.attr('string'),
@@ -55,6 +56,21 @@ var Feed = DS.Model.extend({
     }
     return propertyArray;
   }),
+  authorizationAsArray: Ember.computed('authorization', function () {
+    // for use in templates
+    // after upgrading to Ember 2.0, replace with {{#each-in}}
+    let tags = this.get('authorization');
+    let propertyArray = [];
+    for (var key in tags) {
+      if (tags.hasOwnProperty(key) && key !== "toString") {
+        propertyArray.push({
+          key: key,
+          value: tags[key]
+        });
+      }
+    }
+    return propertyArray;
+  }),  
   import_level_of_active_feed_version: DS.attr(),
   isAtLeastImportLevelZero: Ember.computed.gte('import_level_of_active_feed_version', 0),
   isAtLeastImportLevelOne: Ember.computed.gte('import_level_of_active_feed_version', 1),
