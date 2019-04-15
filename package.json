@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "ansi-styles": "^2.2.1",
     "broccoli-asset-rev": "^2.2.0",
     "ember-browserify": "^1.1.4",
     "ember-cli": "1.13.13",
@@ -51,5 +52,10 @@
     "lodash": "^3.10.1",
     "turf-bbox": "^3.0.12",
     "turf-centroid": "^3.0.5"
+  },
+  "dependencies": {
+    "bower": "^1.8.8",
+    "natives": "^1.1.6",
+    "nvm": "0.0.4"
   }
 }

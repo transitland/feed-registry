@@ -8,8 +8,24 @@ var Feed = DS.Model.extend({
     async: true
   }),
   feed_versions: DS.hasMany('feed-version', { async: true }),
-  url: DS.attr('string'),
+  urls: DS.attr(),
+  urlsAsArray: Ember.computed('urls', function () {
+    // for use in templates
+    // after upgrading to Ember 2.0, replace with {{#each-in}}
+    let tags = this.get('urls');
+    let propertyArray = [];
+    for (var key in tags) {
+      if (tags.hasOwnProperty(key) && key !== "toString") {
+        propertyArray.push({
+          key: key,
+          value: tags[key]
+        });
+      }
+    }
+    return propertyArray;
+  }),
   feed_format: DS.attr('string'),
+  type: DS.attr('string'),
   license_name: DS.attr('string'),
   license_url: DS.attr('string'),
   license_use_without_attribution: DS.attr('string'),
@@ -53,8 +69,7 @@ var Feed = DS.Model.extend({
       'geometry',
       'name',
       'tags',
-      'url',
-      'feed_format',
+      'urls',
       'license_name',
       'license_url',
       'license_use_without_attribution',
