@@ -38,6 +38,20 @@
   </tr>
 
   <tr>
+    <td>Authorization</td>
+    <td>
+      {{#if feed.authorization}}
+        <ul class="list-unstyled">
+          {{#each feed.authorizationAsArray as |tag|}}
+            <li>{{tag.key}}: {{tag.value}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+
+    </td>
+  </tr>
+
+  <tr>
     <td>License</td>
     <td>
       {{#if feed.license_url}}
