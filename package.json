@@ -49,7 +49,7 @@
     "ember-page-title": "3.1.0",
     "ember-power-select": "0.10.9",
     "iso-3166-2": "^0.4.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.15",
     "turf-bbox": "^3.0.12",
     "turf-centroid": "^3.0.5"
   },
