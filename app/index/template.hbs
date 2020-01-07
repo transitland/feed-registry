@@ -28,20 +28,17 @@
             <h3>Know a feed that's missing?</h3>
           </div>
           <div class="cta-btn">
-            {{#link-to "feeds.new" class="btn btn-action" role="button" }}
+            <!-- <{{#link-to "feeds.new" class="btn btn-action" role="button" }}>
               Add a Feed
-            {{/link-to}}
+            {{/link-to}}-->
+            <a href="https://github.com/transitland/transitland-atlas#readme" class="btn btn-action">Add a Feed</a>
           </div>
         </div>
       </div>
     </div>
     <p>
-      We would love your help to expand Transitland's coverage throughout the world. If you know of a feed, {{#link-to "feeds.new"}}add it here{{/link-to}}. To correct an error in an existing entry, click the operator name to view and edit its details.
+      <strong>December 2019 update</strong>: Feed Registry's "add a feed" function has been deprecated. This is part of the larger effort to migrate to <a href="https://transit.land/news/2019/10/17/tlv2.html">Transitland v2</a>. The Feed Registry is now powered by Distributed Mobility Feed Registry files in the Transitland Atlas. <a href="https://github.com/transitland/transitland-atlas#readme">Transitland Atlas is open to edits and additions from all on GitHub.</a>
     </p>
-
-		<p>
-			Looking for machine-readable JSON instead? The <a href="/documentation/datastore/">Datastore API</a> can provide all these {{json-endpoint "operators" "" "operators"}} or all these {{json-endpoint "feeds" "" "feeds"}}.
-		</p>
 
 		<p class="legal-action">
 			This list is provided for informational purposes only and does not constitute legal advice. We do not guarantee the accuracy or reliability of the Feed Registry whatsoever. You are advised to consult with your own legal counsel before using and relying
