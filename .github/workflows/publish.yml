@@ -1,0 +1,25 @@
+name: Publish
+on:
+  push:
+    branches:
+    - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '8.x'
+    - run: yarn install
+    - run: npx ember build --environment=production
+      env:
+        TRANSITLAND_API_KEY: ${{ secrets.TRANSITLAND_API_KEY }}
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - run: pip install -U awscli
+    - run: aws s3 sync --acl public-read dist s3://transitland-www/feed-registry/
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

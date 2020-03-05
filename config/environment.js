@@ -32,17 +32,11 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.datastoreHost = 'https://transit.land';
-    // ENV.apiProxyKey= 'transitland-_ngAKUs';
   }
 
   if (environment === 'local') {
     ENV.datastoreHost = 'http://localhost:3000';
     ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:3000"
-  }
-
-  if (environment === 'ci') {
-    ENV.allowEditingMode = true;
-    ENV.locationType = 'hash'; // because Precog can't handle HistoryLocation-style URLs
   }
 
   if (environment === 'test') {
@@ -57,23 +51,15 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'staging') {
-    ENV.datastoreHost = 'https://dev.transit.land';
-    ENV.baseURL = '/feed-registry';
-    ENV.googleAnalytics = {
-      webPropertyId: 'UA-47035811-4'
-    };
-    ENV.apiProxyKey= '';
-  }
-
   if (environment === 'production') {
     ENV.datastoreHost = 'https://transit.land';
     ENV.baseURL = '/feed-registry';
     ENV.googleAnalytics = {
       webPropertyId: 'UA-47531031-4'
     };
-    ENV.apiProxyKey= '';
   }
+
+  ENV.transitlandApiKey = process.env.TRANSITLAND_API_KEY;
 
   return ENV;
 };
