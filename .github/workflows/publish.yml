@@ -12,6 +12,7 @@ jobs:
       with:
         node-version: '6.x'
     - run: npm prune && npm install
+    - run: npm install -g bower
     - run: bower prune && bower install
     - run: npm install -g ember-cli
     - run: ember build --environment=production
