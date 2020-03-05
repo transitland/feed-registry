@@ -10,9 +10,11 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
-        node-version: '8.x'
-    - run: yarn install
-    - run: npx ember build --environment=production
+        node-version: '6.x'
+    - run: npm prune && npm install
+    - run: bower prune && bower install
+    - run: npm install -g ember-cli
+    - run: ember build --environment=production
       env:
         TRANSITLAND_API_KEY: ${{ secrets.TRANSITLAND_API_KEY }}
     - uses: actions/setup-python@v1
