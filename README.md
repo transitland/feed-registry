@@ -1,5 +1,12 @@
 # Feed Registry
 
+---
+
+***October 2020***: Feed Registry has been superceeded by the new Transitland v2 website. See the operator listings at https://www.transit.land/operators/ and the code at https://github.com/transitland/www-transit-land-v2 This Feed Registry web app is no longer maintained. We are also deprecating the Transitland v1 Datastore API, which powers the Feed Registry, but we will continue to operate the v1 API until users are able to gradually transition to the new Transitland v2 APIs. For Transitland v2 documentation see https://www.transit.land/documentation/
+
+---
+
+
 The Transitland Feed Registry is a directory of public-transit operators and their authoriative data feeds. The directory is a view into Transitland's Datastore API; it lets users browse operators and their feeds, as well as view the license restrictions on each feed. The Feed Registry also lets users contribute additional operators and feeds.
 
 * [Browse the Feed Registry](https://transit.land/feed-registry/)
